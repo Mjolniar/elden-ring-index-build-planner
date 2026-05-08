@@ -83,6 +83,7 @@ The `.exe` is a self-contained portable — no installer, no admin rights needed
 - **Text search** filters by item name, location, area, or replaced item simultaneously.
 - **Source type** filter narrows to boss drops, shop items, ground pickups, etc.
 - **Key items only** shows only progression-blocking items flagged by the randomizer.
+- **Favorites** can be starred from the Search tab and reviewed separately in the Favorites tab.
 - Click a **column header** to sort. Click any **row** to expand it and see the raw source line.
 - **Export CSV / JSON** exports the currently visible (filtered) records.
 - The desktop app **restores the last loaded spoiler log automatically** on launch. Use **Load new log** to clear that cached copy and choose another one.

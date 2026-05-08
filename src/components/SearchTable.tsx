@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import type { ItemRecord, SortField, SortDir } from '../types';
+import { makeRecordKey } from '../recordKey';
 
 const SOURCE_LABELS: Record<string, string> = {
   boss_drop: 'Boss drop',
@@ -13,6 +14,9 @@ const SOURCE_LABELS: Record<string, string> = {
 
 interface Props {
   records: ItemRecord[];
+  favoriteKeys: Set<string>;
+  onToggleFavorite: (record: ItemRecord) => void;
+  emptyMessage?: string;
 }
 
 interface ColDef {
@@ -28,7 +32,12 @@ const COLS: ColDef[] = [
   { field: 'sourceType', label: 'Source', width: '12%' },
 ];
 
-export function SearchTable({ records }: Props) {
+export function SearchTable({
+  records,
+  favoriteKeys,
+  onToggleFavorite,
+  emptyMessage = 'No records match the current filters.',
+}: Props) {
   const [sortField, setSortField] = useState<SortField>('itemName');
   const [sortDir, setSortDir] = useState<SortDir>('asc');
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -50,18 +59,20 @@ export function SearchTable({ records }: Props) {
   });
 
   if (records.length === 0) {
-    return <p className="empty-state">No records match the current filters.</p>;
+    return <p className="empty-state">{emptyMessage}</p>;
   }
 
   return (
     <div className="table-wrapper">
       <table className="records-table">
         <colgroup>
+          <col style={{ width: '4%' }} />
           {COLS.map((c) => <col key={c.field} style={{ width: c.width }} />)}
-          <col style={{ width: '10%' }} />
+          <col style={{ width: '8%' }} />
         </colgroup>
         <thead>
           <tr>
+            <th className="favorite-col">★</th>
             {COLS.map((c) => (
               <th
                 key={c.field}
@@ -77,12 +88,24 @@ export function SearchTable({ records }: Props) {
         </thead>
         <tbody>
           {sorted.map((rec) => (
-            <>
+            <Fragment key={rec.id}>
               <tr
-                key={rec.id}
                 className={`record-row${rec.isKeyItem ? ' key-item' : ''}${expanded === rec.id ? ' expanded' : ''}`}
                 onClick={() => setExpanded(expanded === rec.id ? null : rec.id)}
               >
+                <td className="favorite-cell">
+                  <button
+                    className={`favorite-btn${favoriteKeys.has(makeRecordKey(rec)) ? ' active' : ''}`}
+                    title={favoriteKeys.has(makeRecordKey(rec)) ? 'Remove from favorites' : 'Add to favorites'}
+                    aria-label={favoriteKeys.has(makeRecordKey(rec)) ? 'Remove from favorites' : 'Add to favorites'}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onToggleFavorite(rec);
+                    }}
+                  >
+                    ★
+                  </button>
+                </td>
                 <td className="item-name">{rec.itemName}</td>
                 <td>{rec.locationName}</td>
                 <td>{rec.area ?? '—'}</td>
@@ -93,7 +116,7 @@ export function SearchTable({ records }: Props) {
               </tr>
               {expanded === rec.id && (
                 <tr key={`${rec.id}-detail`} className="detail-row">
-                  <td colSpan={5}>
+                  <td colSpan={6}>
                     <div className="detail-content">
                       {rec.originalItem && <div><strong>Replaced:</strong> {rec.originalItem}</div>}
                       <div><strong>Section:</strong> {rec.section}</div>
@@ -102,7 +125,7 @@ export function SearchTable({ records }: Props) {
                   </td>
                 </tr>
               )}
-            </>
+            </Fragment>
           ))}
         </tbody>
       </table>

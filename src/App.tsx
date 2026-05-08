@@ -1,7 +1,8 @@
 import { useState, useMemo, useEffect } from 'react';
-import type { ParseResult, FilterState, ItemRecord } from './types';
+import type { ParseResult, FilterState, ItemRecord, ActiveTab } from './types';
 import type { SpoilerLogCacheEntry } from './electron';
 import { parseSpoilerLog } from './parser';
+import { makeRecordKey } from './recordKey';
 import { UploadPanel } from './components/UploadPanel';
 import { Filters } from './components/Filters';
 import { SearchTable } from './components/SearchTable';
@@ -23,6 +24,17 @@ function applyFilters(records: ItemRecord[], f: FilterState): ItemRecord[] {
 
 const DEFAULT_FILTERS: FilterState = { search: '', sourceType: 'all', keyItemsOnly: false };
 const BROWSER_CACHE_KEY = 'elden-ring-randomizer-index:last-log';
+const FAVORITES_KEY = 'elden-ring-randomizer-index:favorites';
+
+function loadFavoriteKeys(): Set<string> {
+  try {
+    const raw = localStorage.getItem(FAVORITES_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? new Set(parsed.filter((v) => typeof v === 'string')) : new Set();
+  } catch {
+    return new Set();
+  }
+}
 
 export default function App() {
   const [result, setResult] = useState<ParseResult | null>(null);
@@ -30,10 +42,13 @@ export default function App() {
   const [cacheEntry, setCacheEntry] = useState<SpoilerLogCacheEntry | null>(null);
   const [cacheMessage, setCacheMessage] = useState('');
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
+  const [activeTab, setActiveTab] = useState<ActiveTab>('all');
+  const [favoriteKeys, setFavoriteKeys] = useState<Set<string>>(() => loadFavoriteKeys());
 
   function loadText(text: string, name: string) {
     setFilename(name);
     setFilters(DEFAULT_FILTERS);
+    setActiveTab('all');
     const parsed = parseSpoilerLog(text);
     setResult(parsed);
     return parsed;
@@ -81,6 +96,7 @@ export default function App() {
     setCacheEntry(null);
     setCacheMessage('');
     setFilters(DEFAULT_FILTERS);
+    setActiveTab('all');
     try {
       if (window.electronAPI?.clearSpoilerLogCache) {
         await window.electronAPI.clearSpoilerLogCache();
@@ -91,6 +107,17 @@ export default function App() {
       console.error(error);
       setCacheMessage('The loaded log was cleared, but the cached copy could not be removed.');
     }
+  }
+
+  function toggleFavorite(record: ItemRecord) {
+    const key = makeRecordKey(record);
+    setFavoriteKeys((current) => {
+      const next = new Set(current);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      localStorage.setItem(FAVORITES_KEY, JSON.stringify([...next]));
+      return next;
+    });
   }
 
   async function openCacheFolder() {
@@ -136,6 +163,14 @@ export default function App() {
     [result, filters]
   );
 
+  const favorites = useMemo(
+    () => (result ? result.records.filter((record) => favoriteKeys.has(makeRecordKey(record))) : []),
+    [result, favoriteKeys]
+  );
+
+  const activeRecords = activeTab === 'favorites' ? favorites : visible;
+  const exportFilename = activeTab === 'favorites' ? `${filename.replace(/\.[^.]+$/, '')}-favorites.txt` : filename;
+
   return (
     <div className="app">
       <header className="app-header">
@@ -158,16 +193,49 @@ export default function App() {
         </div>
       ) : (
         <main className="main-layout">
-          <div className="toolbar">
-            <Filters
-              filters={filters}
-              onChange={setFilters}
-              totalVisible={visible.length}
-              totalRecords={result.records.length}
-            />
-            <ExportButtons records={visible} filename={filename} />
+          <div className="tabs-bar" role="tablist" aria-label="Record views">
+            <button
+              className={`tab-btn${activeTab === 'all' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'all'}
+              onClick={() => setActiveTab('all')}
+            >
+              Search
+            </button>
+            <button
+              className={`tab-btn${activeTab === 'favorites' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'favorites'}
+              onClick={() => setActiveTab('favorites')}
+            >
+              Favorites ({favorites.length})
+            </button>
           </div>
-          <SearchTable records={visible} />
+          <div className="toolbar">
+            {activeTab === 'all' ? (
+              <Filters
+                filters={filters}
+                onChange={setFilters}
+                totalVisible={visible.length}
+                totalRecords={result.records.length}
+              />
+            ) : (
+              <div className="favorites-summary">
+                Saved favorites from this loaded spoiler log.
+              </div>
+            )}
+            <ExportButtons records={activeRecords} filename={exportFilename} />
+          </div>
+          <SearchTable
+            records={activeRecords}
+            favoriteKeys={favoriteKeys}
+            onToggleFavorite={toggleFavorite}
+            emptyMessage={
+              activeTab === 'favorites'
+                ? 'No favorites yet. Use the star column in Search to save items here.'
+                : 'No records match the current filters.'
+            }
+          />
           <DiagnosticsPanel
             diagnostics={result.diagnostics}
             seed={result.seed}
