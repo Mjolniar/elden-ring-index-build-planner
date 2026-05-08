@@ -2,87 +2,134 @@
 
 A local-first search tool for Elden Ring Item & Enemy Randomizer spoiler logs. Load a spoiler log, search item placements by name or location, filter by source type, and export results as CSV or JSON.
 
+All processing is done in your browser / local app — **no data is ever sent to a server.**
+
+---
+
+## Distributable desktop app
+
+A pre-built Windows portable executable can be found in `release/` after running `npm run dist`. Double-click it to launch — no installation required.
+
+---
+
 ## How to generate a spoiler log
 
 1. Open `EldenRingRandomizer.exe` and configure your options.
 2. Click **Randomize items and enemies**.
 3. A spoiler log file is written to the `spoiler_logs\` folder inside the randomizer directory (e.g. `spoiler_20240501_seed1234567890.txt`).
 
-## Using this tool
+---
 
-### Run locally
+## Running from source
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) 18 or later
+- npm (comes with Node.js)
+
+### Install dependencies
 
 ```bash
 npm install
+```
+
+### Run as a web app (browser)
+
+```bash
 npm run dev
 ```
 
-Open `http://localhost:5173` in your browser.
+Opens `http://localhost:5173` in your browser.
 
-### Load a log
+### Run as a desktop app (Electron dev mode)
 
-Drag and drop the `.txt` spoiler log file onto the upload area, or click it to browse. The log is read entirely in your browser — **no data is sent to any server**.
+```bash
+npm run electron:dev
+```
 
-### Search and filter
+Starts the Vite dev server and launches an Electron window connected to it. DevTools open automatically.
 
-- **Text search** — filters by item name, location, area, or replaced item simultaneously.
-- **Source type** — narrow to boss drops, shop items, ground pickups, enemy drops, starting loadout, or event rewards.
-- **Key items only** — shows only items flagged as key items (progression blockers) by the randomizer.
-- Click a column header to sort. Click any row to expand it and see the raw spoiler-log line.
+---
 
-### Export
+## Building the distributable
 
-The **CSV** and **JSON** export buttons export the currently visible (filtered) records.
+### Build the Vite bundle only
 
-## Privacy
+```bash
+npm run build
+```
 
-All file reading and parsing runs in your browser via the File API. No data leaves your machine.
+Output goes to `dist/`.
 
-## Limitations
+### Build the Windows portable executable
 
-The parser is built around the spoiler log format produced by [thefifthmatt's Elden Ring Item and Enemy Randomizer](https://www.nexusmods.com/eldenring/mods/428). It handles:
+```bash
+npm run dist
+```
 
-- `--- Section name ---` and `=== Section name ===` style headers
-- `Location (Area): Item (was Original) [key]` entries
-- `Item: Location` key-item shorthand entries
-- `Location -> Item` arrow-style entries
+This runs `npm run build` then packages with `electron-builder`.
 
-If your spoiler log uses a different format, check the **Parser diagnostics** panel — unmatched lines are preserved there for inspection. The parser is designed to be conservative: when a line can't be confidently parsed it goes to diagnostics rather than being silently dropped.
+**Output:** `release/Elden Ring Randomizer Index <version>.exe`
 
-### Real-log hardening
+The `.exe` is a self-contained portable — no installer, no admin rights needed. Copy it anywhere and double-click to run.
 
-No actual game data is included in this repository. The parser was built and tested against synthetic fixtures modeled on the metadata in the randomizer's `diste/Base/` directory. After loading a real spoiler log, the diagnostics panel will show any unmatched lines. If you encounter a format the parser doesn't handle, open an issue with a sanitized sample line (no personal/run data required).
+---
+
+## Using the app
+
+- **Drop or browse** a `.txt` spoiler log onto the upload area.
+- **Text search** filters by item name, location, area, or replaced item simultaneously.
+- **Source type** filter narrows to boss drops, shop items, ground pickups, etc.
+- **Key items only** shows only progression-blocking items flagged by the randomizer.
+- Click a **column header** to sort. Click any **row** to expand it and see the raw source line.
+- **Export CSV / JSON** exports the currently visible (filtered) records.
+
+---
+
+## Parser notes and limitations
+
+The parser handles spoiler logs produced by [thefifthmatt's Elden Ring Item and Enemy Randomizer](https://www.nexusmods.com/eldenring/mods/428). It recognises three line formats:
+
+| Format | Example |
+|---|---|
+| `Location (Area): Item (was Original) [key]` | Most item entries |
+| `Item: Location` | Key-item shorthand sections |
+| `Location -> Item (was Original)` | Arrow-style variant |
+
+If your log uses an unexpected format, check the **Parser diagnostics** panel — unmatched lines are preserved there rather than silently dropped.
+
+---
 
 ## Development
 
 ```bash
-npm test          # run unit tests (vitest)
-npm run build     # production build to dist/
-npm run dev       # dev server with HMR
+npm test            # unit tests (vitest) — 31 tests
+npm run build       # Vite production build → dist/
+npm run dev         # Vite dev server
+npm run electron:dev  # Vite dev server + Electron window
+npm run dist        # build + electron-builder → release/*.exe
 ```
 
 ### Project layout
 
 ```
+electron/
+  main.js       — Electron main process (window creation, file:// vs localhost)
+  preload.js    — Context bridge (security boundary)
 src/
-  parser/
-    spoilerLogParser.ts  — section/line parser
-    normalize.ts         — item field extraction helpers
-    sourceType.ts        — source type inference
-    diagnostics.ts       — diagnostics collection
-  components/
-    UploadPanel.tsx
-    Filters.tsx
-    SearchTable.tsx
-    DiagnosticsPanel.tsx
-    ExportButtons.tsx
+  parser/       — spoilerLogParser, normalize, sourceType, diagnostics
+  components/   — UploadPanel, Filters, SearchTable, DiagnosticsPanel, ExportButtons
   types.ts
   App.tsx
   main.tsx
 tests/
-  fixtures/              — synthetic spoiler log samples
-  parser.test.ts         — unit tests for all parser modules
+  fixtures/     — synthetic spoiler log samples
+  parser.test.ts
+release/        — generated executables (gitignored)
+dist/           — Vite production build (gitignored)
 ```
+
+---
 
 ## License
 
