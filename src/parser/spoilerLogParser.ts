@@ -201,6 +201,14 @@ function isItemFirstSection(section: string): boolean {
   return section.includes('key') || section.startsWith('hints for');
 }
 
+function isMetadataNoiseLine(line: string): boolean {
+  return (
+    /^\(\s*cost\s*:\s*[\d,]+\s*\)$/i.test(line) ||
+    /^drop chance for\s+\d+\s*:\s*[\d.]+%\s*$/i.test(line) ||
+    /^\([\d,]+\)\s*$/.test(line)
+  );
+}
+
 export function parseSpoilerLog(text: string): ParseResult {
   resetIdCounter();
   const diag = createDiagnostics();
@@ -243,6 +251,9 @@ export function parseSpoilerLog(text: string): ParseResult {
 
     // Skip sections we don't parse item records from (enemy placements, etc.)
     if (!ITEM_SECTIONS.has(currentSection)) continue;
+
+    // Skip per-entry metadata emitted by the randomizer, not standalone item placements.
+    if (isMetadataNoiseLine(line)) continue;
 
     // Try each format in order of specificity
     const record = isItemFirstSection(currentSection)

@@ -167,6 +167,17 @@ describe('parseSpoilerLog - real v0.11.4 format', () => {
       originalItem: 'Cracked Pot',
     });
   });
+
+  it('skips cost, drop-chance, and numeric metadata rows', () => {
+    const noise = result.records.filter((r) =>
+      r.rawLine.includes('cost:') ||
+      r.rawLine.includes('Drop chance for') ||
+      r.rawLine === '(1000)'
+    );
+    expect(noise).toHaveLength(0);
+    expect(result.diagnostics.unmatchedLines).not.toContain('  (cost: 3500)');
+    expect(result.diagnostics.unmatchedLines).not.toContain('Drop chance for 1: 0.1%');
+  });
 });
 
 // ---- edge cases ----

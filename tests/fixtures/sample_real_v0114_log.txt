@@ -15,9 +15,13 @@ Smithing-Stone Miner's Bell Bearing [1]: In Liurnia - Road's End Catacombs
 
 -- Spoilers:
 Star Shower in Limgrave: Sold by Sellen. Replaces Glintstone Pebble.
+  (cost: 3500)
 Ash of War: Carian Retaliation in Limgrave: Sold by the Nomadic Merchant between Saintsbridge and Summonwater Village. Replaces Cracked Pot.
 Memory Stone in Limgrave: Sold by the Nomadic Merchant in the Mistwood along the road to Fort Haight. Replaces Sliver of Meat 5x.
   (cost: 500)
 Hand of Malenia in Limgrave: Sold by the Nomadic Merchant between Saintsbridge and Summonwater Village. Replaces Halberd.
+Glass Shard in Limgrave: Dropped by Demi-Human Chiefs. Replaces Sewing Needle.
+Drop chance for 1: 0.1%
+(1000)
 
 -- End of item spoilers
