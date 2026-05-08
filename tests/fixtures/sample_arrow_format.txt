@@ -1,0 +1,14 @@
+Elden Ring Randomizer Spoiler Log
+Seed: 9912345678
+
+=== Key items ===
+
+Rold Medallion -> Dropped by Godrick the Grafted (Stormveil Castle)
+Academy Glintstone Key -> On a corpse in the Academy of Raya Lucaria (Liurnia)
+
+=== Items ===
+
+Dropped by Godrick the Grafted (Stormveil Castle) -> Rold Medallion (was Godrick's Great Rune)
+On a corpse in the Academy of Raya Lucaria (Liurnia) -> Academy Glintstone Key (was Discarded Palace Key) [key]
+Sold by Miriel, Pastor of Vows (Church of Vows) -> Graven-Mass Talisman (was Law of Causality)
+On the ground in Farum Azula (Crumbling Farum Azula) -> Somber Ancient Dragon Smithing Stone (was Somber Smithing Stone [8])

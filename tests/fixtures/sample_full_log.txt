@@ -1,0 +1,30 @@
+Elden Ring Item and Enemy Randomizer - Spoiler log
+Seed: 2847391056
+
+--- Key item locations ---
+
+Rold Medallion: Dropped by Godrick the Grafted (Stormveil Castle)
+Dectus Medallion (Left): On a corpse in Nokron, Eternal City (Siofra River)
+Dectus Medallion (Right): Sold by Patches (Murkwater Cave)
+Academy Glintstone Key: Dropped by Starscourge Radahn (Caelid)
+Haligtree Secret Medallion (Left): On a corpse near the Altus Plateau grace (Altus Plateau)
+Haligtree Secret Medallion (Right): Dropped by Malenia, Blade of Miquella (Haligtree)
+
+--- All item locations ---
+
+Dropped by Godrick the Grafted (Stormveil Castle): Rold Medallion (was Godrick's Great Rune) [key]
+Dropped by Margit, the Fell Omen (Stormhill): Moonveil (was Talisman Pouch)
+On a corpse sitting in front of the fireplace (Stormveil Castle): Sacred Relic Sword (was Iron Whetblade)
+On a corpse in the liftside chamber (Stormveil Castle): Comet Azur (was Cracked Pot)
+Sold by Gostoc after opening the Stormveil Castle main gate (Stormveil Castle): Bloodhound's Fang (was Festering Bloody Finger)
+Sold by Rogier (Roundtable Hold): Rivers of Blood (was Ash of War: Spinning Weapon)
+On a corpse in Nokron, Eternal City (Siofra River): Dectus Medallion (Left) (was Ghost Glovewort [5]) [key]
+Dropped by Starscourge Radahn (Caelid): Academy Glintstone Key (was Radahn's Great Rune) [key]
+Sold by Patches (Murkwater Cave): Dectus Medallion (Right) (was Stonesword Key) [key]
+On a corpse near the Altus Plateau grace (Altus Plateau): Haligtree Secret Medallion (Left) (was Golden Seed) [key]
+Dropped by Malenia, Blade of Miquella (Haligtree): Haligtree Secret Medallion (Right) (was Malenia's Great Rune) [key]
+On the ground near the Church of Elleh (Limgrave): Flask of Wondrous Physick (was Torch)
+Dropped by Ancestor Spirit (Nokron, Eternal City): Erdtree's Favor +2 (was Ancestral Infant's Head)
+In a chest in the Volcano Manor library (Volcano Manor): Winged Sword Insignia (was Blasphemous Claw)
+On a corpse in the Dragon-Burnt Ruins (Limgrave): Talisman Pouch (was Twinblade)
+Starting loadout (Wretch class): Club (was Club)

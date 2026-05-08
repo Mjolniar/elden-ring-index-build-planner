@@ -1,0 +1,16 @@
+Elden Ring Randomizer
+Seed: 0000000001
+
+--- Key item placements ---
+
+Rold Medallion: Dropped by Morgott, the Omen King (Leyndell, Royal Capital)
+Cursemark of Death: In a chest behind the fog gate (Deeproot Depths)
+
+--- All item placements ---
+
+Dropped by Morgott, the Omen King (Leyndell, Royal Capital): Rold Medallion (was Morgott's Great Rune) [key]
+In a chest behind the fog gate (Deeproot Depths): Cursemark of Death (was Fingerslayer Blade) [key]
+This line has no colon separator and no arrow so it should be unmatched
+Sold by Twin Maiden Husks after obtaining Gostoc's Bell Bearing (Roundtable Hold): Smithing-Stone Miner's Bell Bearing [1] (was Stonesword Key)
+Starting loadout (Hero class): Battle Axe (was Battle Axe)
+On a corpse guarded by a Grafted Scion (Fringefolk Hero's Grave): Ancient Dragon Smithing Stone (was Golden Seed)
