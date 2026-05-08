@@ -15,7 +15,10 @@ const SOURCE_LABELS: Record<string, string> = {
 interface Props {
   records: ItemRecord[];
   favoriteKeys: Set<string>;
+  acquiredKeys: Set<string>;
   onToggleFavorite: (record: ItemRecord) => void;
+  onToggleAcquired: (record: ItemRecord) => void;
+  showAcquiredColumn: boolean;
   emptyMessage?: string;
 }
 
@@ -35,7 +38,10 @@ const COLS: ColDef[] = [
 export function SearchTable({
   records,
   favoriteKeys,
+  acquiredKeys,
   onToggleFavorite,
+  onToggleAcquired,
+  showAcquiredColumn,
   emptyMessage = 'No records match the current filters.',
 }: Props) {
   const [sortField, setSortField] = useState<SortField>('itemName');
@@ -68,7 +74,7 @@ export function SearchTable({
         <colgroup>
           <col style={{ width: '4%' }} />
           {COLS.map((c) => <col key={c.field} style={{ width: c.width }} />)}
-          <col style={{ width: '8%' }} />
+          {showAcquiredColumn && <col style={{ width: '8%' }} />}
         </colgroup>
         <thead>
           <tr>
@@ -83,21 +89,25 @@ export function SearchTable({
                 {sortField === c.field ? (sortDir === 'asc' ? ' ↑' : ' ↓') : ''}
               </th>
             ))}
-            <th>Flags</th>
+            {showAcquiredColumn && <th>Acquired</th>}
           </tr>
         </thead>
         <tbody>
-          {sorted.map((rec) => (
+          {sorted.map((rec) => {
+            const recordKey = makeRecordKey(rec);
+            const isFavorite = favoriteKeys.has(recordKey);
+            const isAcquired = acquiredKeys.has(recordKey);
+            return (
             <Fragment key={rec.id}>
               <tr
-                className={`record-row${rec.isKeyItem ? ' key-item' : ''}${expanded === rec.id ? ' expanded' : ''}`}
+                className={`record-row${rec.isKeyItem ? ' key-item' : ''}${isAcquired ? ' acquired' : ''}${expanded === rec.id ? ' expanded' : ''}`}
                 onClick={() => setExpanded(expanded === rec.id ? null : rec.id)}
               >
                 <td className="favorite-cell">
                   <button
-                    className={`favorite-btn${favoriteKeys.has(makeRecordKey(rec)) ? ' active' : ''}`}
-                    title={favoriteKeys.has(makeRecordKey(rec)) ? 'Remove from favorites' : 'Add to favorites'}
-                    aria-label={favoriteKeys.has(makeRecordKey(rec)) ? 'Remove from favorites' : 'Add to favorites'}
+                    className={`favorite-btn${isFavorite ? ' active' : ''}`}
+                    title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+                    aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
                     onClick={(e) => {
                       e.stopPropagation();
                       onToggleFavorite(rec);
@@ -110,13 +120,25 @@ export function SearchTable({
                 <td>{rec.locationName}</td>
                 <td>{rec.area ?? '—'}</td>
                 <td><span className={`badge badge-${rec.sourceType}`}>{SOURCE_LABELS[rec.sourceType]}</span></td>
-                <td>
-                  {rec.isKeyItem && <span className="badge badge-key">KEY</span>}
-                </td>
+                {showAcquiredColumn && (
+                  <td className="acquired-cell">
+                    <input
+                      type="checkbox"
+                      checked={isAcquired}
+                      title={isAcquired ? 'Mark as not acquired' : 'Mark as acquired'}
+                      aria-label={isAcquired ? 'Mark as not acquired' : 'Mark as acquired'}
+                      onChange={(e) => {
+                        e.stopPropagation();
+                        onToggleAcquired(rec);
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                  </td>
+                )}
               </tr>
               {expanded === rec.id && (
                 <tr key={`${rec.id}-detail`} className="detail-row">
-                  <td colSpan={6}>
+                  <td colSpan={showAcquiredColumn ? 6 : 5}>
                     <div className="detail-content">
                       {rec.originalItem && <div><strong>Replaced:</strong> {rec.originalItem}</div>}
                       <div><strong>Section:</strong> {rec.section}</div>
@@ -126,7 +148,8 @@ export function SearchTable({
                 </tr>
               )}
             </Fragment>
-          ))}
+            );
+          })}
         </tbody>
       </table>
     </div>

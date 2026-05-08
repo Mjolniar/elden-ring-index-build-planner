@@ -145,11 +145,8 @@ describe('parseSpoilerLog - real v0.11.4 format', () => {
     expect(result.seed).toBe('551803685');
   });
 
-  it('parses one-sided hint section headers', () => {
-    expect(result.records.find((r) => r.itemName === 'Academy Glintstone Key')).toMatchObject({
-      locationName: 'In Liurnia',
-      isKeyItem: true,
-    });
+  it('removes key hint summaries when a real spoiler entry exists', () => {
+    expect(result.records.find((r) => r.rawLine === 'Rold Medallion: In Hidden Path to the Haligtree')).toBeUndefined();
   });
 
   it('parses item-in-area spoiler placement lines', () => {
@@ -165,6 +162,13 @@ describe('parseSpoilerLog - real v0.11.4 format', () => {
     expect(result.records.find((r) => r.itemName === 'Ash of War: Carian Retaliation')).toMatchObject({
       area: 'Limgrave',
       originalItem: 'Cracked Pot',
+    });
+  });
+
+  it('preserves key item state on real spoiler entries after dedupe', () => {
+    expect(result.records.find((r) => r.itemName === 'Rold Medallion')).toMatchObject({
+      isKeyItem: true,
+      section: 'spoilers',
     });
   });
 

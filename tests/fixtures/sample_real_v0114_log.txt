@@ -14,6 +14,7 @@ Smithing-Stone Miner's Bell Bearing [1]: In Liurnia - Road's End Catacombs
 -- End of hints
 
 -- Spoilers:
+Rold Medallion in Hidden Path to the Haligtree: In a chest behind the secret door. Replaces Golden Seed.
 Star Shower in Limgrave: Sold by Sellen. Replaces Glintstone Pebble.
   (cost: 3500)
 Ash of War: Carian Retaliation in Limgrave: Sold by the Nomadic Merchant between Saintsbridge and Summonwater Village. Replaces Cracked Pot.

@@ -209,6 +209,35 @@ function isMetadataNoiseLine(line: string): boolean {
   );
 }
 
+function normalizeItemName(value: string): string {
+  return value.toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function removeDuplicateHintRows(records: ItemRecord[]): ItemRecord[] {
+  const spoilerItemNames = new Set(
+    records
+      .filter((record) => record.section === 'spoilers')
+      .map((record) => normalizeItemName(record.itemName))
+  );
+  const keyHintItemNames = new Set(
+    records
+      .filter((record) => record.section === 'hints for key items')
+      .map((record) => normalizeItemName(record.itemName))
+  );
+
+  return records
+    .filter((record) => {
+      if (!record.section.startsWith('hints for')) return true;
+      return !spoilerItemNames.has(normalizeItemName(record.itemName));
+    })
+    .map((record) => {
+      if (record.isKeyItem || !keyHintItemNames.has(normalizeItemName(record.itemName))) {
+        return record;
+      }
+      return { ...record, isKeyItem: true };
+    });
+}
+
 export function parseSpoilerLog(text: string): ParseResult {
   resetIdCounter();
   const diag = createDiagnostics();
@@ -274,9 +303,12 @@ export function parseSpoilerLog(text: string): ParseResult {
     }
   }
 
-  if (records.length === 0) {
+  const finalRecords = removeDuplicateHintRows(records);
+  diag.parsedRecords = finalRecords.length;
+
+  if (finalRecords.length === 0) {
     addWarning(diag, 'No item records were parsed. The spoiler log format may not be recognised. Check the unmatched lines for clues.');
   }
 
-  return { records, diagnostics: diag, seed, header };
+  return { records: finalRecords, diagnostics: diag, seed, header };
 }

@@ -25,10 +25,11 @@ function applyFilters(records: ItemRecord[], f: FilterState): ItemRecord[] {
 const DEFAULT_FILTERS: FilterState = { search: '', sourceType: 'all', keyItemsOnly: false };
 const BROWSER_CACHE_KEY = 'elden-ring-randomizer-index:last-log';
 const FAVORITES_KEY = 'elden-ring-randomizer-index:favorites';
+const ACQUIRED_KEY = 'elden-ring-randomizer-index:acquired';
 
-function loadFavoriteKeys(): Set<string> {
+function loadStoredKeySet(storageKey: string): Set<string> {
   try {
-    const raw = localStorage.getItem(FAVORITES_KEY);
+    const raw = localStorage.getItem(storageKey);
     const parsed = raw ? JSON.parse(raw) : [];
     return Array.isArray(parsed) ? new Set(parsed.filter((v) => typeof v === 'string')) : new Set();
   } catch {
@@ -43,7 +44,8 @@ export default function App() {
   const [cacheMessage, setCacheMessage] = useState('');
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
   const [activeTab, setActiveTab] = useState<ActiveTab>('all');
-  const [favoriteKeys, setFavoriteKeys] = useState<Set<string>>(() => loadFavoriteKeys());
+  const [favoriteKeys, setFavoriteKeys] = useState<Set<string>>(() => loadStoredKeySet(FAVORITES_KEY));
+  const [acquiredKeys, setAcquiredKeys] = useState<Set<string>>(() => loadStoredKeySet(ACQUIRED_KEY));
 
   function loadText(text: string, name: string) {
     setFilename(name);
@@ -120,6 +122,17 @@ export default function App() {
     });
   }
 
+  function toggleAcquired(record: ItemRecord) {
+    const key = makeRecordKey(record);
+    setAcquiredKeys((current) => {
+      const next = new Set(current);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      localStorage.setItem(ACQUIRED_KEY, JSON.stringify([...next]));
+      return next;
+    });
+  }
+
   async function openCacheFolder() {
     await window.electronAPI?.openSpoilerLogCacheDir?.();
   }
@@ -166,6 +179,10 @@ export default function App() {
   const favorites = useMemo(
     () => (result ? result.records.filter((record) => favoriteKeys.has(makeRecordKey(record))) : []),
     [result, favoriteKeys]
+  );
+  const acquiredFavoritesCount = useMemo(
+    () => favorites.filter((record) => acquiredKeys.has(makeRecordKey(record))).length,
+    [favorites, acquiredKeys]
   );
 
   const activeRecords = activeTab === 'favorites' ? favorites : visible;
@@ -221,7 +238,7 @@ export default function App() {
               />
             ) : (
               <div className="favorites-summary">
-                Saved favorites from this loaded spoiler log.
+                Saved favorites from this loaded spoiler log. Acquired: {acquiredFavoritesCount} / {favorites.length}
               </div>
             )}
             <ExportButtons records={activeRecords} filename={exportFilename} />
@@ -229,7 +246,10 @@ export default function App() {
           <SearchTable
             records={activeRecords}
             favoriteKeys={favoriteKeys}
+            acquiredKeys={acquiredKeys}
             onToggleFavorite={toggleFavorite}
+            onToggleAcquired={toggleAcquired}
+            showAcquiredColumn={activeTab === 'favorites'}
             emptyMessage={
               activeTab === 'favorites'
                 ? 'No favorites yet. Use the star column in Search to save items here.'

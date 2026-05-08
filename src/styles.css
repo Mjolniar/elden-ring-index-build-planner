@@ -147,8 +147,20 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 .record-row:hover td { background: var(--surface2); }
 .record-row.key-item td:first-child { border-left: 3px solid var(--key); }
 .record-row.expanded td { background: var(--surface2); }
+.record-row.acquired td {
+  color: var(--text-dim);
+  opacity: .68;
+  text-decoration: line-through;
+}
+.record-row.acquired .favorite-cell,
+.record-row.acquired .acquired-cell,
+.record-row.acquired .badge {
+  text-decoration: none;
+}
 
 .favorite-cell { text-align: center; }
+.acquired-cell { text-align: center; }
+.acquired-cell input { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
 .favorite-btn {
   width: 24px; height: 24px;
   border: 1px solid transparent;
