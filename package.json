@@ -1,6 +1,6 @@
 {
   "name": "elden-ring-randomizer-index",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Searchable spoiler-log index for Elden Ring Randomizer seeds.",
   "author": "Mjolniar",
   "private": true,
@@ -49,7 +49,9 @@
       "target": [
         {
           "target": "portable",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ]
     },

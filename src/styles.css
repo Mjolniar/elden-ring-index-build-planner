@@ -40,6 +40,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 /* ---- Landing ---- */
 .landing { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 16px; padding: 40px 20px; }
 .landing-hint { color: var(--text-dim); font-size: 13px; max-width: 480px; text-align: center; }
+.cache-message { color: var(--accent); font-size: 12px; max-width: 640px; text-align: center; word-break: break-word; }
 
 /* ---- Upload panel ---- */
 .upload-panel {
@@ -172,6 +173,12 @@ details[open] .diagnostics-title::before { content: '▼'; }
 .diag-row { display: flex; gap: 12px; }
 .diag-label { width: 120px; color: var(--text-dim); flex-shrink: 0; }
 .seed-value { font-family: var(--mono); color: var(--accent); }
+.cache-path { font-family: var(--mono); color: var(--text-dim); word-break: break-all; }
+.cache-status {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin-top: 8px;
+  color: var(--accent);
+}
 
 .diag-warnings { margin-top: 8px; display: flex; flex-direction: column; gap: 3px; }
 .diag-warning { color: #e0a030; }

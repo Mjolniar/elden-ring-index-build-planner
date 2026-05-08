@@ -1,8 +1,11 @@
 // Preload runs in a privileged context between main and renderer.
-// The app uses only Web APIs (File, FileReader) so no IPC bridge is needed.
-// This file exists as a placeholder and security boundary.
-const { contextBridge } = require('electron');
+// Expose only the spoiler-log cache helpers the UI needs.
+const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
   platform: process.platform,
+  saveSpoilerLogCache: (payload) => ipcRenderer.invoke('spoiler-cache:save', payload),
+  loadSpoilerLogCache: () => ipcRenderer.invoke('spoiler-cache:load'),
+  clearSpoilerLogCache: () => ipcRenderer.invoke('spoiler-cache:clear'),
+  openSpoilerLogCacheDir: () => ipcRenderer.invoke('spoiler-cache:open-dir'),
 });

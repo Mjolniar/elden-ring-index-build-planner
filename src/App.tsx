@@ -1,5 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import type { ParseResult, FilterState, ItemRecord } from './types';
+import type { SpoilerLogCacheEntry } from './electron';
 import { parseSpoilerLog } from './parser';
 import { UploadPanel } from './components/UploadPanel';
 import { Filters } from './components/Filters';
@@ -21,23 +22,114 @@ function applyFilters(records: ItemRecord[], f: FilterState): ItemRecord[] {
 }
 
 const DEFAULT_FILTERS: FilterState = { search: '', sourceType: 'all', keyItemsOnly: false };
+const BROWSER_CACHE_KEY = 'elden-ring-randomizer-index:last-log';
 
 export default function App() {
   const [result, setResult] = useState<ParseResult | null>(null);
   const [filename, setFilename] = useState('');
+  const [cacheEntry, setCacheEntry] = useState<SpoilerLogCacheEntry | null>(null);
+  const [cacheMessage, setCacheMessage] = useState('');
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
 
-  function handleFile(text: string, name: string) {
+  function loadText(text: string, name: string) {
     setFilename(name);
     setFilters(DEFAULT_FILTERS);
-    setResult(parseSpoilerLog(text));
+    const parsed = parseSpoilerLog(text);
+    setResult(parsed);
+    return parsed;
   }
 
-  function handleReset() {
+  async function cacheSpoilerLog(text: string, name: string, parsed: ParseResult) {
+    try {
+      if (window.electronAPI?.saveSpoilerLogCache) {
+        const saved = await window.electronAPI.saveSpoilerLogCache({
+          filename: name,
+          text,
+          seed: parsed.seed,
+        });
+        setCacheEntry(saved);
+        setCacheMessage(`Cached for next launch: ${saved.latestPath}`);
+        return;
+      }
+
+      const browserEntry: SpoilerLogCacheEntry = {
+        filename: name,
+        text,
+        seed: parsed.seed,
+        cachedAt: new Date().toISOString(),
+        cachePath: 'browser local storage',
+        cacheDir: 'browser local storage',
+        latestPath: 'browser local storage',
+      };
+      localStorage.setItem(BROWSER_CACHE_KEY, JSON.stringify(browserEntry));
+      setCacheEntry(browserEntry);
+      setCacheMessage('Cached in this browser for next launch.');
+    } catch (error) {
+      console.error(error);
+      setCacheMessage('Could not cache this spoiler log. The loaded data is still usable.');
+    }
+  }
+
+  async function handleFile(text: string, name: string) {
+    const parsed = loadText(text, name);
+    await cacheSpoilerLog(text, name, parsed);
+  }
+
+  async function handleReset() {
     setResult(null);
     setFilename('');
+    setCacheEntry(null);
+    setCacheMessage('');
     setFilters(DEFAULT_FILTERS);
+    try {
+      if (window.electronAPI?.clearSpoilerLogCache) {
+        await window.electronAPI.clearSpoilerLogCache();
+      } else {
+        localStorage.removeItem(BROWSER_CACHE_KEY);
+      }
+    } catch (error) {
+      console.error(error);
+      setCacheMessage('The loaded log was cleared, but the cached copy could not be removed.');
+    }
   }
+
+  async function openCacheFolder() {
+    await window.electronAPI?.openSpoilerLogCacheDir?.();
+  }
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function restoreCachedLog() {
+      try {
+        if (window.electronAPI?.loadSpoilerLogCache) {
+          const cached = await window.electronAPI.loadSpoilerLogCache();
+          if (!cached || !cached.text || cancelled) return;
+
+          setCacheEntry(cached);
+          setCacheMessage(`Restored cached log: ${cached.latestPath}`);
+          loadText(cached.text, cached.filename || 'latest-spoiler-log.txt');
+          return;
+        }
+
+        const raw = localStorage.getItem(BROWSER_CACHE_KEY);
+        if (!raw || cancelled) return;
+
+        const cached = JSON.parse(raw) as SpoilerLogCacheEntry;
+        if (!cached.text) return;
+
+        setCacheEntry(cached);
+        setCacheMessage('Restored cached browser log.');
+        loadText(cached.text, cached.filename || 'cached spoiler log');
+      } catch (error) {
+        console.error(error);
+        if (!cancelled) setCacheMessage('Could not restore the cached spoiler log.');
+      }
+    }
+
+    restoreCachedLog();
+    return () => { cancelled = true; };
+  }, []);
 
   const visible = useMemo(
     () => (result ? applyFilters(result.records, filters) : []),
@@ -62,6 +154,7 @@ export default function App() {
             Generate a spoiler log in the Elden Ring Randomizer, then load it here to search
             item placements. All processing happens locally in your browser.
           </p>
+          {cacheMessage && <p className="cache-message">{cacheMessage}</p>}
         </div>
       ) : (
         <main className="main-layout">
@@ -79,6 +172,9 @@ export default function App() {
             diagnostics={result.diagnostics}
             seed={result.seed}
             filename={filename}
+            cacheEntry={cacheEntry}
+            cacheMessage={cacheMessage}
+            onOpenCacheFolder={window.electronAPI?.openSpoilerLogCacheDir ? openCacheFolder : undefined}
           />
         </main>
       )}

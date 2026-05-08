@@ -10,6 +10,8 @@ All processing is done in your browser / local app — **no data is ever sent to
 
 A pre-built Windows portable executable can be found in `release/` after running `npm run dist`. Double-click it to launch — no installation required.
 
+When the portable app loads a spoiler log, it keeps a cached copy for the next launch. In portable builds, cached logs are stored beside the executable in `cached-spoiler-logs\` with both a stable `latest-spoiler-log.txt` and a uniquely named seed/timestamp copy.
+
 ---
 
 ## How to generate a spoiler log
@@ -83,17 +85,19 @@ The `.exe` is a self-contained portable — no installer, no admin rights needed
 - **Key items only** shows only progression-blocking items flagged by the randomizer.
 - Click a **column header** to sort. Click any **row** to expand it and see the raw source line.
 - **Export CSV / JSON** exports the currently visible (filtered) records.
+- The desktop app **restores the last loaded spoiler log automatically** on launch. Use **Load new log** to clear that cached copy and choose another one.
 
 ---
 
 ## Parser notes and limitations
 
-The parser handles spoiler logs produced by [thefifthmatt's Elden Ring Item and Enemy Randomizer](https://www.nexusmods.com/eldenring/mods/428). It recognises three line formats:
+The parser handles spoiler logs produced by [thefifthmatt's Elden Ring Item and Enemy Randomizer](https://www.nexusmods.com/eldenring/mods/428). It recognises the real v0.11.4 hint/spoiler sections plus several fallback line formats:
 
 | Format | Example |
 |---|---|
 | `Location (Area): Item (was Original) [key]` | Most item entries |
 | `Item: Location` | Key-item shorthand sections |
+| `Item in Area: Location. Replaces Original.` | Real v0.11.4 spoiler entries |
 | `Location -> Item (was Original)` | Arrow-style variant |
 
 If your log uses an unexpected format, check the **Parser diagnostics** panel — unmatched lines are preserved there rather than silently dropped.
@@ -103,7 +107,7 @@ If your log uses an unexpected format, check the **Parser diagnostics** panel �
 ## Development
 
 ```bash
-npm test            # unit tests (vitest) — 31 tests
+npm test            # unit tests (vitest)
 npm run build       # Vite production build → dist/
 npm run dev         # Vite dev server
 npm run electron:dev  # Vite dev server + Electron window

@@ -1,13 +1,24 @@
 import { useState } from 'react';
 import type { ParseDiagnostics } from '../types';
+import type { SpoilerLogCacheEntry } from '../electron';
 
 interface Props {
   diagnostics: ParseDiagnostics;
   seed: string | null;
   filename: string;
+  cacheEntry: SpoilerLogCacheEntry | null;
+  cacheMessage: string;
+  onOpenCacheFolder?: () => void;
 }
 
-export function DiagnosticsPanel({ diagnostics: d, seed, filename }: Props) {
+export function DiagnosticsPanel({
+  diagnostics: d,
+  seed,
+  filename,
+  cacheEntry,
+  cacheMessage,
+  onOpenCacheFolder,
+}: Props) {
   const [showUnmatched, setShowUnmatched] = useState(false);
 
   return (
@@ -22,8 +33,25 @@ export function DiagnosticsPanel({ diagnostics: d, seed, filename }: Props) {
         <div className="diag-row"><span className="diag-label">Total lines</span><span>{d.totalLines}</span></div>
         <div className="diag-row"><span className="diag-label">Parsed records</span><span>{d.parsedRecords}</span></div>
         <div className="diag-row"><span className="diag-label">Unmatched lines</span><span>{d.unmatchedLines.length}</span></div>
+        {cacheEntry && (
+          <div className="diag-row">
+            <span className="diag-label">Cached copy</span>
+            <span className="cache-path">{cacheEntry.latestPath}</span>
+          </div>
+        )}
         <div className="diag-row"><span className="diag-label">Sections found</span><span>{d.sections.join(', ') || '—'}</span></div>
       </div>
+
+      {cacheMessage && (
+        <div className="cache-status">
+          <span>{cacheMessage}</span>
+          {onOpenCacheFolder && (
+            <button className="toggle-btn" onClick={onOpenCacheFolder}>
+              Open cache folder
+            </button>
+          )}
+        </div>
+      )}
 
       {d.warnings.length > 0 && (
         <div className="diag-warnings">
