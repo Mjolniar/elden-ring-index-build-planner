@@ -19,6 +19,10 @@ function isSectionHeader(line: string): string | null {
   const decorated = line.match(/^[-=*]{2,}\s*(.+?)\s*[-=*]{2,}$/);
   if (decorated) return normSection(decorated[1]);
 
+  // Real randomizer logs use one-sided markers, e.g. "-- Hints for key items:"
+  const oneSided = line.match(/^[-=*]{2,}\s*(.+?)\s*:?\s*$/);
+  if (oneSided) return normSection(oneSided[1]);
+
   // Keyword-only plain header (strict whitelist to avoid false positives on title lines)
   if (SECTION_KEYWORD_RE.test(line)) return normSection(line.replace(/:?\s*$/, ''));
 
@@ -102,6 +106,44 @@ function tryParseItemColon(
   };
 }
 
+// Real randomizer format:
+// "Star Shower in Limgrave: Sold by Sellen. Replaces Glintstone Pebble."
+function tryParseSpoilerPlacement(
+  line: string,
+  section: string,
+  _diag: ReturnType<typeof createDiagnostics>
+): ItemRecord | null {
+  const match = line.match(/^(.+?)\s+in\s+([^:]+):\s+(.+)$/i);
+  if (!match) return null;
+
+  const itemRaw = match[1].trim();
+  const area = match[2].trim();
+  let locationRaw = match[3].trim();
+  let originalItem: string | null = null;
+
+  const replacesMatch = locationRaw.match(/\s+Replaces\s+(.+?)\.?\s*$/i);
+  if (replacesMatch) {
+    originalItem = replacesMatch[1].replace(/\.\s*$/, '').trim();
+    locationRaw = locationRaw.slice(0, replacesMatch.index).trim();
+  }
+
+  locationRaw = locationRaw.replace(/\.\s*$/, '').trim();
+
+  if (!itemRaw || !locationRaw) return null;
+
+  return {
+    id: makeId(),
+    itemName: itemRaw,
+    originalItem,
+    locationName: locationRaw,
+    area,
+    sourceType: inferSourceType(locationRaw),
+    isKeyItem: section.includes('key'),
+    rawLine: line,
+    section,
+  };
+}
+
 // Format C: "Location -> Item (was Original)"  or  "Item -> Location"
 function tryParseArrow(
   line: string,
@@ -151,7 +193,13 @@ const ITEM_SECTIONS = new Set([
   'all items', 'all item locations', 'item locations', 'item placements',
   'all item placements', 'key item locations', 'key items',
   'key item placements', 'key items locations', 'items',
+  'hints for key items', 'hints for bell bearings', 'hints for core mechanics',
+  'hints for quest items', 'spoilers',
 ]);
+
+function isItemFirstSection(section: string): boolean {
+  return section.includes('key') || section.startsWith('hints for');
+}
 
 export function parseSpoilerLog(text: string): ParseResult {
   resetIdCounter();
@@ -197,10 +245,15 @@ export function parseSpoilerLog(text: string): ParseResult {
     if (!ITEM_SECTIONS.has(currentSection)) continue;
 
     // Try each format in order of specificity
-    const record =
-      tryParseLocationColon(line, currentSection, diag) ??
-      tryParseArrow(line, currentSection, diag) ??
-      tryParseItemColon(line, currentSection, diag);
+    const record = isItemFirstSection(currentSection)
+      ? tryParseItemColon(line, currentSection, diag) ??
+        tryParseSpoilerPlacement(line, currentSection, diag) ??
+        tryParseArrow(line, currentSection, diag) ??
+        tryParseLocationColon(line, currentSection, diag)
+      : tryParseSpoilerPlacement(line, currentSection, diag) ??
+        tryParseLocationColon(line, currentSection, diag) ??
+        tryParseArrow(line, currentSection, diag) ??
+        tryParseItemColon(line, currentSection, diag);
 
     if (record) {
       records.push(record);

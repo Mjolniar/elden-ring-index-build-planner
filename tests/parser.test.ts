@@ -136,6 +136,39 @@ describe('parseSpoilerLog - arrow format', () => {
   });
 });
 
+// ---- real randomizer v0.11.4 format ----
+describe('parseSpoilerLog - real v0.11.4 format', () => {
+  const text = fixture('sample_real_v0114_log.txt');
+  const result = parseSpoilerLog(text);
+
+  it('extracts seed from options line', () => {
+    expect(result.seed).toBe('551803685');
+  });
+
+  it('parses one-sided hint section headers', () => {
+    expect(result.records.find((r) => r.itemName === 'Academy Glintstone Key')).toMatchObject({
+      locationName: 'In Liurnia',
+      isKeyItem: true,
+    });
+  });
+
+  it('parses item-in-area spoiler placement lines', () => {
+    expect(result.records.find((r) => r.itemName === 'Star Shower')).toMatchObject({
+      area: 'Limgrave',
+      locationName: 'Sold by Sellen',
+      originalItem: 'Glintstone Pebble',
+      sourceType: 'shop',
+    });
+  });
+
+  it('handles spoiler item names that contain a colon', () => {
+    expect(result.records.find((r) => r.itemName === 'Ash of War: Carian Retaliation')).toMatchObject({
+      area: 'Limgrave',
+      originalItem: 'Cracked Pot',
+    });
+  });
+});
+
 // ---- edge cases ----
 describe('parseSpoilerLog - edge cases', () => {
   const text = fixture('sample_edge_cases.txt');

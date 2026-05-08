@@ -1,0 +1,23 @@
+Options and seed: bossbgm changestats copydrops crashfix dlc item seed:551803685
+
+Ctrl+F 'Hints' to see item placement hints, or Ctrl+F for a specific item name.
+Version: v0.11.4
+
+-- Hints for key items:
+Academy Glintstone Key: In Liurnia
+Carian Inverted Statue: In Limgrave - Stormfoot Catacombs
+Rold Medallion: In Hidden Path to the Haligtree
+
+-- Hints for bell bearings:
+Smithing-Stone Miner's Bell Bearing [1]: In Liurnia - Road's End Catacombs
+
+-- End of hints
+
+-- Spoilers:
+Star Shower in Limgrave: Sold by Sellen. Replaces Glintstone Pebble.
+Ash of War: Carian Retaliation in Limgrave: Sold by the Nomadic Merchant between Saintsbridge and Summonwater Village. Replaces Cracked Pot.
+Memory Stone in Limgrave: Sold by the Nomadic Merchant in the Mistwood along the road to Fort Haight. Replaces Sliver of Meat 5x.
+  (cost: 500)
+Hand of Malenia in Limgrave: Sold by the Nomadic Merchant between Saintsbridge and Summonwater Village. Replaces Halberd.
+
+-- End of item spoilers
