@@ -18,7 +18,7 @@ const ICON_RE = /[💰🦴💀📜💎🌱🗡️⚔️⚪🌳🌑🌻🩸✉️
 const BOSS_ICON_PREFIX = /^[🌻🌑⚪🗡️💎💀🦴🌱💰📜🌳🩸✉️☠️👑]/u;
 
 // Location cell contains an item-effect description rather than a place name.
-const DESCRIPTION_RE = /\b(raises|increases|decreases|reduces|restores)\b|\bFP Cost\b|\bMaximum HP\b|\bDamage taken\b|\bSuccessive hits\b|\bInvincibility Frames\b|\bOne of the\b|^\d+%\s+\w/i;
+const DESCRIPTION_RE = /\b(raises|increases|decreases|reduces|restores)\b|\bFP Cost\b|\bMaximum HP\b|\bDamage taken\b|\bSuccessive hits\b|\bInvincibility Frames\b|\bOne of the\b|^\d+%\s+\w|\bcan be found at\s*:|\bof the Fire Monks\b/i;
 const LOCATION_CATEGORY_RE = /^(incantations?|sorceries?|sorcery|ashes of war|ash of war|talismans?|weapons?|armor)$/i;
 const RUNE_VALUE_RE = /^\d{1,3}(?:,\d{3})*\s+Runes?$/i;
 
@@ -377,6 +377,7 @@ function add(name: string, src: string, fallbackLoc: string) {
   const overrides = locationOverrides.get(name.toLowerCase());
   if (overrides?.length) {
     for (const override of overrides) {
+      if (isDescriptionLoc(override.locationName)) continue;
       out += ` r(${JSON.stringify(name)}, ${JSON.stringify(override.locationName)}, '${override.sourceType || src}'),\n`;
     }
     return;
@@ -408,7 +409,7 @@ for (const s of sorceries) {
 }
 for (const overrides of locationOverrides.values()) {
   const first = overrides[0];
-  if (first && !emittedNames.has(first.itemName.toLowerCase())) {
+  if (first && !emittedNames.has(first.itemName.toLowerCase()) && !isDescriptionLoc(first.locationName)) {
     add(first.itemName, first.sourceType || 'unknown', first.locationName);
   }
 }

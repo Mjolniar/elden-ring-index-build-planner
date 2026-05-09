@@ -31,6 +31,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Albinauric Staff",
+    "locationName": "Volcano Manor near the Guest Hall site of grace. Exit the room containing the grace, turn left, then turn left again, heading down the hall with the Caged Albinauric hanging from the ceiling.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Albinauric+Staff",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "All-Knowing Armor",
     "locationName": "The entire All-Knowing Set is dropped by Sir Gideon Ofnir, the All-Knowing upon defeat. Sir Gideon is encountered as a boss in Leyndell, Ashen Capital, an alternate version of the Royal Capital accessible only after making significant progress in the story.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/All-Knowing+Armor",
@@ -63,6 +69,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Ancient Dragons' Lightning Strike",
+    "locationName": "Purchase from Brother Corhyn or Miriel, Pastor of Vows after giving the Ancient Dragon Prayerbook for 10,000 Runes.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Ancient+Dragons'+Lightning+Strike",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Ancient Meteoric Ore Greatsword",
     "locationName": "Ruined Forge Starfall Past: The weapon is acquired after examining the altar of the Ruined Forge of Starfall Past. The altar is found on the second level.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Ancient+Meteoric+Ore+Greatsword",
@@ -76,14 +88,14 @@
   },
   {
     "itemName": "Aristocrat Hat",
-    "locationName": "The Aristocrat Hat Helm can be found at:",
+    "locationName": "A Soldier Noble can be found northwest of the Debate Parlor Site of Grace in Raya Lucaria Academy, guarding the stairs up to two Glintstone Sorcerers.",
     "sourceType": "enemy_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Aristocrat+Hat",
     "confidence": "parsed"
   },
   {
     "itemName": "Armor of Night",
-    "locationName": "The Armor of Night Chest Armor can be found at:",
+    "locationName": "Bonny Gaol: Use the jar lift near the bridge twice to reach the top level of the gaol. First, hop on the jar, go to the bridge level, and activate the switch.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Armor+of+Night",
     "confidence": "parsed"
   },
@@ -91,6 +103,12 @@
     "itemName": "Arrow's Reach Talisman",
     "locationName": "From the Stormhill Shack Site of Grace in Limgrave, travel southeast to Stormhill Evergaol. There's a tower nearby, toward the north-east.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Arrow's+Reach+Talisman",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Arrow's Soaring Sting Talisman",
+    "locationName": "top of a tower at Fog Rift Fort. From within the door of the tower where Black Knight Garrew was, go through a gap between the tower and the rock wall to the east of the doorway.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Arrow's+Soaring+Sting+Talisman",
     "confidence": "parsed"
   },
   {
@@ -224,19 +242,26 @@
   },
   {
     "itemName": "Banished Knight Armor",
-    "locationName": "Dropped from all other Banished Knights. They can be found in Stormveil Castle, Cathedral of Dragon Communion, Crumbling Farum Azula, and Castle Sol.",
+    "locationName": "Chance to drop from two specific spectral Banished Knights located in Castle Sol that can be seen wearing the unaltered cloaked armor.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Banished+Knight+Armor",
     "confidence": "parsed"
   },
   {
+    "itemName": "Banished Knight Gauntlets",
+    "locationName": "Dropped from the Banished Knights in Stormveil Castle.",
+    "sourceType": "enemy_drop",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Banished+Knight+Gauntlets",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Banished Knight Greaves",
-    "locationName": "The Banished Knight Greaves Leg Armor can be found at:",
+    "locationName": "Dropped from the wandering Banished Knight at Cathedral of Dragon Communion",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Banished+Knight+Greaves",
     "confidence": "parsed"
   },
   {
     "itemName": "Banished Knight's Shield",
-    "locationName": "Chance for it to be looted off of a Banished Knight wielding one of these shields.",
+    "locationName": "Farming guide available on the Banished Knight Page. A good spot is the Cathedral of Dragon Communion site of grace and continuously attacking the knight by the entrance.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Banished+Knight's+Shield",
     "confidence": "parsed"
   },
@@ -327,19 +352,19 @@
   },
   {
     "itemName": "Black Bow",
-    "locationName": "a corpse on a rooftop, accessible by jumping across the houses to your right when you descend the lift that leads to the lower level of Leyndell, Royal Capital",
+    "locationName": "a corpse on a rooftop, accessible by jumping across the houses to your right when you descend the lift that leads to the lower level of Leyndell, Royal Capital. From the Avenue Balcony site of grace, head down the stairs into the area with the archer, immed...",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Black+Bow",
     "confidence": "parsed"
   },
   {
     "itemName": "Black Flame",
-    "locationName": "On the left side of the roof, there will be two separate areas you can drop down to. Drop down to the one without stairs on it, and drop down again.",
+    "locationName": "This incantation is unlocked for purchase after giving a Godskin Prayerbook to Brother Corhyn or Miriel, Pastor of Vows.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Black+Flame",
     "confidence": "parsed"
   },
   {
     "itemName": "Black Flame Blade",
-    "locationName": "Step outside of the Tower to the Rampart, sprint jump from the rampart to the rooftop, drop onto the roof (not the walkway with the Banished Knight), drop onto the stairs, and descend.",
+    "locationName": "This incantation is unlocked for purchase after giving a Godskin Prayerbook to Brother Corhyn or Miriel, Pastor of Vows.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Black+Flame+Blade",
     "confidence": "parsed"
   },
@@ -390,25 +415,25 @@
   },
   {
     "itemName": "Black Knight Armor",
-    "locationName": "Black Knight Set pieces are dropped from Black Knights, found throughout the Lands of Shadow.",
+    "locationName": "A Black Knight can be found just down the west path of the Castle Ensis site of grace.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Black+Knight+Armor",
     "confidence": "parsed"
   },
   {
     "itemName": "Black Knight Gauntlets",
-    "locationName": "Black Knight Set pieces are dropped from Black Knights, found throughout the Lands of Shadow.",
+    "locationName": "A Black Knight can be found just down the west path of the Castle Ensis site of grace.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Black+Knight+Gauntlets",
     "confidence": "parsed"
   },
   {
     "itemName": "Black Knight Greaves",
-    "locationName": "Black Knight Set pieces are dropped from Black Knights, found throughout the Lands of Shadow.",
+    "locationName": "A Black Knight can be found just down the west path of the Castle Ensis site of grace.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Black+Knight+Greaves",
     "confidence": "parsed"
   },
   {
     "itemName": "Black Knight Helm",
-    "locationName": "Black Knight Set pieces are dropped from Black Knights, found throughout the Lands of Shadow.",
+    "locationName": "A Black Knight can be found just down the west path of the Castle Ensis site of grace.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Black+Knight+Helm",
     "confidence": "parsed"
   },
@@ -420,7 +445,7 @@
   },
   {
     "itemName": "Black Steel Greatshield",
-    "locationName": "Dropped by Black Knight Garrew that can be found by Fog Rift Fort. [Elden Ring Shadow of the Erdtree Map] [ Video Link ]",
+    "locationName": "Dropped by Black Knight Garrew that can be found by Fog Rift Fort. [Elden Ring Shadow of the Erdtree Map]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Black+Steel+Greatshield",
     "confidence": "parsed"
   },
@@ -437,14 +462,20 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Blade of Mercy",
+    "locationName": "From the Scorched Ruins Site of Grace, go south down the path. Just a bit after passing under the bridge above, there will be 2 small trees to your left.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Blade+of+Mercy",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Blaidd's Armor",
-    "locationName": "The Blaidd's Armor Chest Armor can be found at:",
+    "locationName": "Following Ranni's questline, after she is given the Dark Moon Ring, return to Ranni's Rise and you will hear Blaidd talking to himself in front of the tower. When he finishes his dialogue he will turn hostile, and defeating him will grant the player Blaidd'...",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Blaidd's+Armor",
     "confidence": "parsed"
   },
   {
     "itemName": "Blaidd's Greaves",
-    "locationName": "The Blaidd's Greaves Leg Armor can be found at:",
+    "locationName": "Following Ranni's questline, after she is given the Dark Moon Ring, return to Ranni's Rise and you will hear Blaidd talking to himself in front of the tower. When he finishes his dialogue he will turn hostile, and defeating him will grant the player Blaidd'...",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Blaidd's+Greaves",
     "confidence": "parsed"
   },
@@ -469,8 +500,14 @@
   },
   {
     "itemName": "Blessing of the Erdtree",
-    "locationName": "Queens Bedchamber in Leyndell Royal Capital. Video Location",
+    "locationName": "Queens Bedchamber in Leyndell Royal Capital.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Blessing+of+the+Erdtree",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Blessing's Boon",
+    "locationName": "Miriel, Pastor of Vows at the Church of Vows for 4,000 Runes.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Blessing's+Boon",
     "confidence": "parsed"
   },
   {
@@ -482,7 +519,7 @@
   },
   {
     "itemName": "Bloodfiend's Fork",
-    "locationName": "At least six can be found at Prospect Town, four within the ruins and two nearby at a destroyed camp.",
+    "locationName": "Has a 3.0% dropped from Bloodfiends who wield it (you can find two in a melee battle not far from Ruined Forge Lava Intake )",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Bloodfiend's+Fork",
     "confidence": "parsed"
   },
@@ -548,7 +585,7 @@
   },
   {
     "itemName": "Blue Silver Mail Armor",
-    "locationName": "Albinauric Wolfback Archers found in the Consecrated Snowfield, as well as the Ordina Gaol, drop the Blue Silver Set pieces.",
+    "locationName": "One that is easily farmed can be found shortly north of the Consecrated Snowfield site of grace.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Blue+Silver+Mail+Armor",
     "confidence": "parsed"
   },
@@ -566,6 +603,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Bonny Butchering Knife",
+    "locationName": "Bonny Village: Below a small shed, outside a house. Near the broken bridge.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Bonny+Butchering+Knife",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Borealis's Mist",
     "locationName": "the Dragon Communion Altar at the Cathedral of Dragon Communion in Caelid for 2 Dragon Hearts. Players need to defeat Borealis the Freezing Fog in order to unlock this Incantation.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Borealis's+Mist",
@@ -573,7 +616,7 @@
   },
   {
     "itemName": "Brass Shield",
-    "locationName": "Dropped by Godrick Soldiers, Raya Lucaria Soldiers, Radahn Soldiers, or Leyndell Soldiers, which are seen carrying this shield.",
+    "locationName": "An easy early location to farm begins at the “Gatefront” Site of Grace in the western part of main Limgrave, just north of the forest and just before Stormgate. Once you spawn in, turn around to face south east.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Brass+Shield",
     "confidence": "parsed"
   },
@@ -591,7 +634,7 @@
   },
   {
     "itemName": "Bull-Goat Armor",
-    "locationName": "The Bull-Goat Armor Chest Armor can be found at:",
+    "locationName": "Can be found after killing Patches' assassination target for the Volcano Manor, Great Horned Tragoth. [ Elden Ring Map here ]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Bull-Goat+Armor",
     "confidence": "parsed"
   },
@@ -604,8 +647,14 @@
   },
   {
     "itemName": "Bull-Goat Greaves",
-    "locationName": "The Bull-Goat Greaves Leg Armor can be found at:",
+    "locationName": "Can be found after killing \">Patches' assassination target for the Volcano Manor, Great Horned Tragoth. Elden Ring Interactive",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Bull-Goat+Greaves",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Bull-Goat's Talisman",
+    "locationName": "In the back of Dragonbarrow Cave. From the entrance, take a left into the Giant Bear's patrol route.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Bull-Goat's+Talisman",
     "confidence": "parsed"
   },
   {
@@ -616,7 +665,7 @@
   },
   {
     "itemName": "Carian Filigreed Crest",
-    "locationName": "Purchased from War Counselor Iji as part of Blaidd's questline. After killing the Bloodhound Knight Darriwil for Blaidd, the player can tell War Counselor Iji that Blaidd sent them.",
+    "locationName": "Becomes available to purchase from War Counselor Iji after talking to Ranni and her servants at Ranni's Rise for the the first time.",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Carian+Filigreed+Crest",
     "confidence": "parsed"
@@ -641,14 +690,21 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Carian Greatsword",
+    "locationName": "Miriel, Pastor of Vows at the Church of Vows for 10,000 Runes.",
+    "sourceType": "shop",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Carian+Greatsword",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Carian Knight Armor",
-    "locationName": "The Carian Knight Armor Chest Armor can be found at:",
+    "locationName": "You can find the Carian Knight Set in Raya Lucaria Academy [ Elden Ring Map here ]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Carian+Knight+Armor",
     "confidence": "parsed"
   },
   {
     "itemName": "Carian Knight Helm",
-    "locationName": "The Carian Knight Helm Helm can be found at:",
+    "locationName": "You can find the Carian Knight Set in Raya Lucaria Academy. [ Elden Ring Map here ]",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Carian+Knight+Helm",
     "confidence": "parsed"
@@ -695,7 +751,7 @@
   },
   {
     "itemName": "Carian Sorcery Sword",
-    "locationName": "In a chest that can be found after dropping down into Castle Ensis from the cliff just west of the waterfall to the west of the Highroad Cross Site of Grace in Scadu Altus. [ Video Link ]",
+    "locationName": "In a chest that can be found after dropping down into Castle Ensis from the cliff just west of the waterfall to the west of the Highroad Cross Site of Grace in Scadu Altus.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Carian+Sorcery+Sword",
     "confidence": "parsed"
   },
@@ -707,7 +763,7 @@
   },
   {
     "itemName": "Carian Thrusting Shield",
-    "locationName": "Shadow Keep: From the \"Storehouse, Back Section\" site of grace, go west and you will reach a room where you find a Fire Knight and a few other enemies. The item is right past the Fire Knight and can be found on a corpse under the table.",
+    "locationName": "ng location: Shadow Keep: From the \"Storehouse, Back Section\" site of grace, go west and you will reach a room where you find a Fire Knight and a few other enemies",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Carian+Thrusting+Shield",
     "confidence": "parsed"
   },
@@ -719,13 +775,13 @@
   },
   {
     "itemName": "Chain Gauntlets",
-    "locationName": "Church of Elleh, purchased from Merchant Kalé. It costs 1000 Runes.",
+    "locationName": "Twin Maiden Husks at the Roundtable Hold after giving them Kale's Bell Bearing",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Chain+Gauntlets",
     "confidence": "parsed"
   },
   {
     "itemName": "Chain Leggings",
-    "locationName": "The Chain Leggings Leg Armor can be found at:",
+    "locationName": "Twin Maiden Husks at the Roundtable Hold after giving them Kale's Bell Bearing",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Chain+Leggings",
     "confidence": "parsed"
   },
@@ -771,6 +827,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Clawmark Seal",
+    "locationName": "Given by Gurranq Beast Clergyman after feeding him a Deathroot. Elden Ring",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Clawmark+Seal",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Claws of Night",
     "locationName": "Dropped by NPC invader Swordhand of Night Anna, found in the Finger Ruins of Miyr underneath Cathedral of Manus Metyr. This area can only be accessed by progressing Ymir's questline.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Claws+of+Night",
@@ -781,6 +843,13 @@
     "locationName": "Dropped by Clayman at Uhl Palace Ruins, Siofra River or Ainsel River.",
     "sourceType": "enemy_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Clayman's+Harpoon",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Claymore",
+    "locationName": "Castle Morne: From the main courtyard entrance, hug the right wall and go past the burning corpses with Misbegotten surrounding them. You may aggro one or two along the way.",
+    "sourceType": "ground_pickup",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Claymore",
     "confidence": "parsed"
   },
   {
@@ -798,7 +867,7 @@
   },
   {
     "itemName": "Coded Sword",
-    "locationName": "upstairs throne room of Fortified Manor, Leyndell Royal Capital",
+    "locationName": "upstairs throne room of Fortified Manor, Leyndell Royal Capital. From Fortified Manor, 1st Floor site of grace, head outside the building, turn right, climb the stable roofs to the right and re-enter the second floor of the Fortified Manor.",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Coded+Sword",
     "confidence": "parsed"
@@ -811,9 +880,16 @@
   },
   {
     "itemName": "Collapsing Stars",
-    "locationName": "This catacomb is located in the northmost edge of Starscourge Radahn arena after beating him, just south of Lenne's Rise.",
+    "locationName": "Looted from a chest located at the War-Dead Catacombs",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Collapsing+Stars",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Comet",
+    "locationName": "Raya Lucaria through an Illusory Wall just before the Site of Grace at Debate Parlor. It can be identified as the bookshelf without books on it.",
+    "sourceType": "ground_pickup",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Comet",
     "confidence": "parsed"
   },
   {
@@ -876,7 +952,7 @@
   },
   {
     "itemName": "Crucible Hammer-Helm",
-    "locationName": "Dropped by Devonia, Crucible Knight near Rauh Ancient Ruins, East Grace. [ Video Link ]",
+    "locationName": "Dropped by Devonia, Crucible Knight near Rauh Ancient Ruins, East Grace.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Crucible+Hammer-Helm",
     "confidence": "parsed"
   },
@@ -893,10 +969,22 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Crystal Staff",
+    "locationName": "Academy Crystal Cave. The Staff is behind an illusory wall in the room right before the boss gate.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Crystal+Staff",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Crystal Torrent",
     "locationName": "Caelid: Dropped by the Putrid Crystalians boss (Ringblade, Spear & Scepter) in Sellia Hideaway. See it on the Elden Ring Map",
     "sourceType": "boss_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Crystal+Torrent",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Cuckoo Greatshield",
+    "locationName": "Chance to drop from any Cuckoo Knight wielding the greatshield Farming route (click for image): If you farm this route in reverse coming from Bellum Church, you can snipe the sitting Cuckoo Knight first and ignore the other mobs. By the time you kill the la...",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Cuckoo+Greatshield",
     "confidence": "parsed"
   },
   {
@@ -908,13 +996,13 @@
   },
   {
     "itemName": "Cuckoo Knight Greaves",
-    "locationName": "The Cuckoo Knight Greaves Leg Armor can be found at:",
+    "locationName": "Dropped from Cuckoo Knights. Four can be found along the road headed northeast from the East Raya Lucaria Gate site of grace.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Cuckoo+Knight+Greaves",
     "confidence": "parsed"
   },
   {
     "itemName": "Cuckoo Knight Helm",
-    "locationName": "The Cuckoo Knight Helm Helm can be found at:",
+    "locationName": "Dropped from Cuckoo Knights. Four can be found along the road headed northeast of the East Raya Lucaria Gate site of grace.",
     "sourceType": "enemy_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Cuckoo+Knight+Helm",
     "confidence": "parsed"
@@ -926,6 +1014,13 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Curved Sword Talisman",
+    "locationName": "By Stormveil Cliffside Site of Grace in Stormveil Castle: Go up the stairs on the side of the castle, and up to the third floor of the wine cellar. Enter the door on the eastern wall to find a dark room with a Banished Knight, as well as a chest with this t...",
+    "sourceType": "ground_pickup",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Curved+Sword+Talisman",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Dagger Talisman",
     "locationName": "a corpse in a room guarded by an Imp Statue in Volcano Manor, Mt. Gelmir.",
     "sourceType": "ground_pickup",
@@ -934,7 +1029,7 @@
   },
   {
     "itemName": "Dane's Footwork",
-    "locationName": "Dane's Footwork is on Dryleaf Dane's body after you beat the Leda and Allies Boss fight [ Video Link ]",
+    "locationName": "Dane's Footwork is on Dryleaf Dane's body after you beat the Leda and Allies Boss fight",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Dane's+Footwork",
     "confidence": "parsed"
   },
@@ -946,32 +1041,32 @@
   },
   {
     "itemName": "Dark Moon Greatsword",
-    "locationName": "Return the blade to Ranni, and you will gain access to Ainsel River main from the teleporter located in Renna's Rise.",
+    "locationName": "Pick up the Ranni doll ahead of where you were teleported to, and talk to it three times from the nearby site of grace to be enlisted to fend off the Baleful Shadows located deeper in past Nokstella. Upon defeating said enemy the player is given the Discard...",
     "sourceType": "event",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Dark+Moon+Greatsword",
     "confidence": "parsed"
   },
   {
     "itemName": "Death Knight Armor",
-    "locationName": "The Death Knight Armor Chest Armor can be found at:",
+    "locationName": "Darklight Catacombs, on a Death Knight corpse",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Death+Knight+Armor",
     "confidence": "parsed"
   },
   {
     "itemName": "Death Knight Gauntlets",
-    "locationName": "Darklight Catacombs, on a Death Knight corpse [ Video Link ]",
+    "locationName": "Darklight Catacombs, on a Death Knight corpse",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Death+Knight+Gauntlets",
     "confidence": "parsed"
   },
   {
     "itemName": "Death Knight Helm",
-    "locationName": "The Death Knight Helm Helm can be found at:",
+    "locationName": "Darklight Catacombs, on a Death Knight corpse",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Death+Knight+Helm",
     "confidence": "parsed"
   },
   {
     "itemName": "Death Knight's Twin Axes",
-    "locationName": "Fog Rift Catacombs: The weapon is obtained as a reward for defeating the Death Knight boss. [ See Shadow of the Erdtree Map ] [ Video Link ]",
+    "locationName": "Fog Rift Catacombs: The weapon is obtained as a reward for defeating the Death Knight boss. [ See Shadow of the Erdtree Map ]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Death+Knight's+Twin+Axes",
     "confidence": "parsed"
   },
@@ -980,6 +1075,13 @@
     "locationName": "Dropped by the Death Rite Bird fought in the Mountaintops of the Giants. [ Elden Ring Map here ]",
     "sourceType": "boss_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Death+Ritual+Spear",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Death's Poker",
+    "locationName": "Southeast of the Southern Aeonia Swamp Bank Site of Grace. A Death Rite Bird boss can be encountered there at night time.",
+    "sourceType": "boss_drop",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Death's+Poker",
     "confidence": "parsed"
   },
   {
@@ -997,7 +1099,7 @@
   },
   {
     "itemName": "Devonia's Hammer",
-    "locationName": "Dropped by Devonia, Crucible Knight near Rauh Ancient Ruins, East Grace. [ Video Link ]",
+    "locationName": "Dropped by Devonia, Crucible Knight near Rauh Ancient Ruins, East Grace.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Devonia's+Hammer",
     "confidence": "parsed"
   },
@@ -1015,19 +1117,19 @@
   },
   {
     "itemName": "Divine Beast Helm",
-    "locationName": "The Divine Beast Helm Helm can be found at:",
+    "locationName": "Dropped by Divine Beast Warriors, Enir Ilim Not to be confused with the Divine Beast Head.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Divine+Beast+Helm",
     "confidence": "parsed"
   },
   {
     "itemName": "Divine Beast Warrior Armor",
-    "locationName": "The Divine Beast Warrior Armor Chest Armor can be found at:",
+    "locationName": "Dropped by Divine Beast Warriors, Enir Ilim",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Divine+Beast+Warrior+Armor",
     "confidence": "parsed"
   },
   {
     "itemName": "Divine Bird Helm",
-    "locationName": "The Divine Bird Helm Helm can be found at:",
+    "locationName": "Dropped by Divine Bird Warriors",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Divine+Bird+Helm",
     "confidence": "parsed"
   },
@@ -1046,7 +1148,7 @@
   },
   {
     "itemName": "Dragon Greatclaw",
-    "locationName": "Dropped by the Draconic Tree Sentinel, fought at Capital Outskirts. Video Location",
+    "locationName": "Dropped by the Draconic Tree Sentinel, fought at Capital Outskirts.",
     "sourceType": "boss_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Dragon+Greatclaw",
     "confidence": "parsed"
@@ -1060,7 +1162,7 @@
   },
   {
     "itemName": "Dragon-Hunter's Great Katana",
-    "locationName": "Dropped by the Ancient Dragon-Man in the Dragon's Pit. [ See Shadow of the Erdtree Map ] [ Video Link ]",
+    "locationName": "Dropped by the Ancient Dragon-Man in the Dragon's Pit. [ See Shadow of the Erdtree Map ]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Dragon-Hunter's+Great+Katana",
     "confidence": "parsed"
   },
@@ -1072,21 +1174,21 @@
   },
   {
     "itemName": "Dragoncrest Greatshield Talisman",
-    "locationName": "Elphael, Brace of the Haligtree: Found in a chest on an elevated platform inside the large building in the northeast, guarded by several Pests. Video Location",
+    "locationName": "Elphael, Brace of the Haligtree: Found in a chest on an elevated platform inside the large building in the northeast, guarded by several Pests.",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Dragoncrest+Greatshield+Talisman",
     "confidence": "parsed"
   },
   {
     "itemName": "Dragoncrest Shield Talisman",
-    "locationName": "Dragoncrest Shield Talisman +2: Crumbling Farum Azula: Looted from a corpse on floating chunk of debris in the northern section, between Dragon Temple Lift and Dragon Temple Rooftop. Video Location",
+    "locationName": "The Dragoncrest Shield Talisman can be found on the bottom level of the Bestial Sanctum structure in Dragonbarrow, below the surrounding cliffs.",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Dragoncrest+Shield+Talisman",
     "confidence": "parsed"
   },
   {
     "itemName": "Dragoncrest Shield Talisman +1",
-    "locationName": "Dragoncrest Shield Talisman +2: Crumbling Farum Azula: Looted from a corpse on floating chunk of debris in the northern section, between Dragon Temple Lift and Dragon Temple Rooftop. Video Location",
+    "locationName": "Dragoncrest Shield Talisman: Bestial Sanctum: Found on the bottom level of the structure below the surrounding cliffs.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Dragoncrest+Shield+Talisman+%2B1",
     "confidence": "parsed"
   },
@@ -1106,6 +1208,13 @@
     "itemName": "Dragonmaw",
     "locationName": "the Dragon Communion Altar at the Church of Dragon Communion in Limgrave for 1 Dragon Heart. Available by default, does not require defeating any greater Dragon.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Dragonmaw",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Dragonscale Blade",
+    "locationName": "Drops from Dragonkin Soldier in the Lake of Rot.",
+    "sourceType": "boss_drop",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Dragonscale+Blade",
     "confidence": "parsed"
   },
   {
@@ -1130,6 +1239,12 @@
     "itemName": "Elden Stars",
     "locationName": "In the Deeproot Depths, head west from the Great Waterfall Crest grace until you reach some roots. From there look to the north-west to see a root going up to a cave and follow it.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Elden+Stars",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Electrify Armament",
+    "locationName": "Purchase from Brother Corhyn or Miriel, Pastor of Vows after giving either the Dragon Cult Prayerbook",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Electrify+Armament",
     "confidence": "parsed"
   },
   {
@@ -1167,7 +1282,7 @@
   },
   {
     "itemName": "Euporia",
-    "locationName": "Belurat Tower Settlement [ Shadow of the Erdtree Map ] [ Video Link ]",
+    "locationName": "The area just before the Spiral Rise Site of Grace [ See Elden Ring Map ] has a lot of loot that you shouldn't miss. From the Site of Grace, backtrack your way down the stairs, then turn left to find a set of steps going down.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Euporia",
     "confidence": "parsed"
   },
@@ -1193,7 +1308,7 @@
   },
   {
     "itemName": "Finger Maiden Robe",
-    "locationName": "The Finger Maiden Robe Chest Armor can be found at:",
+    "locationName": "Can be found inside Church of Inhibition directly beside a Grace. Run past NPC invader to touch Grace first.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Finger+Maiden+Robe",
     "confidence": "parsed"
   },
@@ -1254,7 +1369,7 @@
   },
   {
     "itemName": "Fire Prelate Greaves",
-    "locationName": "The Fire Prelate Greaves Leg Armor can be found at:",
+    "locationName": "One can be found near the giant chain bridge outside the Giants' Mountaintop Catacombs.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Fire+Prelate+Greaves",
     "confidence": "parsed"
   },
@@ -1303,6 +1418,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Flame, Fall Upon Them",
+    "locationName": "Purchase from Brother Corhyn or Miriel, Pastor of Vows after giving them the Giant's Prayerbook, for 10,000 Runes.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Flame%2C+Fall+Upon+Them",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Flame, Grant Me Strength",
     "locationName": "The location of Flame, Grant Me Strength can be found behind Fort Gael, on a body between two Flame Chariots.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Flame%2C+Grant+Me+Strength",
@@ -1317,8 +1438,14 @@
   },
   {
     "itemName": "Fleeting Microcosm",
-    "locationName": "Can also be purchased from the Twin Maiden Husks after giving them Ymir's Bell Bearing.",
+    "locationName": "Can be bought from Count Ymir at the Cathedral of Manus Metyr for 20,000 Runes Requires having completed the second step of his questline.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Fleeting+Microcosm",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Flock's Canvas Talisman",
+    "locationName": "Drops from Gowry after you kill him, only if he is crying about Millicent's death.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Flock's+Canvas+Talisman",
     "confidence": "parsed"
   },
   {
@@ -1335,6 +1462,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Frenzied Flame Seal",
+    "locationName": "Received at the end of Hyetta's questline. [ Elden Ring Map here ]",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Frenzied+Flame+Seal",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Frozen Lightning Spear",
     "locationName": "Dropped by Dragonkin Soldier of Nokstella in Ainsel River. See it on the Elden Ring Interactive.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Frozen+Lightning+Spear",
@@ -1344,6 +1477,13 @@
     "itemName": "Gaius's Armor",
     "locationName": "Purchased from the Enia at the Roundtable Hold after defeating Commander Gaius. [ See Shadow of the Erdtree Map ]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Gaius's+Armor",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Gargoyle's Blackblade",
+    "locationName": "Drops from the Black Blade Kindred, who stands in front of the Bestial Sanctum.",
+    "sourceType": "boss_drop",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Gargoyle's+Blackblade",
     "confidence": "parsed"
   },
   {
@@ -1361,6 +1501,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Gauntlets of Night",
+    "locationName": "llowing location: Bonny Gaol: Use the jar lift near the bridge twice to reach the top level of the gaol",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Gauntlets+of+Night",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Gavel of Haima",
     "locationName": "Liurnia of the Lakes: Can be found in the chest at the top of the Converted Fringe Tower in the northeastern region, requires solving the tower puzzle.",
     "sourceType": "ground_pickup",
@@ -1375,7 +1521,7 @@
   },
   {
     "itemName": "Gelmir Knight Greaves",
-    "locationName": "The Gelmir Knight Greaves Leg Armor can be found at:",
+    "locationName": "You can loot the entire Gelmir Knight Set in the Gelmir Hero's Grave dungeon from a Gelmir Knight corpse. See it on the Elden Ring Map here.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Gelmir+Knight+Greaves",
     "confidence": "parsed"
   },
@@ -1414,6 +1560,18 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Giantsflame Take Thee",
+    "locationName": "Purchase from Brother Corhyn or Miriel, Pastor of Vows after giving them the Giant's Prayerbook.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Giantsflame+Take+Thee",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Glintblade Trio",
+    "locationName": "Castle Ensis: After progressing through the chapel with the Lazuli Sorcerers, go through the iron gate and fall off a ledge directly to the left",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Glintblade+Trio",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Glintstone Arc",
     "locationName": "Sorceress Sellen for 1,500 Runes. Sellen is located in Limgrave: Waypoint Ruins.",
     "sourceType": "shop",
@@ -1425,6 +1583,25 @@
     "locationName": "Can be obtained post-mortem via Seluvis's Bell Bearing. (from Twin Maiden Husks at the Roundtable Hold )",
     "sourceType": "shop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Glintstone+Icecrag",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Glintstone Kris",
+    "locationName": "Rewarded to players for progressing through the Sorceress Sellen questline and siding with her.",
+    "sourceType": "event",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Glintstone+Kris",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Glintstone Nail",
+    "locationName": "Can be bought from Count Ymir at the Cathedral of Manus Metyr for 12,000 Runes Requires having completed the first step of his questline.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Glintstone+Nail",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Glintstone Nails",
+    "locationName": "Can be bought from Count Ymir at the Cathedral of Manus Metyr for 12,000 Runes Requires having completed the first step of his questline.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Glintstone+Nails",
     "confidence": "parsed"
   },
   {
@@ -1495,7 +1672,7 @@
   },
   {
     "itemName": "Grave Scythe",
-    "locationName": "There are two in Liurnia of the Lakes just east of the Church of Vows grace, down the hill. They are located just on the other (N) side of the path of the Skeleton dropping the glaive.",
+    "locationName": "Three can also be found at the road-fork south-east of Behind Caria Manor site of grace due west of Royal Grave Evergaol",
     "sourceType": "enemy_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Grave+Scythe",
     "confidence": "parsed"
@@ -1513,8 +1690,14 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Graven-School Talisman",
+    "locationName": "At Raya Lucaria Academy, from the Debate Parlor site of grace, head west and turn right before going down the stairs. You should see an empty bookshelf in front of you.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Graven-School+Talisman",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Gravity Well",
-    "locationName": "Dropped by the Lesser Alabaster Lord that appears from a gravity portal. The section is near the graveyard and the large rotating lift of Raya Lucaria Academy.",
+    "locationName": "Map Coordinates Location: Raya Lucaria Academy Nearest Site of Grace: Church of the Cuckoo or Schoolhouse Classroom Dropped by the Lesser Alabaster Lord that appears from a gravity portal",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Gravity+Well",
     "confidence": "parsed"
@@ -1530,6 +1713,12 @@
     "itemName": "Great Katana",
     "locationName": "Gravesite Plain: The Great Katana can be found next to the sleeping Ghostflame Dragon on the lake, west of the Abandoned Ailing Village site of grace. [ See Shadow of the Erdtree Map ]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Great+Katana",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Great Turtle Shell",
+    "locationName": "Weeping Peninsula: From the Castle Morne Rampart Site of Grace, look towards the east to find a Spiritspring and use Torrent to jump from it towards the roof a tower section of the ramparts. The shield can be found on a corpse atop this tower.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Great+Turtle+Shell",
     "confidence": "parsed"
   },
   {
@@ -1553,7 +1742,7 @@
   },
   {
     "itemName": "Greathelm",
-    "locationName": "The Greathelm Helm can be found at:",
+    "locationName": "the Nomadic Merchant in south Caelid for 1,800 Runes. [ Elden Ring Map here ]",
     "sourceType": "shop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Greathelm",
     "confidence": "parsed"
@@ -1573,6 +1762,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Green Turtle Talisman",
+    "locationName": "Summonwater Village. In an underground area on the eastern outskirts of the village.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Green+Turtle+Talisman",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Greyoll's Roar",
     "locationName": "the Dragon Communion Altar at the Cathedral of Dragon Communion in Caelid for 3 Dragon Hearts. Players need to defeat Elder Dragon Greyoll in Dragonbarrow to unlock this Incantation.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Greyoll's+Roar",
@@ -1586,20 +1781,20 @@
   },
   {
     "itemName": "Haima Glintstone Crown",
-    "locationName": "The Haima Glintstone Crown Helm can be found at:",
+    "locationName": "The entire Battlemage Set drops from a particular Battlemage, located east of West Windmill Pasture, on a hill near the northern end of the collapsed bridge.",
     "sourceType": "enemy_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Haima+Glintstone+Crown",
     "confidence": "parsed"
   },
   {
     "itemName": "Haligtree Crest Greatshield",
-    "locationName": "Has a 4% base chance to drop from one specific Haligtree Knight in the graveyard beside the church at the bottom of Elphael, Brace of the Haligtree. All other Haligtree Knights, regardless of if they wield this Shield, will not drop it.",
+    "locationName": "Alternatively, from the Haligtree Roots Site of Grace, turn around and go up the elevator. Once you reach the top, run straight until you're outside the Church.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Haligtree+Crest+Greatshield",
     "confidence": "parsed"
   },
   {
     "itemName": "Haligtree Knight Armor",
-    "locationName": "The Haligtree Knight Armor Chest Armor can be found at:",
+    "locationName": "Haligtree Knights drop the Haligtree Knight Armor, Haligtree Knight Gauntlets, and Haligtree Knight Greaves. They can be found in the latter areas of Elphael, Brace of the Haligtree.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Haligtree+Knight+Armor",
     "confidence": "parsed"
   },
@@ -1625,7 +1820,7 @@
   },
   {
     "itemName": "Helm of Night",
-    "locationName": "The Helm of Night Helm can be found at:",
+    "locationName": "Bonny Gaol: Use the jar lift near the bridge twice to reach the top level of the gaol. First, hop on the jar, go to the bridge level, and activate the switch.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Helm+of+Night",
     "confidence": "parsed"
   },
@@ -1638,33 +1833,33 @@
   },
   {
     "itemName": "High Priest Hat",
-    "locationName": "Dropped by Count Ymir, Mother of Fingers, who can be found in the Cathedral of Manus Metyr after interacting with the throne, you can only find Count Ymir there after you have defeated Metyr, Mother of Fingers. [Elden Ring Shadow of the Erdtree Map]",
+    "locationName": "Dropped by Count Ymir, Mother of Fingers, who can be found in the Cathedral of Manus Metyr after interacting with the throne, you can only find Count Ymir there after you have defeated Metyr, Mother of Fingers",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/High+Priest+Hat",
     "confidence": "parsed"
   },
   {
     "itemName": "Highland Axe",
-    "locationName": "Looted off a corpse inside the fortress of the Grafted Scion. The body can be found resting under the large painting that's at the center of the room.",
+    "locationName": "Stormveil Castle.",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Highland+Axe",
     "confidence": "parsed"
   },
   {
     "itemName": "Hookclaws",
-    "locationName": "Located at Stormveil Castle. Video Location",
+    "locationName": "Located at Stormveil Castle.",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Hookclaws",
     "confidence": "parsed"
   },
   {
     "itemName": "Horn Bow",
-    "locationName": "a corpse in Siofra River near Siofra River Bank Site of Grace, under the stairs leading to Hallowhorn Grounds. [ Elden Ring Map here ] Video Location",
+    "locationName": "a corpse in Siofra River near Siofra River Bank Site of Grace, under the stairs leading to Hallowhorn Grounds. [ Elden Ring Map here ]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Horn+Bow",
     "confidence": "parsed"
   },
   {
     "itemName": "Horned Warrior Armor",
-    "locationName": "The Horned Warrior Armor Chest Armor can be found at:",
+    "locationName": "Has a 3.0% to drop from Horned Warriors. (Small Private Altar site of grace in Belurat, Tower Settlement )",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Horned+Warrior+Armor",
     "confidence": "parsed"
   },
@@ -1676,19 +1871,19 @@
   },
   {
     "itemName": "Horned Warrior Greaves",
-    "locationName": "The Horned Warrior Greaves Leg Armor can be found at:",
+    "locationName": "Has a 3.0% to drop from Horned Warriors. (Small Private Altar site of grace in Belurat, Tower Settlement )",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Horned+Warrior+Greaves",
     "confidence": "parsed"
   },
   {
     "itemName": "Horned Warrior Helm",
-    "locationName": "The Horned Warrior Helm Helm can be found at:",
+    "locationName": "Has a 3.0% to drop from Horned Warriors.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Horned+Warrior+Helm",
     "confidence": "parsed"
   },
   {
     "itemName": "Horned Warrior's Sword",
-    "locationName": "This can be obtained by eliminating the Horned Warrior in the Belurat Tower Settlement Swamp.",
+    "locationName": "Drops from Horned Warriors who wield them (an easy one to farm is located just up the stairs from the Small Private Altar Site of Grace in Belurat, Tower Settlement",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Horned+Warrior's+Sword",
     "confidence": "parsed"
   },
@@ -1728,7 +1923,7 @@
   },
   {
     "itemName": "Iron Cleaver",
-    "locationName": "Leyndell, Royal Capital: Chance to drop from the Misbegotten enemies that can be found behind the big door.",
+    "locationName": "Castle Morne. Dropped by the Misbegotten creatures using this weapon.",
     "sourceType": "enemy_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Iron+Cleaver",
     "confidence": "parsed"
@@ -1742,7 +1937,7 @@
   },
   {
     "itemName": "Iron Kasa",
-    "locationName": "The Iron Kasa Helm can be found at:",
+    "locationName": "Acquired by following Yura's questline [ Elden Ring Map here ], or by meeting with the Three Fingers and going to the spot where Shabriri was.",
     "sourceType": "enemy_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Iron+Kasa",
     "confidence": "parsed"
@@ -1755,7 +1950,7 @@
   },
   {
     "itemName": "Katar",
-    "locationName": "Looted from a treasure chest in Fort Gael. You can find the chest inside a dark room on the elevated platform above the Lion Guardian.",
+    "locationName": "[ Elden Ring Map here ] Location: Fort Gael Nearest Site of Grace: Fort Gael North Looted from a treasure chest in Fort Gael",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Katar",
     "confidence": "parsed"
@@ -1774,7 +1969,7 @@
   },
   {
     "itemName": "Knight Armor",
-    "locationName": "The Knight Armor Chest Armor can be found at:",
+    "locationName": "Twin Maiden Husks at the Roundtable Hold for 4,500 Runes.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Knight+Armor",
     "confidence": "parsed"
   },
@@ -1787,19 +1982,25 @@
   },
   {
     "itemName": "Knight Greaves",
-    "locationName": "The Knight Greaves Leg Armor can be found at:",
+    "locationName": "Twin Maiden Husks at the Roundtable Hold for 3,000 Runes.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Knight+Greaves",
     "confidence": "parsed"
   },
   {
+    "itemName": "Knight's Lightning Spear",
+    "locationName": "Scorpion River Catacombs: In the big hall with the second set of eyes, which you reach by climbing the ladder on the northern side of the room where you get the Black Knight Captain Huw ashes",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Knight's+Lightning+Spear",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Lamenter's Mask",
-    "locationName": "Dropped by Lamenter at Lamenter's Gaol. [ See Shadow of the Erdtree Map ] [ Video Link ]",
+    "locationName": "Dropped by Lamenter at Lamenter's Gaol. [ See Shadow of the Erdtree Map ]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Lamenter's+Mask",
     "confidence": "parsed"
   },
   {
     "itemName": "Land of Reeds Armor",
-    "locationName": "The Land of Reeds Armor Chest Armor can be found at:",
+    "locationName": "Sold by the Isolated Merchant in Dragonbarrow for 1,500 Runes. [ Elden Ring Map here ]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Land+of+Reeds+Armor",
     "confidence": "parsed"
   },
@@ -1811,19 +2012,19 @@
   },
   {
     "itemName": "Leda's Armor",
-    "locationName": "Leda's Armor is found on Needle Knight Leda's corpse after you beat the Leda and Allies Boss fight [ Video Link ]",
+    "locationName": "Leda's Armor is found on Needle Knight Leda's corpse after you beat the Leda and Allies Boss fight",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Leda's+Armor",
     "confidence": "parsed"
   },
   {
     "itemName": "Leda's Sword",
-    "locationName": "Leda's Sword is dropped by Needle Knight Leda after the Leda and Allies Boss fight [ Video Link ]",
+    "locationName": "Leda's Sword is dropped by Needle Knight Leda after the Leda and Allies Boss fight",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Leda's+Sword",
     "confidence": "parsed"
   },
   {
     "itemName": "Leyndell Knight Armor",
-    "locationName": "The Leyndell Knight Armor Chest Armor can be found at:",
+    "locationName": "Chance to drop from Leyndell Knights encountered in Leyndell, Royal Capital",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Leyndell+Knight+Armor",
     "confidence": "parsed"
   },
@@ -1842,6 +2043,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Lightning Scorpion Charm",
+    "locationName": "the Wyndham Catacombs in a room sealed by an Imp Statue, requires a Stonesword Key. [ Elden Ring Map here ]",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Lightning+Scorpion+Charm",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Lightning Slash",
     "locationName": "Ash of War: Lightning Slash - Dropped by a Teardrop Beetle in the middle of an enclosed area just outside the Capital Outskirts. Elden Ring.",
     "sourceType": "enemy_drop",
@@ -1856,8 +2063,14 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Lightning Strike",
+    "locationName": "Weeping Peninsula: Dropped by a Teardrop Scarab found in a crevasse separating the landmass containing the Minor Erdtree from the eastern side of the peninsula. The scarab is found in the Southern section of the crevasse, South of the entrance to Morne Tunn...",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Lightning+Strike",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Lionel's Armor",
-    "locationName": "The Lionel's Armor Chest Armor can be found at:",
+    "locationName": "IMPORTANT: Make sure to collect it before advancing the story to the point where Leyndell becomes the Ashen Capital. If you burn the Erdtree and progress to the Ashen Capital, you can no longer obtain Lionel's Set if you haven't picked it up earlier.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Lionel's+Armor",
     "confidence": "parsed"
   },
@@ -1870,7 +2083,7 @@
   },
   {
     "itemName": "Lionel's Greaves",
-    "locationName": "The Lionel's Greaves Leg Armor can be found at:",
+    "locationName": "IMPORTANT: Make sure to collect it before advancing the story to the point where Leyndell becomes the Ashen Capital. If you burn the Erdtree and progress to the Ashen Capital, you can no longer obtain Lionel's Set if you haven't picked it up earlier.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Lionel's+Greaves",
     "confidence": "parsed"
   },
@@ -1909,7 +2122,7 @@
   },
   {
     "itemName": "Loretta's Greatbow",
-    "locationName": "Caria Manor: Dropped by Royal Knight Loretta upon defeat. Video Location",
+    "locationName": "Caria Manor: Dropped by Royal Knight Loretta upon defeat.",
     "sourceType": "boss_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Loretta's+Greatbow",
     "confidence": "parsed"
@@ -1923,7 +2136,7 @@
   },
   {
     "itemName": "Loretta's War Sickle",
-    "locationName": "Dropped by Loretta, Knight of the Haligtree upon defeat. Video Location",
+    "locationName": "Dropped by Loretta, Knight of the Haligtree upon defeat.",
     "sourceType": "boss_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Loretta's+War+Sickle",
     "confidence": "parsed"
@@ -1935,6 +2148,13 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Magic Glintblade",
+    "locationName": "Miriel, Pastor of Vows at the Church of Vows for 3,000 Runes.",
+    "sourceType": "shop",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Magic+Glintblade",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Magic Scorpion Charm",
     "locationName": "Obtained by giving Preceptor Seluvis the Amber Starlight after Seluvis tells you about his scheme.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Magic+Scorpion+Charm",
@@ -1942,7 +2162,7 @@
   },
   {
     "itemName": "Magma Blade",
-    "locationName": "Possible drop from Man-Serpent enemies wielding the orange glowing Magma Blade at Volcano Manor",
+    "locationName": "Possible drop from Man-Serpent enemies wielding the orange glowing Magma Blade at Volcano Manor. Two of the Serpents can be easily accessed by going up the wooden elevator outside of the building to the North of the Temple of Eiglay Site of Grace: one enemy...",
     "sourceType": "enemy_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Magma+Blade",
     "confidence": "parsed"
@@ -1987,6 +2207,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Manor Towershield",
+    "locationName": "Stormveil Castle: From the Secluded Cell site of grace, backtrack to the west and up the ramp where the Living Jars are and turn around towards the wooden platform",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Manor+Towershield",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Marais Executioner's Sword",
     "locationName": "Dropped by Elemer of the Briar at The Shaded Castle. [ Elden Ring Map here ]",
     "sourceType": "boss_drop",
@@ -2015,9 +2241,15 @@
   },
   {
     "itemName": "Mask of Confidence",
-    "locationName": "The Mask of Confidence Helm can be found at:",
+    "locationName": "a corpse laying on the walls of the secret area of the Carian Study Hall unlocked using the Carian Inverted Statue. [ Elden Ring Map here ]",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Mask+of+Confidence",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Mass of Putrescence",
+    "locationName": "Stone Coffin Fissure: From the \"Fissure Waypoint\" Site of Grace, head northeast. Just after hopping over the little gap, drop down to the left side and make your way north where you'll find the spell on a corpse near some Putrescent Skeletons.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Mass+of+Putrescence",
     "confidence": "parsed"
   },
   {
@@ -2034,7 +2266,7 @@
   },
   {
     "itemName": "Messmer Soldier Armor",
-    "locationName": "The Messmer Soldier Armor Chest Armor can be found at:",
+    "locationName": "Has a 1.5% chance to be dropped by Messmer Soldiers.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Messmer+Soldier+Armor",
     "confidence": "parsed"
   },
@@ -2052,7 +2284,7 @@
   },
   {
     "itemName": "Messmer's Helm",
-    "locationName": "The Messmer's Helm Helm can be found at:",
+    "locationName": "Purchase from Finger Reader Enia at Roundtable Hold after defeating Messmer the Impaler",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Messmer's+Helm",
     "confidence": "parsed"
   },
@@ -2151,13 +2383,13 @@
   },
   {
     "itemName": "Multilayered Ring of Light",
-    "locationName": "Rewarded upon defeating the Spirit Misbegotten Crusader in the Stone Coffin Fissure. [ See Shadow of the Erdtree Map ] [ Video Link ]",
+    "locationName": "Rewarded upon defeating the Spirit Misbegotten Crusader in the Stone Coffin Fissure. [ See Shadow of the Erdtree Map ]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Multilayered+Ring+of+Light",
     "confidence": "parsed"
   },
   {
     "itemName": "Mushroom Crown",
-    "locationName": "The Mushroom Crown Helm can be found at:",
+    "locationName": "a corpse hanging off the top of a column in the southeastern corner of the Lake of Rot. Climb the fallen pillar leading to a rocky outcropping, south of the ruin, to reach it.",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Mushroom+Crown",
     "confidence": "parsed"
@@ -2177,14 +2409,21 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Night Shard",
+    "locationName": "Gowry for 4,000 Runes after completing his quest line.",
+    "sourceType": "shop",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Night+Shard",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Night's Cavalry Armor",
-    "locationName": "The Night's Cavalry Armor Chest Armor can be found at:",
+    "locationName": "You can find the Night's Cavalry Set within the Consecrated Snowfield: From the Inner Consecrated Snowfield site of grace at night, look southwest and there will be a caravan being pulled by two giants and two Night's Cavalry escorts. Kill both the escorts...",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Night's+Cavalry+Armor",
     "confidence": "parsed"
   },
   {
     "itemName": "Night's Cavalry Helm",
-    "locationName": "The Night's Cavalry Helm Helm can be found at:",
+    "locationName": "You can find the Night's Cavalry Set within the Consecrated Snowfield: From the Inner Consecrated Snowfield site of grace at night, look southwest and there will be a caravan being pulled by two giants and two Night's Cavalry escorts. Kill both the escorts...",
     "sourceType": "boss_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Night's+Cavalry+Helm",
     "confidence": "parsed"
@@ -2224,25 +2463,25 @@
   },
   {
     "itemName": "Nox Greaves",
-    "locationName": "The Nox Greaves Leg Armor can be found at:",
+    "locationName": "Dropped from Nox Monk, Nox Swordstress, and Night Maiden enemies in Nokron and Nokstella.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Nox+Greaves",
     "confidence": "parsed"
   },
   {
     "itemName": "Nox Swordstress Armor",
-    "locationName": "Pieces of the Nox Swordstress Set are dropped by the Nox Swordstresses found in Nokron and Nokstella.",
+    "locationName": "Three can be found in relatively close proximity to the Nokstella, Eternal City site of grace. One up the stairs in a side room, and 2 in the river riding Giant Ants.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Nox+Swordstress+Armor",
     "confidence": "parsed"
   },
   {
     "itemName": "Oathseeker Knight Armor",
-    "locationName": "The Oathseeker Knight Armor Chest Armor can be found at:",
+    "locationName": "Found inside a hanging body, just outside the Church of Benediction. It contains the whole set: Oathseeker Knight Greaves, Oathseeker Knight Gauntlets, Oathseeker Knight Armor, and Oathseeker Knight Helm.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Oathseeker+Knight+Armor",
     "confidence": "parsed"
   },
   {
     "itemName": "Oathseeker Knight Helm",
-    "locationName": "The Oathseeker Knight Helm Helm can be found at:",
+    "locationName": "Found inside a hanging body, just outside the Church of Benediction. It contains the whole set: Oathseeker Knight Greaves, Oathseeker Knight Gauntlets, Oathseeker Knight Armor, and Oathseeker Knight Helm.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Oathseeker+Knight+Helm",
     "confidence": "parsed"
   },
@@ -2300,14 +2539,21 @@
   },
   {
     "itemName": "Page Garb",
-    "locationName": "The Page Garb Chest Armor can be occasionally found as loot drops from Page enemies at:",
+    "locationName": "Three are easily found behind the Royal Moongazing Grounds site of grace in Caria Manor.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Page+Garb",
     "confidence": "parsed"
   },
   {
     "itemName": "Page Trousers",
-    "locationName": "The Page Trousers Leg Armor can be found as drops by Page enemies:",
+    "locationName": "Three are easily found behind the Royal Moongazing Grounds site of grace in Caria Manor.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Page+Trousers",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Parry",
+    "locationName": "Purchase from Knight Bernahl: 600",
+    "sourceType": "shop",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Parry",
     "confidence": "parsed"
   },
   {
@@ -2334,6 +2580,12 @@
     "itemName": "Perfumer's Talisman",
     "locationName": "Perfumer's Ruins - In a chest underground below the stairs in the room with the yellow Giant Poison Flower. The stairs are covered by wooden planks and must be either rolled onto or attacked to reveal.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Perfumer's+Talisman",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Pest-Thread Spears",
+    "locationName": "Ancient Ruins of Rauh: From the \"Church of the Bud, Main Entrance\" Site of Grace, head back into the cave and down the stairs, head behind the stairs and the incantation will be directly behind it, guarded by Kindred of Rot.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Pest-Thread+Spears",
     "confidence": "parsed"
   },
   {
@@ -2383,7 +2635,7 @@
   },
   {
     "itemName": "Preceptor's Big Hat",
-    "locationName": "The Preceptor's Big Hat Helm can be found at:",
+    "locationName": "Seluvis's body in Seluvis's Rise after reaching the end of Ranni's questline.",
     "sourceType": "event",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Preceptor's+Big+Hat",
     "confidence": "parsed"
@@ -2397,7 +2649,7 @@
   },
   {
     "itemName": "Preceptor's Trousers",
-    "locationName": "The Preceptor's Trousers Leg Armor can be found at:",
+    "locationName": "Seluvis's body in Seluvis's Rise after reaching the end of Ranni's questline. Elden Ring Interactive",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Preceptor's+Trousers",
     "confidence": "parsed"
   },
@@ -2409,6 +2661,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Priestess Heart",
+    "locationName": "Grand Altar of Dragon Communion after defeating Bayle and not using Thiollier's Concoction on the Dragon Communion Priestess during the night. [ See SOTE Elden Ring DLC Map ]",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Priestess+Heart",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Primal Glintstone Blade",
     "locationName": "Stargazer's Ruins in Mountaintops of the Giants: Found in a chest in an underground area near the center of the ruins. The entrance is sealed by a barrier and there is a talking Jellyfish outside who is looking for her sister.",
     "sourceType": "ground_pickup",
@@ -2417,7 +2675,7 @@
   },
   {
     "itemName": "Prince of Death's Staff",
-    "locationName": "From The Nameless Eternal City site of grace in Deeproot Depths, head east and you'll see a root ramp and a series rooftops forming a ramp. Go up either one, and at the very first intersection, drop down to the left and continue upward.",
+    "locationName": "ng location: From The Nameless Eternal City site of grace in Deeproot Depths, head east and you'll see a root ramp and a series rooftops forming a ramp",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Prince+of+Death's+Staff",
     "confidence": "parsed"
   },
@@ -2429,7 +2687,7 @@
   },
   {
     "itemName": "Pumpkin Helm",
-    "locationName": "Mt Gelmir, east of First Mt. Gelmir Campsite and south of Corpse-Stench Shack.",
+    "locationName": "Altus Plateau - By a grave marker overlooking the cliffs northeast of the Bridge of Iniquity Site of Grace.",
     "sourceType": "enemy_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Pumpkin+Helm",
     "confidence": "parsed"
@@ -2456,8 +2714,14 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Radagon's Rings of Light",
+    "locationName": "Golden Order Principia prayerbook",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Radagon's+Rings+of+Light",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Radagon's Soreseal",
-    "locationName": "Fort Faroth: Found on a corpse by dropping down an opening from the roof and exploring around the wooden walkways.",
+    "locationName": "From the Fort Faroth Site of Grace, run into the fort and pass the bats and harpies. Climb up the ladder, make a right and jump down the scaffolding onto the roof.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Radagon's+Soreseal",
     "confidence": "parsed"
   },
@@ -2483,7 +2747,7 @@
   },
   {
     "itemName": "Raging Wolf Armor",
-    "locationName": "The Raging Wolf Armor Chest Armor can be found at:",
+    "locationName": "Leyndell Royal Capital. After obtaining the second to last letter from Volcano Manor, You will be sent to assist Bernahl with an invade in a familiar location.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Raging+Wolf+Armor",
     "confidence": "parsed"
   },
@@ -2502,14 +2766,14 @@
   },
   {
     "itemName": "Rancorcall",
-    "locationName": "Dropped from a Teardrop Scarab that can be found at the underground crypt of the castle. Elden Ring Interactive",
+    "locationName": "Stormveil Castle Closest Site of Grace: Liftside Chamber Dropped from a Teardrop Scarab that can be found at the underground crypt of the castle",
     "sourceType": "enemy_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Rancorcall",
     "confidence": "parsed"
   },
   {
     "itemName": "Ranni's Dark Moon",
-    "locationName": "Chelona's Rise: Found in a chest at the top of the tower after unlocking the entrance seal. See the Chelona's Rise page for details on how to unseal the tower.",
+    "locationName": "NOTE: The location of this Spell is accessible only after the player has made significant progress in Ranni's questline, which will grant the player access to the upper plateau in southwest Liurnia.",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Ranni's+Dark+Moon",
     "confidence": "parsed"
@@ -2523,19 +2787,19 @@
   },
   {
     "itemName": "Raptor's Black Feathers",
-    "locationName": "The Raptor's Black Feathers Chest Armor can be found at:",
+    "locationName": "Inside the Sage's Cave, in a chest behind an illusory wall. See it on the Elden Ring Map here.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Raptor's+Black+Feathers",
     "confidence": "parsed"
   },
   {
     "itemName": "Redmane Greatshield",
-    "locationName": "Dropped by Redmane Knights in Caelid. Video Location Can drop from the horseback Redmane Knight found northwest of the Impassable Greatbridge Site of Grace.",
+    "locationName": "Dropped by Redmane Knights in Caelid. Can drop from the horseback Redmane Knight found northwest of the Impassable Greatbridge Site of Grace.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Redmane+Greatshield",
     "confidence": "parsed"
   },
   {
     "itemName": "Redmane Knight Armor",
-    "locationName": "The Redmane Knight Armor Chest Armor can be found at:",
+    "locationName": "Chance to drop from Redmane Knight in Fort Gael.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Redmane+Knight+Armor",
     "confidence": "parsed"
   },
@@ -2554,8 +2818,15 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Regalia of Eochaid",
+    "locationName": "Going through the Gaol Cave [ Elden Ring Map here ] and reaching the end of the dungeon.",
+    "sourceType": "ground_pickup",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Regalia+of+Eochaid",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Rellana's Armor",
-    "locationName": "The Rellana's Armor Chest Armor can be found at:",
+    "locationName": "The complete set ( Rellana's Set ) can be bought from Enia in the Roundtable Hold upon defeating Rellana Twin Moon Knight.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Rellana's+Armor",
     "confidence": "parsed"
   },
@@ -2567,7 +2838,7 @@
   },
   {
     "itemName": "Rellana's Greaves",
-    "locationName": "The Rellana's Greaves Leg Armor can be found at:",
+    "locationName": "The complete set ( Rellana's Set ) can be bought from Enia in the Roundtable Hold upon defeating Rellana Twin Moon Knight.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Rellana's+Greaves",
     "confidence": "parsed"
   },
@@ -2595,6 +2866,12 @@
     "locationName": "Sold by Pidia, Carian Servant at Caria Manor: on a balcony above the Manor Lower Level site of grace. Only accessible by dropping down the cliffs from the southwestern side of the Three Sisters sub-area.",
     "sourceType": "shop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Ripple+Blade",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Ritual Shield Talisman",
+    "locationName": "From the West Capital Rampart site of grace in Leyndell, follow the marble stairway heading South-Southwest, past a Valiant Gargoyle near a Golden Seed and up the stair toward a giant Colloseum, the talisman is at the top of the hill, in front of the door o...",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Ritual+Shield+Talisman",
     "confidence": "parsed"
   },
   {
@@ -2638,13 +2915,13 @@
   },
   {
     "itemName": "Ronin's Armor",
-    "locationName": "The Ronin's Armor Chest Armor can be found at:",
+    "locationName": "Acquired by following Yura's questline and eventually defeating Shabriri.. [ Elden Ring Map here ], or by meeting with the Three Fingers and going to the spot where Shabiri was.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Ronin's+Armor",
     "confidence": "parsed"
   },
   {
     "itemName": "Ronin's Greaves",
-    "locationName": "The Ronin's Greaves Leg Armor can be found at:",
+    "locationName": "Acquired by following Yura's questline. [ Elden Ring Map here ], or by meeting with the Three Fingers and going to the spot where Shabiri was.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Ronin's+Greaves",
     "confidence": "parsed"
   },
@@ -2687,8 +2964,15 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Royal Greatsword",
+    "locationName": "Obtainable at the end of Ranni's questline; Blaidd will spawn in front of Ranni's Rise tower. Best him in combat for a final time to obtain this weapon along with his armor set.",
+    "sourceType": "event",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Royal+Greatsword",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Royal Knight Armor",
-    "locationName": "The Royal Knight Armor Chest Armor can be found at:",
+    "locationName": "Can be bought from Finger Reader Enia, at Roundtable Hold after defeating Loretta, Knight of the Haligtree for 6,000.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Royal+Knight+Armor",
     "confidence": "parsed"
   },
@@ -2701,27 +2985,41 @@
   },
   {
     "itemName": "Royal Knight Greaves",
-    "locationName": "The Royal Knight Greaves Leg Armor can be found at:",
+    "locationName": "Can be brought from Finger Reader Enia, at Roundtable Hold after defeating Loretta, Knight of the Haligtree for 4,000.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Royal+Knight+Greaves",
     "confidence": "parsed"
   },
   {
     "itemName": "Royal Knight Helm",
-    "locationName": "The Royal Knight Helm Helm can be found at:",
+    "locationName": "Can be bought from Finger Reader Enia, at Roundtable Hold after defeating Loretta, Knight of the Haligtree, for 4,000.",
     "sourceType": "shop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Royal+Knight+Helm",
     "confidence": "parsed"
   },
   {
+    "itemName": "Royal Knight's Resolve",
+    "locationName": "From the Temple of Eiglay Site of Grace, if you have not unlocked the elevator north of the temple, follow these steps, otherwise skip to the next paragraph. From the Site of grace, head south and pull the lever for the elevator.",
+    "sourceType": "ground_pickup",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Royal+Knight's+Resolve",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Royal Remains Armor",
-    "locationName": "The Royal Remains Armor Chest Armor can be found at:",
+    "locationName": "Upon attaining the Haligtree Secret Medallion (Right), Ensha of the Royal Remains will invade the players world the next time they travel back to Roundtable Hold. The full Royal Remains Set is acquired after beating him.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Royal+Remains+Armor",
     "confidence": "parsed"
   },
   {
     "itemName": "Royal Remains Greaves",
-    "locationName": "The Royal Remains Greaves Leg Armor can be found at:",
+    "locationName": "Upon attaining the Haligtree Secret Medallion (Right), Ensha of the Royal Remains will invade the players world the next time they travel back to Roundtable Hold. The full Royal Remains Set is acquired after beating him.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Royal+Remains+Greaves",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Ruins Greatsword",
+    "locationName": "Ruins Greatsword can be acquried by defeating Misbegotten Warrior + Crucible Knight at Redmane Castle Plaza",
+    "sourceType": "boss_drop",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Ruins+Greatsword",
     "confidence": "parsed"
   },
   {
@@ -2779,8 +3077,20 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Savage Claws",
+    "locationName": "The Ash of War comes pre-equipped with Beast Claw (Weapon) which drops from killing Logur the Beast Claw in Gravesite Plains in the forest, southeast of the Gravesite Plain Site of Grace. [ See Shadow of the Erdtree Map ]",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Savage+Claws",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Savage Lion's Claw",
+    "locationName": "From the \"Three-Path Cross\" Site of Grace, stick to the wall on the left side, and follow the path north. You will eventually come across a small camp where you can find the Ash of War.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Savage+Lion's+Claw",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Scaled Armor",
-    "locationName": "The Scaled Armor Chest Armor can be found at:",
+    "locationName": "Can be found after killing the first assassination target for the Volcano Manor, Old Knight Istvan. [ Elden Ring Map here ]",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Scaled+Armor",
     "confidence": "parsed"
   },
@@ -2793,7 +3103,7 @@
   },
   {
     "itemName": "Scaled Greaves",
-    "locationName": "The Scaled Greaves Leg Armor can be found at:",
+    "locationName": "Can be found after killing the first assassination target for the Volcano Manor, Old Knight Istvan. Elden Ring Interactive",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Scaled+Greaves",
     "confidence": "parsed"
   },
@@ -2872,8 +3182,20 @@
   },
   {
     "itemName": "Shadow Sunflower Blossom",
-    "locationName": "Trade Remembrance of the Shadow Sunflower at Enia to receive this weapon.",
+    "locationName": "wing location: Trade Remembrance of the Shadow Sunflower at Enia to receive this weapon",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Shadow+Sunflower+Blossom",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Shard of Alexander",
+    "locationName": "Drops from Iron Fist Alexander after completing his questline.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Shard+of+Alexander",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Shattered Stone Talisman",
+    "locationName": "Moorth Ruins. From Moorth Ruins Site of Grace head South-East through the big stony archway.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Shattered+Stone+Talisman",
     "confidence": "parsed"
   },
   {
@@ -2884,6 +3206,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Shield of Night",
+    "locationName": "Bonny Gaol. The top level of this gaol can be accessed after using the jar lift near the bridge twice.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Shield+of+Night",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Shortbow",
     "locationName": "Can be bought from the Nomadic Merchant for 600 Runes. He is located south-east of Coastal Cave.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Shortbow",
@@ -2891,14 +3219,14 @@
   },
   {
     "itemName": "Silver Tear Mask",
-    "locationName": "Dropped by the Mimic Tear boss in Nokron, Eternal City. [ Elden Ring Map here ] Video Location",
+    "locationName": "Dropped by the Mimic Tear boss in Nokron, Eternal City. [ Elden Ring Map here ]",
     "sourceType": "boss_drop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Silver+Tear+Mask",
     "confidence": "parsed"
   },
   {
     "itemName": "Skeletal Mask",
-    "locationName": "The Skeletal Mask Helm can be found at:",
+    "locationName": "The Sage's Cave, in a chest behind an illusory wall. See it on the Elden Ring Map here.",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Skeletal+Mask",
     "confidence": "parsed"
@@ -2911,13 +3239,25 @@
   },
   {
     "itemName": "Smithing Talisman",
-    "locationName": "Ruined Forge Starfall Past [ See Shadow of the Erdtree Map ] The talisman is looted from a corpse",
+    "locationName": "The talisman is looted from a corpse. The body is inside a room filled with Fire Blob enemies, on the upper-most level of the Ruined Forge of Starfall Past.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Smithing+Talisman",
     "confidence": "parsed"
   },
   {
+    "itemName": "Smithscript Dagger",
+    "locationName": "Ruined Forge Lava Intake. Take the first ladder down, past the golem, and after the fire blob turn right.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Smithscript+Dagger",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Smithscript Shield",
+    "locationName": "Taylew's Ruined Forge: Jump from the opening left to the lever, and instead of heading forward turn left. There are two Golem Smiths there, one that uses fire.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Smithscript+Shield",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Snow Witch Hat",
-    "locationName": "The Snow Witch Hat Helm can be found at:",
+    "locationName": "a chest on the upper floor of Renna's Rise during the course of Ranni's questline.",
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Snow+Witch+Hat",
     "confidence": "parsed"
@@ -2944,20 +3284,20 @@
   },
   {
     "itemName": "Spellblade's Pointed Hat",
-    "locationName": "The Spellblade's Pointed Hat Helm can be found at:",
+    "locationName": "Roundtable Hold - Drops from Rogier.",
     "sourceType": "event",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Spellblade's+Pointed+Hat",
     "confidence": "parsed"
   },
   {
     "itemName": "Spellblade's Traveling Attire",
-    "locationName": "The Spellblade's Traveling Attire Chest Armor can be found at:",
+    "locationName": "Roundtable Hold - Drops from Rogier.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Spellblade's+Traveling+Attire",
     "confidence": "parsed"
   },
   {
     "itemName": "Spellblade's Trousers",
-    "locationName": "The Spellblade's Trousers Leg Armor can be found at:",
+    "locationName": "Roundtable Hold - Drops from Rogier.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Spellblade's+Trousers",
     "confidence": "parsed"
   },
@@ -2970,7 +3310,7 @@
   },
   {
     "itemName": "Spinning Weapon",
-    "locationName": "Ash of War: Spinning Weapon is sold by Sorcerer Rogier at Stormveil Castle or the Roundtable Hold for 1,000. Elden Ring.",
+    "locationName": "Ash of War: Spinning Weapon can be purchased from Twin Maiden Husks at the Roundtable Hold after giving them Rogier's Bell Bearing.",
     "sourceType": "shop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Spinning+Weapon",
     "confidence": "parsed"
@@ -2984,7 +3324,7 @@
   },
   {
     "itemName": "St. Trina's Blossom",
-    "locationName": "The St. Trina's Blossom Helm can be found at:",
+    "locationName": "Garden of Deep Purple: After defeating Promised Consort Radahn, return to St. Trina in Garden of Deep Purple.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/St.+Trina's+Blossom",
     "confidence": "parsed"
   },
@@ -3002,7 +3342,7 @@
   },
   {
     "itemName": "Staff of the Great Beyond",
-    "locationName": "Trade Remembrance of the Mother of Fingers with Enia at the Roundtable Hold.",
+    "locationName": "lowing location: Trade Remembrance of the Mother of Fingers with Enia at the Roundtable Hold",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Staff+of+the+Great+Beyond",
     "confidence": "parsed"
   },
@@ -3099,7 +3439,7 @@
   },
   {
     "itemName": "Sword of Light",
-    "locationName": "Obtained by acquiring the Stone-Sheathed Sword or Sword of Darkness (see below):",
+    "locationName": "Obtained by acquiring the Stone-Sheathed Sword or Sword of Darkness (see below): You can get Stone-Sheathed Sword at one of the 3 Altar locations: Fog Rift Catacombs (on top of the 3 trap platforms and run to the furthest right corner), Ruins of Unte (flowe...",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Sword+of+Light",
     "confidence": "parsed"
   },
@@ -3111,6 +3451,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Sword of Night",
+    "locationName": "Cathedral of Manus Metyr: After completing the whole finger questline for Count Ymir, Jolan will be dejected nearby. Give her an Iris of Occultation to get the Sword of Night [ Elden Ring Map ]",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Sword+of+Night",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Sword of Night and Flame",
     "locationName": "The Sword of Night and Flame weapon can be found in Caria Manor in a locked room behind the gardens in the east side of the manor.",
     "sourceType": "ground_pickup",
@@ -3118,8 +3464,15 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Sword of St. Trina",
+    "locationName": "In the Forsaken Ruins, near the Rotview Balcony Site of Grace, behind an Imp Seal requiring one Stonesword Key. [ Map Coordinates ]",
+    "sourceType": "ground_pickup",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Sword+of+St.+Trina",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Taker's Cameo",
-    "locationName": "Juno Hoslow's invade rune can be found in the northern Mountaintops of the Giants, east of Shack of the Lofty. Video Location.",
+    "locationName": "Awarded by Tanith at Volcano Manor, after completing the third letter quest. This requires you to visit the Mountaintops of the Giants, to invade and defeat Juno Hoslow, Knight of Blood.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Taker's+Cameo",
     "confidence": "parsed"
   },
@@ -3188,6 +3541,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Two-Headed Turtle Talisman",
+    "locationName": "It's inside a cave beneath a waterfall guarded by enemies Just east of Rivermouth Cave.",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Two-Headed+Turtle+Talisman",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Uchigatana",
     "locationName": "The Uchigatana can be found inside the Deathtouched Catacombs in Stormhill, Limgrave. Pull the lever to unlock a door in one of the earlier halls.",
     "sourceType": "ground_pickup",
@@ -3221,6 +3580,12 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Velvet Sword of St. Trina",
+    "locationName": "owing location: Stone Coffin Fissure: From the Fissure Cross site of grace, walk immediately north-west to the closest giant coffin that's tilted nearly vertical",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Velvet+Sword+of+St.+Trina",
+    "confidence": "parsed"
+  },
+  {
     "itemName": "Venomous Fang",
     "locationName": "the Abandoned Cave in Caelid. The cave is above the swamp area, and you have to walk along a branch to get to it.",
     "sourceType": "ground_pickup",
@@ -3232,6 +3597,13 @@
     "locationName": "Sold by Knight Bernahl at the Warmaster's Shack for 800.",
     "sourceType": "shop",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/War+Cry",
+    "confidence": "parsed"
+  },
+  {
+    "itemName": "Warrior Jar Shard",
+    "locationName": "Drops from Iron Fist Alexander when you kill him without completing his questline.",
+    "sourceType": "ground_pickup",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Warrior+Jar+Shard",
     "confidence": "parsed"
   },
   {
@@ -3276,7 +3648,7 @@
   },
   {
     "itemName": "Winged Serpent Helm",
-    "locationName": "The Winged Serpent Helm Helm can be found at:",
+    "locationName": "Shadow Keep: Sixth Floor: Climb the statues once you've used the lever to move them. Head outside, turn right and head up the stairs, turn left to the bridge which leads to Messmer boss fight, the Fire knight is right before and drops this item and Ash of W...",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Winged+Serpent+Helm",
     "confidence": "parsed"
   },
