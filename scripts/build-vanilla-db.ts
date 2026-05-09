@@ -3,6 +3,11 @@ import { join } from 'node:path';
 import { JSDOM } from 'jsdom';
 
 interface CellValue { row: number; col: number; value: string }
+interface LocationOverride {
+  itemName: string;
+  locationName: string;
+  sourceType?: string;
+}
 
 // Emoji characters used as source-type indicators in the spreadsheet.
 // + not * — avoids consuming surrounding whitespace at every position.
@@ -323,8 +328,29 @@ function readCSV(path: string): { name: string; extra: string }[] {
 }
 
 const DATA_DIR = join(base, 'elden-ring-data');
+const FEXTRA_OVERRIDES = join(base, 'data', 'fextra-location-overrides.json');
 const locMap = new Map(unique.map(i => [i.name, i.location]));
 const srcMap = new Map(unique.map(i => [i.name, i.sourceType]));
+
+function readLocationOverrides(): Map<string, LocationOverride[]> {
+  const validSourceTypes = new Set(['ground_pickup', 'shop', 'boss_drop', 'enemy_drop', 'starting_loadout', 'event', 'unknown']);
+  try {
+    const raw = JSON.parse(readFileSync(FEXTRA_OVERRIDES, 'utf8')) as LocationOverride[];
+    const byName = new Map<string, LocationOverride[]>();
+    for (const entry of raw) {
+      if (!entry.itemName || !entry.locationName) continue;
+      if (entry.sourceType && !validSourceTypes.has(entry.sourceType)) continue;
+      const key = entry.itemName.toLowerCase();
+      if (!byName.has(key)) byName.set(key, []);
+      byName.get(key)!.push(entry);
+    }
+    return byName;
+  } catch {
+    return new Map();
+  }
+}
+
+const locationOverrides = readLocationOverrides();
 
 const talismans    = readCSV(join(DATA_DIR, 'talismans.csv'));
 const incantations = readCSV(join(DATA_DIR, 'incantations.csv'));
@@ -344,7 +370,18 @@ out += `function r(n: string, l: string, s: ItemRecord['sourceType']): ItemRecor
 out += `  return { id: 'v-' + ++_c, itemName: n, originalItem: null, locationName: l, area: inferArea(l), sourceType: s, isKeyItem: false, rawLine: n + ' — ' + l, section: 'vanilla' };\n}\n\n`;
 out += `export const VANILLA_ITEMS: ItemRecord[] = [\n`;
 
+const emittedNames = new Set<string>();
+
 function add(name: string, src: string, fallbackLoc: string) {
+  emittedNames.add(name.toLowerCase());
+  const overrides = locationOverrides.get(name.toLowerCase());
+  if (overrides?.length) {
+    for (const override of overrides) {
+      out += ` r(${JSON.stringify(name)}, ${JSON.stringify(override.locationName)}, '${override.sourceType || src}'),\n`;
+    }
+    return;
+  }
+
   const loc = locMap.get(name) || fallbackLoc;
   const st  = srcMap.get(name) || src;
   out += ` r(${JSON.stringify(name)}, ${JSON.stringify(loc)}, '${st}'),\n`;
@@ -367,6 +404,12 @@ for (const s of sorceries) {
   if (!locMap.has(s.name)) {
     const loc = s.extra || '';
     if (loc && !isDescriptionLoc(loc)) add(s.name, 'ground_pickup', loc);
+  }
+}
+for (const overrides of locationOverrides.values()) {
+  const first = overrides[0];
+  if (first && !emittedNames.has(first.itemName.toLowerCase())) {
+    add(first.itemName, first.sourceType || 'unknown', first.locationName);
   }
 }
 
