@@ -12,6 +12,29 @@ A pre-built Windows portable executable can be found in `release/` after running
 
 When the portable app loads a spoiler log, it keeps a cached copy for the next launch. In portable builds, cached logs are stored beside the executable in `cached-spoiler-logs\` with both a stable `latest-spoiler-log.txt` and a uniquely named seed/timestamp copy.
 
+### Notes for file reviewers
+
+This project is a local utility for searching Elden Ring Randomizer spoiler logs. It does not install a Windows service, does not modify Elden Ring files, does not inject into the game process, and does not contact external servers.
+
+The Windows release is built with Electron and `electron-builder`. The current portable target creates a single unsigned self-extracting executable, which can trigger reputation-based/static-ML antivirus results on newly published builds. Reviewers can rebuild the app from source with the commands below.
+
+Verification commands:
+
+```bash
+npm ci
+npm test
+npm run build
+npm run dist
+```
+
+Expected generated output:
+
+```text
+dist/
+release/Elden Ring Randomizer Index <version>.exe
+release/win-unpacked/
+```
+
 ---
 
 ## How to generate a spoiler log
