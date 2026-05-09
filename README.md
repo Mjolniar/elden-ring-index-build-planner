@@ -1,24 +1,46 @@
 # Elden Ring Randomizer Index
 
-A local-first search tool for Elden Ring Item & Enemy Randomizer spoiler logs. Load a spoiler log, search item placements by name or location, filter by source type, and export results as CSV or JSON.
+A small desktop tool for searching Elden Ring Item & Enemy Randomizer spoiler logs.
 
-All processing is done in your browser / local app — **no data is ever sent to a server.**
+If you are playing a randomized seed and want to know where an item ended up, this app lets you load the spoiler log, search by item or location, mark useful finds as favorites, and track what you have already picked up.
 
----
+Everything runs locally on your computer. The app does not upload spoiler logs, contact a server, edit game files, or interact with the running game.
 
-## Distributable desktop app
+## What It Does
 
-A pre-built Windows portable executable can be found in `release/` after running `npm run dist`. Double-click it to launch — no installation required.
+- Loads `.txt` spoiler logs from the Elden Ring Item & Enemy Randomizer.
+- Searches by item name, location, area, or replaced item.
+- Filters results by source type, such as boss drops, shops, ground pickups, and key items.
+- Lets you star important results as favorites.
+- Lets you mark favorite items as acquired while you play.
+- Exports the visible results as CSV or JSON.
+- Remembers the last loaded spoiler log in the desktop version.
 
-When the portable app loads a spoiler log, it keeps a cached copy for the next launch. In portable builds, cached logs are stored beside the executable in `cached-spoiler-logs\` with both a stable `latest-spoiler-log.txt` and a uniquely named seed/timestamp copy.
+## How To Use It
 
-### Notes for file reviewers
+1. Generate a spoiler log with the Elden Ring Item & Enemy Randomizer.
+2. Open Elden Ring Randomizer Index.
+3. Drop the spoiler log into the upload area, or browse for it manually.
+4. Search for the item, area, or location you care about.
+5. Star useful results and mark them acquired as you collect them.
 
-This project is a local utility for searching Elden Ring Randomizer spoiler logs. It does not install a Windows service, does not modify Elden Ring files, does not inject into the game process, and does not contact external servers.
+The desktop app keeps a local copy of the most recent spoiler log in `cached-spoiler-logs\` next to the executable. This is only so the app can restore the same log the next time it opens.
 
-The Windows release is built with Electron and `electron-builder`. The current portable target creates a single unsigned self-extracting executable, which can trigger reputation-based/static-ML antivirus results on newly published builds. Reviewers can rebuild the app from source with the commands below.
+## Getting A Spoiler Log
 
-Verification commands:
+1. Open `EldenRingRandomizer.exe`.
+2. Configure and run your randomizer seed.
+3. Look in the randomizer's `spoiler_logs\` folder for the generated `.txt` spoiler log.
+
+This app is made for spoiler logs from [thefifthmatt's Elden Ring Item and Enemy Randomizer](https://www.nexusmods.com/eldenring/mods/428).
+
+## Notes For Nexus Mods And File Reviewers
+
+This is an Electron app packaged as a Windows portable executable. The current release format is a single unsigned self-extracting `.exe`, which can sometimes trigger reputation-based antivirus or static-ML warnings on new builds.
+
+The source code is included in this repository and the app can be rebuilt from source. The app does not install a Windows service, modify Elden Ring files, inject into the game process, or make network requests.
+
+Reviewer verification:
 
 ```bash
 npm ci
@@ -27,7 +49,7 @@ npm run build
 npm run dist
 ```
 
-Expected generated output:
+Expected build output:
 
 ```text
 dist/
@@ -35,130 +57,27 @@ release/Elden Ring Randomizer Index <version>.exe
 release/win-unpacked/
 ```
 
----
+## Run Or Build From Source
 
-## How to generate a spoiler log
+Requirements:
 
-1. Open `EldenRingRandomizer.exe` and configure your options.
-2. Click **Randomize items and enemies**.
-3. A spoiler log file is written to the `spoiler_logs\` folder inside the randomizer directory (e.g. `spoiler_20240501_seed1234567890.txt`).
+- Node.js 18 or newer
+- npm
 
----
-
-## Running from source
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) 18 or later
-- npm (comes with Node.js)
-
-### Install dependencies
+Common commands:
 
 ```bash
-npm install
+npm ci              # install exact dependencies from package-lock.json
+npm test            # run parser tests
+npm run dev         # run the browser version locally
+npm run electron:dev # run the desktop app in development mode
+npm run build       # build the web app into dist/
+npm run dist        # build the Windows portable app into release/
 ```
 
-### Run as a web app (browser)
+## Parser Notes
 
-```bash
-npm run dev
-```
-
-Opens `http://localhost:5173` in your browser.
-
-### Run as a desktop app (Electron dev mode)
-
-```bash
-npm run electron:dev
-```
-
-Starts the Vite dev server and launches an Electron window connected to it. DevTools open automatically.
-
----
-
-## Building the distributable
-
-### Build the Vite bundle only
-
-```bash
-npm run build
-```
-
-Output goes to `dist/`.
-
-### Build the Windows portable executable
-
-```bash
-npm run dist
-```
-
-This runs `npm run build` then packages with `electron-builder`.
-
-**Output:** `release/Elden Ring Randomizer Index <version>.exe`
-
-The `.exe` is a self-contained portable — no installer, no admin rights needed. Copy it anywhere and double-click to run.
-
----
-
-## Using the app
-
-- **Drop or browse** a `.txt` spoiler log onto the upload area.
-- **Text search** filters by item name, location, area, or replaced item simultaneously.
-- **Source type** filter narrows to boss drops, shop items, ground pickups, etc.
-- **Key items only** shows only progression-blocking items flagged by the randomizer.
-- **Favorites** can be starred from the Search tab and reviewed separately in the Favorites tab.
-- **Acquired** checkboxes in the Favorites tab strike through and dim items you have already picked up.
-- Click a **column header** to sort. Click any **row** to expand it and see the raw source line.
-- **Export CSV / JSON** exports the currently visible (filtered) records.
-- The desktop app **restores the last loaded spoiler log automatically** on launch. Use **Load new log** to clear that cached copy and choose another one.
-
----
-
-## Parser notes and limitations
-
-The parser handles spoiler logs produced by [thefifthmatt's Elden Ring Item and Enemy Randomizer](https://www.nexusmods.com/eldenring/mods/428). It recognises the real v0.11.4 hint/spoiler sections plus several fallback line formats:
-
-| Format | Example |
-|---|---|
-| `Location (Area): Item (was Original) [key]` | Most item entries |
-| `Item: Location` | Key-item shorthand sections |
-| `Item in Area: Location. Replaces Original.` | Real v0.11.4 spoiler entries |
-| `Location -> Item (was Original)` | Arrow-style variant |
-
-If your log uses an unexpected format, check the **Parser diagnostics** panel — unmatched lines are preserved there rather than silently dropped.
-
----
-
-## Development
-
-```bash
-npm test            # unit tests (vitest)
-npm run build       # Vite production build → dist/
-npm run dev         # Vite dev server
-npm run electron:dev  # Vite dev server + Electron window
-npm run dist        # build + electron-builder → release/*.exe
-```
-
-### Project layout
-
-```
-electron/
-  main.js       — Electron main process (window creation, file:// vs localhost)
-  preload.js    — Context bridge (security boundary)
-src/
-  parser/       — spoilerLogParser, normalize, sourceType, diagnostics
-  components/   — UploadPanel, Filters, SearchTable, DiagnosticsPanel, ExportButtons
-  types.ts
-  App.tsx
-  main.tsx
-tests/
-  fixtures/     — synthetic spoiler log samples
-  parser.test.ts
-release/        — generated executables (gitignored)
-dist/           — Vite production build (gitignored)
-```
-
----
+The parser supports the real v0.11.4 randomizer spoiler format plus a few older/common variants. If a line cannot be understood, it is shown in the parser diagnostics panel instead of being silently ignored.
 
 ## License
 
