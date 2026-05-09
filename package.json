@@ -1,7 +1,7 @@
 {
-  "name": "elden-ring-randomizer-index-build-planner",
-  "version": "1.3.0",
-  "description": "Searchable spoiler-log index and build planner for Elden Ring Randomizer seeds.",
+"name": "elden-ring-index",
+  "version": "1.0.0",
+  "description": "Searchable index and build planner for Elden Ring — all items, vanilla locations, stat-filtered builds.",
   "author": "Mjolniar",
   "private": true,
   "main": "electron/main.js",
@@ -31,8 +31,8 @@
     "wait-on": "^7.2.0"
   },
   "build": {
-    "appId": "com.mjolniar.eldenringrandomizer.buildplanner",
-    "productName": "Elden Ring Randomizer Index and Build Planner",
+    "appId": "com.mjolniar.eldenring.index",
+    "productName": "Elden Ring Index and Build Planner",
     "copyright": "MIT",
     "asar": true,
     "directories": {

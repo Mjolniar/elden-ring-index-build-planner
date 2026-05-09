@@ -1,4 +1,4 @@
-import { readdirSync, renameSync, mkdirSync, existsSync } from 'node:fs';
+import { readdirSync, renameSync, mkdirSync, existsSync, statSync } from 'node:fs';
 import { join, extname } from 'node:path';
 
 const releaseDir = join(__dirname, '..', 'release');
@@ -11,12 +11,10 @@ const exeFiles = files
   .filter((f) => f.isFile() && f.name.endsWith('.exe'))
   .sort((a, b) => a.name.localeCompare(b.name));
 
-if (exeFiles.length <= 1) {
-  console.log('Only one exe in release, nothing to move.');
-  process.exit(0);
-}
-
-const newest = exeFiles[exeFiles.length - 1];
+const newest = exeFiles.reduce((best, f) => {
+  const time = statSync(join(releaseDir, f.name)).mtimeMs;
+  return time > (best ? statSync(join(releaseDir, best.name)).mtimeMs : 0) ? f : best;
+}, null as (typeof exeFiles[0]) | null);
 console.log(`Keeping newest: ${newest.name}`);
 
 for (const file of exeFiles) {

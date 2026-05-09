@@ -181,12 +181,12 @@ export function CustomBuildEditor({ onSave, onCancel, editingBuild }: Props) {
                   className="search-input"
                   min="1"
                   max="99"
-                  value={build.statValues?.[stat] ?? ''}
+                  value={build.statRequired?.[stat] ?? ''}
                   onChange={(e) => {
                     const val = e.target.value ? parseInt(e.target.value) : 0;
                     setBuild((prev) => ({
                       ...prev,
-                      statValues: { ...prev.statValues, [stat]: val || undefined },
+                      statRequired: { ...prev.statRequired, [stat]: val || undefined },
                     }));
                   }}
                   placeholder="—"

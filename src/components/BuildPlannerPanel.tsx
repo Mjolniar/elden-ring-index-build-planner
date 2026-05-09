@@ -146,15 +146,19 @@ export function BuildPlannerPanel({
   const primaryStats = selectedBuild.primaryStats.join(' / ') || 'Flexible';
   const secondaryStats = selectedBuild.secondaryStats.join(' / ') || 'None listed';
   const isUserBuild = selectedBuild.id.startsWith('user-');
-  const soulCost = selectedBuild.statValues ? computeSoulCost(selectedBuild) : null;
+  const soulCost = (selectedBuild.statRecommended || selectedBuild.statRequired) ? computeSoulCost(selectedBuild) : null;
 
-  const statBars = selectedBuild.statValues
-    ? BUILD_STATS.filter((s) => (selectedBuild.statValues?.[s] ?? 0) > 0).map((s) => ({
-        stat: s,
-        value: selectedBuild.statValues![s] ?? 0,
-        pct: Math.min(100, ((selectedBuild.statValues![s] ?? 0) / 80) * 100),
-      }))
-    : null;
+  const makeBars = (stats: Partial<Record<BuildStat, number>> | undefined) =>
+    stats
+      ? BUILD_STATS.filter((s) => (stats[s] ?? 0) > 0).map((s) => ({
+          stat: s,
+          value: stats[s] ?? 0,
+          pct: Math.min(100, ((stats[s] ?? 0) / 80) * 100),
+        }))
+      : null;
+
+  const requiredBars = makeBars(selectedBuild.statRequired);
+  const recommendedBars = makeBars(selectedBuild.statRecommended);
 
   function toggleStat(stat: BuildStat) {
     setSelectedStats((c) => c.includes(stat) ? c.filter((s) => s !== stat) : [...c, stat]);
@@ -297,29 +301,51 @@ export function BuildPlannerPanel({
                 <span>Secondary: {secondaryStats}</span>
                 <span>All matched: {foundCount} / {matches.length}</span>
               </div>
-              {statBars && (
+              {(requiredBars || recommendedBars) && (
                 <div className="build-stat-bars">
-                  <div className="stat-bars-title">
-                    Target stats
-                    {soulCost && (
-                      <span className="stat-soul-cost">
-                        RL {soulCost.targetLevel} · ~{formatRunes(soulCost.cost)} runes · best: {soulCost.bestClass}
-                      </span>
-                    )}
-                  </div>
-                  <div className="stat-bars-grid">
-                    {statBars.map(({ stat, value, pct }) => (
-                      <div key={stat} className="stat-bar-item">
-                        <div className="stat-bar-header">
-                          <span className="stat-bar-name">{stat}</span>
-                          <span className="stat-bar-value">{value}</span>
-                        </div>
-                        <div className="stat-bar-track">
-                          <div className="stat-bar-fill" style={{ width: `${pct}%` }} />
-                        </div>
+                  {requiredBars && (
+                    <div className="stat-bars-section">
+                      <div className="stat-bars-title">Item requirements</div>
+                      <div className="stat-bars-grid">
+                        {requiredBars.map(({ stat, value, pct }) => (
+                          <div key={stat} className="stat-bar-item">
+                            <div className="stat-bar-header">
+                              <span className="stat-bar-name">{stat}</span>
+                              <span className="stat-bar-value">{value}</span>
+                            </div>
+                            <div className="stat-bar-track">
+                              <div className="stat-bar-fill stat-bar-fill--required" style={{ width: `${pct}%` }} />
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  )}
+                  {recommendedBars && (
+                    <div className="stat-bars-section">
+                      <div className="stat-bars-title">
+                        Recommended allocation
+                        {soulCost && (
+                          <span className="stat-soul-cost">
+                            RL {soulCost.targetLevel} · ~{formatRunes(soulCost.cost)} runes · best: {soulCost.bestClass}
+                          </span>
+                        )}
+                      </div>
+                      <div className="stat-bars-grid">
+                        {recommendedBars.map(({ stat, value, pct }) => (
+                          <div key={stat} className="stat-bar-item">
+                            <div className="stat-bar-header">
+                              <span className="stat-bar-name">{stat}</span>
+                              <span className="stat-bar-value">{value}</span>
+                            </div>
+                            <div className="stat-bar-track">
+                              <div className="stat-bar-fill" style={{ width: `${pct}%` }} />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

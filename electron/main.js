@@ -112,7 +112,7 @@ function createWindow() {
     height: 860,
     minWidth: 800,
     minHeight: 600,
-    title: 'Elden Ring Randomizer Index and Build Planner',
+    title: 'Elden Ring Index and Build Planner',
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),

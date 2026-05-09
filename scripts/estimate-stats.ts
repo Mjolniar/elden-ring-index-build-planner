@@ -6,12 +6,10 @@ const GAMEDATA = process.env.ERDB_DATA ?? join(tmpdir(), 'erdb-gamedata');
 const TS_PATH = join(__dirname, '..', 'src', 'buildPlanner.ts');
 const ALL_STATS = ['Vigor', 'Mind', 'Endurance', 'Strength', 'Dexterity', 'Intelligence', 'Faith', 'Arcane'];
 
-// Softcap targets — primary stats are pushed to the first meaningful softcap,
-// secondaries to a useful-but-not-dominant level, everything else to a
-// survivability / mobility baseline.
+// Softcap targets used for calculated builds' recommended allocation.
 const PRIMARY_TARGET: Record<string, number> = {
   Vigor: 60, Mind: 50, Endurance: 40,
-  Strength: 54,       // effective 80 when two-handing
+  Strength: 54,   // effective 80 when two-handing
   Dexterity: 80,
   Intelligence: 60, Faith: 60, Arcane: 45,
 };
@@ -35,13 +33,12 @@ function parseCsv(path: string, colMap: Record<string, string>): StatMap {
   const statCols = Object.entries(colMap).map(([csvCol, stat]) => ({
     idx: headers.indexOf(csvCol), stat,
   }));
-
   const map: StatMap = new Map();
   for (const line of lines.slice(1)) {
     const f = line.split(';');
     let name = f[nameIdx]?.trim();
     if (!name) continue;
-    name = name.replace(/^\[[^\]]+\]\s*/, ''); // strip [Sorcery] / [Incantation]
+    name = name.replace(/^\[[^\]]+\]\s*/, '');
     const reqs: Partial<Record<string, number>> = {};
     for (const { idx, stat } of statCols) {
       const val = parseInt(f[idx] ?? '');
@@ -66,11 +63,7 @@ const spellDB = parseCsv(join(GAMEDATA, 'Magic.csv'), {
 });
 console.log(`DB loaded — weapons: ${weaponDB.size}, spells: ${spellDB.size}`);
 
-function estimateStats(
-  requirements: Array<{ name: string; kind: string }>,
-  primaryStats: string[],
-  secondaryStats: string[],
-): Record<string, number> {
+function itemRequirements(requirements: Array<{ name: string; kind: string }>): Record<string, number> {
   const mins: Record<string, number> = {};
   for (const { name, kind } of requirements) {
     const key = name.toLowerCase().trim();
@@ -82,6 +75,14 @@ function estimateStats(
       if (val) mins[stat] = Math.max(mins[stat] ?? 0, val);
     }
   }
+  return mins;
+}
+
+function softcapRecommended(
+  mins: Record<string, number>,
+  primaryStats: string[],
+  secondaryStats: string[],
+): Record<string, number> {
   const result: Record<string, number> = {};
   for (const stat of ALL_STATS) {
     const min = mins[stat] ?? 0;
@@ -93,48 +94,67 @@ function estimateStats(
   return result;
 }
 
-// ─── Patch buildPlanner.ts ────────────────────────────────────────────────
+// ─── Load and prepare the TS file ────────────────────────────────────────────
 let ts = readFileSync(TS_PATH, 'utf8');
 
-const idPositions: Array<{ pos: number }> = [];
+// Phase 0: save scraped allocations keyed by preset id before stripping anything.
+const savedScraped = new Map<string, Record<string, number>>();
+{
+  let s = ts.indexOf('"id": "');
+  while (s !== -1) {
+    const idEnd = ts.indexOf('"', s + 7);
+    const id = ts.substring(s + 7, idEnd);
+    const reqIdx = ts.indexOf('"requirements"', s);
+    if (reqIdx !== -1 && reqIdx - s < 5000) {
+      const mid = ts.substring(s, reqIdx);
+      if (mid.includes('"statSource": "scraped"')) {
+        // Try old field name (statValues) or new (statRequired)
+        const m = mid.match(/"stat(?:Values|Required)":\s*(\{[^}]*\})/);
+        if (m) try { savedScraped.set(id, JSON.parse(m[1])); } catch {}
+      }
+    }
+    s = ts.indexOf('"id": "', s + 10);
+  }
+}
+console.log(`Saved ${savedScraped.size} scraped allocations`);
+
+// Phase 1: strip all existing stat injection fields (old and new names).
+ts = ts.replace(/"statValues":\s*\{[^}]*\},\s*\n\s*/g, '');
+ts = ts.replace(/"statRequired":\s*\{[^}]*\},\s*\n\s*/g, '');
+ts = ts.replace(/"statRecommended":\s*\{[^}]*\},\s*\n\s*/g, '');
+ts = ts.replace(/"statSource":\s*"[^"]+",\s*\n\s*/g, '');
+
+// Phase 2: find preset positions in the now-clean file.
+const idPositions: Array<{ id: string; pos: number }> = [];
 let search = ts.indexOf('"id": "');
 while (search !== -1) {
+  const idEnd = ts.indexOf('"', search + 7);
+  const id = ts.substring(search + 7, idEnd);
   const after = ts.substring(search, search + 120);
   if (after.includes('"name"') && !after.includes('"node_id"')) {
-    idPositions.push({ pos: search });
+    idPositions.push({ id, pos: search });
   }
   search = ts.indexOf('"id": "', search + 10);
 }
 console.log(`Presets found: ${idPositions.length}`);
 
+// Phase 3: build patch list.
 const patches: Array<{ pos: number; inject: string }> = [];
-let scraped = 0, calculated = 0, alreadyDone = 0;
+let nScraped = 0, nCalculated = 0;
 
-for (const { pos } of idPositions) {
+for (const { id, pos } of idPositions) {
   const reqIdx = ts.indexOf('"requirements"', pos);
   if (reqIdx === -1 || reqIdx - pos > 5000) continue;
   const mid = ts.substring(pos, reqIdx);
 
-  const hasValues = mid.includes('"statValues"');
-  const hasSource = mid.includes('"statSource"');
-
-  if (hasValues && hasSource) { alreadyDone++; continue; }
-
-  if (hasValues && !hasSource) {
-    patches.push({ pos: reqIdx, inject: `"statSource": "scraped",\n    ` });
-    scraped++;
-    continue;
-  }
-
-  // No statValues yet — estimate from weapon requirements + softcap rules.
   const extract = (re: RegExp) => {
     const m = mid.match(re);
-    return m ? m[1].replace(/"/g, '').split(',').map(s => s.trim()).filter(Boolean) : [];
+    return m ? m[1].replace(/"/g, '').split(',').map((s: string) => s.trim()).filter(Boolean) : [];
   };
   const primaryStats   = extract(/"primaryStats":\s*\[([\s\S]*?)\]/);
   const secondaryStats = extract(/"secondaryStats":\s*\[([\s\S]*?)\]/);
 
-  // Walk the requirements array with bracket counting to find its end.
+  // Walk requirements array.
   let depth = 0, i = reqIdx + 14;
   while (i < ts.length) {
     if (ts[i] === '[') depth++;
@@ -146,18 +166,34 @@ for (const { pos } of idPositions) {
   const kinds = [...reqSection.matchAll(/"kind":\s*"([^"]+)"/g)].map(m => m[1]);
   const requirements = names.map((name, j) => ({ name, kind: kinds[j] ?? 'weapon' }));
 
-  const stats = estimateStats(requirements, primaryStats, secondaryStats);
-  patches.push({
-    pos: reqIdx,
-    inject: `"statValues": ${JSON.stringify(stats)},\n    "statSource": "calculated",\n    `,
-  });
-  calculated++;
+  const statRequired = itemRequirements(requirements);
+
+  let statRecommended: Record<string, number>;
+  let source: string;
+  if (savedScraped.has(id)) {
+    statRecommended = savedScraped.get(id)!;
+    source = 'scraped';
+    nScraped++;
+  } else {
+    statRecommended = softcapRecommended(statRequired, primaryStats, secondaryStats);
+    source = 'calculated';
+    nCalculated++;
+  }
+
+  const reqLine  = Object.keys(statRequired).length > 0
+    ? `"statRequired": ${JSON.stringify(statRequired)},\n    `
+    : '';
+  const recLine  = `"statRecommended": ${JSON.stringify(statRecommended)},\n    `;
+  const srcLine  = `"statSource": "${source}",\n    `;
+
+  patches.push({ pos: reqIdx, inject: reqLine + recLine + srcLine });
 }
 
+// Phase 4: apply patches in reverse order so earlier positions stay valid.
 patches.sort((a, b) => b.pos - a.pos);
 for (const { pos, inject } of patches) {
   ts = ts.substring(0, pos) + inject + ts.substring(pos);
 }
 
 writeFileSync(TS_PATH, ts, 'utf8');
-console.log(`Tagged scraped: ${scraped}, estimated: ${calculated}, already complete: ${alreadyDone}`);
+console.log(`Done — scraped: ${nScraped}, calculated: ${nCalculated}`);
