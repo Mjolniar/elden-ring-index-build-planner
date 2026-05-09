@@ -21,6 +21,7 @@
 
 html, body {
   height: 100%;
+  overflow: hidden;
   background:
     linear-gradient(180deg, #121212 0, var(--bg) 280px),
     var(--bg);
@@ -29,10 +30,10 @@ html, body {
   font-size: 14px;
 }
 
-#root { min-height: 100vh; display: flex; flex-direction: column; }
+#root { height: 100vh; min-height: 0; display: flex; flex-direction: column; }
 
 /* ---- App shell ---- */
-.app { display: flex; flex-direction: column; min-height: 100vh; }
+.app { display: flex; flex-direction: column; height: 100vh; min-height: 0; }
 
 .app-header {
   display: flex; align-items: center; justify-content: space-between;
@@ -88,7 +89,20 @@ html, body {
 .upload-hint { font-size: 11px; color: var(--text-dim); }
 
 /* ---- Main layout ---- */
-.main-layout { display: flex; flex-direction: column; flex: 1; padding: 14px; gap: 12px; }
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 14px;
+  gap: 12px;
+}
+
+.main-layout > .table-wrapper {
+  flex: 1;
+  min-height: 0;
+}
 
 /* ---- Toolbar ---- */
 .toolbar {
@@ -139,6 +153,8 @@ html, body {
 .build-planner {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-height: 0;
   gap: 10px;
 }
 
@@ -229,11 +245,16 @@ html, body {
 .build-browser {
   display: grid;
   grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  flex: 1;
+  min-height: 0;
   gap: 10px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .build-list-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   border: 1px solid var(--border);
   border-radius: 7px;
   background: rgba(23, 23, 23, .82);
@@ -249,7 +270,8 @@ html, body {
 }
 
 .build-list {
-  max-height: 620px;
+  flex: 1;
+  min-height: 0;
   overflow: auto;
 }
 
@@ -306,8 +328,15 @@ html, body {
 .build-detail-panel {
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 10px;
   min-width: 0;
+  min-height: 0;
+}
+
+.build-detail-panel .table-wrapper {
+  flex: 1;
+  min-height: 0;
 }
 
 .build-summary {
@@ -580,7 +609,8 @@ details[open] .diagnostics-title::before { content: '▼'; }
   }
 
   .build-list {
-    max-height: 260px;
+    flex: none;
+    max-height: clamp(220px, 32vh, 360px);
   }
 
   .build-counts {
