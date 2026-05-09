@@ -17,10 +17,32 @@ export interface BuildPreset {
   primaryStats: BuildStat[];
   secondaryStats: BuildStat[];
   statTags: BuildStat[];
+  statValues?: Partial<Record<BuildStat, number>>;
+  statSource?: 'scraped' | 'calculated';
+  startingClass?: string;
   summary: string;
   sourceUrl: string;
   requirements: BuildRequirement[];
 }
+
+export interface StartingClass {
+  name: string;
+  level: number;
+  stats: Record<BuildStat, number>;
+}
+
+export const STARTING_CLASSES: StartingClass[] = [
+  { name: 'Vagabond', level: 9, stats: { Vigor: 15, Mind: 10, Endurance: 11, Strength: 14, Dexterity: 13, Intelligence: 9, Faith: 9, Arcane: 7 } },
+  { name: 'Warrior', level: 8, stats: { Vigor: 11, Mind: 12, Endurance: 11, Strength: 10, Dexterity: 16, Intelligence: 10, Faith: 8, Arcane: 9 } },
+  { name: 'Hero', level: 7, stats: { Vigor: 14, Mind: 9, Endurance: 12, Strength: 16, Dexterity: 9, Intelligence: 7, Faith: 8, Arcane: 11 } },
+  { name: 'Bandit', level: 5, stats: { Vigor: 10, Mind: 11, Endurance: 10, Strength: 9, Dexterity: 13, Intelligence: 9, Faith: 8, Arcane: 14 } },
+  { name: 'Astrologer', level: 6, stats: { Vigor: 9, Mind: 15, Endurance: 9, Strength: 8, Dexterity: 12, Intelligence: 16, Faith: 7, Arcane: 9 } },
+  { name: 'Prophet', level: 7, stats: { Vigor: 10, Mind: 14, Endurance: 8, Strength: 11, Dexterity: 10, Intelligence: 7, Faith: 16, Arcane: 10 } },
+  { name: 'Samurai', level: 9, stats: { Vigor: 12, Mind: 11, Endurance: 13, Strength: 12, Dexterity: 15, Intelligence: 9, Faith: 8, Arcane: 8 } },
+  { name: 'Prisoner', level: 9, stats: { Vigor: 11, Mind: 12, Endurance: 11, Strength: 11, Dexterity: 14, Intelligence: 14, Faith: 6, Arcane: 9 } },
+  { name: 'Confessor', level: 10, stats: { Vigor: 10, Mind: 13, Endurance: 10, Strength: 12, Dexterity: 12, Intelligence: 9, Faith: 14, Arcane: 9 } },
+  { name: 'Wretch', level: 1, stats: { Vigor: 10, Mind: 10, Endurance: 10, Strength: 10, Dexterity: 10, Intelligence: 10, Faith: 10, Arcane: 10 } },
+];
 
 export interface BuildRequirementMatch {
   requirement: BuildRequirement;
@@ -54,6 +76,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence / Faith build using Staff of the Great Beyond.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":38,"Endurance":33,"Intelligence":80},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Staff of the Great Beyond",
@@ -173,6 +197,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Mind / Dexterity build using Shortbow and Longbow.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":50,"Endurance":30,"Strength":10,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Shortbow",
@@ -216,6 +242,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Endurance / Strength build using Zweihander.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Strength":12,"Dexterity":80,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Zweihander",
@@ -255,14 +283,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence build using Carian Glintstone Staff.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":25,"Dexterity":14,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Carian Glintstone Staff",
         "kind": "staff"
-      },
-      {
-        "name": "Jellyfish Shield",
-        "kind": "shield"
       },
       {
         "name": "that can med roll",
@@ -270,7 +296,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Jellyfish Shield",
-        "kind": "weapon"
+        "kind": "shield"
       },
       {
         "name": "Carian Slicer",
@@ -314,6 +340,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Endurance build using Claymore and Lordsworn's Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":40,"Strength":25,"Dexterity":20,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Claymore",
@@ -349,6 +377,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Black Bow.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":54,"Dexterity":80,"Intelligence":7,"Faith":25,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Black Bow",
@@ -416,6 +446,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Faith build using Maliketh's Black Blade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":48,"Strength":80,"Faith":12,"Arcane":11},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Maliketh's Black Blade",
@@ -483,6 +515,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity / Faith build using Cross-Naginata.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":18,"Dexterity":80,"Intelligence":7,"Faith":60,"Arcane":10},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Cross-Naginata",
@@ -576,6 +610,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity / Arcane build using Clinging Bone.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":25,"Strength":22,"Dexterity":18,"Intelligence":16,"Faith":74,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Clinging Bone",
@@ -669,6 +705,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Faith build using Black Steel Greathammer.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":30,"Endurance":40,"Strength":45,"Faith":45},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Black Steel Greathammer",
@@ -742,6 +780,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity / Faith build using Erdsteel Dagger.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":10,"Dexterity":80,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Erdsteel Dagger",
@@ -829,6 +869,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Mind / Faith build using Weapon that has Bleed on it by default such as the Uchigatana.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":50,"Endurance":20,"Strength":18,"Dexterity":24,"Intelligence":7,"Faith":60,"Arcane":10},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Weapon that has Bleed on it by default such as the Uchigatana",
@@ -892,6 +934,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity / Faith build using Cross-Naginata.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":18,"Dexterity":80,"Intelligence":7,"Faith":60,"Arcane":10},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Cross-Naginata",
@@ -991,6 +1035,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Faith build using Clawmark Seal.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":54,"Dexterity":15,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Clawmark Seal",
@@ -1066,6 +1112,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Faith build using Blasphemous Blade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":15,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Blasphemous Blade",
@@ -1161,6 +1209,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Faith build using Hookclaws.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":10,"Dexterity":14,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Hookclaws",
@@ -1228,6 +1278,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Nagakiba.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":54,"Dexterity":80,"Intelligence":7,"Faith":15,"Arcane":10},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Nagakiba",
@@ -1297,6 +1349,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength build using Crescent Moon Axe.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":15,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Crescent Moon Axe",
@@ -1352,6 +1406,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using Eleonora's Poleblade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":20,"Strength":12,"Dexterity":21,"Intelligence":7,"Faith":17,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Eleonora's Poleblade",
@@ -1417,6 +1473,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using Dual Scimitars.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":38,"Endurance":20,"Strength":8,"Dexterity":12,"Intelligence":16,"Faith":80,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Dual Scimitars",
@@ -1470,6 +1528,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using Sword Lance.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":24,"Endurance":37,"Strength":30,"Dexterity":50,"Intelligence":20,"Faith":16,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Sword Lance",
@@ -1517,6 +1577,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Endurance build using Scimitar.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":40,"Strength":10,"Dexterity":20,"Intelligence":7,"Faith":7,"Arcane":16},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Scimitar",
@@ -1554,6 +1616,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Bloodhound's Fang.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":20,"Strength":25,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Bloodhound's Fang",
@@ -1565,7 +1629,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "armor that adds up to 51 Poise the Bull-Goat's Talisman equipped",
-        "kind": "armor"
+        "kind": "talisman"
       },
       {
         "name": "Bull-Goat's Talisman",
@@ -1600,6 +1664,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using Bloody Helice.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":16,"Dexterity":19,"Intelligence":7,"Faith":7,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Bloody Helice",
@@ -1648,6 +1714,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using Beast Claw.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":25,"Mind":50,"Endurance":13,"Arcane":99},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Beast Claw",
@@ -1709,6 +1777,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Black Bow.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":54,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Black Bow",
@@ -1766,6 +1836,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength / Intelligence build using Iron Ball.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":43,"Endurance":10,"Strength":9,"Dexterity":12,"Intelligence":80,"Faith":25,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Iron Ball",
@@ -1833,6 +1905,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Loretta's War Sickle.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":80,"Intelligence":20,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Loretta's War Sickle",
@@ -1902,6 +1976,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Mind / Intelligence build using Iron Cleaver.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":25,"Strength":50,"Dexterity":50,"Intelligence":16,"Faith":7,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Iron Cleaver",
@@ -1973,6 +2049,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Carian Sorcery Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":10,"Dexterity":10,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Carian Sorcery Sword",
@@ -2062,6 +2140,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength build.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":31,"Endurance":25,"Strength":12,"Dexterity":19,"Intelligence":80,"Faith":7,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Carian Thrusting Shield",
@@ -2127,6 +2207,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Claymore.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":30,"Endurance":25,"Strength":16,"Dexterity":16,"Intelligence":16,"Faith":70,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Claymore",
@@ -2192,6 +2274,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence build using Longsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":10,"Dexterity":10,"Intelligence":60,"Faith":18,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Longsword",
@@ -2285,11 +2369,9 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength / Dexterity build using Rellana's Twinblade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":28,"Endurance":25,"Strength":13,"Dexterity":83},
+    "statSource": "scraped",
     "requirements": [
-      {
-        "name": "Rellana's Twin Blades",
-        "kind": "weapon"
-      },
       {
         "name": "Golden Order Seal",
         "kind": "seal"
@@ -2348,6 +2430,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Endurance / Strength build using Lordsworn's Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":40,"Strength":54,"Dexterity":13,"Intelligence":7,"Faith":25,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Lordsworn's Greatsword",
@@ -2391,6 +2475,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Intelligence build using Bloodhound Claws.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":54,"Dexterity":15,"Intelligence":60,"Faith":25,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Bloodhound Claws",
@@ -2480,6 +2566,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength build using Chainlink Flail.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":25,"Endurance":30,"Strength":65,"Dexterity":13,"Intelligence":16,"Faith":25,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Chainlink Flail",
@@ -2573,6 +2661,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength build using Giant-Crusher.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":60,"Dexterity":10,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Giant-Crusher",
@@ -2630,6 +2720,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength build using Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":12,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Greatsword",
@@ -2663,6 +2755,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength build using Prelate's Inferno Crozier.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":10,"Intelligence":7,"Faith":15,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Prelate's Inferno Crozier",
@@ -2724,6 +2818,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using Rogier's Rapier.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":10,"Dexterity":17,"Intelligence":7,"Faith":7,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Rogier's Rapier",
@@ -2775,6 +2871,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Faith build using Ordovis' Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":54,"Dexterity":13,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Ordovis' Greatsword",
@@ -2848,6 +2946,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Faith build using Gargoyle's Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":20,"Strength":18,"Dexterity":10,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Gargoyle's Greatsword",
@@ -2941,6 +3041,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence build using Crystal Staff.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":20,"Dexterity":14,"Intelligence":60,"Faith":12,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Crystal Staff",
@@ -2953,10 +3055,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
       {
         "name": "Clawmark Seal",
         "kind": "seal"
-      },
-      {
-        "name": "Jellyfish Shield",
-        "kind": "shield"
       },
       {
         "name": "that still allows you to med roll",
@@ -2980,7 +3078,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Jellyfish Shield",
-        "kind": "weapon"
+        "kind": "shield"
       },
       {
         "name": "Crystal Torrent",
@@ -3032,6 +3130,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Helphen's Steeple.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":19,"Dexterity":12,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Helphen's Steeple",
@@ -3107,6 +3207,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Endurance / Dexterity build using Milady.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":40,"Strength":10,"Dexterity":80,"Intelligence":7,"Faith":25,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Milady",
@@ -3164,6 +3266,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Mind / Intelligence build using Dark Moon Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":50,"Endurance":20,"Strength":16,"Dexterity":12,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Dark Moon Greatsword",
@@ -3233,6 +3337,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence build using Sword of Night and Flame.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":12,"Dexterity":12,"Intelligence":60,"Faith":25,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Sword of Night and Flame",
@@ -3320,6 +3426,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence / Faith build using Sword of Night and Flame.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":12,"Dexterity":12,"Intelligence":60,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Sword of Night and Flame",
@@ -3403,6 +3511,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence / Faith build using Sword of Night and Flame.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":12,"Dexterity":12,"Intelligence":60,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Sword of Night and Flame",
@@ -3488,6 +3598,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength build using Devonia's Hammer.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":30,"Endurance":25,"Strength":50,"Dexterity":25,"Intelligence":16,"Faith":25,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Devonia's Hammer",
@@ -3559,6 +3671,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Faith build using Euporia.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":10,"Dexterity":10,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Euporia",
@@ -3616,6 +3730,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using Dane's Footwork.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":26,"Endurance":30,"Strength":12,"Dexterity":70,"Intelligence":21,"Faith":7,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Dane's Footwork",
@@ -3671,6 +3787,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using Regalia of Eochaid.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":20,"Strength":24,"Dexterity":18,"Intelligence":7,"Faith":28,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Regalia of Eochaid",
@@ -3756,6 +3874,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Mind / Arcane build using Dragon Communion Seal.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":26,"Endurance":25,"Strength":14,"Dexterity":35,"Intelligence":16,"Faith":60,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Dragon Communion Seal",
@@ -3807,6 +3927,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using that can use Bloody Slash.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":20,"Strength":20,"Dexterity":14,"Intelligence":7,"Faith":25,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "that can use Bloody Slash",
@@ -3815,10 +3937,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
       {
         "name": "Dragon Communion Seal",
         "kind": "seal"
-      },
-      {
-        "name": "Jellyfish Shield",
-        "kind": "shield"
       },
       {
         "name": "Silver Tear Mask",
@@ -3854,7 +3972,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Jellyfish Shield",
-        "kind": "weapon"
+        "kind": "shield"
       },
       {
         "name": "Golden Vow",
@@ -3914,6 +4032,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Mind build.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":50,"Endurance":20,"Strength":10,"Dexterity":10,"Intelligence":7,"Faith":16,"Arcane":16},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Dragonfire",
@@ -3941,6 +4061,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Faith build using Erdtree Seal.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":10,"Dexterity":10,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Erdtree Seal",
@@ -4004,6 +4126,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using Bandit's Curved Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Endurance":25,"Faith":30,"Arcane":50},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Bandit's Curved Sword",
@@ -4077,6 +4201,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Dragonscale Blade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":54,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Dragonscale Blade",
@@ -4138,6 +4264,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength / Dexterity build using Dragon-Hunter's Great Katana.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":33,"Endurance":35,"Strength":55,"Dexterity":12,"Intelligence":16,"Faith":7,"Arcane":35},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Dragon-Hunter's Great Katana",
@@ -4187,6 +4315,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Faith build using Magma Wyrm's Scalesword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":54,"Dexterity":15,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Magma Wyrm's Scalesword",
@@ -4252,6 +4382,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Horned Warrior's Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":40,"Endurance":25,"Strength":8,"Dexterity":12,"Intelligence":81,"Faith":7,"Arcane":10},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Horned Warrior's Sword",
@@ -4323,6 +4455,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence / Faith build using Prince of Death's Staff.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":10,"Dexterity":10,"Intelligence":60,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Prince of Death's Staff",
@@ -4402,6 +4536,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Carian Glintstone Staff.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":12,"Dexterity":10,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Carian Glintstone Staff",
@@ -4451,6 +4587,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Arcane build using Marais Executioner's Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":54,"Dexterity":18,"Intelligence":7,"Faith":15,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Marais Executioner's Sword",
@@ -4520,6 +4658,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity / Faith build using Spear of the Impaler.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":42,"Endurance":25,"Strength":14,"Dexterity":12,"Intelligence":16,"Faith":30,"Arcane":50},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Spear of the Impaler",
@@ -4595,6 +4735,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Faith build using Giant's Red Braid.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":12,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Giant's Red Braid",
@@ -4676,6 +4818,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Mind / Faith build using Curved Great Club.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":25,"Endurance":30,"Strength":13,"Dexterity":12,"Intelligence":16,"Faith":25,"Arcane":80},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Curved Great Club",
@@ -4773,6 +4917,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence build using Lusat's Glintstone Staff.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":20,"Dexterity":14,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Lusat's Glintstone Staff",
@@ -4781,10 +4927,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
       {
         "name": "Carian Glintstone Staff",
         "kind": "staff"
-      },
-      {
-        "name": "Jellyfish Shield",
-        "kind": "shield"
       },
       {
         "name": "Snow Witch Hat",
@@ -4812,7 +4954,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Jellyfish Shield",
-        "kind": "weapon"
+        "kind": "shield"
       },
       {
         "name": "Carian Slicer",
@@ -4856,6 +4998,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Faith / Arcane build using Dragon Communion Seal.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":10,"Dexterity":10,"Intelligence":7,"Faith":60,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Dragon Communion Seal",
@@ -4957,6 +5101,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence build using Clayman's Harpoon.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":12,"Dexterity":10,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Clayman's Harpoon",
@@ -5040,6 +5186,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Mind build using Zamor Curved Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":50,"Endurance":20,"Strength":25,"Dexterity":20,"Intelligence":7,"Faith":25,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Zamor Curved Sword",
@@ -5117,6 +5265,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength / Dexterity / Intelligence build using Dryleaf Arts.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":25,"Endurance":27,"Strength":11,"Dexterity":80,"Intelligence":16,"Faith":7,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Dryleaf Arts",
@@ -5184,6 +5334,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength / Dexterity / Intelligence build using Death's Poker.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":27,"Endurance":40,"Strength":35,"Dexterity":12,"Intelligence":16,"Faith":50,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Death's Poker",
@@ -5239,7 +5391,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Flexible talisman slot",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Death's Poker",
@@ -5273,6 +5425,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength / Dexterity build using Highland Axe.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":25,"Endurance":30,"Strength":13,"Dexterity":12,"Arcane":80},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Highland Axe",
@@ -5348,6 +5502,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Godslayer's Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":20,"Strength":25,"Dexterity":80,"Intelligence":7,"Faith":25,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Godslayer's Greatsword",
@@ -5415,6 +5571,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Endurance / Strength build using Marika's Hammer.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":35,"Endurance":35,"Strength":55,"Dexterity":20,"Intelligence":16,"Faith":25,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Marika's Hammer",
@@ -5484,6 +5642,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity build using Ornamental Straight Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":14,"Dexterity":80,"Intelligence":7,"Faith":25,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Ornamental Straight Sword",
@@ -5555,6 +5715,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence / Faith build using Coded Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":12,"Dexterity":12,"Intelligence":60,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Coded Sword",
@@ -5650,6 +5812,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Mind / Faith build using Erdtree Bow.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":50,"Endurance":20,"Strength":10,"Dexterity":20,"Intelligence":7,"Faith":60,"Arcane":16},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Erdtree Bow",
@@ -5735,6 +5899,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Fallingstar Beast Jaw.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":54,"Dexterity":80,"Intelligence":20,"Faith":15,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Fallingstar Beast Jaw",
@@ -5802,6 +5968,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Carian Regal Scepter.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":20,"Strength":10,"Dexterity":10,"Intelligence":60,"Faith":17,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Carian Regal Scepter",
@@ -5859,6 +6027,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Arcane build using Grave Scythe.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":54,"Dexterity":13,"Intelligence":7,"Faith":25,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Grave Scythe",
@@ -5928,6 +6098,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength build using Golem's Halberd.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":14,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Golem's Halberd",
@@ -5981,6 +6153,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength / Intelligence build using Clayman's Harpoon.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":29,"Endurance":30,"Strength":35,"Dexterity":35,"Intelligence":35,"Faith":7,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Clayman's Harpoon",
@@ -6070,6 +6244,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Faith build using Iron Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":18,"Dexterity":10,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Iron Greatsword",
@@ -6123,6 +6299,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity build using Star Fist.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":12,"Dexterity":80,"Intelligence":7,"Faith":12,"Arcane":10},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Star Fist",
@@ -6190,6 +6368,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Ghiza's Wheel.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Ghiza's Wheel",
@@ -6219,10 +6399,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "name": "Millicent's Prosthesis",
         "kind": "talisman"
       },
-      {
-        "name": "Jellyfish Shield",
-        "kind": "weapon"
-      }
+      
     ]
   },
   {
@@ -6243,6 +6420,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Backhand Blade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":14,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Backhand Blade",
@@ -6295,6 +6474,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Faith build using Katar.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":10,"Dexterity":10,"Intelligence":13,"Faith":60,"Arcane":10},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Katar",
@@ -6342,7 +6523,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Flexible talisman slot",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Impaling Thrust",
@@ -6390,6 +6571,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Bolt of Gransax.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":34,"Dexterity":80,"Intelligence":7,"Faith":38,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Bolt of Gransax",
@@ -6471,6 +6654,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Endurance / Strength / Faith build using Treespear.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":20,"Endurance":25,"Strength":8,"Dexterity":75,"Intelligence":16,"Faith":25,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Treespear",
@@ -6542,6 +6727,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Axe of Godfrey.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Axe of Godfrey",
@@ -6594,6 +6781,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity / Arcane build using Morgott's Cursed Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":14,"Dexterity":80,"Intelligence":7,"Faith":31,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Morgott's Cursed Sword",
@@ -6669,6 +6858,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Mind / Intelligence build using Staff.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":50,"Endurance":30,"Strength":10,"Dexterity":10,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Staff",
@@ -6736,6 +6927,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength build using Horn Bow.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":14,"Intelligence":16,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Horn Bow",
@@ -6777,6 +6970,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Arcane build using Ripple Blade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":20,"Dexterity":14,"Intelligence":7,"Faith":25,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Ripple Blade",
@@ -6785,10 +6980,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
       {
         "name": "Dragon Communion Seal",
         "kind": "seal"
-      },
-      {
-        "name": "Jellyfish Shield",
-        "kind": "shield"
       },
       {
         "name": "Silver Tear Mask",
@@ -6816,7 +7007,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Jellyfish Shield",
-        "kind": "weapon"
+        "kind": "shield"
       },
       {
         "name": "Golden Vow",
@@ -6862,6 +7053,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength build using Magma Blade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":20,"Endurance":38,"Strength":10,"Dexterity":85,"Intelligence":16,"Faith":7,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Magma Blade",
@@ -6927,6 +7120,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity / Intelligence build using Rapier.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":10,"Dexterity":80,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Rapier",
@@ -6970,6 +7165,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Carian Regal Scepter.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":10,"Dexterity":10,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Carian Regal Scepter",
@@ -7051,6 +7248,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Faith build using Fire Knight's Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":30,"Strength":35,"Dexterity":34,"Intelligence":17,"Faith":25,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Fire Knight's Greatsword",
@@ -7116,6 +7315,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence build using Carian Regal Scepter.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":10,"Dexterity":10,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Carian Regal Scepter",
@@ -7197,6 +7398,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Endurance / Strength build using Ancient Meteoric Ore Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":20,"Endurance":40,"Strength":12,"Dexterity":80,"Intelligence":16,"Faith":7,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Ancient Meteoric Ore Greatsword",
@@ -7258,6 +7461,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence build using Dark Moon Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":16,"Dexterity":11,"Intelligence":68,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Dark Moon Greatsword",
@@ -7327,6 +7532,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Moonveil.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":25,"Endurance":25,"Strength":12,"Dexterity":83,"Intelligence":16,"Faith":25,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Moonveil",
@@ -7384,6 +7591,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Moonveil.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":20,"Strength":12,"Dexterity":20,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Moonveil",
@@ -7423,6 +7632,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Moonveil.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":20,"Strength":12,"Dexterity":20,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Moonveil",
@@ -7430,7 +7641,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Uchigatana",
-        "kind": "staff"
+        "kind": "weapon"
       },
       {
         "name": "that can still med roll",
@@ -7457,8 +7668,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Glintblade Phalanx",
-        "kind": "ash"
+        "name": "Carian Knight's Sword",
+        "kind": "weapon"
       },
       {
         "name": "Loretta's Greatbow",
@@ -7494,6 +7705,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity / Intelligence build using Wing of Astel and Staff.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":10,"Dexterity":80,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Wing of Astel",
@@ -7563,6 +7776,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Claws of Night.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":35,"Strength":80,"Dexterity":12,"Intelligence":16,"Faith":7,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Claws of Night",
@@ -7632,6 +7847,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Mind / Dexterity build using Noble's Slender Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":22,"Endurance":25,"Strength":14,"Dexterity":18},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Noble's Slender Sword",
@@ -7699,6 +7916,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Faith build using one-handed and a Sacred Seal.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":25,"Dexterity":10,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "one-handed and a Sacred Seal",
@@ -7750,6 +7969,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Faith build using Miquellan Knight's Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":11,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Miquellan Knight's Sword",
@@ -7823,6 +8044,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Leda's Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":25,"Endurance":31,"Strength":53,"Dexterity":23,"Faith":25},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Leda's Sword",
@@ -7892,6 +8115,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Mind / Faith build using Erdtree Seal.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":50,"Endurance":20,"Strength":10,"Dexterity":10,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Erdtree Seal",
@@ -7969,6 +8194,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Firespark Perfume Bottle.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":35,"Endurance":25,"Strength":24,"Dexterity":12,"Intelligence":16,"Faith":65,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Firespark Perfume Bottle",
@@ -8042,6 +8269,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Faith build using Erdtree Seal.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":20,"Strength":10,"Dexterity":10,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Erdtree Seal",
@@ -8115,6 +8344,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Endurance / Arcane build using Reduvia.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":22,"Endurance":30,"Strength":8,"Dexterity":25,"Intelligence":16,"Faith":7,"Arcane":80},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Reduvia",
@@ -8177,6 +8408,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity / Intelligence build using Nagakiba.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":18,"Dexterity":80,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Nagakiba",
@@ -8230,6 +8463,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity / Intelligence build using Nagakiba.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":18,"Dexterity":80,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Nagakiba",
@@ -8285,6 +8520,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Intelligence build using Royal Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":18,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Royal Greatsword",
@@ -8352,6 +8589,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Uchigatana and Longbow.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":11,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Uchigatana",
@@ -8393,6 +8632,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":25,"Strength":10,"Dexterity":50,"Intelligence":50,"Faith":7,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Okina Mask",
@@ -8460,6 +8701,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity / Arcane build using Rivers of Blood.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":16,"Dexterity":80,"Intelligence":7,"Faith":15,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Rivers of Blood",
@@ -8535,6 +8778,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using Albinauric Staff.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":20,"Strength":10,"Dexterity":17,"Intelligence":16,"Faith":38,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Albinauric Staff",
@@ -8622,6 +8867,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Arcane build using Great Katana.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":10,"Dexterity":10,"Intelligence":7,"Faith":7,"Arcane":45},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Great Katana",
@@ -8675,6 +8922,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Rotten Crystal Spear.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":10,"Dexterity":80,"Intelligence":16,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Rotten Crystal Spear",
@@ -8738,6 +8987,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength build using Gargoyle's Twinblade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":54,"Dexterity":15,"Intelligence":7,"Faith":15,"Arcane":10},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Gargoyle's Twinblade",
@@ -8803,6 +9054,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Serpentbone Blade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":11,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Serpentbone Blade",
@@ -8872,11 +9125,9 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength / Faith build using Shadow Sunflower Blossom.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":35,"Endurance":25,"Strength":8,"Dexterity":14,"Intelligence":16,"Faith":80,"Arcane":10},
+    "statSource": "scraped",
     "requirements": [
-      {
-        "name": "Shadow Sunflower Blossom",
-        "kind": "armor"
-      },
       {
         "name": "Clawmark Seal",
         "kind": "seal"
@@ -8919,7 +9170,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Shadow Sunflower Blossom",
-        "kind": "weapon"
+        "kind": "armor"
       },
       {
         "name": "Elden Stars",
@@ -8957,6 +9208,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity / Arcane build using Smithscript Dagger.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":20,"Endurance":30,"Strength":12,"Dexterity":55,"Intelligence":16,"Faith":7,"Arcane":50},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Smithscript Dagger",
@@ -9012,6 +9265,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Death Ritual Spear.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":14,"Dexterity":20,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Death Ritual Spear",
@@ -9083,6 +9338,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Sword of St. Trina.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":80,"Intelligence":14,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Sword of St. Trina",
@@ -9135,6 +9392,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Mind / Intelligence build using Meteorite Staff.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":50,"Endurance":20,"Strength":10,"Dexterity":20,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Meteorite Staff",
@@ -9198,6 +9457,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Watchdog's Staff.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":80,"Intelligence":7,"Faith":15,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Watchdog's Staff",
@@ -9257,6 +9518,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity / Intelligence build using Nagakiba.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":18,"Dexterity":80,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Nagakiba",
@@ -9344,6 +9607,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Demi-Human Queen's Staff and Estoc.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":20,"Strength":10,"Dexterity":20,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Demi-Human Queen's Staff",
@@ -9397,6 +9662,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength / Intelligence build using Claymore.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":25,"Endurance":25,"Strength":12,"Dexterity":8,"Intelligence":50,"Faith":7,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Claymore",
@@ -9478,6 +9745,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity / Intelligence build using Glintstone Kris.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":25,"Mind":10,"Endurance":12,"Strength":25,"Dexterity":20,"Intelligence":10,"Faith":10,"Arcane":7},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Glintstone Kris",
@@ -9549,6 +9818,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Star-Lined Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":10,"Dexterity":80,"Intelligence":12,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Star-Lined Sword",
@@ -9612,6 +9883,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Endurance / Strength build using Starscourge Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":40,"Strength":54,"Dexterity":12,"Intelligence":15,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Starscourge Greatsword",
@@ -9666,6 +9939,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Ansbach's Longbow.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":25,"Strength":55,"Dexterity":45},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Ansbach's Longbow",
@@ -9697,7 +9972,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Smithscript Shield",
-        "kind": "weapon"
+        "kind": "shield"
       },
       {
         "name": "Mighty Shot",
@@ -9727,6 +10002,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength build using Messmer Soldier's Spear.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":35,"Endurance":31,"Strength":53,"Dexterity":23},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Messmer Soldier's Spear",
@@ -9782,6 +10059,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Flamberge.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":15,"Dexterity":80,"Intelligence":7,"Faith":25,"Arcane":10},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Flamberge",
@@ -9855,6 +10134,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Great Katana.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":15,"Dexterity":80,"Intelligence":16,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Great Katana",
@@ -9920,6 +10201,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Nagakiba.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":18,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Nagakiba",
@@ -9951,7 +10234,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Great-Jar's Arsenal",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Bull-Goat's Talisman",
@@ -9983,6 +10266,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Intelligence / Faith build using Sword of Night and Flame.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":30,"Endurance":20,"Strength":12,"Dexterity":12,"Intelligence":60,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Sword of Night and Flame",
@@ -10026,6 +10311,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity / Faith build using Sacred Relic Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":25,"Dexterity":80,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Sacred Relic Sword",
@@ -10099,6 +10386,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Endurance / Dexterity build using Velvet Sword of St. Trina.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":25,"Endurance":30,"Strength":80,"Dexterity":12},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Velvet Sword of St. Trina",
@@ -10168,6 +10457,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Endurance / Faith build using Noble's Slender Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":40,"Strength":16,"Dexterity":11,"Intelligence":7,"Faith":60,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Noble's Slender Sword",
@@ -10231,6 +10522,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity build using Guardian's Swordspear.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":20,"Dexterity":80,"Intelligence":7,"Faith":25,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Guardian's Swordspear",
@@ -10326,6 +10619,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Endurance / Strength build using Morning Star.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":25,"Endurance":50,"Strength":66,"Dexterity":16,"Intelligence":16,"Faith":7,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Morning Star",
@@ -10389,6 +10684,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Mind / Strength build using Death Knight's Twin Axes.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":40,"Endurance":28,"Strength":12,"Dexterity":12,"Intelligence":50,"Faith":50,"Arcane":9},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Death Knight's Twin Axes",
@@ -10454,6 +10751,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Butchering Knife.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":22,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Bonny Butchering Knife",
@@ -10509,6 +10808,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Strength / Dexterity build using Dragon Halberd.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":20,"Strength":54,"Dexterity":80,"Intelligence":7,"Faith":15,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Dragon Halberd",
@@ -10576,6 +10877,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Scavenger's Curved Sword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":54,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Scavenger's Curved Sword",
@@ -10643,6 +10946,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Sword of Night.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":10,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Sword of Night",
@@ -10711,6 +11016,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Endurance / Strength build using Ruins Greatsword.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":55,"Mind":34,"Endurance":30,"Strength":11,"Dexterity":65,"Intelligence":16,"Faith":25},
+    "statSource": "scraped",
     "requirements": [
       {
         "name": "Ruins Greatsword",
@@ -10786,6 +11093,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Intelligence build using Carian Regal Scepter.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":60,"Mind":30,"Endurance":30,"Strength":10,"Dexterity":10,"Intelligence":60,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Carian Regal Scepter",
@@ -10875,6 +11184,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Dexterity build using Hand of Malenia.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
+    "statValues": {"Vigor":50,"Mind":15,"Endurance":30,"Strength":16,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statSource": "calculated",
     "requirements": [
       {
         "name": "Hand of Malenia",
@@ -11134,4 +11445,40 @@ export function getItemsForStats(selectedStats: BuildStat[], matchAll: boolean):
   }
 
   return [...itemMap.values()].sort((a, b) => b.usedBy - a.usedBy || a.name.localeCompare(b.name));
+}
+
+export function runeCostForLevel(level: number): number {
+  if (level <= 1) return 0;
+  const x = level;
+  return Math.round(0.02 * x ** 3 + 3.06 * x ** 2 + 105.6 * x - 895);
+}
+
+export function computeSoulCost(preset: BuildPreset): { cost: number; targetLevel: number; bestClass: string } | null {
+  if (!preset.statValues) return null;
+  let bestClass = STARTING_CLASSES[0];
+  let lowestCost = Infinity;
+  for (const sc of STARTING_CLASSES) {
+    let levelsNeeded = 0;
+    for (const stat of BUILD_STATS) {
+      const target = preset.statValues[stat] ?? sc.stats[stat];
+      const base = sc.stats[stat];
+      if (target > base) levelsNeeded += target - base;
+    }
+    let cost = 0;
+    for (let lvl = sc.level; lvl < sc.level + levelsNeeded; lvl++) {
+      cost += runeCostForLevel(lvl + 1);
+    }
+    if (cost < lowestCost) { lowestCost = cost; bestClass = sc; }
+  }
+  const levelsNeeded = BUILD_STATS.reduce((sum, stat) => {
+    const target = preset.statValues![stat] ?? bestClass.stats[stat];
+    return sum + Math.max(0, target - bestClass.stats[stat]);
+  }, 0);
+  return { cost: lowestCost, targetLevel: bestClass.level + levelsNeeded, bestClass: bestClass.name };
+}
+
+export function formatRunes(n: number): string {
+  if (n >= 1000000) return `${(n / 1000000).toFixed(1)}M`;
+  if (n >= 1000) return `${Math.round(n / 1000)}K`;
+  return `${n}`;
 }

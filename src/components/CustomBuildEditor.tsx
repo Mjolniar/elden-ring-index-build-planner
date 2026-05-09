@@ -170,6 +170,35 @@ export function CustomBuildEditor({ onSave, onCancel, editingBuild }: Props) {
           </div>
         </fieldset>
 
+        <fieldset className="editor-stats">
+          <legend>Stat values (optional — shows rune cost estimate)</legend>
+          <div className="editor-stat-values">
+            {BUILD_STATS.filter((s) => build.statTags.includes(s)).map((stat) => (
+              <label key={stat} className="editor-stat-input">
+                <span>{stat}</span>
+                <input
+                  type="number"
+                  className="search-input"
+                  min="1"
+                  max="99"
+                  value={build.statValues?.[stat] ?? ''}
+                  onChange={(e) => {
+                    const val = e.target.value ? parseInt(e.target.value) : 0;
+                    setBuild((prev) => ({
+                      ...prev,
+                      statValues: { ...prev.statValues, [stat]: val || undefined },
+                    }));
+                  }}
+                  placeholder="—"
+                />
+              </label>
+            ))}
+            {build.statTags.length === 0 && (
+              <span className="editor-hint">Select primary or secondary stats above to enter values here.</span>
+            )}
+          </div>
+        </fieldset>
+
         <div className="editor-reqs">
           <h3>Required items</h3>
           {build.requirements.map((req, idx) => (

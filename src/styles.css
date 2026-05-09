@@ -712,6 +712,26 @@ details[open] .diagnostics-title::before { content: '▼'; }
   margin-bottom: 8px;
 }
 
+.editor-stat-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 8px;
+}
+
+.editor-stat-input {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: var(--text-dim);
+  font-size: 11px;
+}
+
+.editor-stat-input .search-input {
+  padding: 5px 7px;
+  font-size: 12px;
+  min-width: 0;
+}
+
 .editor-req-row {
   display: flex;
   align-items: center;
@@ -768,6 +788,77 @@ details[open] .diagnostics-title::before { content: '▼'; }
 .user-build-actions {
   display: flex;
   gap: 6px;
+}
+
+/* ---- Stat bars ---- */
+.build-stat-bars {
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.stat-bars-title {
+  color: var(--text-dim);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stat-soul-cost {
+  color: var(--accent);
+  font-weight: 400;
+  font-size: 11px;
+}
+
+.stat-bars-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.stat-bar-item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 6px;
+  align-items: center;
+}
+
+.stat-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-bar-name {
+  color: var(--text-dim);
+  font-size: 11px;
+}
+
+.stat-bar-value {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: right;
+}
+
+.stat-bar-track {
+  height: 6px;
+  background: rgba(52, 49, 43, .5);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  border-radius: 3px;
+  transition: width .3s;
 }
 
 /* ---- Item browser ---- */
