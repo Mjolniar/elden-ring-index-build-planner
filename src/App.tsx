@@ -8,6 +8,7 @@ import { Filters } from './components/Filters';
 import { SearchTable } from './components/SearchTable';
 import { DiagnosticsPanel } from './components/DiagnosticsPanel';
 import { ExportButtons } from './components/ExportButtons';
+import { BuildPlannerPanel } from './components/BuildPlannerPanel';
 
 function applyFilters(records: ItemRecord[], f: FilterState): ItemRecord[] {
   const q = f.search.toLowerCase().trim();
@@ -44,6 +45,7 @@ export default function App() {
   const [cacheMessage, setCacheMessage] = useState('');
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
   const [activeTab, setActiveTab] = useState<ActiveTab>('all');
+  const [selectedBuildId, setSelectedBuildId] = useState('all-knowing-sage');
   const [favoriteKeys, setFavoriteKeys] = useState<Set<string>>(() => loadStoredKeySet(FAVORITES_KEY));
   const [acquiredKeys, setAcquiredKeys] = useState<Set<string>>(() => loadStoredKeySet(ACQUIRED_KEY));
 
@@ -191,7 +193,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Elden Ring Randomizer Index</h1>
+        <h1>Elden Ring Randomizer Index and Build Planner</h1>
         {result && (
           <button className="reset-btn" onClick={handleReset}>
             Load new log
@@ -204,7 +206,7 @@ export default function App() {
           <UploadPanel onFile={handleFile} />
           <p className="landing-hint">
             Generate a spoiler log in the Elden Ring Randomizer, then load it here to search
-            item placements. All processing happens locally in your browser.
+            item placements and plan build pickups. All processing happens locally in your browser.
           </p>
           {cacheMessage && <p className="cache-message">{cacheMessage}</p>}
         </div>
@@ -227,35 +229,57 @@ export default function App() {
             >
               Favorites ({favorites.length})
             </button>
+            <button
+              className={`tab-btn${activeTab === 'builds' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'builds'}
+              onClick={() => setActiveTab('builds')}
+            >
+              Builds
+            </button>
           </div>
-          <div className="toolbar">
-            {activeTab === 'all' ? (
-              <Filters
-                filters={filters}
-                onChange={setFilters}
-                totalVisible={visible.length}
-                totalRecords={result.records.length}
-              />
-            ) : (
-              <div className="favorites-summary">
-                Saved favorites from this loaded spoiler log. Acquired: {acquiredFavoritesCount} / {favorites.length}
+          {activeTab === 'builds' ? (
+            <BuildPlannerPanel
+              records={result.records}
+              selectedBuildId={selectedBuildId}
+              onSelectedBuildIdChange={setSelectedBuildId}
+              favoriteKeys={favoriteKeys}
+              acquiredKeys={acquiredKeys}
+              onToggleFavorite={toggleFavorite}
+              onToggleAcquired={toggleAcquired}
+            />
+          ) : (
+            <>
+              <div className="toolbar">
+                {activeTab === 'all' ? (
+                  <Filters
+                    filters={filters}
+                    onChange={setFilters}
+                    totalVisible={visible.length}
+                    totalRecords={result.records.length}
+                  />
+                ) : (
+                  <div className="favorites-summary">
+                    Saved favorites from this loaded spoiler log. Acquired: {acquiredFavoritesCount} / {favorites.length}
+                  </div>
+                )}
+                <ExportButtons records={activeRecords} filename={exportFilename} />
               </div>
-            )}
-            <ExportButtons records={activeRecords} filename={exportFilename} />
-          </div>
-          <SearchTable
-            records={activeRecords}
-            favoriteKeys={favoriteKeys}
-            acquiredKeys={acquiredKeys}
-            onToggleFavorite={toggleFavorite}
-            onToggleAcquired={toggleAcquired}
-            showAcquiredColumn={activeTab === 'favorites'}
-            emptyMessage={
-              activeTab === 'favorites'
-                ? 'No favorites yet. Use the star column in Search to save items here.'
-                : 'No records match the current filters.'
-            }
-          />
+              <SearchTable
+                records={activeRecords}
+                favoriteKeys={favoriteKeys}
+                acquiredKeys={acquiredKeys}
+                onToggleFavorite={toggleFavorite}
+                onToggleAcquired={toggleAcquired}
+                showAcquiredColumn={activeTab === 'favorites'}
+                emptyMessage={
+                  activeTab === 'favorites'
+                    ? 'No favorites yet. Use the star column in Search to save items here.'
+                    : 'No records match the current filters.'
+                }
+              />
+            </>
+          )}
           <DiagnosticsPanel
             diagnostics={result.diagnostics}
             seed={result.seed}

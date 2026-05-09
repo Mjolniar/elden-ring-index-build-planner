@@ -36,7 +36,7 @@ export interface ParseResult {
 
 export type SortField = keyof Pick<ItemRecord, 'itemName' | 'locationName' | 'area' | 'sourceType'>;
 export type SortDir = 'asc' | 'desc';
-export type ActiveTab = 'all' | 'favorites';
+export type ActiveTab = 'all' | 'favorites' | 'builds';
 
 export interface FilterState {
   search: string;
