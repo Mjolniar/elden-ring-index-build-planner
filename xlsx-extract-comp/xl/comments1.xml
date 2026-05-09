@@ -1,0 +1,1314 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><comments xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:xr="http://schemas.microsoft.com/office/spreadsheetml/2014/revision"><authors><author>tc={00b373df-64c5-4276-9130-9b612a171463}</author><author>tc={01fcba7a-9f43-4166-beb0-a4dded431f39}</author><author>tc={02941e47-fc8b-4386-b21b-237876e8ffe8}</author><author>tc={02e426ff-8c8c-4365-9af4-50e80918084b}</author><author>tc={030fbc5c-c63b-4c60-86d2-03be900c10ce}</author><author>tc={035d5ba1-0856-46d0-bdb6-003331b8e9f4}</author><author>tc={048aef24-f00f-4f5c-87f2-c213bfd5af08}</author><author>tc={0529dda2-c9a9-4943-ace3-0f295ed16015}</author><author>tc={065a398a-f1d0-4b32-b86a-dd7b9a511350}</author><author>tc={07aa21d5-2ab5-4ea0-8045-949b63695f8b}</author><author>tc={081386d5-e2c2-42af-857a-18db18ae2ada}</author><author>tc={0aadb2cb-56b2-4ec5-904a-b4cabedf7008}</author><author>tc={0cc243f2-22fd-4921-a7da-e9dcf5bd7570}</author><author>tc={0d805276-ae85-4c86-abea-cf90c2de761c}</author><author>tc={11a0fac8-69fe-49e4-a4d6-f19627c11856}</author><author>tc={11c14671-ad55-407b-ae7a-0ea9f9ecb1b5}</author><author>tc={139153d2-720b-4ad4-b21b-a24a61a70e33}</author><author>tc={13ab4d18-717a-407a-829c-4622fda76773}</author><author>tc={14ba7bfb-d7d1-4c14-88ad-c36cc41cb7ab}</author><author>tc={14e25eeb-82f8-499f-acf5-005333a367f6}</author><author>tc={166a2bc5-db6c-4c17-a475-f1c74515adda}</author><author>tc={173bbe42-ee57-4800-b124-89348ad7393f}</author><author>tc={173be791-b6ac-43e5-b0cd-558cda204f1a}</author><author>tc={17d7b970-ea62-481c-ab0c-5a9c53494c33}</author><author>tc={186718dd-fa3a-4f41-b8fb-3ddf4ad36f03}</author><author>tc={1aba7afd-3404-4414-b88c-7aec1a9e55a4}</author><author>tc={1bcb6e20-4ec6-4eb7-b7e2-79550089781a}</author><author>tc={1ce8e62f-e3f0-49b9-a4bd-774b0ba05ff6}</author><author>tc={1cf5d248-db6b-4c99-89e8-7ca2ef9cd1ae}</author><author>tc={1cf7fbdb-715a-4e00-a039-0be993531e6d}</author><author>tc={1dc001f7-0e51-49f7-91ee-45d7f96519c7}</author><author>tc={1e0ebe57-0758-4bda-af8c-e905a5707a24}</author><author>tc={220cc916-fccf-4c9d-857c-9e3ff656f292}</author><author>tc={230a00c6-257a-42e0-b8ad-c59b352794c6}</author><author>tc={238c17c7-02b4-42aa-8530-a22593c11250}</author><author>tc={242f0fbb-e0be-4094-b576-08c8bcdff44c}</author><author>tc={247a7bbb-2e1c-4ca3-ac2b-fd76d61e9194}</author><author>tc={25dd1551-b10b-415a-a45d-24c483477399}</author><author>tc={262eb4d7-8aae-4216-bcff-c90c074b402d}</author><author>tc={266f8a89-3230-4944-a872-029b7805c088}</author><author>tc={2797a5b3-fa67-42cd-b77f-632cc5815b49}</author><author>tc={279c8759-46e5-4d1f-a8c8-4445c2f112b2}</author><author>tc={27efb1bd-8c0d-484c-a173-ee4b191c0d64}</author><author>tc={282d8c3c-703f-431f-ba57-8c123136510f}</author><author>tc={284c5186-6271-43d9-9b45-150e1b545091}</author><author>tc={28a5f0e1-bea4-4998-8d1c-a01048105afb}</author><author>tc={2a62dee4-11fa-4635-ac98-5110862b2443}</author><author>tc={2b598bcf-a361-4317-a741-708a2b3bd974}</author><author>tc={2b6847ce-06e2-4be6-a788-b7cd37b1a2a2}</author><author>tc={2bfa59e9-621a-4ca1-bf7f-6b85d345604d}</author><author>tc={2c12bea0-bbc4-44f5-b190-9cfb8d55b92e}</author><author>tc={2c41e0a0-e8be-455e-ae56-9e9adbe02f3b}</author><author>tc={2d1abd8a-931d-4454-9c2a-fbf3e310d2b0}</author><author>tc={2d6d4536-db07-4aa3-9b8e-f3e401b556a5}</author><author>tc={2dbc8250-4530-4cc8-b8a3-91bd8da86f9d}</author><author>tc={2dfa42f7-afb2-480c-bd02-cb83cf8d3b89}</author><author>tc={2e9718d2-1e9f-480d-bac6-7e4b28a2f21c}</author><author>tc={2fc1678f-c040-4d12-8b3b-4df23335a260}</author><author>tc={3145f58e-f9d7-4156-842e-9b6c3c9d97a3}</author><author>tc={31c6b178-be29-495b-9a3c-e54c2a205a18}</author><author>tc={3370649e-0f7b-45ca-9fb1-c4bc386d5bb2}</author><author>tc={3463e01f-4d1a-4fe8-bbea-f0c80ab523b7}</author><author>tc={3515f3c0-447d-4e94-a2b2-2fc57750d1cc}</author><author>tc={3530ed22-d109-4555-95ca-a7be55482321}</author><author>tc={354c6d0d-8105-4489-89cd-d2bd46eb660c}</author><author>tc={35bbf450-3924-469d-880b-dbba4bbae5c2}</author><author>tc={35d737fb-7ecd-4bf3-9d36-65c8bee70281}</author><author>tc={35d9d9a5-cb16-4375-b07d-1cde7f8fc99b}</author><author>tc={36100e21-63dc-459d-8552-6830736c717e}</author><author>tc={368d9c7d-bc38-47c1-972e-1c9ef12b985d}</author><author>tc={370cc073-c146-4e28-9dbe-fe31b633a6dc}</author><author>tc={38b1dc0c-3dc2-469c-9de2-f1f24222bf37}</author><author>tc={391a4c2e-2f0f-49ca-b888-82896735b9a6}</author><author>tc={3938db5c-fe4b-4393-aaf7-d71e4cc943cd}</author><author>tc={3a60ae67-6ee9-4f31-9959-b0996a238a97}</author><author>tc={3e74a8e5-050b-4853-bfae-d7e9288a8c0c}</author><author>tc={3f1ac661-2f52-4fdd-910e-8f23d1457a2d}</author><author>tc={3f1dac95-25ea-458e-af83-e7bc097f3a58}</author><author>tc={3fbf2dd1-721e-40c4-89ef-b11db50c4d67}</author><author>tc={3ff2637a-c990-4ef9-8776-6a1d8d0ee0b4}</author><author>tc={417bebb9-e99d-4fbe-a0a3-0cf7fb31fee1}</author><author>tc={4281df5c-5f6f-4cd6-8327-de6c7b5be3a4}</author><author>tc={428e1a7c-7da9-4bfb-9f38-b439b5044f2f}</author><author>tc={42bcce99-4576-45bb-9697-de073eece34c}</author><author>tc={444220b0-53de-41d0-a8d7-ea7fa9a089fc}</author><author>tc={445c351d-49d6-4c56-acb9-0bf3f4adfafd}</author><author>tc={45198be0-bab5-4ef3-8b6c-cc000463cae4}</author><author>tc={456ad2e9-36a4-4973-b847-ce01783f35c5}</author><author>tc={45fa6a99-bda0-4f34-bf5f-94ee3da59d10}</author><author>tc={461bf0ec-cf69-494a-a724-09c511a92f56}</author><author>tc={4671e599-2705-4a3e-a82e-283049d2eb7d}</author><author>tc={46a24e53-b305-4adc-8b20-bf02ed416e43}</author><author>tc={46e7017f-2266-4afe-b159-54e59be3c8ec}</author><author>tc={491ddc9c-833e-4ad5-bc74-ca15d81626c6}</author><author>tc={49dc09a6-b5ff-4593-8e46-898f9cb44bcc}</author><author>tc={4a5eb5bd-e025-4d9f-8ab0-5a4915817045}</author><author>tc={4b18c1a2-8ade-43a3-a2ab-21506e74b09e}</author><author>tc={50c3d530-ef04-413f-b477-121ce0481e10}</author><author>tc={52d135d2-9fe2-45fd-b9b0-9e259cce8a9e}</author><author>tc={53fbe29c-bd7d-4b86-8cea-e0e7ded47d65}</author><author>tc={57c84426-88bd-46d0-a716-376ff9497c87}</author><author>tc={581b474e-4ffe-4562-9e6a-7bf753f15fe2}</author><author>tc={5a674a52-de42-4468-b603-822b0a9346ca}</author><author>tc={5aae4344-9f74-4064-adfd-ae0cc54a63c8}</author><author>tc={5c5f85d9-f2fa-4ca3-916c-f7dc65cb185c}</author><author>tc={5d532b8f-c31a-46ab-8138-7eaeddf38a45}</author><author>tc={5d85c551-423b-4dde-b478-0efe75915350}</author><author>tc={5d9e387a-e668-49c6-8357-69a46ebd8b9b}</author><author>tc={5dbd18a9-6e6f-4751-b6f9-ae6861d26456}</author><author>tc={5fff35fc-cb92-4bec-818e-460ba0691e6d}</author><author>tc={605aec34-bda3-4466-a042-fc588a8e4997}</author><author>tc={625da40a-b2a7-46d4-849e-ef5d0b02aa11}</author><author>tc={63b68dc4-01bd-4f72-bb24-a73d3934d641}</author><author>tc={63e73f2a-582d-4506-bc7f-7456c566a3cc}</author><author>tc={64362380-5281-4dfb-a341-8dfb25a43949}</author><author>tc={6492cfb8-a1c0-45b5-96b3-76ab913b22b6}</author><author>tc={6524f2c5-d46a-42e8-8480-b66e832080d0}</author><author>tc={6565cbf1-9d9b-4142-afe5-869bb31e5d99}</author><author>tc={6568dafc-7682-4d80-b854-80feb043cd5f}</author><author>tc={65ebd600-4dfe-4010-a606-7e3515ce7902}</author><author>tc={6600214c-774b-4aae-a1a5-3deeac800e89}</author><author>tc={660dbecb-c01c-4d97-a51d-cc578ebc8f83}</author><author>tc={66670012-3a85-4a59-bdbb-9f7e400f728b}</author><author>tc={66a57e10-5ab6-4b83-bf86-cecee08a732e}</author><author>tc={6709d172-3dd0-4a25-bdcc-62a044ec7958}</author><author>tc={67386961-7e33-41b0-afaf-d0d6ab0a6806}</author><author>tc={677272dc-76ad-4ee0-92cd-8137c61e38fe}</author><author>tc={680b61d2-cc12-486a-82cd-8fae2bdf39f9}</author><author>tc={68349621-177b-47c2-b1c3-683505c410ac}</author><author>tc={696c75cb-ad31-47a7-998a-509ee44793e1}</author><author>tc={6afc58ce-0bb9-4761-adef-096dc56f63cf}</author><author>tc={6bc66d1c-8a2b-4c00-8fe7-08ed7dace838}</author><author>tc={6d7f6499-4df1-45f3-8d49-28269a35b8a8}</author><author>tc={6dffde4a-cd65-45a6-8d3a-64db1519052c}</author><author>tc={6f455991-3a54-4891-af1d-010f13aac3fb}</author><author>tc={7197eb7a-d5dd-4c55-922a-32e373c194b1}</author><author>tc={73383fc4-3f01-4d02-aaa1-6f66e37f0ee5}</author><author>tc={7421fdb7-6210-475f-b99f-89884c0961c0}</author><author>tc={7428d245-2a8e-4883-8435-d90af6b44c10}</author><author>tc={74331404-b2bd-4eb6-b3b1-99a7ad935ec0}</author><author>tc={744d8631-9abb-475d-96a5-077765c5a5f1}</author><author>tc={748e548f-0643-49c8-a756-2b69a70393f8}</author><author>tc={759bb81c-9b19-402f-8353-6811e277722c}</author><author>tc={75bf655b-53b3-4f42-9904-67c8acd703b3}</author><author>tc={771ed205-e617-451f-9192-f28735894165}</author><author>tc={777a320a-6b00-4fac-ace3-062ad19a3b51}</author><author>tc={77f222b6-6d0d-4ea2-9795-140614e305c8}</author><author>tc={7a2817af-623a-4095-b130-092048c93e49}</author><author>tc={7b012f4d-240f-454b-9994-32827840452a}</author><author>tc={7c316af8-a1ac-432a-ba9e-b984a0493f1b}</author><author>tc={7d41690c-034a-4841-86af-f93de20a1a21}</author><author>tc={7dd64b9f-9a53-42c8-8bd5-8d28153105e7}</author><author>tc={7e8adf90-1dbf-428d-99f0-f4b0ac830394}</author><author>tc={7f031a71-10d1-44ab-8532-b65f2ef77682}</author><author>tc={7f4a80fa-6457-4779-86bc-d08b9c6d7831}</author><author>tc={7fa110af-3a00-42c9-9d71-22ab80d9b939}</author><author>tc={7fa48164-558d-4c8f-8c8a-ae1d2b1f7e43}</author><author>tc={7fb43083-b003-48e6-834d-85112a07c7d5}</author><author>tc={8146ac01-2972-429a-a6e8-341c8c00c061}</author><author>tc={818a011d-efa4-437d-8ac1-330d955ba7fa}</author><author>tc={8267aa11-317c-4981-9735-d802ed4bfa43}</author><author>tc={8797b685-07dc-4c71-bbfe-0933ef594cad}</author><author>tc={87b2e190-5645-4d08-8c49-15bc0611391f}</author><author>tc={87c57a73-ba9d-42fa-b001-d97d1bec30ea}</author><author>tc={892dcf03-8b54-4a5f-abcc-749984d3fc0d}</author><author>tc={8964bb95-2343-4dbb-a8f9-cb0e3555c7d3}</author><author>tc={8996ae43-e1be-404e-8b28-bc906b21a2c3}</author><author>tc={89e4a88c-8b10-4e8b-8e51-4b4a1813ca86}</author><author>tc={8a5c4b2a-4886-4f97-a892-d7b1e3f79241}</author><author>tc={8b07abfa-33f1-4843-9336-18083e9e6293}</author><author>tc={8b1b077a-cc7d-4bf8-af96-afadff47c5b7}</author><author>tc={8c29cc7c-4740-42c2-b069-fa1166bf94b4}</author><author>tc={8c7418cc-b5e2-4f0b-aca8-0b764fe35903}</author><author>tc={8cdc1701-6914-412d-a189-bc295d3b18b2}</author><author>tc={8f74d2b5-a7ea-4e39-8026-cde2ab717df2}</author><author>tc={8f955e8a-36bf-4d27-a5ef-c4cec8361595}</author><author>tc={8fb3954c-bb33-4021-9258-e73be2fad2a2}</author><author>tc={9009f1d7-a049-48eb-be87-8cf2e0bf2b3b}</author><author>tc={91f50f8e-384e-49e0-80db-14b3ceff8d06}</author><author>tc={9228e702-89d9-4543-a52f-3187562e3470}</author><author>tc={939c7bc4-c544-4cb0-bf25-301d4461f57b}</author><author>tc={9517b4bd-4619-450d-997d-87189258791a}</author><author>tc={974f06d9-d837-4d5f-8896-70747c8755b2}</author><author>tc={9989e83c-57e1-4a2e-9f33-565df8ad9355}</author><author>tc={99daa861-42e4-421e-85a4-6df38e5764f3}</author><author>tc={9b4a681a-8956-42e9-86a9-6eebbd13044f}</author><author>tc={9c57a449-4379-47a1-95a0-cdb56118f453}</author><author>tc={9c918f00-9543-4655-9a62-626502012809}</author><author>tc={9d23a393-c0c3-47e7-a030-916878bd8dc5}</author><author>tc={9d602410-b90c-4e2c-b50c-b65e57450cc1}</author><author>tc={9d6bb6d3-4915-4212-a0ee-62a783ccd440}</author><author>tc={9de62e43-11d2-4fc4-a7f6-6dcd8f7beb28}</author><author>tc={9f45c956-bbef-4b45-85eb-d51677976fbb}</author><author>tc={9f581d93-f3ff-439d-b8c8-a6267fcf6208}</author><author>tc={9f6e5de1-d30c-4e7b-b192-4cc0ff4aaa3a}</author><author>tc={9feccb93-dc66-4551-a125-057a68152758}</author><author>tc={a0fa08ea-894e-4184-b1b3-15e4f5d9e850}</author><author>tc={a1e9d9c5-f591-42ab-9551-5b58ae0945eb}</author><author>tc={a21ac805-47b1-4eee-8f73-32e578f0d7df}</author><author>tc={a24f5c16-3c3e-4411-b06b-f8934030ce0e}</author><author>tc={a27b21b6-87d0-4fbb-b570-56cf3d3c8dfa}</author><author>tc={a4c74b30-3c3f-49f1-84d0-6087d2ce2286}</author><author>tc={a4f4fbfa-5ec6-428b-9a9e-635dd5cb2889}</author><author>tc={a5f0d670-67c0-4e62-acc7-07cb302ea0ac}</author><author>tc={a71a0bd1-49d1-4a89-b21f-d9ef1c0bad3e}</author><author>tc={a7fa01e9-89d0-41a4-9279-6cd705bc22e7}</author><author>tc={a8090a4e-325e-4fe7-850e-c90cdc3ac7da}</author><author>tc={a8e7d4ab-f740-40f6-8772-919c105bc797}</author><author>tc={a8ed755e-722b-47ec-b9b3-db66a7a298bf}</author><author>tc={a920549d-5d51-4a40-ae94-ae4dc1227519}</author><author>tc={aa636fb3-4b1a-420f-80a5-9c6a784f4761}</author><author>tc={aa9291ff-6335-46a9-befc-3bf6681bbd39}</author><author>tc={ac88ff77-915b-4729-8d82-100936ff02ee}</author><author>tc={afae191d-f8e2-4ee7-b5b7-7f0f33a73105}</author><author>tc={b1817406-2eaa-4272-8082-2b01ea781139}</author><author>tc={b2d95bc3-b17b-4d62-b342-3369635117ee}</author><author>tc={b38115d4-72d0-4bdb-a162-0ebcd3a6750b}</author><author>tc={b536275f-9518-4aeb-89bc-1b8a4cdd6677}</author><author>tc={b53b9705-4f8a-4475-ac5f-e511b5d2b341}</author><author>tc={b62cb87c-7050-4cc6-8930-ca0a3b800923}</author><author>tc={b649c1f3-6b81-43ec-b79c-39cf7d385530}</author><author>tc={b695140c-adcb-4777-aa27-fd6ed20b2f4c}</author><author>tc={b78e6a8c-6ead-4684-9cc0-f217ce723945}</author><author>tc={b8de5d50-71c7-45d1-bef6-6436544efcc0}</author><author>tc={b8f91fd0-7353-4e60-abf7-ce6b748c56df}</author><author>tc={bc690cc3-8b7d-4c6e-8db8-6ce7a9729e4a}</author><author>tc={bc89a8e7-4e94-47da-9649-2d231c4b10bd}</author><author>tc={bdee1879-b636-496a-894e-9442ef7578fd}</author><author>tc={bf0a6124-a1b2-4446-9e28-45d7fdf215e6}</author><author>tc={bf1436b8-0782-4bd9-aff6-b2fae698fd2a}</author><author>tc={c0b3c56b-ec50-498a-bf3c-4bc515cd9ed4}</author><author>tc={c1ae2c97-7895-4ee5-94cb-c512f81bdd22}</author><author>tc={c1ccfd23-cefd-411f-8751-9aac0ca01c1f}</author><author>tc={c22d4732-9803-4292-b390-3d748e7ad29f}</author><author>tc={c3f1d4f4-0283-4db4-a073-e86f3cf3ca9e}</author><author>tc={c3f9ddce-eb08-44cc-8084-f4c9bd7622ac}</author><author>tc={c43b12cc-e2e5-47c5-8a3a-cc3c390fe1d5}</author><author>tc={c572769b-c754-4ebc-b81d-b56cc7de6da5}</author><author>tc={c64e2641-0163-4cf5-904c-1bdfcee4c2ae}</author><author>tc={c6af1107-711d-4d76-9200-4ef3851d0d48}</author><author>tc={c71fa4ef-bfb2-4c85-aba6-611aedf09460}</author><author>tc={c73aa1fd-2ebe-4546-ac7d-b9a63cff92ab}</author><author>tc={c81829f3-a8bc-4521-9def-a5843067e799}</author><author>tc={c931a407-f18e-4fef-969b-53eb757a034b}</author><author>tc={cb0f4ec2-41d1-4c9c-ac19-4a5b77353dff}</author><author>tc={cbe96615-28d3-424a-bf93-d345299adb84}</author><author>tc={cd2af285-e172-425b-b782-34fb7ef4d7a1}</author><author>tc={cd86e768-ee9c-4da7-bccf-c4005861a442}</author><author>tc={cec34288-2c0f-4ec7-8a18-72b751cbdd9f}</author><author>tc={cefa86e0-a421-4466-9564-fb712119d6e5}</author><author>tc={d1168a62-d9de-4482-be0b-ffbe36f2f098}</author><author>tc={d2767266-1b47-447f-8776-86299d66e859}</author><author>tc={d27bc0dd-2758-46a9-8543-853660c16790}</author><author>tc={d6070496-4cfd-49d5-b9ad-14704adc3695}</author><author>tc={d6b09ba0-80c5-418c-af49-2ea7243d2096}</author><author>tc={d6ec8bbb-4ed4-4df9-accf-018c689eb201}</author><author>tc={d799a837-0e09-4d09-9543-8153a8373acf}</author><author>tc={d7a920d0-7295-4a56-a19b-e97e2818d6dd}</author><author>tc={d80229db-5122-4ed4-8fd2-5d8c33841ab7}</author><author>tc={d9758019-9dd0-406f-83bb-945ebfea9080}</author><author>tc={da9970d3-08bf-4aa0-9265-80d8a48445f1}</author><author>tc={daaa3921-5c4f-450d-a7c9-6baa6756b149}</author><author>tc={daf24a3e-f8f8-41ac-a6c6-0e9fc9db23e8}</author><author>tc={db5c1b99-c0e5-45f6-b12e-14390b09eabb}</author><author>tc={db7ce21c-733d-43c4-8c30-847ad18d0641}</author><author>tc={dba46634-7e8c-4645-8246-ac41b5175deb}</author><author>tc={dbf3f801-8bc6-42db-ab4a-f6beb008d11f}</author><author>tc={dcd30070-701d-4aeb-b2a2-00f188faeeaa}</author><author>tc={dd3aa71d-26a2-4bdc-af9c-dca5bf05ede9}</author><author>tc={de32e7f4-0a38-43fe-8e9d-e5c33198c4e5}</author><author>tc={e054cece-61ec-4749-b1f7-591001d872c5}</author><author>tc={e0863453-dbea-4d12-b648-c697e518b849}</author><author>tc={e09c106c-7d31-4b62-a291-8c3c870d15da}</author><author>tc={e0cfbf56-a84c-4216-a266-45ce00266bd9}</author><author>tc={e13ff7da-1f94-42eb-9e6e-138c8c42dbfd}</author><author>tc={e1a22dd1-115c-4b49-9bae-d19d78915584}</author><author>tc={e228f452-f4df-4946-8efd-c3fef2b07d00}</author><author>tc={e2c732f7-4d62-4f91-b04e-16cfe5d6a68f}</author><author>tc={e456286b-c896-46d0-a982-7c9f46b350bf}</author><author>tc={e5205a66-c377-41b7-9ebe-8b1ff9bf978a}</author><author>tc={e52d435b-cfa6-4265-a7bf-0ecd3341903f}</author><author>tc={e5ada42f-7c75-4daf-95e6-0f2839a17ad8}</author><author>tc={e5e2f57b-5dea-4134-aac5-07ec70b4d0b5}</author><author>tc={e5e73c3f-04d2-406d-bad6-b0f711d35c0c}</author><author>tc={e7338efe-8a4d-4bde-9537-a20586e61c1d}</author><author>tc={e7fd2541-2197-4a38-a571-b97d4c7af959}</author><author>tc={e82d0036-2010-4c65-a302-608e11144fcd}</author><author>tc={e84ada6b-75c7-4703-9dc4-f03636a6bdab}</author><author>tc={e84b3c60-c27e-4e1a-9e70-db552ff8fb6c}</author><author>tc={e90ac0f2-ec3e-4e7a-92d0-4b303c9eadd7}</author><author>tc={e9eb455a-6193-4969-ac60-8c9b8c92eeac}</author><author>tc={eb696268-997f-4b10-aab1-d5103e379b3c}</author><author>tc={ec18c903-8c46-4389-985a-0819093c852b}</author><author>tc={ed6ebb16-90d0-409e-b118-3d60434b7503}</author><author>tc={eeaacfcf-b2e6-41e4-91db-984b3f4bfa70}</author><author>tc={ef595f17-90bc-4dba-b29b-74a08c7868ee}</author><author>tc={f16d7073-524d-4b44-a8f5-092b97d289f8}</author><author>tc={f1b22d01-28a8-429c-bc89-8ce29d50a4d5}</author><author>tc={f211b520-16b1-4de2-9a19-8bff8c8d4c79}</author><author>tc={f252a2a0-1eae-4be9-a7e1-3376fde03ff0}</author><author>tc={f39b04fa-f1fb-445c-826d-18d0c269df0d}</author><author>tc={f4f89524-8e39-4f55-be7a-7fe47c479533}</author><author>tc={f5010f5f-14f6-474e-96b5-0b5b199f7a0b}</author><author>tc={f6409dca-ace0-403a-8a5d-065296388e8f}</author><author>tc={f7198cc3-88ad-4160-96d3-745acd5a1f91}</author><author>tc={f829178d-ebb7-4c27-8b14-a2929abed515}</author><author>tc={f829b4dd-9389-46eb-876b-c09173f0c7ef}</author><author>tc={f8db591c-a73b-469a-8109-93b0b356cf06}</author><author>tc={f93341a6-e7e7-4685-8b02-5012e3270b69}</author><author>tc={fa72f537-03de-42a1-a0fc-a538572ba8fa}</author><author>tc={fb8d4d44-c46e-405c-8691-a2430e56bac8}</author><author>tc={fc258a73-fc72-4838-beae-c5b7f4317e71}</author><author>tc={fc857e9a-66b2-4f4a-8135-ef7cf2183db3}</author><author>tc={fdaf4c32-f962-4eed-80bc-22820813fc5e}</author><author>tc={fed4328f-6aca-43df-8992-4a808f3a394a}</author></authors><commentList><comment authorId="0" xr:uid="{00b373df-64c5-4276-9130-9b612a171463}" ref="B12"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="1" xr:uid="{01fcba7a-9f43-4166-beb0-a4dded431f39}" ref="J51"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="2" xr:uid="{02941e47-fc8b-4386-b21b-237876e8ffe8}" ref="N54"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="3" xr:uid="{02e426ff-8c8c-4365-9af4-50e80918084b}" ref="B3"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="4" xr:uid="{030fbc5c-c63b-4c60-86d2-03be900c10ce}" ref="F50"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="5" xr:uid="{035d5ba1-0856-46d0-bdb6-003331b8e9f4}" ref="B56"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="6" xr:uid="{048aef24-f00f-4f5c-87f2-c213bfd5af08}" ref="B8"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="7" xr:uid="{0529dda2-c9a9-4943-ace3-0f295ed16015}" ref="B34"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="8" xr:uid="{065a398a-f1d0-4b32-b86a-dd7b9a511350}" ref="B17"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="9" xr:uid="{07aa21d5-2ab5-4ea0-8045-949b63695f8b}" ref="J6"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="10" xr:uid="{081386d5-e2c2-42af-857a-18db18ae2ada}" ref="N2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="11" xr:uid="{0aadb2cb-56b2-4ec5-904a-b4cabedf7008}" ref="J9"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	?
+</t></text></comment><comment authorId="12" xr:uid="{0cc243f2-22fd-4921-a7da-e9dcf5bd7570}" ref="J57"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="13" xr:uid="{0d805276-ae85-4c86-abea-cf90c2de761c}" ref="N7"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="14" xr:uid="{11a0fac8-69fe-49e4-a4d6-f19627c11856}" ref="B19"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="15" xr:uid="{11c14671-ad55-407b-ae7a-0ea9f9ecb1b5}" ref="B14"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	X
+</t></text></comment><comment authorId="16" xr:uid="{139153d2-720b-4ad4-b21b-a24a61a70e33}" ref="J41"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="17" xr:uid="{13ab4d18-717a-407a-829c-4622fda76773}" ref="N17"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="18" xr:uid="{14ba7bfb-d7d1-4c14-88ad-c36cc41cb7ab}" ref="B13"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	X
+</t></text></comment><comment authorId="19" xr:uid="{14e25eeb-82f8-499f-acf5-005333a367f6}" ref="N42"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="20" xr:uid="{166a2bc5-db6c-4c17-a475-f1c74515adda}" ref="F9"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Done
+</t></text></comment><comment authorId="21" xr:uid="{173bbe42-ee57-4800-b124-89348ad7393f}" ref="B16"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="22" xr:uid="{173be791-b6ac-43e5-b0cd-558cda204f1a}" ref="F56"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="23" xr:uid="{17d7b970-ea62-481c-ab0c-5a9c53494c33}" ref="B5"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="24" xr:uid="{186718dd-fa3a-4f41-b8fb-3ddf4ad36f03}" ref="B4"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="25" xr:uid="{1aba7afd-3404-4414-b88c-7aec1a9e55a4}" ref="F7"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="26" xr:uid="{1bcb6e20-4ec6-4eb7-b7e2-79550089781a}" ref="B44"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="27" xr:uid="{1ce8e62f-e3f0-49b9-a4bd-774b0ba05ff6}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	True
+</t></text></comment><comment authorId="28" xr:uid="{1cf5d248-db6b-4c99-89e8-7ca2ef9cd1ae}" ref="J29"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="29" xr:uid="{1cf7fbdb-715a-4e00-a039-0be993531e6d}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	x
+</t></text></comment><comment authorId="30" xr:uid="{1dc001f7-0e51-49f7-91ee-45d7f96519c7}" ref="J41"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="31" xr:uid="{1e0ebe57-0758-4bda-af8c-e905a5707a24}" ref="B5"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	True
+</t></text></comment><comment authorId="32" xr:uid="{220cc916-fccf-4c9d-857c-9e3ff656f292}" ref="B9"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="33" xr:uid="{230a00c6-257a-42e0-b8ad-c59b352794c6}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	x
+</t></text></comment><comment authorId="34" xr:uid="{238c17c7-02b4-42aa-8530-a22593c11250}" ref="N27"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="35" xr:uid="{242f0fbb-e0be-4094-b576-08c8bcdff44c}" ref="N25"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="36" xr:uid="{247a7bbb-2e1c-4ca3-ac2b-fd76d61e9194}" ref="C33"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	1
+</t></text></comment><comment authorId="37" xr:uid="{25dd1551-b10b-415a-a45d-24c483477399}" ref="F59"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="38" xr:uid="{262eb4d7-8aae-4216-bcff-c90c074b402d}" ref="J16"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="39" xr:uid="{266f8a89-3230-4944-a872-029b7805c088}" ref="F35"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="40" xr:uid="{2797a5b3-fa67-42cd-b77f-632cc5815b49}" ref="F36"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="41" xr:uid="{279c8759-46e5-4d1f-a8c8-4445c2f112b2}" ref="B17"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="42" xr:uid="{27efb1bd-8c0d-484c-a173-ee4b191c0d64}" ref="N7"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="43" xr:uid="{282d8c3c-703f-431f-ba57-8c123136510f}" ref="B14"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="44" xr:uid="{284c5186-6271-43d9-9b45-150e1b545091}" ref="N14"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="45" xr:uid="{28a5f0e1-bea4-4998-8d1c-a01048105afb}" ref="B23"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="46" xr:uid="{2a62dee4-11fa-4635-ac98-5110862b2443}" ref="N13"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="47" xr:uid="{2b598bcf-a361-4317-a741-708a2b3bd974}" ref="J21"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="48" xr:uid="{2b6847ce-06e2-4be6-a788-b7cd37b1a2a2}" ref="B9"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="49" xr:uid="{2bfa59e9-621a-4ca1-bf7f-6b85d345604d}" ref="J23"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="50" xr:uid="{2c12bea0-bbc4-44f5-b190-9cfb8d55b92e}" ref="N26"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="51" xr:uid="{2c41e0a0-e8be-455e-ae56-9e9adbe02f3b}" ref="F35"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="52" xr:uid="{2d1abd8a-931d-4454-9c2a-fbf3e310d2b0}" ref="J7"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="53" xr:uid="{2d6d4536-db07-4aa3-9b8e-f3e401b556a5}" ref="J3"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="54" xr:uid="{2dbc8250-4530-4cc8-b8a3-91bd8da86f9d}" ref="F41"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="55" xr:uid="{2dfa42f7-afb2-480c-bd02-cb83cf8d3b89}" ref="B17"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	G
+Reply:
+	X
+</t></text></comment><comment authorId="56" xr:uid="{2e9718d2-1e9f-480d-bac6-7e4b28a2f21c}" ref="B54"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="57" xr:uid="{2fc1678f-c040-4d12-8b3b-4df23335a260}" ref="A12"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Killed
+</t></text></comment><comment authorId="58" xr:uid="{3145f58e-f9d7-4156-842e-9b6c3c9d97a3}" ref="B11"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="59" xr:uid="{31c6b178-be29-495b-9a3c-e54c2a205a18}" ref="B6"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="60" xr:uid="{3370649e-0f7b-45ca-9fb1-c4bc386d5bb2}" ref="F9"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="61" xr:uid="{3463e01f-4d1a-4fe8-bbea-f0c80ab523b7}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	x
+</t></text></comment><comment authorId="62" xr:uid="{3515f3c0-447d-4e94-a2b2-2fc57750d1cc}" ref="J4"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="63" xr:uid="{3530ed22-d109-4555-95ca-a7be55482321}" ref="F11"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="64" xr:uid="{354c6d0d-8105-4489-89cd-d2bd46eb660c}" ref="J26"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="65" xr:uid="{35bbf450-3924-469d-880b-dbba4bbae5c2}" ref="N51"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="66" xr:uid="{35d737fb-7ecd-4bf3-9d36-65c8bee70281}" ref="F44"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="67" xr:uid="{35d9d9a5-cb16-4375-b07d-1cde7f8fc99b}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	x
+</t></text></comment><comment authorId="68" xr:uid="{36100e21-63dc-459d-8552-6830736c717e}" ref="B19"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✓
+Reply:
+	Marked as resolved
+Reply:
+	To whoever took the time to make this, You're a Gem!
+Re-opened
+Reply:
+	Thank you kind sir!
+Marked as resolved
+</t></text></comment><comment authorId="69" xr:uid="{368d9c7d-bc38-47c1-972e-1c9ef12b985d}" ref="B3"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	ok
+</t></text></comment><comment authorId="70" xr:uid="{370cc073-c146-4e28-9dbe-fe31b633a6dc}" ref="A1"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	will you make one of these for the new dlc when it comes out?
+</t></text></comment><comment authorId="71" xr:uid="{38b1dc0c-3dc2-469c-9de2-f1f24222bf37}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Check
+</t></text></comment><comment authorId="72" xr:uid="{391a4c2e-2f0f-49ca-b888-82896735b9a6}" ref="J38"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="73" xr:uid="{3938db5c-fe4b-4393-aaf7-d71e4cc943cd}" ref="F2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="74" xr:uid="{3a60ae67-6ee9-4f31-9959-b0996a238a97}" ref="B20"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="75" xr:uid="{3e74a8e5-050b-4853-bfae-d7e9288a8c0c}" ref="J26"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="76" xr:uid="{3f1ac661-2f52-4fdd-910e-8f23d1457a2d}" ref="A22"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Killed
+</t></text></comment><comment authorId="77" xr:uid="{3f1dac95-25ea-458e-af83-e7bc097f3a58}" ref="N24"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="78" xr:uid="{3fbf2dd1-721e-40c4-89ef-b11db50c4d67}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	x
+</t></text></comment><comment authorId="79" xr:uid="{3ff2637a-c990-4ef9-8776-6a1d8d0ee0b4}" ref="J24"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="80" xr:uid="{417bebb9-e99d-4fbe-a0a3-0cf7fb31fee1}" ref="F5"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="81" xr:uid="{4281df5c-5f6f-4cd6-8327-de6c7b5be3a4}" ref="B20"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Done
+Reply:
+	Select &quot;File&quot; in the top left corner of your screen, then select &quot;Make a copy&quot;. Select OK and then you have your own copy that you can check off and edit all you like.
+Marked as resolved
+</t></text></comment><comment authorId="82" xr:uid="{428e1a7c-7da9-4bfb-9f38-b439b5044f2f}" ref="B16"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="83" xr:uid="{42bcce99-4576-45bb-9697-de073eece34c}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	1
+</t></text></comment><comment authorId="84" xr:uid="{444220b0-53de-41d0-a8d7-ea7fa9a089fc}" ref="B6"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="85" xr:uid="{445c351d-49d6-4c56-acb9-0bf3f4adfafd}" ref="B6"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	x
+</t></text></comment><comment authorId="86" xr:uid="{45198be0-bab5-4ef3-8b6c-cc000463cae4}" ref="B5"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="87" xr:uid="{456ad2e9-36a4-4973-b847-ce01783f35c5}" ref="B13"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="88" xr:uid="{45fa6a99-bda0-4f34-bf5f-94ee3da59d10}" ref="F42"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="89" xr:uid="{461bf0ec-cf69-494a-a724-09c511a92f56}" ref="B10"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	J
+</t></text></comment><comment authorId="90" xr:uid="{4671e599-2705-4a3e-a82e-283049d2eb7d}" ref="N8"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="91" xr:uid="{46a24e53-b305-4adc-8b20-bf02ed416e43}" ref="J9"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="92" xr:uid="{46e7017f-2266-4afe-b159-54e59be3c8ec}" ref="N35"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="93" xr:uid="{491ddc9c-833e-4ad5-bc74-ca15d81626c6}" ref="C2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	done
+</t></text></comment><comment authorId="94" xr:uid="{49dc09a6-b5ff-4593-8e46-898f9cb44bcc}" ref="B39"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="95" xr:uid="{4a5eb5bd-e025-4d9f-8ab0-5a4915817045}" ref="J23"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="96" xr:uid="{4b18c1a2-8ade-43a3-a2ab-21506e74b09e}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	1
+</t></text></comment><comment authorId="97" xr:uid="{50c3d530-ef04-413f-b477-121ce0481e10}" ref="J54"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="98" xr:uid="{52d135d2-9fe2-45fd-b9b0-9e259cce8a9e}" ref="F10"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="99" xr:uid="{53fbe29c-bd7d-4b86-8cea-e0e7ded47d65}" ref="F9"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="100" xr:uid="{57c84426-88bd-46d0-a716-376ff9497c87}" ref="N22"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="101" xr:uid="{581b474e-4ffe-4562-9e6a-7bf753f15fe2}" ref="N16"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="102" xr:uid="{5a674a52-de42-4468-b603-822b0a9346ca}" ref="J7"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="103" xr:uid="{5aae4344-9f74-4064-adfd-ae0cc54a63c8}" ref="B45"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="104" xr:uid="{5c5f85d9-f2fa-4ca3-916c-f7dc65cb185c}" ref="N34"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="105" xr:uid="{5d532b8f-c31a-46ab-8138-7eaeddf38a45}" ref="B45"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="106" xr:uid="{5d85c551-423b-4dde-b478-0efe75915350}" ref="N21"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="107" xr:uid="{5d9e387a-e668-49c6-8357-69a46ebd8b9b}" ref="J25"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="108" xr:uid="{5dbd18a9-6e6f-4751-b6f9-ae6861d26456}" ref="B22"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	1
+</t></text></comment><comment authorId="109" xr:uid="{5fff35fc-cb92-4bec-818e-460ba0691e6d}" ref="B38"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="110" xr:uid="{605aec34-bda3-4466-a042-fc588a8e4997}" ref="B47"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="111" xr:uid="{625da40a-b2a7-46d4-849e-ef5d0b02aa11}" ref="B8"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="112" xr:uid="{63b68dc4-01bd-4f72-bb24-a73d3934d641}" ref="J19"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="113" xr:uid="{63e73f2a-582d-4506-bc7f-7456c566a3cc}" ref="J18"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="114" xr:uid="{64362380-5281-4dfb-a341-8dfb25a43949}" ref="F39"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="115" xr:uid="{6492cfb8-a1c0-45b5-96b3-76ab913b22b6}" ref="B3"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="116" xr:uid="{6524f2c5-d46a-42e8-8480-b66e832080d0}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	C
+</t></text></comment><comment authorId="117" xr:uid="{6565cbf1-9d9b-4142-afe5-869bb31e5d99}" ref="J37"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="118" xr:uid="{6568dafc-7682-4d80-b854-80feb043cd5f}" ref="J22"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="119" xr:uid="{65ebd600-4dfe-4010-a606-7e3515ce7902}" ref="I49"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	What do these negative numbers mean? For siofra river, ainsel river, nokron, etc.
+Reply:
+	maybe cause they're underground? that's my only guess other then an error
+1 total reaction
+Malaclypse Younger reacted with 👍 at 2024-09-09 09:38 AM
+</t></text></comment><comment authorId="120" xr:uid="{6600214c-774b-4aae-a1a5-3deeac800e89}" ref="F40"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="121" xr:uid="{660dbecb-c01c-4d97-a51d-cc578ebc8f83}" ref="B35"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="122" xr:uid="{66670012-3a85-4a59-bdbb-9f7e400f728b}" ref="B4"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="123" xr:uid="{66a57e10-5ab6-4b83-bf86-cecee08a732e}" ref="N20"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="124" xr:uid="{6709d172-3dd0-4a25-bdcc-62a044ec7958}" ref="B3"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	C
+</t></text></comment><comment authorId="125" xr:uid="{67386961-7e33-41b0-afaf-d0d6ab0a6806}" ref="B21"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="126" xr:uid="{677272dc-76ad-4ee0-92cd-8137c61e38fe}" ref="M56"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Hello, really liking this spreadsheet but I'm just wondering why do some titles have -6 or -4 for example?
+Reply:
+	Sorry for the late response, I don't really check these anymore. The negative numbers are the underground areas. The negative numbers go down based on the difficulty of the area. The positive numbers are the overworld going up by difficulty.
+</t></text></comment><comment authorId="127" xr:uid="{680b61d2-cc12-486a-82cd-8fae2bdf39f9}" ref="N59"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="128" xr:uid="{68349621-177b-47c2-b1c3-683505c410ac}" ref="J57"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="129" xr:uid="{696c75cb-ad31-47a7-998a-509ee44793e1}" ref="B21"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	S
+Reply:
+	X
+</t></text></comment><comment authorId="130" xr:uid="{6afc58ce-0bb9-4761-adef-096dc56f63cf}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="131" xr:uid="{6bc66d1c-8a2b-4c00-8fe7-08ed7dace838}" ref="B52"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	C
+</t></text></comment><comment authorId="132" xr:uid="{6d7f6499-4df1-45f3-8d49-28269a35b8a8}" ref="J20"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="133" xr:uid="{6dffde4a-cd65-45a6-8d3a-64db1519052c}" ref="B22"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Tuer
+</t></text></comment><comment authorId="134" xr:uid="{6f455991-3a54-4891-af1d-010f13aac3fb}" ref="F8"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="135" xr:uid="{7197eb7a-d5dd-4c55-922a-32e373c194b1}" ref="N5"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="136" xr:uid="{73383fc4-3f01-4d02-aaa1-6f66e37f0ee5}" ref="N6"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="137" xr:uid="{7421fdb7-6210-475f-b99f-89884c0961c0}" ref="J28"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="138" xr:uid="{7428d245-2a8e-4883-8435-d90af6b44c10}" ref="B43"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="139" xr:uid="{74331404-b2bd-4eb6-b3b1-99a7ad935ec0}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	Done
+</t></text></comment><comment authorId="140" xr:uid="{744d8631-9abb-475d-96a5-077765c5a5f1}" ref="J17"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="141" xr:uid="{748e548f-0643-49c8-a756-2b69a70393f8}" ref="N50"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="142" xr:uid="{759bb81c-9b19-402f-8353-6811e277722c}" ref="N38"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="143" xr:uid="{75bf655b-53b3-4f42-9904-67c8acd703b3}" ref="B18"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	X
+</t></text></comment><comment authorId="144" xr:uid="{771ed205-e617-451f-9192-f28735894165}" ref="B19"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="145" xr:uid="{777a320a-6b00-4fac-ace3-062ad19a3b51}" ref="J14"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="146" xr:uid="{77f222b6-6d0d-4ea2-9795-140614e305c8}" ref="J40"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="147" xr:uid="{7a2817af-623a-4095-b130-092048c93e49}" ref="N23"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="148" xr:uid="{7b012f4d-240f-454b-9994-32827840452a}" ref="J19"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="149" xr:uid="{7c316af8-a1ac-432a-ba9e-b984a0493f1b}" ref="F37"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="150" xr:uid="{7d41690c-034a-4841-86af-f93de20a1a21}" ref="F51"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="151" xr:uid="{7dd64b9f-9a53-42c8-8bd5-8d28153105e7}" ref="F7"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="152" xr:uid="{7e8adf90-1dbf-428d-99f0-f4b0ac830394}" ref="N36"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="153" xr:uid="{7f031a71-10d1-44ab-8532-b65f2ef77682}" ref="B4"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	G
+</t></text></comment><comment authorId="154" xr:uid="{7f4a80fa-6457-4779-86bc-d08b9c6d7831}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	x
+</t></text></comment><comment authorId="155" xr:uid="{7fa110af-3a00-42c9-9d71-22ab80d9b939}" ref="B50"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="156" xr:uid="{7fa48164-558d-4c8f-8c8a-ae1d2b1f7e43}" ref="F6"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="157" xr:uid="{7fb43083-b003-48e6-834d-85112a07c7d5}" ref="B5"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="158" xr:uid="{8146ac01-2972-429a-a6e8-341c8c00c061}" ref="B4"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Done
+</t></text></comment><comment authorId="159" xr:uid="{818a011d-efa4-437d-8ac1-330d955ba7fa}" ref="B39"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="160" xr:uid="{8267aa11-317c-4981-9735-d802ed4bfa43}" ref="F5"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="161" xr:uid="{8797b685-07dc-4c71-bbfe-0933ef594cad}" ref="B41"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="162" xr:uid="{87b2e190-5645-4d08-8c49-15bc0611391f}" ref="F4"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="163" xr:uid="{87c57a73-ba9d-42fa-b001-d97d1bec30ea}" ref="N27"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="164" xr:uid="{892dcf03-8b54-4a5f-abcc-749984d3fc0d}" ref="J21"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="165" xr:uid="{8964bb95-2343-4dbb-a8f9-cb0e3555c7d3}" ref="B13"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="166" xr:uid="{8996ae43-e1be-404e-8b28-bc906b21a2c3}" ref="B23"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="167" xr:uid="{89e4a88c-8b10-4e8b-8e51-4b4a1813ca86}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	C
+</t></text></comment><comment authorId="168" xr:uid="{8a5c4b2a-4886-4f97-a892-d7b1e3f79241}" ref="J36"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="169" xr:uid="{8b07abfa-33f1-4843-9336-18083e9e6293}" ref="B22"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="170" xr:uid="{8b1b077a-cc7d-4bf8-af96-afadff47c5b7}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="171" xr:uid="{8c29cc7c-4740-42c2-b069-fa1166bf94b4}" ref="J11"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="172" xr:uid="{8c7418cc-b5e2-4f0b-aca8-0b764fe35903}" ref="J2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="173" xr:uid="{8cdc1701-6914-412d-a189-bc295d3b18b2}" ref="B46"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="174" xr:uid="{8f74d2b5-a7ea-4e39-8026-cde2ab717df2}" ref="N43"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="175" xr:uid="{8f955e8a-36bf-4d27-a5ef-c4cec8361595}" ref="B55"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="176" xr:uid="{8fb3954c-bb33-4021-9258-e73be2fad2a2}" ref="B7"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	x
+</t></text></comment><comment authorId="177" xr:uid="{9009f1d7-a049-48eb-be87-8cf2e0bf2b3b}" ref="J8"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="178" xr:uid="{91f50f8e-384e-49e0-80db-14b3ceff8d06}" ref="B4"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="179" xr:uid="{9228e702-89d9-4543-a52f-3187562e3470}" ref="B20"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	X
+</t></text></comment><comment authorId="180" xr:uid="{939c7bc4-c544-4cb0-bf25-301d4461f57b}" ref="A8"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Killed
+</t></text></comment><comment authorId="181" xr:uid="{9517b4bd-4619-450d-997d-87189258791a}" ref="J2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="182" xr:uid="{974f06d9-d837-4d5f-8896-70747c8755b2}" ref="F11"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	x
+</t></text></comment><comment authorId="183" xr:uid="{9989e83c-57e1-4a2e-9f33-565df8ad9355}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="184" xr:uid="{99daa861-42e4-421e-85a4-6df38e5764f3}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	1
+</t></text></comment><comment authorId="185" xr:uid="{9b4a681a-8956-42e9-86a9-6eebbd13044f}" ref="N16"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="186" xr:uid="{9c57a449-4379-47a1-95a0-cdb56118f453}" ref="F38"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="187" xr:uid="{9c918f00-9543-4655-9a62-626502012809}" ref="B23"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="188" xr:uid="{9d23a393-c0c3-47e7-a030-916878bd8dc5}" ref="N54"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="189" xr:uid="{9d602410-b90c-4e2c-b50c-b65e57450cc1}" ref="B9"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="190" xr:uid="{9d6bb6d3-4915-4212-a0ee-62a783ccd440}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	x
+</t></text></comment><comment authorId="191" xr:uid="{9de62e43-11d2-4fc4-a7f6-6dcd8f7beb28}" ref="B16"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Done
+</t></text></comment><comment authorId="192" xr:uid="{9f45c956-bbef-4b45-85eb-d51677976fbb}" ref="J15"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="193" xr:uid="{9f581d93-f3ff-439d-b8c8-a6267fcf6208}" ref="N33"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="194" xr:uid="{9f6e5de1-d30c-4e7b-b192-4cc0ff4aaa3a}" ref="N4"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="195" xr:uid="{9feccb93-dc66-4551-a125-057a68152758}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	/
+</t></text></comment><comment authorId="196" xr:uid="{a0fa08ea-894e-4184-b1b3-15e4f5d9e850}" ref="F42"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	!
+</t></text></comment><comment authorId="197" xr:uid="{a1e9d9c5-f591-42ab-9551-5b58ae0945eb}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="198" xr:uid="{a21ac805-47b1-4eee-8f73-32e578f0d7df}" ref="J46"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="199" xr:uid="{a24f5c16-3c3e-4411-b06b-f8934030ce0e}" ref="F54"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="200" xr:uid="{a27b21b6-87d0-4fbb-b570-56cf3d3c8dfa}" ref="B38"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	C
+</t></text></comment><comment authorId="201" xr:uid="{a4c74b30-3c3f-49f1-84d0-6087d2ce2286}" ref="J12"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="202" xr:uid="{a4f4fbfa-5ec6-428b-9a9e-635dd5cb2889}" ref="B16"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	X
+</t></text></comment><comment authorId="203" xr:uid="{a5f0d670-67c0-4e62-acc7-07cb302ea0ac}" ref="J18"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="204" xr:uid="{a71a0bd1-49d1-4a89-b21f-d9ef1c0bad3e}" ref="N36"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="205" xr:uid="{a7fa01e9-89d0-41a4-9279-6cd705bc22e7}" ref="J35"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="206" xr:uid="{a8090a4e-325e-4fe7-850e-c90cdc3ac7da}" ref="F45"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="207" xr:uid="{a8e7d4ab-f740-40f6-8772-919c105bc797}" ref="J34"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="208" xr:uid="{a8ed755e-722b-47ec-b9b3-db66a7a298bf}" ref="F3"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="209" xr:uid="{a920549d-5d51-4a40-ae94-ae4dc1227519}" ref="B18"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="210" xr:uid="{aa636fb3-4b1a-420f-80a5-9c6a784f4761}" ref="J39"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="211" xr:uid="{aa9291ff-6335-46a9-befc-3bf6681bbd39}" ref="J22"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="212" xr:uid="{ac88ff77-915b-4729-8d82-100936ff02ee}" ref="N18"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="213" xr:uid="{afae191d-f8e2-4ee7-b5b7-7f0f33a73105}" ref="B3"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="214" xr:uid="{b1817406-2eaa-4272-8082-2b01ea781139}" ref="N11"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="215" xr:uid="{b2d95bc3-b17b-4d62-b342-3369635117ee}" ref="N19"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="216" xr:uid="{b38115d4-72d0-4bdb-a162-0ebcd3a6750b}" ref="B15"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	X
+</t></text></comment><comment authorId="217" xr:uid="{b536275f-9518-4aeb-89bc-1b8a4cdd6677}" ref="B15"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="218" xr:uid="{b53b9705-4f8a-4475-ac5f-e511b5d2b341}" ref="B4"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="219" xr:uid="{b62cb87c-7050-4cc6-8930-ca0a3b800923}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	x
+</t></text></comment><comment authorId="220" xr:uid="{b649c1f3-6b81-43ec-b79c-39cf7d385530}" ref="B8"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	X
+</t></text></comment><comment authorId="221" xr:uid="{b695140c-adcb-4777-aa27-fd6ed20b2f4c}" ref="B20"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="222" xr:uid="{b78e6a8c-6ead-4684-9cc0-f217ce723945}" ref="B33"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="223" xr:uid="{b8de5d50-71c7-45d1-bef6-6436544efcc0}" ref="J59"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="224" xr:uid="{b8f91fd0-7353-4e60-abf7-ce6b748c56df}" ref="J27"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="225" xr:uid="{bc690cc3-8b7d-4c6e-8db8-6ce7a9729e4a}" ref="J39"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="226" xr:uid="{bc89a8e7-4e94-47da-9649-2d231c4b10bd}" ref="J15"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="227" xr:uid="{bdee1879-b636-496a-894e-9442ef7578fd}" ref="J24"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="228" xr:uid="{bf0a6124-a1b2-4446-9e28-45d7fdf215e6}" ref="B22"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="229" xr:uid="{bf1436b8-0782-4bd9-aff6-b2fae698fd2a}" ref="B12"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	X
+</t></text></comment><comment authorId="230" xr:uid="{c0b3c56b-ec50-498a-bf3c-4bc515cd9ed4}" ref="B46"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="231" xr:uid="{c1ae2c97-7895-4ee5-94cb-c512f81bdd22}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	z
+</t></text></comment><comment authorId="232" xr:uid="{c1ccfd23-cefd-411f-8751-9aac0ca01c1f}" ref="B18"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="233" xr:uid="{c22d4732-9803-4292-b390-3d748e7ad29f}" ref="J11"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="234" xr:uid="{c3f1d4f4-0283-4db4-a073-e86f3cf3ca9e}" ref="B21"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="235" xr:uid="{c3f9ddce-eb08-44cc-8084-f4c9bd7622ac}" ref="B15"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="236" xr:uid="{c43b12cc-e2e5-47c5-8a3a-cc3c390fe1d5}" ref="J42"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="237" xr:uid="{c572769b-c754-4ebc-b81d-b56cc7de6da5}" ref="N22"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="238" xr:uid="{c64e2641-0163-4cf5-904c-1bdfcee4c2ae}" ref="C2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Done
+</t></text></comment><comment authorId="239" xr:uid="{c6af1107-711d-4d76-9200-4ef3851d0d48}" ref="B14"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="240" xr:uid="{c71fa4ef-bfb2-4c85-aba6-611aedf09460}" ref="N12"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="241" xr:uid="{c73aa1fd-2ebe-4546-ac7d-b9a63cff92ab}" ref="J47"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="242" xr:uid="{c81829f3-a8bc-4521-9def-a5843067e799}" ref="B6"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	!
+</t></text></comment><comment authorId="243" xr:uid="{c931a407-f18e-4fef-969b-53eb757a034b}" ref="F55"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="244" xr:uid="{cb0f4ec2-41d1-4c9c-ac19-4a5b77353dff}" ref="N58"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="245" xr:uid="{cbe96615-28d3-424a-bf93-d345299adb84}" ref="N57"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="246" xr:uid="{cd2af285-e172-425b-b782-34fb7ef4d7a1}" ref="F39"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="247" xr:uid="{cd86e768-ee9c-4da7-bccf-c4005861a442}" ref="J5"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="248" xr:uid="{cec34288-2c0f-4ec7-8a18-72b751cbdd9f}" ref="B23"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	!
+</t></text></comment><comment authorId="249" xr:uid="{cefa86e0-a421-4466-9564-fb712119d6e5}" ref="B11"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="250" xr:uid="{d1168a62-d9de-4482-be0b-ffbe36f2f098}" ref="B10"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="251" xr:uid="{d2767266-1b47-447f-8776-86299d66e859}" ref="B41"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="252" xr:uid="{d27bc0dd-2758-46a9-8543-853660c16790}" ref="B36"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="253" xr:uid="{d6070496-4cfd-49d5-b9ad-14704adc3695}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	s
+</t></text></comment><comment authorId="254" xr:uid="{d6b09ba0-80c5-418c-af49-2ea7243d2096}" ref="J20"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="255" xr:uid="{d6ec8bbb-4ed4-4df9-accf-018c689eb201}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Done
+</t></text></comment><comment authorId="256" xr:uid="{d799a837-0e09-4d09-9543-8153a8373acf}" ref="B7"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	H
+Reply:
+	!
+</t></text></comment><comment authorId="257" xr:uid="{d7a920d0-7295-4a56-a19b-e97e2818d6dd}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="258" xr:uid="{d80229db-5122-4ed4-8fd2-5d8c33841ab7}" ref="B57"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="259" xr:uid="{d9758019-9dd0-406f-83bb-945ebfea9080}" ref="F33"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="260" xr:uid="{da9970d3-08bf-4aa0-9265-80d8a48445f1}" ref="J13"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="261" xr:uid="{daaa3921-5c4f-450d-a7c9-6baa6756b149}" ref="J43"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="262" xr:uid="{daf24a3e-f8f8-41ac-a6c6-0e9fc9db23e8}" ref="F47"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="263" xr:uid="{db5c1b99-c0e5-45f6-b12e-14390b09eabb}" ref="J38"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="264" xr:uid="{db7ce21c-733d-43c4-8c30-847ad18d0641}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	G
+</t></text></comment><comment authorId="265" xr:uid="{dba46634-7e8c-4645-8246-ac41b5175deb}" ref="B44"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="266" xr:uid="{dbf3f801-8bc6-42db-ab4a-f6beb008d11f}" ref="F44"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="267" xr:uid="{dcd30070-701d-4aeb-b2a2-00f188faeeaa}" ref="N15"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="268" xr:uid="{dd3aa71d-26a2-4bdc-af9c-dca5bf05ede9}" ref="J14"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="269" xr:uid="{de32e7f4-0a38-43fe-8e9d-e5c33198c4e5}" ref="B13"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="270" xr:uid="{e054cece-61ec-4749-b1f7-591001d872c5}" ref="B19"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	X
+</t></text></comment><comment authorId="271" xr:uid="{e0863453-dbea-4d12-b648-c697e518b849}" ref="N41"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="272" xr:uid="{e09c106c-7d31-4b62-a291-8c3c870d15da}" ref="J58"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="273" xr:uid="{e0cfbf56-a84c-4216-a266-45ce00266bd9}" ref="B10"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="274" xr:uid="{e13ff7da-1f94-42eb-9e6e-138c8c42dbfd}" ref="B53"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="275" xr:uid="{e1a22dd1-115c-4b49-9bae-d19d78915584}" ref="J33"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="276" xr:uid="{e228f452-f4df-4946-8efd-c3fef2b07d00}" ref="F38"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="277" xr:uid="{e2c732f7-4d62-4f91-b04e-16cfe5d6a68f}" ref="J29"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="278" xr:uid="{e456286b-c896-46d0-a982-7c9f46b350bf}" ref="J9"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	D
+</t></text></comment><comment authorId="279" xr:uid="{e5205a66-c377-41b7-9ebe-8b1ff9bf978a}" ref="J25"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="280" xr:uid="{e52d435b-cfa6-4265-a7bf-0ecd3341903f}" ref="B19"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="281" xr:uid="{e5ada42f-7c75-4daf-95e6-0f2839a17ad8}" ref="J10"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="282" xr:uid="{e5e2f57b-5dea-4134-aac5-07ec70b4d0b5}" ref="B51"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	C
+</t></text></comment><comment authorId="283" xr:uid="{e5e73c3f-04d2-406d-bad6-b0f711d35c0c}" ref="N3"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="284" xr:uid="{e7338efe-8a4d-4bde-9537-a20586e61c1d}" ref="B22"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="285" xr:uid="{e7fd2541-2197-4a38-a571-b97d4c7af959}" ref="N40"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="286" xr:uid="{e82d0036-2010-4c65-a302-608e11144fcd}" ref="B18"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="287" xr:uid="{e84ada6b-75c7-4703-9dc4-f03636a6bdab}" ref="N2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="288" xr:uid="{e84b3c60-c27e-4e1a-9e70-db552ff8fb6c}" ref="B10"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+Reply:
+	X
+</t></text></comment><comment authorId="289" xr:uid="{e90ac0f2-ec3e-4e7a-92d0-4b303c9eadd7}" ref="B22"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	A
+Reply:
+	X
+</t></text></comment><comment authorId="290" xr:uid="{e9eb455a-6193-4969-ac60-8c9b8c92eeac}" ref="B5"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="291" xr:uid="{eb696268-997f-4b10-aab1-d5103e379b3c}" ref="B2"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	1
+</t></text></comment><comment authorId="292" xr:uid="{ec18c903-8c46-4389-985a-0819093c852b}" ref="J50"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="293" xr:uid="{ed6ebb16-90d0-409e-b118-3d60434b7503}" ref="B5"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="294" xr:uid="{eeaacfcf-b2e6-41e4-91db-984b3f4bfa70}" ref="B4"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	j
+</t></text></comment><comment authorId="295" xr:uid="{ef595f17-90bc-4dba-b29b-74a08c7868ee}" ref="B20"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="296" xr:uid="{f16d7073-524d-4b44-a8f5-092b97d289f8}" ref="B42"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="297" xr:uid="{f1b22d01-28a8-429c-bc89-8ce29d50a4d5}" ref="N10"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="298" xr:uid="{f211b520-16b1-4de2-9a19-8bff8c8d4c79}" ref="J6"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="299" xr:uid="{f252a2a0-1eae-4be9-a7e1-3376fde03ff0}" ref="B15"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	x
+</t></text></comment><comment authorId="300" xr:uid="{f39b04fa-f1fb-445c-826d-18d0c269df0d}" ref="B7"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="301" xr:uid="{f4f89524-8e39-4f55-be7a-7fe47c479533}" ref="B37"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	C
+</t></text></comment><comment authorId="302" xr:uid="{f5010f5f-14f6-474e-96b5-0b5b199f7a0b}" ref="B8"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="303" xr:uid="{f6409dca-ace0-403a-8a5d-065296388e8f}" ref="F46"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="304" xr:uid="{f7198cc3-88ad-4160-96d3-745acd5a1f91}" ref="B9"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="305" xr:uid="{f829178d-ebb7-4c27-8b14-a2929abed515}" ref="F9"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="306" xr:uid="{f829b4dd-9389-46eb-876b-c09173f0c7ef}" ref="N37"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="307" xr:uid="{f8db591c-a73b-469a-8109-93b0b356cf06}" ref="B10"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	✅
+</t></text></comment><comment authorId="308" xr:uid="{f93341a6-e7e7-4685-8b02-5012e3270b69}" ref="N39"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="309" xr:uid="{fa72f537-03de-42a1-a0fc-a538572ba8fa}" ref="N27"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	Y
+</t></text></comment><comment authorId="310" xr:uid="{fb8d4d44-c46e-405c-8691-a2430e56bac8}" ref="N8"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="311" xr:uid="{fc258a73-fc72-4838-beae-c5b7f4317e71}" ref="N10"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="312" xr:uid="{fc857e9a-66b2-4f4a-8135-ef7cf2183db3}" ref="B40"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="313" xr:uid="{fdaf4c32-f962-4eed-80bc-22820813fc5e}" ref="B12"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment><comment authorId="314" xr:uid="{fed4328f-6aca-43df-8992-4a808f3a394a}" ref="N11"><text><t xml:space="preserve">[Threaded comment]
+ Your version of Excel allows you to read this threaded comment; however, any edits to it will get removed if the file is opened in a newer version of Excel. Learn more: https://go.microsoft.com/fwlink/?linkid=870924
+Comment:
+	X
+</t></text></comment></commentList></comments>
