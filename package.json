@@ -1,6 +1,6 @@
 {
-  "name": "elden-ring-randomizer-index-build-planner",
-  "version": "1.3.0",
+  "name": "elden-ring-randomizer-index",
+  "version": "1.4.0",
   "description": "Searchable spoiler-log index and build planner for Elden Ring Randomizer seeds.",
   "author": "Mjolniar",
   "private": true,
@@ -32,7 +32,7 @@
   },
   "build": {
     "appId": "com.mjolniar.eldenringrandomizer.buildplanner",
-    "productName": "Elden Ring Randomizer Index and Build Planner",
+    "productName": "Elden Ring Randomizer Index",
     "copyright": "MIT",
     "asar": true,
     "directories": {
@@ -46,6 +46,7 @@
     ],
     "win": {
       "signAndEditExecutable": false,
+      "icon": "assets/icon-randomizer.png",
       "target": [
         {
           "target": "nsis",

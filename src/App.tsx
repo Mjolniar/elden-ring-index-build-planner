@@ -210,7 +210,7 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Elden Ring Randomizer Index and Build Planner</h1>
+        <h1>Elden Ring Randomizer Index</h1>
         {result && (
           <button className="reset-btn" onClick={handleReset}>
             Load new log
