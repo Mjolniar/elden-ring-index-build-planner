@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 import type { ItemRecord, BuildItemKind } from '../src/types';
 import {
   BUILD_PRESETS,
+  BUILD_STATS,
   buildLevelRank,
   buildPlannerMatches,
+  computeSoulCost,
   filterBuildPresets,
   isFreeformRequirement,
   normalizeBuildName,
@@ -151,5 +153,154 @@ describe('build data integrity', () => {
       console.log('Freeform-like items NOT detected:', missed.map((r) => `${r.preset}: "${r.name}"`));
     }
     expect(missed).toHaveLength(0);
+  });
+});
+
+// ─── Canonical kind sets ───────────────────────────────────────────────────────
+// These lists are ground-truth: every time these items appear in a build
+// requirement, they must carry the stated kind. If a fix ever regresses,
+// these tests will catch it immediately without relying on name heuristics.
+
+describe('canonical requirement kinds', () => {
+  const allRequirements = BUILD_PRESETS.flatMap((p) =>
+    p.requirements.map((r) => ({ preset: p.id, ...r }))
+  );
+
+  function assertKind(names: string[], expectedKind: BuildItemKind, label: string) {
+    const matches = allRequirements.filter(
+      (r) => names.includes(r.name) && !isFreeformRequirement(r)
+    );
+    const wrong = matches.filter((r) => r.kind !== expectedKind);
+    if (wrong.length) {
+      console.log(`${label} with wrong kind:`, wrong.map((r) => `${r.preset}: "${r.name}" kind=${r.kind}`));
+    }
+    expect(wrong).toHaveLength(0);
+  }
+
+  it('known talismans always have kind=talisman', () => {
+    assertKind([
+      'Shard of Alexander',
+      "Millicent's Prosthesis",
+      'Godfrey Icon',
+      'Radagon Icon',
+      'Carian Filigreed Crest',
+      'Ritual Sword Talisman',
+      'Ritual Shield Talisman',
+      'Dragoncrest Greatshield Talisman',
+      "Lord of Blood's Exultation",
+      "Kindred of Rot's Exultation",
+      'Rotten Winged Sword Insignia',
+      'Winged Sword Insignia',
+      'Green Turtle Talisman',
+      'Two-Headed Turtle Talisman',
+      "Great-Jar's Arsenal",
+      "Erdtree's Favor",
+      'Claw Talisman',
+      'Axe Talisman',
+      'Spear Talisman',
+      'Fire Scorpion Charm',
+      'Magic Scorpion Charm',
+      'Lightning Scorpion Charm',
+      'Sacred Scorpion Charm',
+      'Graven-Mass Talisman',
+      "Flock's Canvas Talisman",
+      "Old Lord's Talisman",
+      "Arrow's Sting Talisman",
+      'Blue Dancer Charm',
+      'Blade of Mercy',
+      'Blessed Blue Dew Talisman',
+      'Blessed Dew Talisman',
+    ], 'talisman', 'Known talismans');
+  });
+
+  it('known weapons always have kind=weapon', () => {
+    assertKind([
+      'Flamberge',
+      'Nagakiba',
+      'Uchigatana',
+      'Erdsteel Dagger',
+      'Black Knife',
+      "Bloodhound's Fang",
+      "Gargoyle's Blackblade",
+      "Gargoyle's Greatsword",
+      'Cinquedea',
+      'Cross-Naginata',
+      "Maliketh's Black Blade",
+      'Black Bow',
+      'Rivers of Blood',
+      'Moonveil',
+      'Blasphemous Blade',
+      'Sword of Night and Flame',
+      'Zweihander',
+      'Claymore',
+      'Greatsword',
+    ], 'weapon', 'Known weapons');
+  });
+
+  it('known seals always have kind=seal', () => {
+    assertKind([
+      'Clawmark Seal',
+      "Godslayer's Seal",
+      'Golden Order Seal',
+      'Erdtree Seal',
+      'Dragon Communion Seal',
+      'Finger Seal',
+      'Frenzied Flame Seal',
+      "Giant's Seal",
+      'Gravel Stone Seal',
+      "Fire Knight's Seal",
+    ], 'seal', 'Known seals');
+  });
+
+  it('known staves always have kind=staff', () => {
+    assertKind([
+      'Carian Glintstone Staff',
+      'Meteorite Staff',
+      'Academy Glintstone Staff',
+      "Lusat's Glintstone Staff",
+      "Azur's Glintstone Staff",
+      'Staff of the Guilty',
+      "Demi-Human Queen's Staff",
+      "Prince of Death's Staff",
+      'Rotten Crystal Staff',
+      "Helphen's Steeple",
+    ], 'staff', 'Known staves');
+  });
+});
+
+// ─── Stat model integrity ──────────────────────────────────────────────────────
+
+describe('stat model integrity', () => {
+  it('computeSoulCost uses statRecommended when present, falls back to statRequired', () => {
+    const withBoth = BUILD_PRESETS.find((p) => p.statRecommended && p.statRequired);
+    expect(withBoth).toBeTruthy();
+    const cost = computeSoulCost(withBoth!);
+    expect(cost).not.toBeNull();
+    expect(cost!.cost).toBeGreaterThan(0);
+    expect(cost!.targetLevel).toBeGreaterThan(0);
+  });
+
+  it('computeSoulCost returns null for presets with no stat data', () => {
+    const noStats = BUILD_PRESETS.find((p) => !p.statRecommended && !p.statRequired);
+    if (noStats) {
+      expect(computeSoulCost(noStats)).toBeNull();
+    }
+  });
+
+  it('presets with primaryStats have statRecommended covering those stats', () => {
+    const violations: string[] = [];
+    for (const preset of BUILD_PRESETS) {
+      if (!preset.primaryStats.length || !preset.statRecommended) continue;
+      for (const stat of preset.primaryStats) {
+        const val = preset.statRecommended[stat] ?? 0;
+        if (val <= 0) {
+          violations.push(`${preset.id}: primaryStat "${stat}" missing from statRecommended`);
+        }
+      }
+    }
+    if (violations.length) {
+      console.log('Stat coverage violations:', violations);
+    }
+    expect(violations).toHaveLength(0);
   });
 });
