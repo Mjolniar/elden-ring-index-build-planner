@@ -1,5 +1,5 @@
 {
-"name": "elden-ring-index",
+  "name": "elden-ring-index",
   "version": "1.0.0",
   "description": "Searchable index and build planner for Elden Ring — all items, vanilla locations, stat-filtered builds.",
   "author": "Mjolniar",
@@ -47,6 +47,7 @@
     ],
     "win": {
       "signAndEditExecutable": false,
+      "icon": "assets/icon-vanilla.png",
       "target": [
         {
           "target": "nsis",
@@ -61,7 +62,7 @@
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "shortcutName": "Elden Ring Randomizer Index",
+      "shortcutName": "Elden Ring Index and Build Planner",
       "artifactName": "${productName} ${version} Setup.${ext}",
       "runAfterFinish": false,
       "deleteAppDataOnUninstall": false

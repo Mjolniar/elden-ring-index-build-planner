@@ -380,7 +380,7 @@ export function BuildPlannerPanel({
                   <th>Need</th>
                   <th>Type</th>
                   <th>Status</th>
-                  <th>Randomized location</th>
+                  <th>Location</th>
                   <th>Area</th>
                   <th>Track</th>
                   <th>Acquired</th>
