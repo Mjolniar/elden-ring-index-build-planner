@@ -28,6 +28,10 @@ interface ColDef {
   width: string;
 }
 
+function wikiUrl(itemName: string): string {
+  return `https://eldenring.wiki.fextralife.com/${encodeURIComponent(itemName.replace(/ /g, '+'))}`;
+}
+
 const COLS: ColDef[] = [
   { field: 'itemName', label: 'Item', width: '25%' },
   { field: 'locationName', label: 'Location', width: '35%' },
@@ -116,7 +120,10 @@ export function SearchTable({
                     ★
                   </button>
                 </td>
-                <td className="item-name">{rec.itemName}</td>
+                <td className="item-name">
+                  {rec.itemName}
+                  <a className="wiki-link" href={wikiUrl(rec.itemName)} target="_blank" rel="noreferrer" title="View on Elden Ring Wiki" onClick={(e) => e.stopPropagation()}>⧉</a>
+                </td>
                 <td>{rec.locationName}</td>
                 <td>{rec.area ?? '—'}</td>
                 <td><span className={`badge badge-${rec.sourceType}`}>{SOURCE_LABELS[rec.sourceType]}</span></td>

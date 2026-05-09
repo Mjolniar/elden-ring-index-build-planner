@@ -1,6 +1,7 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import type { ParseResult, FilterState, ItemRecord, ActiveTab } from './types';
 import type { SpoilerLogCacheEntry } from './electron';
+import type { BuildPreset } from './buildPlanner';
 import { parseSpoilerLog } from './parser';
 import { makeRecordKey } from './recordKey';
 import { UploadPanel } from './components/UploadPanel';
@@ -9,6 +10,8 @@ import { SearchTable } from './components/SearchTable';
 import { DiagnosticsPanel } from './components/DiagnosticsPanel';
 import { ExportButtons } from './components/ExportButtons';
 import { BuildPlannerPanel } from './components/BuildPlannerPanel';
+import { ItemBrowser } from './components/ItemBrowser';
+import { GuidePanel } from './components/GuidePanel';
 
 function applyFilters(records: ItemRecord[], f: FilterState): ItemRecord[] {
   const q = f.search.toLowerCase().trim();
@@ -27,6 +30,7 @@ const DEFAULT_FILTERS: FilterState = { search: '', sourceType: 'all', keyItemsOn
 const BROWSER_CACHE_KEY = 'elden-ring-randomizer-index:last-log';
 const FAVORITES_KEY = 'elden-ring-randomizer-index:favorites';
 const ACQUIRED_KEY = 'elden-ring-randomizer-index:acquired';
+const USER_BUILDS_KEY = 'elden-ring-randomizer-index:user-builds';
 
 function loadStoredKeySet(storageKey: string): Set<string> {
   try {
@@ -48,6 +52,19 @@ export default function App() {
   const [selectedBuildId, setSelectedBuildId] = useState('all-knowing-sage');
   const [favoriteKeys, setFavoriteKeys] = useState<Set<string>>(() => loadStoredKeySet(FAVORITES_KEY));
   const [acquiredKeys, setAcquiredKeys] = useState<Set<string>>(() => loadStoredKeySet(ACQUIRED_KEY));
+  const [userBuilds, setUserBuilds] = useState<BuildPreset[]>(() => {
+    try {
+      const raw = localStorage.getItem(USER_BUILDS_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const persistUserBuilds = useCallback((builds: BuildPreset[]) => {
+    setUserBuilds(builds);
+    localStorage.setItem(USER_BUILDS_KEY, JSON.stringify(builds));
+  }, []);
 
   function loadText(text: string, name: string) {
     setFilename(name);
@@ -238,6 +255,14 @@ export default function App() {
               >
                 Builds
               </button>
+              <button
+                className={`tab-btn${activeTab === 'browse' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'browse'}
+                onClick={() => setActiveTab('browse')}
+              >
+                Browse
+              </button>
             </div>
             <div className="utility-tabs">
               <button
@@ -247,6 +272,14 @@ export default function App() {
                 onClick={() => setActiveTab('diagnostics')}
               >
                 Diagnostics
+              </button>
+              <button
+                className={`tab-btn diagnostics-tab${activeTab === 'guide' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'guide'}
+                onClick={() => setActiveTab('guide')}
+              >
+                Guide
               </button>
             </div>
           </div>
@@ -259,11 +292,30 @@ export default function App() {
               cacheMessage={cacheMessage}
               onOpenCacheFolder={window.electronAPI?.openSpoilerLogCacheDir ? openCacheFolder : undefined}
             />
+          ) : activeTab === 'guide' ? (
+            <GuidePanel />
           ) : activeTab === 'builds' ? (
             <BuildPlannerPanel
               records={result.records}
               selectedBuildId={selectedBuildId}
               onSelectedBuildIdChange={setSelectedBuildId}
+              favoriteKeys={favoriteKeys}
+              acquiredKeys={acquiredKeys}
+              onToggleFavorite={toggleFavorite}
+              onToggleAcquired={toggleAcquired}
+              userBuilds={userBuilds}
+              onSaveBuild={(build) => {
+                const existing = userBuilds.findIndex((b) => b.id === build.id);
+                const next = existing >= 0
+                  ? userBuilds.map((b, i) => i === existing ? build : b)
+                  : [...userBuilds, build];
+                persistUserBuilds(next);
+              }}
+              onDeleteBuild={(id) => persistUserBuilds(userBuilds.filter((b) => b.id !== id))}
+            />
+          ) : activeTab === 'browse' ? (
+            <ItemBrowser
+              records={result.records}
               favoriteKeys={favoriteKeys}
               acquiredKeys={acquiredKeys}
               onToggleFavorite={toggleFavorite}

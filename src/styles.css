@@ -512,6 +512,20 @@ html, body {
 
 .item-name { font-weight: 500; }
 
+.wiki-link {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--text-dim);
+  font-size: 12px;
+  text-decoration: none;
+  opacity: .45;
+  transition: opacity .15s, color .15s;
+}
+.wiki-link:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
 .detail-row td { background: #11110f; }
 .detail-content { padding: 6px 4px; font-size: 12px; display: flex; flex-direction: column; gap: 4px; }
 .detail-content code { font-family: var(--mono); color: var(--text-dim); word-break: break-all; }
@@ -625,4 +639,259 @@ details[open] .diagnostics-title::before { content: '▼'; }
   .build-summary a {
     align-self: flex-start;
   }
+
+  .browser-controls {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .browser-counts {
+    align-items: flex-start;
+    white-space: normal;
+  }
+}
+
+/* ---- Custom build editor ---- */
+.custom-build-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+}
+
+.editor-header h2 {
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.editor-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.editor-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+.editor-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.editor-stats {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 10px;
+}
+
+.editor-stats legend {
+  color: var(--text-dim);
+  font-size: 12px;
+  padding: 0 6px;
+}
+
+.stat-chip.secondary:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.editor-reqs h3 {
+  color: var(--text-dim);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.editor-req-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.editor-req-row .search-input {
+  flex: 1;
+  min-width: 140px;
+}
+
+.editor-req-row .source-select {
+  width: 110px;
+}
+
+.editor-req-row .key-toggle {
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.editor-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.editor-hint {
+  color: var(--text-dim);
+  font-size: 11px;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* ---- Build list actions ---- */
+.build-list-actions {
+  padding: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.build-list-actions .export-btn {
+  width: 100%;
+  text-align: center;
+}
+
+.build-summary-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.user-build-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* ---- Item browser ---- */
+.item-browser {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  gap: 10px;
+}
+
+.browser-controls {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) minmax(200px, auto) minmax(180px, auto);
+  gap: 10px;
+  align-items: end;
+  padding: 10px;
+  background: rgba(23, 23, 23, .72);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+}
+
+.browser-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.browser-options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+.browser-options .source-select {
+  width: auto;
+  min-width: 140px;
+}
+
+.browser-counts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  color: var(--accent);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.browser-counts span {
+  color: var(--text-dim);
+  font-size: 11px;
+}
+
+.used-by-count {
+  text-align: center;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---- Guide panel ---- */
+.guide-panel {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.guide-panel h2 {
+  color: var(--accent);
+  font-size: 17px;
+  font-weight: 650;
+  margin-bottom: 14px;
+}
+
+.guide-section {
+  background: rgba(23, 23, 23, .62);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.guide-section h3 {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 650;
+  margin-bottom: 8px;
+}
+
+.guide-section p {
+  color: var(--text-dim);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.guide-section ul,
+.guide-section ol {
+  padding-left: 20px;
+  color: var(--text-dim);
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.guide-section li {
+  line-height: 1.5;
+}
+
+.guide-section li ul {
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+.guide-section code {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.guide-section .badge {
+  vertical-align: middle;
 }

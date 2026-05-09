@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { ItemRecord } from '../src/types';
+import type { ItemRecord, BuildItemKind } from '../src/types';
 import {
   BUILD_PRESETS,
   buildLevelRank,
@@ -8,6 +8,7 @@ import {
   isFreeformRequirement,
   normalizeBuildName,
 } from '../src/buildPlanner';
+import type { BuildRequirement } from '../src/buildPlanner';
 
 function record(itemName: string, area: string | null, locationName = `Found ${itemName}`): ItemRecord {
   return {
@@ -75,5 +76,80 @@ describe('build planner matching', () => {
     const matches = buildPlannerMatches(preset, []);
     const sealNote = matches.find((match) => match.requirement.name === 'Seal that weighs nothing');
     expect(sealNote).toMatchObject({ record: null, isFreeform: true });
+  });
+});
+
+describe('build data integrity', () => {
+  const allRequirements = BUILD_PRESETS.flatMap((preset) =>
+    preset.requirements.map((req) => ({ preset: preset.id, ...req }))
+  );
+
+  const VALID_KINDS = ['weapon', 'shield', 'seal', 'staff', 'armor', 'talisman', 'spell', 'ash', 'optional'];
+
+  it('all requirements have valid kind values', () => {
+    for (const req of allRequirements) {
+      expect(VALID_KINDS).toContain(req.kind);
+    }
+  });
+
+  it('no requirement names start with conjunction words', () => {
+    const bad = allRequirements.filter((req) =>
+      /^\s*(and|but|or|also)\b/i.test(req.name)
+    );
+    if (bad.length) {
+      console.log('Requirements with conjunction prefix:', bad.map((r) => `${r.preset}: "${r.name}"`));
+    }
+    expect(bad).toHaveLength(0);
+  });
+
+  it('talisman-like names have kind=talisman unless freeform', () => {
+    const mismatches = allRequirements.filter((req) => {
+      if (isFreeformRequirement(req)) return false;
+      const n = req.name.toLowerCase();
+      const looksTalisman = /\b(talisman|charm|insignia|prosthes|soreseal|scarseal|cameo|exultation|medallion|heirloom|canvas)\b/i.test(n);
+      return looksTalisman && req.kind !== 'talisman';
+    });
+    if (mismatches.length) {
+      console.log('Talisman-like items with wrong kind:', mismatches.map((r) => `${r.preset}: "${r.name}" kind=${r.kind}`));
+    }
+    expect(mismatches).toHaveLength(0);
+  });
+
+  it('seal-like names have kind=seal unless freeform', () => {
+    const mismatches = allRequirements.filter((req) => {
+      if (isFreeformRequirement(req)) return false;
+      const n = req.name.toLowerCase();
+      const looksSeal = /\bseal\b/i.test(n) && !/talisman|charm|insignia|greatshield/i.test(n);
+      return looksSeal && req.kind !== 'seal';
+    });
+    if (mismatches.length) {
+      console.log('Seal-like items with wrong kind:', mismatches.map((r) => `${r.preset}: "${r.name}" kind=${r.kind}`));
+    }
+    expect(mismatches).toHaveLength(0);
+  });
+
+  it('staff/scepter names have kind=staff unless freeform', () => {
+    const mismatches = allRequirements.filter((req) => {
+      if (isFreeformRequirement(req)) return false;
+      const n = req.name.toLowerCase();
+      const looksStaff = /\b(staff|scepter)\b/i.test(n);
+      return looksStaff && req.kind !== 'staff';
+    });
+    if (mismatches.length) {
+      console.log('Staff-like items with wrong kind:', mismatches.map((r) => `${r.preset}: "${r.name}" kind=${r.kind}`));
+    }
+    expect(mismatches).toHaveLength(0);
+  });
+
+  it('freeform-like requirement names are detected by isFreeformRequirement', () => {
+    const missed = allRequirements.filter((req) => {
+      const n = req.name.toLowerCase();
+      const looksFreeform = /\b(armor (that|you|as|with|for|to|good|pieces)|high poise|med roll|medium roll|heaviest|weighs nothing|of your choice|you can|you want|you like|as long as|still allows|other (weapon|armor|talisman|curved|colossus)|in the video|suggested|recommended)\b/i.test(n);
+      return looksFreeform && !isFreeformRequirement(req);
+    });
+    if (missed.length) {
+      console.log('Freeform-like items NOT detected:', missed.map((r) => `${r.preset}: "${r.name}"`));
+    }
+    expect(missed).toHaveLength(0);
   });
 });

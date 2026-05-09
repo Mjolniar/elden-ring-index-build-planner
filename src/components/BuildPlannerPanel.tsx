@@ -8,11 +8,12 @@ import {
   buildPlannerMatches,
   buildLevelLabel,
   buildStatCategory,
-  filterBuildPresets,
   isFreeformRequirement,
   normalizeBuildName,
+  sortBuildPresets,
 } from '../buildPlanner';
 import { makeRecordKey } from '../recordKey';
+import { CustomBuildEditor } from './CustomBuildEditor';
 
 const KIND_LABELS: Record<string, string> = {
   weapon: 'Weapon',
@@ -30,16 +31,16 @@ function requirementKindLabel(kind: string, name: string): string {
   if (isFreeformRequirement({ kind: kind as BuildItemKind, name })) return 'Free-form';
   const normalized = name.toLowerCase();
   if (kind === 'spell' || kind === 'ash') return KIND_LABELS[kind];
-  if (normalized.includes('shield') || normalized.includes('buckler')) return 'Shield';
-  if (normalized.includes('seal')) return 'Seal';
-  if (normalized.includes('staff') || normalized.includes('scepter')) return 'Staff';
   if (/talisman|charm|insignia|prosthesis|soreseal|scarseal|arsenal|icon|heirloom|cameo|exultation|medallion/.test(normalized)) {
     return 'Talisman';
   }
-  if (/set|armor|helm|hood|mask|gauntlets|greaves|robe|trousers|blossom/.test(normalized)) {
+  if (/shield|buckler|greatshield/i.test(normalized) && !/talisman|charm/i.test(normalized)) return 'Shield';
+  if (/\bseal\b/i.test(normalized) && !/talisman|greatshield/i.test(normalized)) return 'Seal';
+  if (/\b(staff|scepter)\b/i.test(normalized)) return 'Staff';
+  if (/set|armor|helm|hood|mask|gauntlets|greaves|robe|trousers|blossom/i.test(normalized)) {
     return 'Armor';
   }
-  if (/sword|blade|bow|katana|spear|lance|hammer|axe|flail|claw|dagger|rapier|halberd|scythe|greatsword|twinblade|torch|mace|club/.test(normalized)) {
+  if (/sword|blade|bow|katana|spear|lance|hammer|axe|flail|claw|dagger|rapier|halberd|scythe|greatsword|twinblade|torch|mace|club/i.test(normalized)) {
     return 'Weapon';
   }
   return KIND_LABELS[kind] ?? 'Item';
@@ -77,6 +78,9 @@ interface Props {
   acquiredKeys: Set<string>;
   onToggleFavorite: (record: ItemRecord) => void;
   onToggleAcquired: (record: ItemRecord) => void;
+  userBuilds: BuildPreset[];
+  onSaveBuild: (build: BuildPreset) => void;
+  onDeleteBuild: (id: string) => void;
 }
 
 export function BuildPlannerPanel({
@@ -87,14 +91,28 @@ export function BuildPlannerPanel({
   acquiredKeys,
   onToggleFavorite,
   onToggleAcquired,
+  userBuilds,
+  onSaveBuild,
+  onDeleteBuild,
 }: Props) {
   const [selectedStats, setSelectedStats] = useState<BuildStat[]>([]);
   const [matchAllStats, setMatchAllStats] = useState(true);
   const [buildSearch, setBuildSearch] = useState('');
+  const [showEditor, setShowEditor] = useState(false);
+  const [editingBuildId, setEditingBuildId] = useState<string | null>(null);
   const searchKey = normalizeBuildName(buildSearch);
 
+  const allBuilds = useMemo(() => [...BUILD_PRESETS, ...userBuilds], [userBuilds]);
+
   const filteredBuilds = useMemo(() => {
-    const statMatches = filterBuildPresets(selectedStats, matchAllStats);
+    const statMatches = selectedStats.length
+      ? allBuilds.filter((preset) => {
+          const tags = new Set(preset.statTags);
+          return matchAllStats
+            ? selectedStats.every((stat) => tags.has(stat))
+            : selectedStats.some((stat) => tags.has(stat));
+        })
+      : allBuilds;
     if (!searchKey) return statMatches;
     return statMatches.filter((preset) => {
       const haystack = normalizeBuildName([
@@ -105,23 +123,60 @@ export function BuildPlannerPanel({
       ].join(' '));
       return haystack.includes(searchKey);
     });
-  }, [selectedStats, matchAllStats, searchKey]);
-  const buildGroups = useMemo(() => groupBuildsByLevel(filteredBuilds), [filteredBuilds]);
+  }, [allBuilds, selectedStats, matchAllStats, searchKey]);
 
-  const selectedBuild = filteredBuilds.find((preset) => preset.id === selectedBuildId) ?? filteredBuilds[0] ?? BUILD_PRESETS[0];
+  const presetBuilds = useMemo(
+    () => sortBuildPresets(filteredBuilds.filter((b) => !b.id.startsWith('user-'))),
+    [filteredBuilds]
+  );
+  const customBuilds = useMemo(
+    () => sortBuildPresets(filteredBuilds.filter((b) => b.id.startsWith('user-'))),
+    [filteredBuilds]
+  );
+  const presetGroups = useMemo(() => groupBuildsByLevel(presetBuilds), [presetBuilds]);
+
+  const selectedBuild = filteredBuilds.find((b) => b.id === selectedBuildId) ?? filteredBuilds[0] ?? allBuilds[0];
   const matches = buildPlannerMatches(selectedBuild, records);
-  const foundCount = matches.filter((match) => match.record).length;
-  const requiredCount = matches.filter((match) => !match.requirement.optional && !match.isFreeform).length;
-  const foundRequiredCount = matches.filter((match) => match.record && !match.requirement.optional && !match.isFreeform).length;
-  const freeformCount = matches.filter((match) => match.isFreeform).length;
+  const foundCount = matches.filter((m) => m.record).length;
+  const requiredCount = matches.filter((m) => !m.requirement.optional && !m.isFreeform).length;
+  const foundRequiredCount = matches.filter((m) => m.record && !m.requirement.optional && !m.isFreeform).length;
+  const freeformCount = matches.filter((m) => m.isFreeform).length;
   const primaryStats = selectedBuild.primaryStats.join(' / ') || 'Flexible';
   const secondaryStats = selectedBuild.secondaryStats.join(' / ') || 'None listed';
+  const isUserBuild = selectedBuild.id.startsWith('user-');
 
   function toggleStat(stat: BuildStat) {
-    setSelectedStats((current) =>
-      current.includes(stat)
-        ? current.filter((item) => item !== stat)
-        : [...current, stat]
+    setSelectedStats((c) => c.includes(stat) ? c.filter((s) => s !== stat) : [...c, stat]);
+  }
+
+  function handleEditBuild(id: string) {
+    setEditingBuildId(id);
+    setShowEditor(true);
+  }
+
+  function handleSaveBuild(build: BuildPreset) {
+    onSaveBuild(build);
+    setShowEditor(false);
+    setEditingBuildId(null);
+    onSelectedBuildIdChange(build.id);
+  }
+
+  function handleCancelEditor() {
+    setShowEditor(false);
+    setEditingBuildId(null);
+  }
+
+  const editingBuild = editingBuildId ? userBuilds.find((b) => b.id === editingBuildId) : undefined;
+
+  if (showEditor) {
+    return (
+      <section className="build-planner">
+        <CustomBuildEditor
+          onSave={handleSaveBuild}
+          onCancel={handleCancelEditor}
+          editingBuild={editingBuild}
+        />
+      </section>
     );
   }
 
@@ -147,7 +202,7 @@ export function BuildPlannerPanel({
           <input
             type="checkbox"
             checked={matchAllStats}
-            onChange={(event) => setMatchAllStats(event.target.checked)}
+            onChange={(e) => setMatchAllStats(e.target.checked)}
           />
           Match all selected stats
         </label>
@@ -156,12 +211,12 @@ export function BuildPlannerPanel({
           <input
             className="search-input build-search"
             value={buildSearch}
-            onChange={(event) => setBuildSearch(event.target.value)}
+            onChange={(e) => setBuildSearch(e.target.value)}
             placeholder="Name, level, or stat profile"
           />
         </label>
         <div className="build-counts">
-          Builds shown: {filteredBuilds.length} / {BUILD_PRESETS.length}
+          Builds shown: {filteredBuilds.length} / {allBuilds.length}
           <span>Required found: {foundRequiredCount} / {requiredCount}</span>
           {freeformCount > 0 && <span>Flexible notes: {freeformCount}</span>}
         </div>
@@ -171,7 +226,23 @@ export function BuildPlannerPanel({
         <aside className="build-list-panel">
           <div className="build-list-title">Matching builds</div>
           <div className="build-list">
-            {buildGroups.map((group) => (
+            {customBuilds.length > 0 && (
+              <div className="build-level-group">
+                <div className="build-level-heading">Your Builds</div>
+                {customBuilds.map((preset) => (
+                  <button
+                    key={preset.id}
+                    type="button"
+                    className={`build-list-item${selectedBuild.id === preset.id ? ' active' : ''}`}
+                    onClick={() => onSelectedBuildIdChange(preset.id)}
+                  >
+                    <span>{preset.name}</span>
+                    <small>{buildStatCategory(preset)}</small>
+                  </button>
+                ))}
+              </div>
+            )}
+            {presetGroups.map((group) => (
               <div key={group.level} className="build-level-group">
                 <div className="build-level-heading">{buildLevelLabel(group.level)}</div>
                 {group.builds.map((preset) => (
@@ -191,12 +262,23 @@ export function BuildPlannerPanel({
               <div className="empty-state">No builds match those stat filters.</div>
             )}
           </div>
+          <div className="build-list-actions">
+            <button
+              className="export-btn"
+              onClick={() => setShowEditor(true)}
+            >
+              + New build
+            </button>
+          </div>
         </aside>
 
         <div className="build-detail-panel">
           <div className="build-summary">
             <div>
-              <h2>{selectedBuild.name}</h2>
+              <h2>
+                {selectedBuild.name}
+                {isUserBuild && <span className="optional-tag">Custom</span>}
+              </h2>
               <p>{selectedBuild.summary}</p>
               <div className="build-meta">
                 <span>{selectedBuild.level}</span>
@@ -205,11 +287,28 @@ export function BuildPlannerPanel({
                 <span>All matched: {foundCount} / {matches.length}</span>
               </div>
             </div>
-            <a href={selectedBuild.sourceUrl} target="_blank" rel="noreferrer">Source build notes</a>
+            <div className="build-summary-links">
+              {isUserBuild ? (
+                <div className="user-build-actions">
+                  <button className="toggle-btn" onClick={() => handleEditBuild(selectedBuild.id)}>Edit</button>
+                  <button className="toggle-btn" onClick={() => {
+                    onDeleteBuild(selectedBuild.id);
+                    const next = filteredBuilds.find((b) => b.id !== selectedBuild.id);
+                    if (next) onSelectedBuildIdChange(next.id);
+                  }}>Delete</button>
+                </div>
+              ) : (
+                selectedBuild.sourceUrl && (
+                  <a href={selectedBuild.sourceUrl} target="_blank" rel="noreferrer">Source build notes</a>
+                )
+              )}
+            </div>
           </div>
 
           <div className="planner-note">
-            The catalog uses paraphrased build metadata from the saved reference page. Matched items are sorted by rough area progression, not by a solved route.
+            {isUserBuild
+              ? 'Your custom build. Edit it anytime using the Edit button above.'
+              : 'The catalog uses paraphrased build metadata from the saved reference page. Matched items are sorted by rough area progression, not by a solved route.'}
           </div>
 
           <div className="table-wrapper">
@@ -236,6 +335,9 @@ export function BuildPlannerPanel({
                       <td className="item-name">
                         {match.requirement.name}
                         {match.requirement.optional && <span className="optional-tag">Optional</span>}
+                        {!match.isFreeform && (
+                          <a className="wiki-link" href={`https://eldenring.wiki.fextralife.com/${encodeURIComponent(match.requirement.name.replace(/ /g, '+'))}`} target="_blank" rel="noreferrer" title="View on Elden Ring Wiki" onClick={(e) => e.stopPropagation()}>⧉</a>
+                        )}
                       </td>
                       <td><span className="badge badge-unknown">{requirementKindLabel(match.requirement.kind, match.requirement.name)}</span></td>
                       <td>

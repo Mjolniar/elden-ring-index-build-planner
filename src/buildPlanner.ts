@@ -60,8 +60,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "staff"
       },
       {
-        "name": "and Sword of Night and Flame",
-        "kind": "staff"
+        "name": "Sword of Night and Flame",
+        "kind": "weapon"
       },
       {
         "name": "Greathelm",
@@ -92,7 +92,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Scorpion Charms",
+        "name": "Scorpion Charm",
         "kind": "talisman"
       },
       {
@@ -132,7 +132,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Knight Comet",
+        "name": "Night Comet",
         "kind": "spell"
       },
       {
@@ -175,7 +175,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
     "requirements": [
       {
-        "name": "Shortbow and Longbow",
+        "name": "Shortbow",
         "kind": "weapon"
       },
       {
@@ -269,8 +269,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "Contagious Fury",
-        "kind": "ash"
+        "name": "Jellyfish Shield",
+        "kind": "weapon"
       },
       {
         "name": "Carian Slicer",
@@ -316,7 +316,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
     "requirements": [
       {
-        "name": "Claymore and Lordsworn's Greatsword",
+        "name": "Claymore",
         "kind": "weapon"
       },
       {
@@ -352,7 +352,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Black Bow",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Seal that weighs nothing",
@@ -375,7 +375,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Shard of Alexander ( Ritual Sword Talisman )",
+        "name": "Shard of Alexander",
         "kind": "talisman"
       },
       {
@@ -391,7 +391,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "and Flame, Grant Me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -419,14 +419,14 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Maliketh's Black Blade",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Clawmark Seal",
         "kind": "seal"
       },
       {
-        "name": "Maliketh's Set",
+        "name": "Maliketh's Armor",
         "kind": "armor"
       },
       {
@@ -435,7 +435,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -443,15 +443,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Sacred Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Claw Talisman",
-        "kind": "shield"
-      },
-      {
-        "name": "Destined Death",
-        "kind": "ash"
+        "kind": "talisman"
       },
       {
         "name": "Golden Vow",
@@ -490,7 +486,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Cross-Naginata",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Flamberge",
@@ -498,11 +494,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Scythe",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Grave Scythe",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Nagakiba",
@@ -510,7 +506,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Uchigatana",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Godslayer's Seal",
@@ -638,15 +634,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "ash"
       },
       {
-        "name": "Eochaid's Dancing Blade",
-        "kind": "ash"
+        "name": "Marais Executioner's Sword",
+        "kind": "weapon"
       },
       {
         "name": "Golden Vow",
         "kind": "spell"
       },
       {
-        "name": "Flame Grant Me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -777,7 +773,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Millicent's Prosthesis",
@@ -785,15 +781,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
         "kind": "shield"
       },
       {
-        "name": "Blade of Death",
-        "kind": "ash"
+        "name": "Black Knife",
+        "kind": "weapon"
       },
       {
         "name": "Bloodhound's Step",
@@ -808,7 +804,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Blessing of the Erdtree and Flame, Grant Me Strength",
+        "name": "Blessing of the Erdtree",
         "kind": "spell"
       }
     ]
@@ -836,11 +832,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Weapon that has Bleed on it by default such as the Uchigatana",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Nightrider Flail",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Bloodhound's Fang",
@@ -859,7 +855,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "ash"
       },
       {
-        "name": "but you can use you like",
+        "name": "Ash of War of your choice",
         "kind": "ash"
       },
       {
@@ -871,7 +867,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Catch Flame and Bloodflame Blade",
+        "name": "Bloodflame Blade",
         "kind": "spell"
       }
     ]
@@ -899,7 +895,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Cross-Naginata",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Nagakiba",
@@ -914,7 +910,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "White Reed Set",
+        "name": "White Reed Armor",
         "kind": "armor"
       },
       {
@@ -923,7 +919,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Radagon's Soreseal",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Godfrey Icon",
@@ -931,7 +927,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Phantom Slash",
@@ -1002,7 +998,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Blasphemous Blade",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Cinquedea",
@@ -1014,23 +1010,19 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Radagon's Soreseal",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Green Turtle Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Shield Talisman +1",
-        "kind": "shield"
-      },
-      {
-        "name": "Taker's Flames",
-        "kind": "ash"
+        "kind": "talisman"
       },
       {
         "name": "Golden Vow",
@@ -1077,7 +1069,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Blasphemous Blade",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Gargoyle's Blackblade",
@@ -1085,14 +1077,14 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Gargoyle's Greatsword",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Clawmark Seal",
         "kind": "seal"
       },
       {
-        "name": "Raptor's Black Feathers and other Armor that allows medium rolling",
+        "name": "Raptor's Black Feathers",
         "kind": "armor"
       },
       {
@@ -1101,23 +1093,19 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Great-Jar's Arsenal",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Claw Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
-        "name": "Taker's Flame",
-        "kind": "ash"
-      },
-      {
-        "name": "Corpse Wax Cutter",
-        "kind": "ash"
+        "name": "Gargoyle's Blackblade",
+        "kind": "weapon"
       },
       {
         "name": "Flaming Strike",
@@ -1179,24 +1167,24 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Knight Set",
+        "name": "Knight Armor",
         "kind": "armor"
       },
       {
-        "name": "Maliketh's Set",
+        "name": "Maliketh's Armor",
         "kind": "armor"
       },
       {
         "name": "Fire Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Rotten Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -1204,7 +1192,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Warrior Jar Shard",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Flaming Strike",
@@ -1215,7 +1203,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Flame Grant Me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -1247,7 +1235,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Greatbow",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Finger Seal",
@@ -1315,11 +1303,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Raging Wolf Set",
+        "name": "Raging Wolf Armor",
         "kind": "armor"
       },
       {
-        "name": "Blaidd's Set",
+        "name": "Blaidd's Armor",
         "kind": "armor"
       },
       {
@@ -1328,15 +1316,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Claw Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Axe Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Flaming Strike",
@@ -1378,12 +1366,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "and armor as long as you can med roll",
+        "name": "Armor as long as you can med roll",
         "kind": "armor"
       },
       {
-        "name": "Bloodblade Dance",
-        "kind": "ash"
+        "name": "Eleonora's Poleblade",
+        "kind": "weapon"
       },
       {
         "name": "Dragonclaw",
@@ -1488,7 +1476,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Gaius's Set",
+        "name": "Gaius's Armor",
         "kind": "armor"
       },
       {
@@ -1581,20 +1569,17 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Bull-Goat's Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
         "kind": "shield"
       },
       {
-        "name": "Claw Talisman and Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "name": "Claw Talisman",
+        "kind": "talisman"
       },
-      {
-        "name": "Bloodhound's Finesse",
-        "kind": "ash"
-      }
+      
     ]
   },
   {
@@ -1625,7 +1610,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "and other Armor you want",
+        "name": "Armor you want",
         "kind": "armor"
       },
       {
@@ -1637,13 +1622,10 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Green Turtle Talisman and Viridian Amber Medallion +2",
+        "name": "Green Turtle Talisman",
         "kind": "talisman"
       },
-      {
-        "name": "Dynast's Finesse",
-        "kind": "ash"
-      }
+      
     ]
   },
   {
@@ -1753,7 +1735,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Spear Talisman ( Lord of Blood's Exultation )",
+        "name": "Spear Talisman",
         "kind": "talisman"
       },
       {
@@ -1807,7 +1789,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Rotten Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Millicent’s Prosthesis",
@@ -1815,11 +1797,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Axe Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Endure",
@@ -1861,7 +1843,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "staff"
       },
       {
-        "name": "Royal Knight Set",
+        "name": "Royal Knight Armor",
         "kind": "armor"
       },
       {
@@ -1870,11 +1852,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Bull-Goat's Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Millicent's Prosthesis",
@@ -1882,19 +1864,19 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Rotten Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Loretta's Slash",
         "kind": "ash"
       },
       {
-        "name": "Freezing Mist",
-        "kind": "spell"
+        "name": "Icerind Hatchet",
+        "kind": "weapon"
       }
     ]
   },
@@ -2046,7 +2028,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Greatblade Phalanx",
-        "kind": "shield"
+        "kind": "spell"
       },
       {
         "name": "Rellana's Twin Moons",
@@ -2155,11 +2137,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "staff"
       },
       {
-        "name": "Spellblade Set",
+        "name": "Spellblade's Traveling Attire",
         "kind": "armor"
       },
       {
-        "name": "Rakshasa Set",
+        "name": "Rakshasa Armor",
         "kind": "armor"
       },
       {
@@ -2228,12 +2210,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "Spellblades Set",
+        "name": "Spellblade's Traveling Attire",
         "kind": "armor"
       },
       {
         "name": "Magic Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Godfrey Icon",
@@ -2241,7 +2223,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -2257,18 +2239,18 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Greatblade Phalanx",
-        "kind": "shield"
+        "kind": "spell"
       },
       {
         "name": "Loretta's Greatbow",
-        "kind": "shield"
+        "kind": "spell"
       },
       {
         "name": "Scholar's Shield",
         "kind": "shield"
       },
       {
-        "name": "Great Glinstone Shard",
+        "name": "Great Glintstone Shard",
         "kind": "shield"
       },
       {
@@ -2277,7 +2259,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Founding Rain of Stars",
-        "kind": "shield"
+        "kind": "spell"
       }
     ]
   },
@@ -2305,43 +2287,43 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
     "requirements": [
       {
-        "name": "Rellana's Twinblade",
-        "kind": "seal"
+        "name": "Rellana's Twin Blades",
+        "kind": "weapon"
       },
       {
         "name": "Golden Order Seal",
         "kind": "seal"
       },
       {
-        "name": "Rellana's Set",
+        "name": "Rellana's Armor",
         "kind": "armor"
       },
       {
         "name": "Rellana's Cameo",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Two-Headed Turtle Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
         "kind": "shield"
       },
       {
-        "name": "Moon-and-Fire Stance",
-        "kind": "ash"
+        "name": "Rellana's Twin Blades",
+        "kind": "weapon"
       },
       {
         "name": "Golden Vow",
         "kind": "spell"
       },
       {
-        "name": "Flame Grant me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -2376,7 +2358,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Banished Knight Set",
+        "name": "Banished Knight Armor",
         "kind": "armor"
       },
       {
@@ -2416,7 +2398,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Sacrificial Axe",
-        "kind": "staff"
+        "kind": "weapon"
       },
       {
         "name": "Academy Glintstone Staff",
@@ -2427,7 +2409,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "Haima Glintstone Crown and other gloves and legs that allow you to med roll",
+        "name": "Haima Glintstone Crown",
         "kind": "armor"
       },
       {
@@ -2601,7 +2583,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Bull-Goat Set",
+        "name": "Bull-Goat Armor",
         "kind": "armor"
       },
       {
@@ -2691,7 +2673,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "seal"
       },
       {
-        "name": "Lionel's Set",
+        "name": "Lionel's Armor",
         "kind": "armor"
       },
       {
@@ -2752,11 +2734,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "White Mask and light armor for Light Equip Load setup.",
+        "name": "White Mask",
         "kind": "armor"
       },
       {
-        "name": "Rotten Winged Sword Insignia ( Winged Sword Insignia )",
+        "name": "Rotten Winged Sword Insignia",
         "kind": "talisman"
       },
       {
@@ -2764,12 +2746,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Lord of Blood's Exultation and Spear Talisman ( Dagger Talisman )",
+        "name": "Lord of Blood's Exultation",
         "kind": "talisman"
       },
       {
-        "name": "Seppuku and Carian Retaliation",
-        "kind": "ash"
+        "name": "Misericorde",
+        "kind": "weapon"
       }
     ]
   },
@@ -2796,14 +2778,14 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Ordovis' Greatsword",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Clawmark Seal",
         "kind": "seal"
       },
       {
-        "name": "Crucible Axe Set",
+        "name": "Crucible Axe Armor",
         "kind": "armor"
       },
       {
@@ -2819,12 +2801,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "and Rotten Winged Sword Insignia",
+        "name": "Rotten Winged Sword Insignia",
         "kind": "talisman"
       },
       {
-        "name": "Ordovis' Vortex",
-        "kind": "ash"
+        "name": "Ordovis's Greatsword",
+        "kind": "weapon"
       },
       {
         "name": "Golden Vow",
@@ -2869,7 +2851,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Gargoyle's Greatsword",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Erdtree Seal",
@@ -2913,7 +2895,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Sword Dance",
-        "kind": "shield"
+        "kind": "ash"
       },
       {
         "name": "Golden Vow",
@@ -2962,7 +2944,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Crystal Staff",
-        "kind": "seal"
+        "kind": "staff"
       },
       {
         "name": "Finger Seal",
@@ -2982,23 +2964,23 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Magic Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Shield Talisman",
+        "kind": "talisman"
+      },
+      {
+        "name": "Godfrey Icon",
         "kind": "shield"
       },
       {
-        "name": "and Godfrey Icon",
-        "kind": "shield"
-      },
-      {
-        "name": "Contagious Fury",
-        "kind": "ash"
+        "name": "Jellyfish Shield",
+        "kind": "weapon"
       },
       {
         "name": "Crystal Torrent",
@@ -3057,14 +3039,14 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dark Moon Greatsword",
-        "kind": "staff"
+        "kind": "weapon"
       },
       {
         "name": "Staff of Loss",
         "kind": "staff"
       },
       {
-        "name": "Night's Cavalry Set",
+        "name": "Night's Cavalry Armor",
         "kind": "armor"
       },
       {
@@ -3072,7 +3054,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Magic Scorpion Charm ( Ritual Sword Talisman )",
+        "name": "Magic Scorpion Charm",
         "kind": "talisman"
       },
       {
@@ -3084,12 +3066,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Moonlight Greatsword",
-        "kind": "ash"
-      },
-      {
-        "name": "Ruinous Ghostflame",
-        "kind": "ash"
+        "name": "Helphen's Steeple",
+        "kind": "weapon"
       },
       {
         "name": "Night Comet",
@@ -3139,7 +3117,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Solitude Set",
+        "name": "Solitude Armor",
         "kind": "armor"
       },
       {
@@ -3148,15 +3126,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Rotten Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Great-Jar's Arsenal",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Golden Vow",
@@ -3189,7 +3167,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Dark Moon Greatsword",
-        "kind": "staff"
+        "kind": "weapon"
       },
       {
         "name": "Carian Glintblade Staff",
@@ -3214,10 +3192,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
       {
         "name": "Green Turtle Talisman",
         "kind": "talisman"
-      },
-      {
-        "name": "Moonlight Greatsword",
-        "kind": "ash"
       },
       {
         "name": "Magic Glintblade",
@@ -3262,11 +3236,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Sword of Night and Flame",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Carian Regal Scepter",
-        "kind": "seal"
+        "kind": "staff"
       },
       {
         "name": "Frenzied Flame Seal",
@@ -3309,11 +3283,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Night-and-Flame-Stance",
-        "kind": "ash"
-      },
-      {
-        "name": "Rancor",
+        "name": "Rancorcall",
         "kind": "spell"
       },
       {
@@ -3353,15 +3323,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Sword of Night and Flame",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Golden Order Seal",
         "kind": "seal"
       },
       {
-        "name": "Prince of Death Staff",
-        "kind": "seal"
+        "name": "Prince of Death's Staff",
+        "kind": "staff"
       },
       {
         "name": "Armor that allows you to medium roll.",
@@ -3369,15 +3339,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Magic Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Graven-Mass Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Godfrey Icon",
@@ -3385,11 +3355,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
-      },
-      {
-        "name": "Night-and-Flame Stance",
-        "kind": "ash"
+        "kind": "talisman"
       },
       {
         "name": "Golden Vow",
@@ -3408,7 +3374,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Explosive Ghostflame . Terra Magica",
+        "name": "Explosive Ghostflame",
         "kind": "spell"
       },
       {
@@ -3440,11 +3406,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Sword of Night and Flame",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Prince of Death's Staff",
-        "kind": "seal"
+        "kind": "staff"
       },
       {
         "name": "Golden Order Seal",
@@ -3456,23 +3422,19 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Fire Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Magic Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Shield Talisman +1",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Godfrey Icon",
         "kind": "shield"
-      },
-      {
-        "name": "Night-and-Flame Stance",
-        "kind": "ash"
       },
       {
         "name": "Golden Vow",
@@ -3553,7 +3515,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Two-Handed Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -3561,18 +3523,14 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Great-Jar's Arsenal",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
-        "name": "Devonia's Vortex",
-        "kind": "ash"
-      },
-      {
-        "name": "Flame Grant me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       },
       {
@@ -3607,12 +3565,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Divine Bird Set",
+        "name": "Divine Bird Helm",
         "kind": "armor"
       },
       {
         "name": "Two-Handed Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -3620,18 +3578,14 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Two-Headed Turtle Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
-        "name": "Euporia Vortex",
-        "kind": "ash"
-      },
-      {
-        "name": "Flame Grant me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       },
       {
@@ -3672,7 +3626,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Uses Rock Heart",
+        "name": "Rock Heart",
         "kind": "armor"
       },
       {
@@ -3692,8 +3646,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "ash"
       },
       {
-        "name": "Scarlet Rot",
-        "kind": "ash"
+        "name": "Any weapon with Scarlet Rot",
+        "kind": "weapon"
       }
     ]
   },
@@ -3727,7 +3681,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "seal"
       },
       {
-        "name": "Silver Tear Mask and Armor",
+        "name": "Silver Tear Mask",
         "kind": "armor"
       },
       {
@@ -3735,7 +3689,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Rotten Winged Sword Insignia ( Winged Sword Insignia )",
+        "name": "Rotten Winged Sword Insignia",
         "kind": "talisman"
       },
       {
@@ -3747,8 +3701,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Eochaid's Dancing Blade",
-        "kind": "ash"
+        "name": "Marais Executioner's Sword",
+        "kind": "weapon"
       },
       {
         "name": "Golden Vow",
@@ -3809,27 +3763,27 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Bloodfiend's Fork",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Blue Dancer Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Crusade Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Sword Dance",
         "kind": "ash"
       },
       {
-        "name": "Braggart's Roar",
-        "kind": "ash"
+        "name": "Battle Axe",
+        "kind": "weapon"
       }
     ]
   },
@@ -3871,36 +3825,36 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "and armor that allows you to med roll",
+        "name": "Armor that allows you to med roll",
         "kind": "armor"
       },
       {
         "name": "Radagon's Soreseal",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Fire Scorpion Charm",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Magic Scorpion Charm",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Faithful's Canvas Talisman",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Curved Sword Talisman",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Bloody Slash",
         "kind": "ash"
       },
       {
-        "name": "Contagious Fury",
-        "kind": "ash"
+        "name": "Jellyfish Shield",
+        "kind": "weapon"
       },
       {
         "name": "Golden Vow",
@@ -3962,7 +3916,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
     "requirements": [
       {
-        "name": "Catch Flame and Dragonfire",
+        "name": "Dragonfire",
         "kind": "spell"
       }
     ]
@@ -3994,19 +3948,19 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Coded Sword",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Gravel Stone Seal",
         "kind": "seal"
       },
       {
-        "name": "Uses Priestess Heart",
+        "name": "Priestess Heart",
         "kind": "armor"
       },
       {
         "name": "Flock's Canvas Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Godfrey Icon",
@@ -4014,11 +3968,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Lightning Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Knight's Lightning Spear",
@@ -4056,7 +4010,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Curved Swords",
+        "name": "Any curved sword",
         "kind": "weapon"
       },
       {
@@ -4064,7 +4018,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "and heavy armor good Poise",
+        "name": "Armor with high poise",
         "kind": "armor"
       },
       {
@@ -4076,7 +4030,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Millicent's Prosthesis and Winged Sword Insignia",
+        "name": "Millicent's Prosthesis",
         "kind": "talisman"
       },
       {
@@ -4141,8 +4095,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "Rotten Winged Sword Insignia ( Winged Sword Insignia )",
-        "kind": "shield"
+        "name": "Rotten Winged Sword Insignia",
+        "kind": "talisman"
       },
       {
         "name": "Millicent's Prosthesis",
@@ -4154,11 +4108,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
-      },
-      {
-        "name": "Ice Lightning Sword",
-        "kind": "ash"
+        "kind": "talisman"
       },
       {
         "name": "Flaming Strike",
@@ -4194,7 +4144,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Rakshasa Set",
+        "name": "Rakshasa Armor",
         "kind": "armor"
       },
       {
@@ -4214,8 +4164,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Dragonwound Slash",
-        "kind": "ash"
+        "name": "Dragon Greatclaw",
+        "kind": "weapon"
       }
     ]
   },
@@ -4252,7 +4202,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Fire Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -4260,15 +4210,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Carian Filigreed Crest",
         "kind": "shield"
       },
       {
-        "name": "Magma Guillotine",
-        "kind": "ash"
+        "name": "Magma Wyrm's Scalesword",
+        "kind": "weapon"
       },
       {
         "name": "Golden Vow",
@@ -4340,15 +4290,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Horn Calling",
-        "kind": "ash"
+        "name": "Any Horned Warrior weapon",
+        "kind": "weapon"
       },
       {
         "name": "Golden Vow",
         "kind": "spell"
       },
       {
-        "name": "Flame Grant me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -4376,7 +4326,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Prince of Death's Staff",
-        "kind": "seal"
+        "kind": "staff"
       },
       {
         "name": "Golden Order Seal",
@@ -4388,19 +4338,19 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Green Turtle Talisman",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Marika's Soreseal",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Primal Glintstone Blade",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Stone of Gurranq",
@@ -4462,12 +4412,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Carian Knight Set",
+        "name": "Carian Knight Armor",
         "kind": "armor"
       },
       {
         "name": "Ash of War: Barricade Shield",
-        "kind": "shield"
+        "kind": "ash"
       },
       {
         "name": "Carian Slicer",
@@ -4478,7 +4428,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Carian Greatsword and Glintstone Pebble",
+        "name": "Carian Greatsword",
         "kind": "spell"
       }
     ]
@@ -4535,16 +4485,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "and Green Turtle Talisman",
+        "name": "Green Turtle Talisman",
         "kind": "talisman"
       },
       {
         "name": "Godfrey Icon",
         "kind": "talisman"
-      },
-      {
-        "name": "Eochaid's Dancing Blade",
-        "kind": "ash"
       },
       {
         "name": "Flame, Grant Me Strength",
@@ -4605,7 +4551,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Bull-Goat's Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -4613,22 +4559,18 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Fire Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
-      },
-      {
-        "name": "Messmer's Assault",
-        "kind": "ash"
+        "kind": "talisman"
       },
       {
         "name": "Golden Vow",
         "kind": "spell"
       },
       {
-        "name": "Flame Grant me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -4687,8 +4629,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Flame Dance",
-        "kind": "ash"
+        "name": "Obsidian Lamina",
+        "kind": "weapon"
       },
       {
         "name": "Flame, Grant Me Strength",
@@ -4737,7 +4679,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Curved Great Club",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Erdtree Seal",
@@ -4765,15 +4707,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Fire Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Bull-Goat's Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -4781,7 +4723,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Warrior Jar Shard",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Flaming Strike",
@@ -4849,7 +4791,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "and that still allows you to medium roll",
+        "name": "Armor that still allows medium roll",
         "kind": "armor"
       },
       {
@@ -4869,8 +4811,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Contagious Fury",
-        "kind": "ash"
+        "name": "Jellyfish Shield",
+        "kind": "weapon"
       },
       {
         "name": "Carian Slicer",
@@ -4889,7 +4831,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Zamor Ice Storm and Freezing Mist",
+        "name": "Zamor Ice Storm",
         "kind": "spell"
       }
     ]
@@ -4944,7 +4886,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "Noble's Glove",
+        "name": "Noble's Gloves",
         "kind": "armor"
       },
       {
@@ -5034,7 +4976,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Magic Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Carian Filigreed Crest",
@@ -5042,11 +4984,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Curved Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Ice Spear",
@@ -5070,7 +5012,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Greatblade Phalanx",
-        "kind": "shield"
+        "kind": "spell"
       },
       {
         "name": "Scholar's Armament",
@@ -5101,7 +5043,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Zamor Curved Sword",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Clawmark Seal",
@@ -5116,7 +5058,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Fingerprint Set",
+        "name": "Fingerprint Armor",
         "kind": "armor"
       },
       {
@@ -5134,10 +5076,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
       {
         "name": "Assassin's Cerulean Dagger",
         "kind": "talisman"
-      },
-      {
-        "name": "Zamor Ice Storm",
-        "kind": "ash"
       },
       {
         "name": "Golden Vow",
@@ -5202,15 +5140,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Blue Dancer Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Bull-Goat's Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -5281,7 +5219,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Warrior Jar Shard",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -5289,23 +5227,23 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Magic Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Curved Sword Talisman",
+        "kind": "talisman"
+      },
+      {
+        "name": "Flexible talisman slot",
         "kind": "shield"
       },
       {
-        "name": "more suggested talismans in the video.",
-        "kind": "shield"
-      },
-      {
-        "name": "Ghostflame Ignition",
-        "kind": "ash"
+        "name": "Death's Poker",
+        "kind": "weapon"
       },
       {
         "name": "Terra Magica",
@@ -5341,7 +5279,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Redmane Shield",
+        "name": "Redmane Greatshield",
         "kind": "shield"
       },
       {
@@ -5353,7 +5291,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "Bull-Goats Gaunlets",
+        "name": "Bull-Goat Gauntlets",
         "kind": "armor"
       },
       {
@@ -5381,7 +5319,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "and more suggested talismans in the video",
+        "name": "Flexible talisman slot",
         "kind": "talisman"
       },
       {
@@ -5413,7 +5351,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Godslayer's Greatsword",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Sacred Seal",
@@ -5437,15 +5375,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Bull-Goat's Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
-      },
-      {
-        "name": "The Queen's Black Flame",
-        "kind": "ash"
+        "kind": "talisman"
       },
       {
         "name": "Golden Vow",
@@ -5491,12 +5425,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Leyndell Knight Set",
+        "name": "Leyndell Knight Armor",
         "kind": "armor"
       },
       {
         "name": "Assassin's Cerulean Dagger",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Carian Filigreed Crest",
@@ -5508,26 +5442,26 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Warrior Jar Shard",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Curved Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
-        "name": "Gold Breaker",
-        "kind": "ash"
+        "name": "Rellana's Twin Blades",
+        "kind": "weapon"
       },
       {
         "name": "Golden Vow",
         "kind": "ash"
       },
       {
-        "name": "Flame Grant me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -5553,7 +5487,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Ornamental Straight Sword",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Sacred Seal",
@@ -5564,12 +5498,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Banished Knight Set",
+        "name": "Banished Knight Armor",
         "kind": "armor"
       },
       {
         "name": "Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Millicent's Prosthesis",
@@ -5577,15 +5511,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Spear Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
-        "name": "Golden Tempering",
-        "kind": "ash"
+        "name": "Sword of Light",
+        "kind": "weapon"
       },
       {
         "name": "Golden Parry",
@@ -5596,7 +5530,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Blessing's Boon and Flame, Grant Me Strength",
+        "name": "Blessing's Boon",
         "kind": "spell"
       }
     ]
@@ -5624,14 +5558,14 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Coded Sword",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Sword of Night and Flame",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
-        "name": "and Golden Order Seal",
+        "name": "Golden Order Seal",
         "kind": "seal"
       },
       {
@@ -5643,28 +5577,24 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "and Armor high Poise.",
+        "name": "Armor with high poise",
         "kind": "armor"
       },
       {
         "name": "Sacred Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Ritual Shield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
-      },
-      {
-        "name": "Unblockable Blade",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Barricade Shield",
@@ -5695,7 +5625,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Litany of Proper Death .",
+        "name": "Litany of Proper Death",
         "kind": "spell"
       }
     ]
@@ -5723,11 +5653,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Erdtree Bow",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Black Bow",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Finger Seal",
@@ -5823,7 +5753,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "and Armor that allows you to medium roll",
+        "name": "Armor that allows medium roll",
         "kind": "armor"
       },
       {
@@ -5832,7 +5762,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Carian Filigreed Crest",
@@ -5840,11 +5770,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
-        "name": "Gravity Bolt",
-        "kind": "ash"
+        "name": "Meteoric Ore Blade",
+        "kind": "weapon"
       },
       {
         "name": "Flame, Grant Me Strength",
@@ -5879,7 +5809,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Meteorite Staff",
-        "kind": "seal"
+        "kind": "staff"
       },
       {
         "name": "Golden Order Seal",
@@ -5932,18 +5862,18 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Grave Scythe",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Dragon Communion Seal",
         "kind": "seal"
       },
       {
-        "name": "White Mask and and the heaviest Armor that still allows you to medium roll",
+        "name": "White Mask",
         "kind": "armor"
       },
       {
-        "name": "Rotten Winged Sword Insignia ( Winged Sword Insignia )",
+        "name": "Rotten Winged Sword Insignia",
         "kind": "talisman"
       },
       {
@@ -5951,7 +5881,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Lord of Blood's Exultation and Shard of Alexander",
+        "name": "Lord of Blood's Exultation",
         "kind": "talisman"
       },
       {
@@ -5975,7 +5905,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Poison Mist and Swarm of Flies",
+        "name": "Poison Mist",
         "kind": "spell"
       }
     ]
@@ -6009,19 +5939,19 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Curved Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Claw Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Axe Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
-        "name": "and Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "name": "Dragoncrest Greatshield Talisman",
+        "kind": "talisman"
       },
       {
         "name": "Royal Knight's Resolve",
@@ -6101,7 +6031,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "more suggested talismans in the video.",
+        "name": "Flexible talisman slot",
         "kind": "talisman"
       },
       {
@@ -6196,11 +6126,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Star Fist",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Highland Axe",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Frenzied Flame Seal",
@@ -6211,7 +6141,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "and other Armor that gives you lots of Poise",
+        "name": "Armor with high poise",
         "kind": "armor"
       },
       {
@@ -6290,8 +6220,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Contagious Fury",
-        "kind": "ash"
+        "name": "Jellyfish Shield",
+        "kind": "weapon"
       }
     ]
   },
@@ -6323,7 +6253,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Black Knight Set",
+        "name": "Black Knight Armor",
         "kind": "armor"
       },
       {
@@ -6332,20 +6262,17 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Rotten Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Two-Headed Turtle Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
-      {
-        "name": "Blind Spot",
-        "kind": "ash"
-      }
+      
     ]
   },
   {
@@ -6399,22 +6326,22 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Spear Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Rotten Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Millicent's Prosthesis",
         "kind": "shield"
       },
       {
-        "name": "more suggested talismans in the video.",
+        "name": "Flexible talisman slot",
         "kind": "shield"
       },
       {
@@ -6485,7 +6412,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "Leyndell Knight Set",
+        "name": "Leyndell Knight Armor",
         "kind": "armor"
       },
       {
@@ -6494,23 +6421,19 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Radagon's Soreseal",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Carian Filigreed Crest",
         "kind": "seal"
       },
       {
-        "name": "Ancient Lightning Spear",
-        "kind": "ash"
-      },
-      {
-        "name": "Sacred Phalanx",
-        "kind": "ash"
+        "name": "Golden Order Greatsword",
+        "kind": "weapon"
       },
       {
         "name": "Golden Vow",
@@ -6570,12 +6493,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Leyndell Knight Set",
+        "name": "Leyndell Knight Armor",
         "kind": "armor"
       },
       {
         "name": "Sacred Order",
-        "kind": "shield"
+        "kind": "ash"
       },
       {
         "name": "Golden Vow",
@@ -6634,7 +6557,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Roar Medallion",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -6642,16 +6565,13 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Axe Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
-      {
-        "name": "Regal Roar",
-        "kind": "ash"
-      }
+      
     ]
   },
   {
@@ -6677,7 +6597,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Morgott's Cursed Sword",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Dragon Communion Seal",
@@ -6697,19 +6617,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Fire Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
-      },
-      {
-        "name": "Cursed-Blood Slice",
-        "kind": "ash"
+        "kind": "talisman"
       },
       {
         "name": "Swarm of Flies",
@@ -6826,7 +6742,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Misbegotten Shortbow and Lazuli Glintstone Sword",
+        "name": "Misbegotten Shortbow",
         "kind": "weapon"
       },
       {
@@ -6864,7 +6780,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Ripple Blade",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Dragon Communion Seal",
@@ -6899,8 +6815,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Contagious Fury",
-        "kind": "ash"
+        "name": "Jellyfish Shield",
+        "kind": "weapon"
       },
       {
         "name": "Golden Vow",
@@ -6988,12 +6904,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Magma Shower",
-        "kind": "ash"
-      },
-      {
-        "name": "Flame Spit",
-        "kind": "ash"
+        "name": "Any Drake Knight weapon",
+        "kind": "weapon"
       }
     ]
   },
@@ -7021,7 +6933,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Carian Knight Set",
+        "name": "Carian Knight Armor",
         "kind": "armor"
       },
       {
@@ -7033,7 +6945,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Glintstone Pebble and Carian Greatsword",
+        "name": "Carian Greatsword",
         "kind": "spell"
       }
     ]
@@ -7072,7 +6984,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "Finger Robe",
+        "name": "Finger Maiden Robe",
         "kind": "armor"
       },
       {
@@ -7207,11 +7119,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Carian Regal Scepter",
-        "kind": "seal"
+        "kind": "staff"
       },
       {
         "name": "Meteorite Staff",
-        "kind": "seal"
+        "kind": "staff"
       },
       {
         "name": "Frenzied Flame Seal",
@@ -7323,8 +7235,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "White Light Charge",
-        "kind": "ash"
+        "name": "Euporia",
+        "kind": "weapon"
       }
     ]
   },
@@ -7349,7 +7261,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Dark Moon Greatsword",
-        "kind": "staff"
+        "kind": "weapon"
       },
       {
         "name": "Carian Regal Scepter",
@@ -7369,15 +7281,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Magic Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
-      },
-      {
-        "name": "Moonlight Greatsword",
-        "kind": "ash"
+        "kind": "talisman"
       },
       {
         "name": "Ranni's Dark Moon",
@@ -7482,19 +7390,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Land of Reeds Set",
+        "name": "Land of Reeds Armor",
         "kind": "armor"
-      },
-      {
-        "name": "Transient Moonlight",
-        "kind": "ash"
       },
       {
         "name": "Loretta's Greatbow",
         "kind": "spell"
       },
       {
-        "name": "Glintstone Pebble and Carian Greatsword",
+        "name": "Carian Greatsword",
         "kind": "spell"
       }
     ]
@@ -7525,7 +7429,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "staff"
       },
       {
-        "name": "Uchigatana and Staff",
+        "name": "Uchigatana",
         "kind": "staff"
       },
       {
@@ -7533,7 +7437,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "Carian Filigree Crest",
+        "name": "Carian Filigreed Crest",
         "kind": "talisman"
       },
       {
@@ -7549,11 +7453,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Transient Moonlight",
-        "kind": "ash"
+        "name": "Moonveil",
+        "kind": "weapon"
       },
       {
-        "name": "Glinstone Phalanx",
+        "name": "Glintblade Phalanx",
         "kind": "ash"
       },
       {
@@ -7565,7 +7469,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "and Terra Magica",
+        "name": "Terra Magica",
         "kind": "spell"
       }
     ]
@@ -7592,7 +7496,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
     "requirements": [
       {
-        "name": "Wing of Astel and Staff",
+        "name": "Wing of Astel",
         "kind": "staff"
       },
       {
@@ -7600,7 +7504,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Scaled Armor Set",
+        "name": "Scaled Armor",
         "kind": "armor"
       },
       {
@@ -7624,8 +7528,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Nebula",
-        "kind": "ash"
+        "name": "Bastard's Stars",
+        "kind": "weapon"
       },
       {
         "name": "Scholar's Shield",
@@ -7755,7 +7659,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Blue Dancer Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -7763,11 +7667,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Warrior Jar Shard",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Square Off",
@@ -7810,11 +7714,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Ash of War: Barricade Shield",
-        "kind": "shield"
+        "kind": "ash"
       },
       {
         "name": "Ash of War: Golden Vow",
-        "kind": "shield"
+        "kind": "ash"
       },
       {
         "name": "Urgent Heal",
@@ -7849,7 +7753,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Miquellan Knight's Sword",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Clawmark Seal",
@@ -7860,7 +7764,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Haligtree Knight Set and Greathelm",
+        "name": "Haligtree Knight Armor",
         "kind": "armor"
       },
       {
@@ -7957,8 +7861,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Needle Piercer",
-        "kind": "ash"
+        "name": "Swift Spear",
+        "kind": "weapon"
       },
       {
         "name": "Golden Vow",
@@ -8007,15 +7911,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Fire Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Golden Vow",
@@ -8088,19 +7992,19 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Fire Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Perfumer's Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Axe Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Quickstep",
@@ -8111,7 +8015,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "ash"
       },
       {
-        "name": "Flame Grant me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       },
       {
@@ -8153,15 +8057,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Lightning Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
-        "name": "Flock's Canvas Talisman and Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "name": "Flock's Canvas Talisman",
+        "kind": "talisman"
       },
       {
         "name": "Golden Vow",
@@ -8252,10 +8156,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "name": "Warrior Jar Shard",
         "kind": "talisman"
       },
-      {
-        "name": "Reduvia Blood Blade",
-        "kind": "ash"
-      }
+      
     ]
   },
   {
@@ -8286,7 +8187,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Zamor Set",
+        "name": "Zamor Armor",
         "kind": "armor"
       },
       {
@@ -8294,7 +8195,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "Rotten Winged Sword Insignia ( Winged Sword Insignia )",
+        "name": "Rotten Winged Sword Insignia",
         "kind": "talisman"
       },
       {
@@ -8302,7 +8203,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Bull-Goat's Talisman and Shard of Alexander",
+        "name": "Bull-Goat's Talisman",
         "kind": "talisman"
       },
       {
@@ -8339,7 +8240,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Zamor Set",
+        "name": "Zamor Armor",
         "kind": "armor"
       },
       {
@@ -8347,7 +8248,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "Rotten Winged Sword Insignia ( Winged Sword Insignia )",
+        "name": "Rotten Winged Sword Insignia",
         "kind": "talisman"
       },
       {
@@ -8355,7 +8256,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Bull-Goat's Talisman and Shard of Alexander",
+        "name": "Bull-Goat's Talisman",
         "kind": "talisman"
       },
       {
@@ -8394,7 +8295,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Eclipse Greatshield",
+        "name": "Eclipse Crest Greatshield",
         "kind": "shield"
       },
       {
@@ -8411,19 +8312,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Radagon's Soreseal",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Great-Jar's Arsenal",
-        "kind": "seal"
+        "kind": "talisman"
       },
       {
         "name": "Carian Filigreed Crest",
         "kind": "seal"
-      },
-      {
-        "name": "Wolf's Assault",
-        "kind": "ash"
       },
       {
         "name": "Ice Spear",
@@ -8457,11 +8354,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
     "requirements": [
       {
-        "name": "Uchigatana and Longbow",
+        "name": "Uchigatana",
         "kind": "weapon"
       },
       {
-        "name": "Land of Reeds Set",
+        "name": "Land of Reeds Armor",
         "kind": "armor"
       },
       {
@@ -8570,10 +8467,10 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Sacrificial Axe",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
-        "name": "and Dragon Communion Seal",
+        "name": "Dragon Communion Seal",
         "kind": "seal"
       },
       {
@@ -8585,7 +8482,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "armor"
       },
       {
-        "name": "and armor that allows you to med roll",
+        "name": "Armor that allows med roll",
         "kind": "armor"
       },
       {
@@ -8605,12 +8502,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "and Green Turtle Talisman",
+        "name": "Green Turtle Talisman",
         "kind": "talisman"
       },
       {
-        "name": "Corpse Piler",
-        "kind": "ash"
+        "name": "Rivers of Blood",
+        "kind": "weapon"
       },
       {
         "name": "Flame, Grant Me Strength",
@@ -8641,7 +8538,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Albinauric Staff",
-        "kind": "seal"
+        "kind": "staff"
       },
       {
         "name": "Dragon Communion Seal",
@@ -8649,14 +8546,14 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Staff of the Guilty",
-        "kind": "seal"
+        "kind": "staff"
       },
       {
         "name": "Rogier's Rapier",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
-        "name": "Alberich's Set (for extra Thorn Sorcery damage)",
+        "name": "Alberich's Robe",
         "kind": "armor"
       },
       {
@@ -8731,20 +8628,20 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Oathseeker Knight Set",
+        "name": "Oathseeker Knight Armor",
         "kind": "armor"
       },
       {
         "name": "Rotten Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Bull-Goat's Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -8755,8 +8652,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "ash"
       },
       {
-        "name": "Overhead Stance",
-        "kind": "ash"
+        "name": "Any dual-wield axes",
+        "kind": "weapon"
       }
     ]
   },
@@ -8788,7 +8685,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Redmane Knight Set",
+        "name": "Redmane Knight Armor",
         "kind": "armor"
       },
       {
@@ -8816,8 +8713,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "ash"
       },
       {
-        "name": "Viper Bite",
-        "kind": "ash"
+        "name": "Venomous Fang",
+        "kind": "weapon"
       }
     ]
   },
@@ -8844,7 +8741,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Gargoyle's Twinblade",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Sacred Seal",
@@ -8912,7 +8809,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Uchigatana ( Wakizashi )",
+        "name": "Uchigatana",
         "kind": "weapon"
       },
       {
@@ -8973,12 +8870,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
       "Mind",
       "Endurance"
     ],
-    "summary": "Vigor / Strength / Faith build using Shadown Sunflower Blossom.",
+    "summary": "Vigor / Strength / Faith build using Shadow Sunflower Blossom.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
     "requirements": [
       {
-        "name": "Shadown Sunflower Blossom",
-        "kind": "weapon"
+        "name": "Shadow Sunflower Blossom",
+        "kind": "armor"
       },
       {
         "name": "Clawmark Seal",
@@ -9021,15 +8918,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Shadow Sunflower Headbutt",
-        "kind": "ash"
+        "name": "Shadow Sunflower Blossom",
+        "kind": "weapon"
       },
       {
         "name": "Elden Stars",
         "kind": "spell"
       },
       {
-        "name": "Flame Grant Me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       },
       {
@@ -9066,7 +8963,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Shadow Militiaman Set",
+        "name": "Shadow Militiaman Helm",
         "kind": "armor"
       },
       {
@@ -9118,7 +9015,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Death Ritual Spear",
-        "kind": "staff"
+        "kind": "weapon"
       },
       {
         "name": "Carian Regal Scepter",
@@ -9129,7 +9026,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "staff"
       },
       {
-        "name": "Black Knife Set (so your footsteps are muffled)",
+        "name": "Black Knife Armor",
         "kind": "armor"
       },
       {
@@ -9147,10 +9044,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
       {
         "name": "Bull-Goat's Talisman",
         "kind": "talisman"
-      },
-      {
-        "name": "Spearcall Ritual",
-        "kind": "ash"
       },
       {
         "name": "Unseen Form",
@@ -9219,10 +9112,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "name": "Rotten Winged Sword Insignia",
         "kind": "talisman"
       },
-      {
-        "name": "Mists of Slumber",
-        "kind": "ash"
-      }
+      
     ]
   },
   {
@@ -9311,7 +9201,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Watchdog's Staff",
-        "kind": "seal"
+        "kind": "staff"
       },
       {
         "name": "Sacred Seal",
@@ -9338,11 +9228,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Sorcery of the Crozier",
-        "kind": "ash"
+        "name": "Staff of the Great Beyond",
+        "kind": "staff"
       },
       {
-        "name": "Flame, Grant Me Strength and/ Golden Vow",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -9377,12 +9267,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "staff"
       },
       {
-        "name": "Black Knife Set",
+        "name": "Black Knife Armor",
         "kind": "armor"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -9390,7 +9280,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Magic Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Millicent's Prosthesis",
@@ -9418,7 +9308,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Carian Retaliation",
-        "kind": "spell"
+        "kind": "ash"
       },
       {
         "name": "Scholar's Armament",
@@ -9429,8 +9319,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Freezing Mist",
-        "kind": "spell"
+        "name": "Icerind Hatchet",
+        "kind": "weapon"
       }
     ]
   },
@@ -9456,19 +9346,19 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
     "requirements": [
       {
-        "name": "Demi-Human Queen's Staff and Estoc",
+        "name": "Demi-Human Queen's Staff",
         "kind": "staff"
       },
       {
         "name": "Rapier",
-        "kind": "staff"
+        "kind": "weapon"
       },
       {
         "name": "100% Physical",
         "kind": "shield"
       },
       {
-        "name": "but get pieces that increase Intelligence when possible",
+        "name": "Armor pieces that increase Intelligence",
         "kind": "armor"
       },
       {
@@ -9480,7 +9370,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "Glintstone Pebble and Carian Slicer",
+        "name": "Carian Slicer",
         "kind": "spell"
       }
     ]
@@ -9545,7 +9435,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Assasin's Cerulean Dagger",
+        "name": "Assassin's Cerulean Dagger",
         "kind": "talisman"
       },
       {
@@ -9553,12 +9443,12 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "more suggested talismans in the video.",
+        "name": "Flexible talisman slot",
         "kind": "talisman"
       },
       {
-        "name": "Glintblade Phalanx",
-        "kind": "ash"
+        "name": "Carian Knight's Sword",
+        "kind": "weapon"
       },
       {
         "name": "Scholar's Armament",
@@ -9634,10 +9524,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Glintstone Dart",
-        "kind": "ash"
-      },
-      {
         "name": "Carian Retaliation",
         "kind": "ash"
       }
@@ -9701,10 +9587,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Onze's Line of Stars",
-        "kind": "ash"
-      },
-      {
         "name": "Scholar's Shield",
         "kind": "shield"
       }
@@ -9740,11 +9622,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "General Radahn Set",
+        "name": "General Radahn Armor",
         "kind": "armor"
       },
       {
-        "name": "Rotten Winged Sword Insignia ( Winged Sword Insignia )",
+        "name": "Rotten Winged Sword Insignia",
         "kind": "talisman"
       },
       {
@@ -9759,10 +9641,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "name": "Millicent's Prosthesis",
         "kind": "talisman"
       },
-      {
-        "name": "Starcaller Cry",
-        "kind": "ash"
-      }
+      
     ]
   },
   {
@@ -9797,7 +9676,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "weapon"
       },
       {
-        "name": "Uses Lamenter's Mask",
+        "name": "Lamenter's Mask",
         "kind": "armor"
       },
       {
@@ -9817,8 +9696,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Fan Shot",
-        "kind": "ash"
+        "name": "Smithscript Shield",
+        "kind": "weapon"
       },
       {
         "name": "Mighty Shot",
@@ -9918,7 +9797,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Millicent's Prosthesis",
@@ -9930,7 +9809,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Storm Blade",
@@ -10019,7 +9898,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Storm Blade",
-        "kind": "spell"
+        "kind": "ash"
       }
     ]
   },
@@ -10068,15 +9947,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
-        "name": "Great-Jars Arsenal",
+        "name": "Great-Jar's Arsenal",
         "kind": "shield"
       },
       {
         "name": "Bull-Goat's Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Unsheathe",
@@ -10107,7 +9986,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Sword of Night and Flame",
-        "kind": "staff"
+        "kind": "weapon"
       },
       {
         "name": "Meteorite Staff",
@@ -10116,10 +9995,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
       {
         "name": "that still lets you med roll",
         "kind": "armor"
-      },
-      {
-        "name": "Night-and-Flame Stance",
-        "kind": "ash"
       },
       {
         "name": "Rancorcall",
@@ -10154,14 +10029,14 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Sacred Relic Sword",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Sword of Milos",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
-        "name": "and Sacred Seal",
+        "name": "Sacred Seal",
         "kind": "seal"
       },
       {
@@ -10189,10 +10064,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Wave of Gold",
-        "kind": "ash"
-      },
-      {
         "name": "Golden Vow",
         "kind": "spell"
       },
@@ -10201,7 +10072,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "other Incantations you want.",
+        "name": "Flexible incantation",
         "kind": "spell"
       }
     ]
@@ -10274,10 +10145,6 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Mists of Eternal Sleep",
-        "kind": "ash"
-      },
-      {
         "name": "Square Off",
         "kind": "ash"
       }
@@ -10328,15 +10195,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Ash of War: Golden Vow",
-        "kind": "shield"
+        "kind": "ash"
       },
       {
         "name": "Ash of War: Sacred Blade",
-        "kind": "shield"
+        "kind": "ash"
       },
       {
         "name": "Ash of War: Barricade Shield",
-        "kind": "shield"
+        "kind": "ash"
       },
       {
         "name": "Blessing's Boon",
@@ -10382,36 +10249,36 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Great Helm",
+        "name": "Greathelm",
         "kind": "armor"
       },
       {
-        "name": "Tree Coat",
+        "name": "Tree Surcoat",
         "kind": "armor"
       },
       {
-        "name": "Chain Gloves",
+        "name": "Chain Gauntlets",
         "kind": "armor"
       },
       {
-        "name": "Chain Greaves",
+        "name": "Chain Leggings",
         "kind": "armor"
       },
       {
         "name": "Lightning Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Radagon's Soreseal",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Green Turtle Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Shield Talisman +1",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Thunderbolt",
@@ -10430,7 +10297,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "spell"
       },
       {
-        "name": "and Blessing's Boon",
+        "name": "Blessing's Boon",
         "kind": "spell"
       }
     ]
@@ -10469,31 +10336,31 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Knight Set",
+        "name": "Knight Armor",
         "kind": "armor"
       },
       {
         "name": "Green Turtle Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Axe Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Curved Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Cragblade",
         "kind": "ash"
       },
       {
-        "name": "Flame Grant Me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -10560,15 +10427,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Blinkbolt: Twinaxe",
-        "kind": "ash"
-      },
-      {
         "name": "Golden Vow",
         "kind": "spell"
       },
       {
-        "name": "Flame Grant me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -10593,7 +10456,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
     "requirements": [
       {
-        "name": "Butchering Knife",
+        "name": "Bonny Butchering Knife",
         "kind": "weapon"
       },
       {
@@ -10610,11 +10473,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Rotten Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Blessed Dew Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Shard of Alexander",
@@ -10622,7 +10485,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       }
     ]
   },
@@ -10673,22 +10536,22 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Ritual Sword Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Spear Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Spinning Slash",
         "kind": "ash"
       },
       {
-        "name": "Flame Grant Me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -10821,14 +10684,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "name": "Godfrey Icon",
         "kind": "talisman"
       },
-      {
-        "name": "Witching Hour Slash",
-        "kind": "ash"
-      },
-      {
-        "name": "Revenge of the Night",
-        "kind": "ash"
-      }
+      
     ]
   },
   {
@@ -10901,11 +10757,11 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "talisman"
       },
       {
-        "name": "Wave of Destruction",
-        "kind": "ash"
+        "name": "Devastation",
+        "kind": "weapon"
       },
       {
-        "name": "Flame Grant me Strength",
+        "name": "Flame, Grant Me Strength",
         "kind": "spell"
       }
     ]
@@ -10948,7 +10804,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
         "kind": "shield"
       },
       {
-        "name": "Beast Champion Set",
+        "name": "Beast Champion Armor",
         "kind": "armor"
       },
       {
@@ -10957,15 +10813,15 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Magic Scorpion Charm",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Graven-Mass Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Radagon Icon",
@@ -11038,20 +10894,17 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Winged Sword Insignia",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Dragoncrest Greatshield Talisman",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Great-Jar's Arsenal",
-        "kind": "shield"
+        "kind": "talisman"
       },
-      {
-        "name": "Waterfowl Dance",
-        "kind": "ash"
-      }
+      
     ]
   }
 ];
@@ -11110,7 +10963,7 @@ function matchesRequirement(record: ItemRecord, requirement: BuildRequirement): 
 export function isFreeformRequirement(requirement: BuildRequirement): boolean {
   const name = normalizeBuildName(requirement.name);
   if (!name) return true;
-  if (/^(n a|na|none|no|no armor|no shield|armor|shield|greatshield|light armor|medium armor|med armor|little|little armor)$/.test(name)) {
+  if (/^(n a|na|none|no|no armor|no shield|armor|shield|greatshield|light|light armor|medium armor|med armor|med weight|medium weight|little|little armor|staff|seal|catalyst|flexible talisman slot|any seal|any staff|any shield|any armor)$/.test(name)) {
     return true;
   }
   return [
@@ -11120,20 +10973,52 @@ export function isFreeformRequirement(requirement: BuildRequirement): boolean {
     /\bmedium armor\b/,
     /\bmed roll\b/,
     /\blight roll\b/,
+    /\bmid roll\b/,
     /\bhigh poise\b/,
+    /\bheaviest\b/,
     /\bheaviest armor\b/,
     /\barmor that\b/,
     /\barmor for\b/,
     /\barmor with\b/,
+    /\barmor as\b/,
     /\barmor to\b/,
+    /\barmor you\b/,
+    /\barmor pieces\b/,
+    /\barmor good\b/,
     /\bseal that\b/,
     /\bseal as long as\b/,
     /\bweighs nothing\b/,
     /\bone handed\b/,
     /\bone hand\b/,
     /\bmelee weapon\b/,
+    /\bother weapon\b/,
+    /\bother armor\b/,
+    /\bother talisman\b/,
+    /\bother colossus\b/,
+    /\bother curved\b/,
+    /\bother buffs\b/,
+    /\bother incantations\b/,
     /\bpreference\b/,
     /\brecommended\b/,
+    /\byou can\b/,
+    /\byou want\b/,
+    /\byou like\b/,
+    /\ballows you\b/,
+    /\ballows med\b/,
+    /\bstill allows\b/,
+    /\bcan med roll\b/,
+    /\bmedium roll\b/,
+    /\bcan parry\b/,
+    /\bother items\b/,
+    /\bsuch as\b/,
+    /\bsuggested\b/,
+    /\bof your choice\b/,
+    /\bin the video\b/,
+    /\bthat can use\b/,
+    /\byou can wear\b/,
+    /\bas long as\b/,
+    /\bincantations you\b/,
+    /\btalismans in\b/,
   ].some((pattern) => pattern.test(name));
 }
 
@@ -11212,4 +11097,41 @@ export function filterBuildPresets(selectedStats: BuildStat[], matchAll: boolean
       : selectedStats.some((stat) => tags.has(stat));
   }) : BUILD_PRESETS;
   return sortBuildPresets(presets);
+}
+
+export interface StatItemEntry {
+  name: string;
+  normalized: string;
+  kind: BuildItemKind;
+  usedBy: number;
+}
+
+export function getItemsForStats(selectedStats: BuildStat[], matchAll: boolean): StatItemEntry[] {
+  const matchingBuilds = filterBuildPresets(selectedStats, matchAll);
+  const itemMap = new Map<string, StatItemEntry>();
+
+  const seen = new Set<string>();
+  for (const build of matchingBuilds) {
+    for (const req of build.requirements) {
+      if (isFreeformRequirement(req)) continue;
+      const rawName = req.name.toLowerCase().trim().replace(/\s+/g, ' ');
+      const normalized = normalizeBuildName(rawName);
+      const key = `${normalized}::${req.kind}`;
+
+      if (seen.has(key)) {
+        const entry = itemMap.get(key);
+        if (entry) entry.usedBy++;
+      } else {
+        seen.add(key);
+        itemMap.set(key, {
+          name: req.name,
+          normalized,
+          kind: req.kind,
+          usedBy: 1,
+        });
+      }
+    }
+  }
+
+  return [...itemMap.values()].sort((a, b) => b.usedBy - a.usedBy || a.name.localeCompare(b.name));
 }
