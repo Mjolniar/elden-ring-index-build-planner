@@ -100,7 +100,19 @@ html, body {
 }
 
 /* ---- Tabs ---- */
-.tabs-bar { display: flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--border); }
+.tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.primary-tabs,
+.utility-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 .tab-btn {
   padding: 7px 14px;
   background: transparent;
@@ -117,6 +129,9 @@ html, body {
   border-color: var(--border);
   color: var(--accent);
   box-shadow: inset 0 2px 0 var(--accent2);
+}
+.diagnostics-tab {
+  color: #8f8778;
 }
 .favorites-summary { flex: 1; color: var(--text-dim); font-size: 13px; }
 
@@ -236,6 +251,23 @@ html, body {
 .build-list {
   max-height: 620px;
   overflow: auto;
+}
+
+.build-level-group + .build-level-group {
+  border-top: 1px solid var(--border);
+}
+
+.build-level-heading {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 6px 10px;
+  background: #211f1a;
+  border-bottom: 1px solid rgba(52, 49, 43, .7);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .2px;
 }
 
 .build-list-item {
@@ -534,6 +566,12 @@ details[open] .diagnostics-title::before { content: '▼'; }
   .build-controls {
     grid-template-columns: 1fr;
     align-items: stretch;
+  }
+
+  .tabs-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .build-browser {

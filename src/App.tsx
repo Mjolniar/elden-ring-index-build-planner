@@ -213,32 +213,53 @@ export default function App() {
       ) : (
         <main className="main-layout">
           <div className="tabs-bar" role="tablist" aria-label="Record views">
-            <button
-              className={`tab-btn${activeTab === 'all' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'all'}
-              onClick={() => setActiveTab('all')}
-            >
-              Search
-            </button>
-            <button
-              className={`tab-btn${activeTab === 'favorites' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'favorites'}
-              onClick={() => setActiveTab('favorites')}
-            >
-              Favorites ({favorites.length})
-            </button>
-            <button
-              className={`tab-btn${activeTab === 'builds' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'builds'}
-              onClick={() => setActiveTab('builds')}
-            >
-              Builds
-            </button>
+            <div className="primary-tabs">
+              <button
+                className={`tab-btn${activeTab === 'all' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'all'}
+                onClick={() => setActiveTab('all')}
+              >
+                Search
+              </button>
+              <button
+                className={`tab-btn${activeTab === 'favorites' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'favorites'}
+                onClick={() => setActiveTab('favorites')}
+              >
+                Favorites ({favorites.length})
+              </button>
+              <button
+                className={`tab-btn${activeTab === 'builds' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'builds'}
+                onClick={() => setActiveTab('builds')}
+              >
+                Builds
+              </button>
+            </div>
+            <div className="utility-tabs">
+              <button
+                className={`tab-btn diagnostics-tab${activeTab === 'diagnostics' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'diagnostics'}
+                onClick={() => setActiveTab('diagnostics')}
+              >
+                Diagnostics
+              </button>
+            </div>
           </div>
-          {activeTab === 'builds' ? (
+          {activeTab === 'diagnostics' ? (
+            <DiagnosticsPanel
+              diagnostics={result.diagnostics}
+              seed={result.seed}
+              filename={filename}
+              cacheEntry={cacheEntry}
+              cacheMessage={cacheMessage}
+              onOpenCacheFolder={window.electronAPI?.openSpoilerLogCacheDir ? openCacheFolder : undefined}
+            />
+          ) : activeTab === 'builds' ? (
             <BuildPlannerPanel
               records={result.records}
               selectedBuildId={selectedBuildId}
@@ -280,14 +301,6 @@ export default function App() {
               />
             </>
           )}
-          <DiagnosticsPanel
-            diagnostics={result.diagnostics}
-            seed={result.seed}
-            filename={filename}
-            cacheEntry={cacheEntry}
-            cacheMessage={cacheMessage}
-            onOpenCacheFolder={window.electronAPI?.openSpoilerLogCacheDir ? openCacheFolder : undefined}
-          />
         </main>
       )}
     </div>

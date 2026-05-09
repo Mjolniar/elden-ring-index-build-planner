@@ -11133,12 +11133,41 @@ export function buildStatCategory(preset: BuildPreset): string {
   return stats.length ? stats.join(' / ') : 'Flexible';
 }
 
+const LEVEL_ORDER = [
+  'Beginner',
+  'All Game',
+  'Level 50',
+  'Level 100',
+  'Level 150',
+  'Level 150-200',
+  'SOTE',
+  'General',
+];
+
+export function buildLevelRank(level: string): number {
+  const index = LEVEL_ORDER.indexOf(level);
+  return index === -1 ? LEVEL_ORDER.length : index;
+}
+
+export function buildLevelLabel(level: string): string {
+  if (level === 'Level 150-200') return 'Level 150-200, Journey 2, and New Game+';
+  if (level === 'SOTE') return 'Shadow of the Erdtree';
+  return level;
+}
+
+export function sortBuildPresets(presets: BuildPreset[]): BuildPreset[] {
+  return [...presets].sort((a, b) =>
+    buildLevelRank(a.level) - buildLevelRank(b.level) ||
+    a.name.localeCompare(b.name)
+  );
+}
+
 export function filterBuildPresets(selectedStats: BuildStat[], matchAll: boolean): BuildPreset[] {
-  if (!selectedStats.length) return BUILD_PRESETS;
-  return BUILD_PRESETS.filter((preset) => {
+  const presets = selectedStats.length ? BUILD_PRESETS.filter((preset) => {
     const tags = new Set(preset.statTags);
     return matchAll
       ? selectedStats.every((stat) => tags.has(stat))
       : selectedStats.some((stat) => tags.has(stat));
-  });
+  }) : BUILD_PRESETS;
+  return sortBuildPresets(presets);
 }

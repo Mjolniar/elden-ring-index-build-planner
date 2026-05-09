@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import type { ItemRecord } from '../src/types';
-import { BUILD_PRESETS, buildPlannerMatches, filterBuildPresets, normalizeBuildName } from '../src/buildPlanner';
+import {
+  BUILD_PRESETS,
+  buildLevelRank,
+  buildPlannerMatches,
+  filterBuildPresets,
+  normalizeBuildName,
+} from '../src/buildPlanner';
 
 function record(itemName: string, area: string | null, locationName = `Found ${itemName}`): ItemRecord {
   return {
@@ -51,5 +57,11 @@ describe('build planner matching', () => {
     expect(strengthFaith.every((build) =>
       build.statTags.includes('Strength') && build.statTags.includes('Faith')
     )).toBe(true);
+  });
+
+  it('orders filtered builds by progression bucket and then name', () => {
+    const dexterity = filterBuildPresets(['Dexterity'], true);
+    const sortKeys = dexterity.map((build) => `${buildLevelRank(build.level)}:${build.name}`);
+    expect(sortKeys).toEqual([...sortKeys].sort((a, b) => a.localeCompare(b)));
   });
 });

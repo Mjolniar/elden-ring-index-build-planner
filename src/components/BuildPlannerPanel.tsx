@@ -4,7 +4,9 @@ import type { BuildStat } from '../buildPlanner';
 import {
   BUILD_PRESETS,
   BUILD_STATS,
+  type BuildPreset,
   buildPlannerMatches,
+  buildLevelLabel,
   buildStatCategory,
   filterBuildPresets,
   normalizeBuildName,
@@ -36,6 +38,23 @@ function requirementKindLabel(kind: string, name: string): string {
     return 'Armor';
   }
   return KIND_LABELS[kind] ?? 'Item';
+}
+
+interface BuildLevelGroup {
+  level: string;
+  builds: BuildPreset[];
+}
+
+function groupBuildsByLevel(builds: BuildPreset[]): BuildLevelGroup[] {
+  return builds.reduce<BuildLevelGroup[]>((groups, preset) => {
+    const current = groups[groups.length - 1];
+    if (current?.level === preset.level) {
+      current.builds.push(preset);
+    } else {
+      groups.push({ level: preset.level, builds: [preset] });
+    }
+    return groups;
+  }, []);
 }
 
 interface Props {
@@ -75,6 +94,7 @@ export function BuildPlannerPanel({
       return haystack.includes(searchKey);
     });
   }, [selectedStats, matchAllStats, searchKey]);
+  const buildGroups = useMemo(() => groupBuildsByLevel(filteredBuilds), [filteredBuilds]);
 
   const selectedBuild = filteredBuilds.find((preset) => preset.id === selectedBuildId) ?? filteredBuilds[0] ?? BUILD_PRESETS[0];
   const matches = buildPlannerMatches(selectedBuild, records);
@@ -137,16 +157,21 @@ export function BuildPlannerPanel({
         <aside className="build-list-panel">
           <div className="build-list-title">Matching builds</div>
           <div className="build-list">
-            {filteredBuilds.map((preset) => (
-              <button
-                key={preset.id}
-                type="button"
-                className={`build-list-item${selectedBuild.id === preset.id ? ' active' : ''}`}
-                onClick={() => onSelectedBuildIdChange(preset.id)}
-              >
-                <span>{preset.name}</span>
-                <small>{buildStatCategory(preset)} · {preset.level}</small>
-              </button>
+            {buildGroups.map((group) => (
+              <div key={group.level} className="build-level-group">
+                <div className="build-level-heading">{buildLevelLabel(group.level)}</div>
+                {group.builds.map((preset) => (
+                  <button
+                    key={preset.id}
+                    type="button"
+                    className={`build-list-item${selectedBuild.id === preset.id ? ' active' : ''}`}
+                    onClick={() => onSelectedBuildIdChange(preset.id)}
+                  >
+                    <span>{preset.name}</span>
+                    <small>{buildStatCategory(preset)}</small>
+                  </button>
+                ))}
+              </div>
             ))}
             {!filteredBuilds.length && (
               <div className="empty-state">No builds match those stat filters.</div>
