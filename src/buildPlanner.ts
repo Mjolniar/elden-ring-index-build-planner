@@ -26,6 +26,7 @@ export interface BuildRequirementMatch {
   requirement: BuildRequirement;
   record: ItemRecord | null;
   areaRank: number;
+  isFreeform: boolean;
 }
 
 export const BUILD_STATS: BuildStat[] = ["Vigor","Mind","Endurance","Strength","Dexterity","Intelligence","Faith","Arcane"];
@@ -11106,12 +11107,51 @@ function matchesRequirement(record: ItemRecord, requirement: BuildRequirement): 
   return candidates.some((candidate) => itemName === candidate || itemName.includes(candidate) || candidate.includes(itemName));
 }
 
+export function isFreeformRequirement(requirement: BuildRequirement): boolean {
+  const name = normalizeBuildName(requirement.name);
+  if (!name) return true;
+  if (/^(n a|na|none|no|no armor|no shield|armor|shield|greatshield|light armor|medium armor|med armor|little|little armor)$/.test(name)) {
+    return true;
+  }
+  return [
+    /\bany\b/,
+    /\bno armor\b/,
+    /\blight armor\b/,
+    /\bmedium armor\b/,
+    /\bmed roll\b/,
+    /\blight roll\b/,
+    /\bhigh poise\b/,
+    /\bheaviest armor\b/,
+    /\barmor that\b/,
+    /\barmor for\b/,
+    /\barmor with\b/,
+    /\barmor to\b/,
+    /\bseal that\b/,
+    /\bseal as long as\b/,
+    /\bweighs nothing\b/,
+    /\bone handed\b/,
+    /\bone hand\b/,
+    /\bmelee weapon\b/,
+    /\bpreference\b/,
+    /\brecommended\b/,
+  ].some((pattern) => pattern.test(name));
+}
+
 export function buildPlannerMatches(
   preset: BuildPreset,
   records: ItemRecord[]
 ): BuildRequirementMatch[] {
   return preset.requirements
     .map((requirement) => {
+      const isFreeform = isFreeformRequirement(requirement);
+      if (isFreeform) {
+        return {
+          requirement,
+          record: null,
+          areaRank: Number.MAX_SAFE_INTEGER - 1,
+          isFreeform,
+        };
+      }
       const matches = records
         .filter((record) => matchesRequirement(record, requirement))
         .sort((a, b) => getAreaRank(a) - getAreaRank(b) || a.itemName.localeCompare(b.itemName));
@@ -11120,10 +11160,12 @@ export function buildPlannerMatches(
         requirement,
         record,
         areaRank: record ? getAreaRank(record) : Number.MAX_SAFE_INTEGER,
+        isFreeform,
       };
     })
     .sort((a, b) => {
       if (!!a.record !== !!b.record) return a.record ? -1 : 1;
+      if (a.isFreeform !== b.isFreeform) return a.isFreeform ? 1 : -1;
       return a.areaRank - b.areaRank || a.requirement.name.localeCompare(b.requirement.name);
     });
 }

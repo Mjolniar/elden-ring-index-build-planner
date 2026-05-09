@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { ItemRecord } from '../types';
-import type { BuildStat } from '../buildPlanner';
+import type { BuildItemKind, BuildStat } from '../buildPlanner';
 import {
   BUILD_PRESETS,
   BUILD_STATS,
@@ -9,6 +9,7 @@ import {
   buildLevelLabel,
   buildStatCategory,
   filterBuildPresets,
+  isFreeformRequirement,
   normalizeBuildName,
 } from '../buildPlanner';
 import { makeRecordKey } from '../recordKey';
@@ -26,6 +27,7 @@ const KIND_LABELS: Record<string, string> = {
 };
 
 function requirementKindLabel(kind: string, name: string): string {
+  if (isFreeformRequirement({ kind: kind as BuildItemKind, name })) return 'Free-form';
   const normalized = name.toLowerCase();
   if (kind === 'spell' || kind === 'ash') return KIND_LABELS[kind];
   if (normalized.includes('shield') || normalized.includes('buckler')) return 'Shield';
@@ -37,7 +39,17 @@ function requirementKindLabel(kind: string, name: string): string {
   if (/set|armor|helm|hood|mask|gauntlets|greaves|robe|trousers|blossom/.test(normalized)) {
     return 'Armor';
   }
+  if (/sword|blade|bow|katana|spear|lance|hammer|axe|flail|claw|dagger|rapier|halberd|scythe|greatsword|twinblade|torch|mace|club/.test(normalized)) {
+    return 'Weapon';
+  }
   return KIND_LABELS[kind] ?? 'Item';
+}
+
+function freeformLocationText(kind: string): string {
+  if (kind === 'armor') return 'Choose armor that fits the note; this is not a specific randomized item.';
+  if (kind === 'seal' || kind === 'staff') return 'Choose any suitable catalyst; this is not a specific randomized item.';
+  if (kind === 'weapon' || kind === 'shield') return 'Choose any suitable equipment option; this is not a specific randomized item.';
+  return 'Flexible build guidance; not expected to appear as an exact spoiler-log item.';
 }
 
 interface BuildLevelGroup {
@@ -99,8 +111,9 @@ export function BuildPlannerPanel({
   const selectedBuild = filteredBuilds.find((preset) => preset.id === selectedBuildId) ?? filteredBuilds[0] ?? BUILD_PRESETS[0];
   const matches = buildPlannerMatches(selectedBuild, records);
   const foundCount = matches.filter((match) => match.record).length;
-  const requiredCount = matches.filter((match) => !match.requirement.optional).length;
-  const foundRequiredCount = matches.filter((match) => match.record && !match.requirement.optional).length;
+  const requiredCount = matches.filter((match) => !match.requirement.optional && !match.isFreeform).length;
+  const foundRequiredCount = matches.filter((match) => match.record && !match.requirement.optional && !match.isFreeform).length;
+  const freeformCount = matches.filter((match) => match.isFreeform).length;
   const primaryStats = selectedBuild.primaryStats.join(' / ') || 'Flexible';
   const secondaryStats = selectedBuild.secondaryStats.join(' / ') || 'None listed';
 
@@ -150,6 +163,7 @@ export function BuildPlannerPanel({
         <div className="build-counts">
           Builds shown: {filteredBuilds.length} / {BUILD_PRESETS.length}
           <span>Required found: {foundRequiredCount} / {requiredCount}</span>
+          {freeformCount > 0 && <span>Flexible notes: {freeformCount}</span>}
         </div>
       </div>
 
@@ -225,13 +239,15 @@ export function BuildPlannerPanel({
                       </td>
                       <td><span className="badge badge-unknown">{requirementKindLabel(match.requirement.kind, match.requirement.name)}</span></td>
                       <td>
-                        {record ? (
+                        {match.isFreeform ? (
+                          <span className="badge badge-flex">Flexible</span>
+                        ) : record ? (
                           <span className="badge badge-ground_pickup">Found</span>
                         ) : (
                           <span className="badge badge-warn">Missing</span>
                         )}
                       </td>
-                      <td>{record?.locationName ?? 'Not found in loaded spoiler log'}</td>
+                      <td>{record?.locationName ?? (match.isFreeform ? freeformLocationText(match.requirement.kind) : 'Not found in loaded spoiler log')}</td>
                       <td>{record?.area ?? '-'}</td>
                       <td className="favorite-cell">
                         {record ? (

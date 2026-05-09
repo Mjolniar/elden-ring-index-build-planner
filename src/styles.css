@@ -504,6 +504,7 @@ html, body {
 .badge-event     { background: #2a2a1a; color: #c0c070; border: 1px solid #4a4a2a; }
 .badge-unknown   { background: var(--surface2); color: var(--text-dim); border: 1px solid var(--border); }
 .badge-warn      { background: #3a2a00; color: #e0a030; border: 1px solid #5a4a00; margin-left: 8px; }
+.badge-flex      { background: #26302f; color: #8fc6bc; border: 1px solid #38504c; }
 
 /* ---- Diagnostics ---- */
 .diagnostics-panel {

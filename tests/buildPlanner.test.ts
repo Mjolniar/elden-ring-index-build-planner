@@ -5,6 +5,7 @@ import {
   buildLevelRank,
   buildPlannerMatches,
   filterBuildPresets,
+  isFreeformRequirement,
   normalizeBuildName,
 } from '../src/buildPlanner';
 
@@ -63,5 +64,16 @@ describe('build planner matching', () => {
     const dexterity = filterBuildPresets(['Dexterity'], true);
     const sortKeys = dexterity.map((build) => `${buildLevelRank(build.level)}:${build.name}`);
     expect(sortKeys).toEqual([...sortKeys].sort((a, b) => a.localeCompare(b)));
+  });
+
+  it('marks generic build notes as free-form instead of missing spoiler-log items', () => {
+    expect(isFreeformRequirement({ name: 'Light Armor', kind: 'armor' })).toBe(true);
+    expect(isFreeformRequirement({ name: 'Seal that weighs nothing', kind: 'seal' })).toBe(true);
+    expect(isFreeformRequirement({ name: 'Shard of Alexander', kind: 'talisman' })).toBe(false);
+
+    const preset = BUILD_PRESETS.find((build) => build.id === 'black-arrow-build-level-150-200-journey-2')!;
+    const matches = buildPlannerMatches(preset, []);
+    const sealNote = matches.find((match) => match.requirement.name === 'Seal that weighs nothing');
+    expect(sealNote).toMatchObject({ record: null, isFreeform: true });
   });
 });
