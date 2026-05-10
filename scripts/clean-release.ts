@@ -19,6 +19,23 @@ function productPrefix(name: string): string {
   return prefix;
 }
 
+function moveToOld(srcName: string, logSuffix = '-> Old/'): boolean {
+  const src = join(releaseDir, srcName);
+  const dest = join(oldDir, srcName);
+  try {
+    renameSync(src, dest);
+    console.log(`  Moved: ${srcName} ${logSuffix}`);
+    return true;
+  } catch (error) {
+    const code = error && typeof error === 'object' && 'code' in error ? String(error.code) : '';
+    if (code === 'EBUSY' || code === 'EPERM') {
+      console.warn(`  Skipped locked artifact: ${srcName}`);
+      return false;
+    }
+    throw error;
+  }
+}
+
 const groups = new Map<string, typeof exeFiles>();
 for (const file of exeFiles) {
   const prefix = productPrefix(file.name);
@@ -43,10 +60,7 @@ for (const [prefix, group] of groups) {
 
   for (const file of group) {
     if (file.name === newest.name) continue;
-    const src = join(releaseDir, file.name);
-    const dest = join(oldDir, file.name);
-    renameSync(src, dest);
-    console.log(`  Moved: ${file.name} -> Old/`);
+    moveToOld(file.name);
   }
 }
 
@@ -59,10 +73,7 @@ const blockmaps = readdirSync(releaseDir)
 for (const bm of blockmaps) {
   const matchesKeptInstaller = [...keptBlockmapStems].some((stem) => bm.startsWith(stem));
   if (!matchesKeptInstaller) {
-    const src = join(releaseDir, bm);
-    const dest = join(oldDir, bm);
-    renameSync(src, dest);
-    console.log(`  Moved: ${bm}`);
+    moveToOld(bm, '');
   }
 }
 

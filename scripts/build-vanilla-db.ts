@@ -19,6 +19,7 @@ const BOSS_ICON_PREFIX = /^[🌻🌑⚪🗡️💎💀🦴🌱💰📜🌳🩸�
 
 // Location cell contains an item-effect description rather than a place name.
 const DESCRIPTION_RE = /\b(raises|increases|decreases|reduces|restores)\b|\bFP Cost\b|\bMaximum HP\b|\bDamage taken\b|\bSuccessive hits\b|\bInvincibility Frames\b|\bOne of the\b|^\d+%\s+\w|\bcan be found at\s*:|\bof the Fire Monks\b/i;
+const OVERRIDE_DESCRIPTION_RE = /\b(raises|increases|decreases|reduces|restores)\b|\bFP Cost\b|\bMaximum HP\b|\bDamage taken\b|\bSuccessive hits\b|\bInvincibility Frames\b|^\d+%\s+\w|\bcan be found at\s*:|\bof the Fire Monks\b/i;
 const LOCATION_CATEGORY_RE = /^(incantations?|sorceries?|sorcery|ashes of war|ash of war|talismans?|weapons?|armor)$/i;
 const RUNE_VALUE_RE = /^\d{1,3}(?:,\d{3})*\s+Runes?$/i;
 
@@ -248,6 +249,19 @@ function isDescriptionLoc(loc: string): boolean {
   return DESCRIPTION_RE.test(loc) || /^[a-z]/.test(loc) || LOCATION_CATEGORY_RE.test(loc) || RUNE_VALUE_RE.test(loc);
 }
 
+function cleanOverrideLocation(raw: string): string {
+  return raw
+    .replace(ICON_RE, '')
+    .replace(/\*\*/g, '')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/^(?:l?o?c?a?t?i?o?n|n|where to find|following location|llowing location|lowing location|wing location|ng location)\s*:\s*/i, '')
+    .trim();
+}
+
+function isInvalidOverrideLocation(loc: string): boolean {
+  return !loc || OVERRIDE_DESCRIPTION_RE.test(loc) || LOCATION_CATEGORY_RE.test(loc) || RUNE_VALUE_RE.test(loc);
+}
+
 // Names that are section headers or spreadsheet notes, not items.
 const HEADER_RE = /^(MELEE|RANGED|DAGGERS|STRAIGHT|GREATSWORDS|COLOSSAL|KATANAS|CURVED|BOWS|LIGHT BOW|GREATBOW|CROSSBOW|BALLISTA|STAFF|SEAL|SMALL|MEDIUM|ASHES|WHETBLADE|KEY|NOTE|OTHER|OFF|HELM|CHEST|GAUNTLET|GREAVE|TALISMAN BAG|ARMOR SET|LOCATION|COLLECTED|NAME|FALSE|TRUE|BOSSES|INVADERS)/i;
 const INVALID_LOC = new Set(['0', 'location', 'collected', 'false', 'true', 'name', 'killed', '']);
@@ -373,19 +387,30 @@ out += `export const VANILLA_ITEMS: ItemRecord[] = [\n`;
 const emittedNames = new Set<string>();
 
 function add(name: string, src: string, fallbackLoc: string) {
-  emittedNames.add(name.toLowerCase());
+  let emitted = false;
+  function emit(locationName: string, sourceType: string) {
+    out += ` r(${JSON.stringify(name)}, ${JSON.stringify(locationName)}, '${sourceType}'),\n`;
+    emitted = true;
+  }
+
   const overrides = locationOverrides.get(name.toLowerCase());
   if (overrides?.length) {
     for (const override of overrides) {
-      if (isDescriptionLoc(override.locationName)) continue;
-      out += ` r(${JSON.stringify(name)}, ${JSON.stringify(override.locationName)}, '${override.sourceType || src}'),\n`;
+      const locationName = cleanOverrideLocation(override.locationName);
+      if (isInvalidOverrideLocation(locationName)) continue;
+      emit(locationName, override.sourceType || src);
     }
-    return;
+    if (emitted) {
+      emittedNames.add(name.toLowerCase());
+      return;
+    }
   }
 
   const loc = locMap.get(name) || fallbackLoc;
   const st  = srcMap.get(name) || src;
-  out += ` r(${JSON.stringify(name)}, ${JSON.stringify(loc)}, '${st}'),\n`;
+  if (!loc || isInvalidOverrideLocation(loc)) return;
+  emit(loc, st);
+  emittedNames.add(name.toLowerCase());
 }
 
 for (const i of unique) add(i.name, i.sourceType, i.location);
@@ -409,7 +434,7 @@ for (const s of sorceries) {
 }
 for (const overrides of locationOverrides.values()) {
   const first = overrides[0];
-  if (first && !emittedNames.has(first.itemName.toLowerCase()) && !isDescriptionLoc(first.locationName)) {
+  if (first && !emittedNames.has(first.itemName.toLowerCase()) && !isInvalidOverrideLocation(cleanOverrideLocation(first.locationName))) {
     add(first.itemName, first.sourceType || 'unknown', first.locationName);
   }
 }

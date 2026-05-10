@@ -320,9 +320,21 @@ html, body {
   font-weight: 600;
 }
 
+.build-list-star {
+  display: inline-block;
+  width: 16px;
+  color: var(--key);
+  font-size: 13px;
+  text-shadow: 0 0 8px rgba(232, 160, 48, .3);
+}
+
 .build-list-item small {
   color: var(--text-dim);
   font-size: 11px;
+}
+
+.favorite-build-group .build-level-heading {
+  background: #2a2416;
 }
 
 .build-detail-panel {
@@ -340,14 +352,18 @@ html, body {
 }
 
 .build-summary {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+  align-items: stretch;
   gap: 14px;
   padding: 11px 12px;
   background: rgba(23, 23, 23, .82);
   border: 1px solid var(--border);
   border-radius: 7px;
+}
+
+.build-summary-main {
+  min-width: 0;
 }
 
 .build-summary h2 {
@@ -386,6 +402,53 @@ html, body {
 
 .build-summary a:hover {
   text-decoration: underline;
+}
+
+.build-summary-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.build-summary-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  min-height: 28px;
+}
+
+.build-favorite-btn {
+  flex: 0 0 auto;
+}
+
+.generated-build-notes {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid rgba(52, 49, 43, .85);
+  border-radius: 6px;
+  background: rgba(11, 12, 13, .38);
+}
+
+.generated-build-notes-title {
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.generated-build-notes ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 16px;
+}
+
+.generated-build-notes li {
+  color: var(--text-dim);
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 .planner-note {
@@ -633,11 +696,11 @@ details[open] .diagnostics-title::before { content: '▼'; }
   }
 
   .build-summary {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
-  .build-summary a {
-    align-self: flex-start;
+  .build-summary-actions {
+    justify-content: flex-start;
   }
 
   .browser-controls {

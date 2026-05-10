@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { ItemRecord } from '../types';
+import { buildNotesFor } from '../buildNotes';
 import type { BuildItemKind, BuildStat } from '../buildPlanner';
 import {
   BUILD_PRESETS,
@@ -28,6 +29,23 @@ const KIND_LABELS: Record<string, string> = {
   ash: 'Ash',
   optional: 'Optional',
 };
+
+function statSourceLabel(build: BuildPreset): string {
+  if (build.statSource === 'source' || build.statSource === 'scraped') return 'Source stats';
+  if (build.statSource === 'estimated' || build.statSource === 'calculated') return 'Estimated stats';
+  return 'Stat target';
+}
+
+function statSourceTitle(build: BuildPreset): string {
+  if (build.statSourceNote) return build.statSourceNote;
+  if (build.statSource === 'source' || build.statSource === 'scraped') {
+    return 'Pulled from the saved reference build page.';
+  }
+  if (build.statSource === 'estimated' || build.statSource === 'calculated') {
+    return 'Estimated from item requirements and primary/secondary stat tags.';
+  }
+  return 'No source details recorded.';
+}
 
 function requirementKindLabel(kind: string, name: string): string {
   if (isFreeformRequirement({ kind: kind as BuildItemKind, name })) return 'Free-form';
@@ -80,6 +98,8 @@ interface Props {
   acquiredKeys: Set<string>;
   onToggleFavorite: (record: ItemRecord) => void;
   onToggleAcquired: (record: ItemRecord) => void;
+  favoriteBuildIds: Set<string>;
+  onToggleBuildFavorite: (buildId: string) => void;
   userBuilds: BuildPreset[];
   onSaveBuild: (build: BuildPreset) => void;
   onDeleteBuild: (id: string) => void;
@@ -93,6 +113,8 @@ export function BuildPlannerPanel({
   acquiredKeys,
   onToggleFavorite,
   onToggleAcquired,
+  favoriteBuildIds,
+  onToggleBuildFavorite,
   userBuilds,
   onSaveBuild,
   onDeleteBuild,
@@ -127,13 +149,17 @@ export function BuildPlannerPanel({
     });
   }, [allBuilds, selectedStats, matchAllStats, searchKey]);
 
+  const favoriteBuilds = useMemo(
+    () => sortBuildPresets(filteredBuilds.filter((b) => favoriteBuildIds.has(b.id))),
+    [filteredBuilds, favoriteBuildIds]
+  );
   const presetBuilds = useMemo(
-    () => sortBuildPresets(filteredBuilds.filter((b) => !b.id.startsWith('user-'))),
-    [filteredBuilds]
+    () => sortBuildPresets(filteredBuilds.filter((b) => !b.id.startsWith('user-') && !favoriteBuildIds.has(b.id))),
+    [filteredBuilds, favoriteBuildIds]
   );
   const customBuilds = useMemo(
-    () => sortBuildPresets(filteredBuilds.filter((b) => b.id.startsWith('user-'))),
-    [filteredBuilds]
+    () => sortBuildPresets(filteredBuilds.filter((b) => b.id.startsWith('user-') && !favoriteBuildIds.has(b.id))),
+    [filteredBuilds, favoriteBuildIds]
   );
   const presetGroups = useMemo(() => groupBuildsByLevel(presetBuilds), [presetBuilds]);
 
@@ -146,6 +172,7 @@ export function BuildPlannerPanel({
   const primaryStats = selectedBuild.primaryStats.join(' / ') || 'Flexible';
   const secondaryStats = selectedBuild.secondaryStats.join(' / ') || 'None listed';
   const isUserBuild = selectedBuild.id.startsWith('user-');
+  const isBuildFavorite = favoriteBuildIds.has(selectedBuild.id);
   const soulCost = (selectedBuild.statRecommended || selectedBuild.statRequired) ? computeSoulCost(selectedBuild) : null;
 
   const makeBars = (stats: Partial<Record<BuildStat, number>> | undefined) =>
@@ -180,6 +207,8 @@ export function BuildPlannerPanel({
     setShowEditor(false);
     setEditingBuildId(null);
   }
+
+  const generatedNotes = buildNotesFor(selectedBuild, matches);
 
   const editingBuild = editingBuildId ? userBuilds.find((b) => b.id === editingBuildId) : undefined;
 
@@ -241,6 +270,25 @@ export function BuildPlannerPanel({
         <aside className="build-list-panel">
           <div className="build-list-title">Matching builds</div>
           <div className="build-list">
+            {favoriteBuilds.length > 0 && (
+              <div className="build-level-group favorite-build-group">
+                <div className="build-level-heading">Favorite Builds</div>
+                {favoriteBuilds.map((preset) => (
+                  <button
+                    key={preset.id}
+                    type="button"
+                    className={`build-list-item favorite-build-list-item${selectedBuild.id === preset.id ? ' active' : ''}`}
+                    onClick={() => onSelectedBuildIdChange(preset.id)}
+                  >
+                    <span>
+                      <span className="build-list-star">★</span>
+                      {preset.name}
+                    </span>
+                    <small>{buildStatCategory(preset)}</small>
+                  </button>
+                ))}
+              </div>
+            )}
             {customBuilds.length > 0 && (
               <div className="build-level-group">
                 <div className="build-level-heading">Your Builds</div>
@@ -289,7 +337,7 @@ export function BuildPlannerPanel({
 
         <div className="build-detail-panel">
           <div className="build-summary">
-            <div>
+            <div className="build-summary-main">
               <h2>
                 {selectedBuild.name}
                 {isUserBuild && <span className="optional-tag">Custom</span>}
@@ -324,7 +372,10 @@ export function BuildPlannerPanel({
                   {recommendedBars && (
                     <div className="stat-bars-section">
                       <div className="stat-bars-title">
-                        Recommended allocation
+                        {statSourceLabel(selectedBuild)}
+                        <span className="optional-tag" title={statSourceTitle(selectedBuild)}>
+                          {selectedBuild.statSource === 'source' || selectedBuild.statSource === 'scraped' ? 'source' : 'estimated'}
+                        </span>
                         {soulCost && (
                           <span className="stat-soul-cost">
                             RL {soulCost.targetLevel} · ~{formatRunes(soulCost.cost)} runes · best: {soulCost.bestClass}
@@ -349,7 +400,20 @@ export function BuildPlannerPanel({
                 </div>
               )}
             </div>
-            <div className="build-summary-links">
+            <div className="build-summary-side">
+              <div className="build-summary-actions">
+                <button
+                  className={`favorite-btn build-favorite-btn${isBuildFavorite ? ' active' : ''}`}
+                  title={isBuildFavorite ? 'Remove build from favorites' : 'Add build to favorites'}
+                  aria-label={isBuildFavorite ? 'Remove build from favorites' : 'Add build to favorites'}
+                  onClick={() => onToggleBuildFavorite(selectedBuild.id)}
+                >
+                  ★
+                </button>
+                {selectedBuild.sourceUrl && !isUserBuild && (
+                  <a href={selectedBuild.sourceUrl} target="_blank" rel="noreferrer">Source build notes</a>
+                )}
+              </div>
               {isUserBuild ? (
                 <div className="user-build-actions">
                   <button className="toggle-btn" onClick={() => handleEditBuild(selectedBuild.id)}>Edit</button>
@@ -359,11 +423,15 @@ export function BuildPlannerPanel({
                     if (next) onSelectedBuildIdChange(next.id);
                   }}>Delete</button>
                 </div>
-              ) : (
-                selectedBuild.sourceUrl && (
-                  <a href={selectedBuild.sourceUrl} target="_blank" rel="noreferrer">Source build notes</a>
-                )
-              )}
+              ) : null}
+              <div className="generated-build-notes">
+                <div className="generated-build-notes-title">Build notes</div>
+                <ul>
+                  {generatedNotes.map((note) => (
+                    <li key={note}>{note}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -387,13 +455,13 @@ export function BuildPlannerPanel({
                 </tr>
               </thead>
               <tbody>
-                {matches.map((match) => {
+                {matches.map((match, index) => {
                   const record = match.record;
                   const recordKey = record ? makeRecordKey(record) : '';
                   const isFavorite = record ? favoriteKeys.has(recordKey) : false;
                   const isAcquired = record ? acquiredKeys.has(recordKey) : false;
                   return (
-                    <tr key={`${selectedBuild.id}-${match.requirement.kind}-${match.requirement.name}`} className={`record-row${record?.isKeyItem ? ' key-item' : ''}${isAcquired ? ' acquired' : ''}`}>
+                    <tr key={`${selectedBuild.id}-${index}-${match.requirement.kind}-${match.requirement.name}`} className={`record-row${record?.isKeyItem ? ' key-item' : ''}${isAcquired ? ' acquired' : ''}`}>
                       <td className="item-name">
                         {match.requirement.name}
                         {match.requirement.optional && <span className="optional-tag">Optional</span>}

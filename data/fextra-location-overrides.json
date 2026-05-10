@@ -100,6 +100,13 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Armor of Solitude",
+    "locationName": "Can be obtained after defeating the Blackgaol Knight found inside Western Nameless Mausoleum.",
+    "sourceType": "boss_drop",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Armor+of+Solitude",
+    "confidence": "manual"
+  },
+  {
     "itemName": "Arrow's Reach Talisman",
     "locationName": "From the Stormhill Shack Site of Grace in Limgrave, travel southeast to Stormhill Evergaol. There's a tower nearby, toward the north-east.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Arrow's+Reach+Talisman",
@@ -2739,6 +2746,13 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Radahn's Lion Armor",
+    "locationName": "Can be purchased from Enia at the Roundtable Hold for 12,000 runes once Starscourge Radahn has been defeated.",
+    "sourceType": "shop",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Radahn's+Lion+Armor",
+    "confidence": "manual"
+  },
+  {
     "itemName": "Radiant Gold Mask",
     "locationName": "Altus Plateau: Found on a corpse on the second broken section of the large broken bridge going over the forest while approaching it from the North end",
     "sourceType": "ground_pickup",
@@ -3515,6 +3529,13 @@
     "confidence": "parsed"
   },
   {
+    "itemName": "Transient Moonlight",
+    "locationName": "Default skill of Moonveil.",
+    "sourceType": "event",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Transient+Moonlight",
+    "confidence": "manual"
+  },
+  {
     "itemName": "Treespear",
     "locationName": "a Carriage at the edge of the collapsed bridge. From Liurnia Highway South Site of Grace, follow the road southeast.",
     "sourceType": "ground_pickup",
@@ -3612,6 +3633,13 @@
     "sourceType": "ground_pickup",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Watchdog's+Staff",
     "confidence": "parsed"
+  },
+  {
+    "itemName": "Wave of Destruction",
+    "locationName": "Default skill for the Ruins Greatsword.",
+    "sourceType": "event",
+    "sourceUrl": "https://eldenring.wiki.fextralife.com/Wave+of+Destruction",
+    "confidence": "manual"
   },
   {
     "itemName": "White Mask",
