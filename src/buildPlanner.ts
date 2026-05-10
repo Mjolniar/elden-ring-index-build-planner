@@ -4258,8 +4258,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Strength / Dexterity build using Dragonscale Blade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
-    "statRequired": {"Strength":20,"Dexterity":20},
-    "statRecommended": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":54,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statRequired": {"Strength":20,"Dexterity":20,"Arcane":16},
+    "statRecommended": {"Vigor":50,"Mind":15,"Endurance":20,"Strength":54,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":16},
     "statSource": "calculated",
     "requirements": [
       {
@@ -8825,7 +8825,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     "requirements": [
       {
         "name": "Rivers of Blood",
-        "kind": "seal"
+        "kind": "weapon"
       },
       {
         "name": "Sacrificial Axe",
@@ -9176,8 +9176,8 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Dexterity build using Serpentbone Blade.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
-    "statRequired": {"Strength":11,"Dexterity":22},
-    "statRecommended": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":11,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":7},
+    "statRequired": {"Strength":11,"Dexterity":22,"Arcane":28},
+    "statRecommended": {"Vigor":60,"Mind":15,"Endurance":30,"Strength":11,"Dexterity":80,"Intelligence":7,"Faith":7,"Arcane":28},
     "statSource": "calculated",
     "requirements": [
       {
