@@ -715,7 +715,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
     ],
     "summary": "Vigor / Faith build using Black Steel Greathammer.",
     "sourceUrl": "https://eldenring.wiki.fextralife.com/Builds",
-    "statRequired": {"Strength":25,"Dexterity":11,"Faith":25,"Intelligence":17},
+    "statRequired": {"Strength":35,"Dexterity":11,"Faith":25,"Intelligence":17},
     "statRecommended": {"Vigor":55,"Mind":30,"Endurance":40,"Strength":45,"Faith":45},
     "statSource": "scraped",
     "requirements": [
@@ -1893,7 +1893,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Millicent’s Prosthesis",
-        "kind": "shield"
+        "kind": "talisman"
       },
       {
         "name": "Axe Talisman",
@@ -3035,7 +3035,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Barricade Shield",
-        "kind": "shield"
+        "kind": "ash"
       },
       {
         "name": "Sword Dance",
@@ -5841,7 +5841,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Barricade Shield",
-        "kind": "shield"
+        "kind": "ash"
       },
       {
         "name": "Golden Vow",
@@ -6785,7 +6785,7 @@ export const BUILD_PRESETS: BuildPreset[] = [
       },
       {
         "name": "Barricade Shield",
-        "kind": "shield"
+        "kind": "ash"
       },
       {
         "name": "Lightning Spear",
