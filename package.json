@@ -32,7 +32,7 @@
   },
   "build": {
     "appId": "com.mjolniar.eldenringrandomizer.buildplanner",
-    "productName": "Elden Ring Randomizer Index",
+    "productName": "Elden Ring Randomizer Index and Build Planner",
     "copyright": "MIT",
     "asar": true,
     "directories": {
