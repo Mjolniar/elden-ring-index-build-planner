@@ -49,10 +49,10 @@ function requirementKindLabel(kind: string, name: string): string {
 }
 
 function freeformLocationText(kind: string): string {
-  if (kind === 'armor') return 'Choose armor that fits the note; this is not a specific randomized item.';
-  if (kind === 'seal' || kind === 'staff') return 'Choose any suitable catalyst; this is not a specific randomized item.';
-  if (kind === 'weapon' || kind === 'shield') return 'Choose any suitable equipment option; this is not a specific randomized item.';
-  return 'Flexible build guidance; not expected to appear as an exact spoiler-log item.';
+  if (kind === 'armor') return 'Choose armor that fits the note; this is not a specific item.';
+  if (kind === 'seal' || kind === 'staff') return 'Choose any suitable catalyst; this is not a specific item.';
+  if (kind === 'weapon' || kind === 'shield') return 'Choose any suitable equipment option; this is not a specific item.';
+  return 'Flexible build guidance; not expected to correspond to a single exact item.';
 }
 
 interface BuildLevelGroup {
@@ -411,7 +411,7 @@ export function BuildPlannerPanel({
                           <span className="badge badge-warn">Missing</span>
                         )}
                       </td>
-                      <td>{record?.locationName ?? (match.isFreeform ? freeformLocationText(match.requirement.kind) : 'Not found in loaded spoiler log')}</td>
+                      <td>{record?.locationName ?? (match.isFreeform ? freeformLocationText(match.requirement.kind) : 'Not found in item database')}</td>
                       <td>{record?.area ?? '-'}</td>
                       <td className="favorite-cell">
                         {record ? (
