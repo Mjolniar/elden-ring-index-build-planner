@@ -10,6 +10,7 @@ import {
   isFreeformRequirement,
   normalizeBuildName,
 } from '../src/buildPlanner';
+import { buildNotesFor } from '../src/buildNotes';
 import type { BuildRequirement } from '../src/buildPlanner';
 
 function record(itemName: string, area: string | null, locationName = `Found ${itemName}`): ItemRecord {
@@ -78,6 +79,47 @@ describe('build planner matching', () => {
     const matches = buildPlannerMatches(preset, []);
     const sealNote = matches.find((match) => match.requirement.name === 'Seal that weighs nothing');
     expect(sealNote).toMatchObject({ record: null, isFreeform: true });
+  });
+
+  it('dedupes repeated requirements before rendering build matches', () => {
+    const preset = BUILD_PRESETS.find((build) => build.id === 'blasphemous-herald-build-level-150')!;
+    const matches = buildPlannerMatches(preset, []);
+    const blackbladeRows = matches.filter((match) => match.requirement.name === "Gargoyle's Blackblade");
+
+    expect(blackbladeRows).toHaveLength(1);
+  });
+});
+
+describe('build notes', () => {
+  it('describes the selected build identity from actual requirements', () => {
+    const preset = BUILD_PRESETS.find((build) => build.id === 'archer-build-beginner')!;
+    const notes = buildNotesFor(preset, buildPlannerMatches(preset, [
+      record('Shortbow', 'Limgrave'),
+      record('Longbow', 'Roundtable Hold'),
+      record('Ash of War: Mighty Shot', 'Weeping Peninsula'),
+    ]));
+
+    expect(notes.join(' ')).toContain('Shortbow and Longbow');
+    expect(notes.join(' ')).toContain('Combat type: ranged weapon');
+    expect(notes.join(' ')).toContain('Weeping Peninsula');
+  });
+
+  it('varies notes by combat theme instead of repeating the same generic copy', () => {
+    const archer = BUILD_PRESETS.find((build) => build.id === 'archer-build-beginner')!;
+    const dragon = BUILD_PRESETS.find((build) => build.id === 'dragon-priest-build-beginner')!;
+    const archerNotes = buildNotesFor(archer, buildPlannerMatches(archer, [])).join('\n');
+    const dragonNotes = buildNotesFor(dragon, buildPlannerMatches(dragon, [])).join('\n');
+
+    expect(archerNotes).not.toBe(dragonNotes);
+    expect(dragonNotes).toMatch(/dragon|incantation|elemental/i);
+  });
+
+  it('keeps generated notes objective instead of editorial', () => {
+    const blockedPhrases = /\b(leans into|gives it more than one angle|expect the shopping list|tighten as|should feel|main flavor|rhythm|chunky|cash(?:ing)? in)\b/i;
+    for (const preset of BUILD_PRESETS.slice(0, 40)) {
+      const notes = buildNotesFor(preset, buildPlannerMatches(preset, [])).join('\n');
+      expect(notes).not.toMatch(blockedPhrases);
+    }
   });
 });
 
@@ -302,5 +344,30 @@ describe('stat model integrity', () => {
       console.log('Stat coverage violations:', violations);
     }
     expect(violations).toHaveLength(0);
+  });
+
+  it('exact-level builds resolve to their displayed rune level', () => {
+    const mismatches = BUILD_PRESETS
+      .map((preset) => {
+        const match = `${preset.level} ${preset.name}`.match(/\bLevel\s+(\d+)\b/i);
+        if (!match || preset.level.includes('-')) return null;
+        const cost = computeSoulCost(preset);
+        return cost?.targetLevel === Number(match[1])
+          ? null
+          : `${preset.id}: expected RL ${match[1]}, got ${cost?.targetLevel ?? 'none'}`;
+      })
+      .filter(Boolean);
+
+    if (mismatches.length) console.log('Exact-level stat mismatches:', mismatches);
+    expect(mismatches).toHaveLength(0);
+  });
+
+  it('marks every recommended allocation as source-backed or estimated', () => {
+    const missing = BUILD_PRESETS.filter((preset) =>
+      preset.statRecommended && !['source', 'estimated'].includes(preset.statSource ?? '')
+    );
+
+    if (missing.length) console.log('Missing stat source labels:', missing.map((preset) => preset.id));
+    expect(missing).toHaveLength(0);
   });
 });

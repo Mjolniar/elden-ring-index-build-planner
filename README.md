@@ -2,6 +2,8 @@
 
 A desktop tool for searching Elden Ring Item & Enemy Randomizer spoiler logs, planning build pickups, and browsing items by stat affinity.
 
+Current release: **1.4.4**.
+
 If you are playing a randomized seed and want to know where an item ended up, this app lets you load the spoiler log, search by item or location, mark useful finds as favorites, track what you have already picked up, check common build requirements against the loaded seed, and explore items filtered by stat type sorted by area progression.
 
 Everything runs locally on your computer. The app does not upload spoiler logs, contact a server, edit game files, or interact with the running game. Wiki links open in your default browser.
@@ -11,7 +13,9 @@ Everything runs locally on your computer. The app does not upload spoiler logs, 
 - Loads `.txt` spoiler logs from the Elden Ring Item & Enemy Randomizer.
 - **Search** tab: search by item name, location, area, or replaced item. Filter by source type. Sort by any column.
 - **Favorites** tab: star important items and mark them acquired. Track pickup progress across sessions.
-- **Builds** tab: 100+ curated build presets with stat filtering. Matches weapons, seals, staves, armor, talismans, spells, and ashes against the loaded spoiler log. Items sorted by rough area progression.
+- **Builds** tab: 160 curated build presets with stat filtering. Matches weapons, seals, staves, armor, talismans, spells, and ashes against the loaded spoiler log. Items sorted by rough area progression.
+- **Build stat spreads**: source-backed stat spreads are labeled as `Source stats`; fallback spreads are labeled as `Estimated stats` and are generated to match the build's displayed target level where possible.
+- **Build favorites and notes**: favorite builds appear at the top of the build list, and each selected build includes short objective notes about its core equipment and combat profile.
 - **Custom builds**: create your own build checklists. Same matching engine as presets. Persisted locally.
 - **Browse** tab: select stats (e.g. Strength + Faith) to see every matching item in your seed, ordered by how early you can reach it.
 - **Guide** tab: built-in tutorial covering all features and mechanics.
@@ -55,10 +59,10 @@ The current VirusTotal scan for this release shows **0 detections** across all e
 The entire application can be rebuilt from the source code in this repository. The process produces a deterministic build — the reviewer can follow these steps and compare the output:
 
 ```bash
-git clone https://github.com/Mjolniar/elden-ring-randomizer-index-build-planner.git
-cd elden-ring-randomizer-index-build-planner
+git clone https://github.com/Mjolniar/elden-ring-index-build-planner.git
+cd elden-ring-index-build-planner
 npm ci              # install exact dependencies from package-lock.json
-npm test            # run 48 automated tests
+npm test            # run automated tests
 npm run dist        # build the Windows NSIS installer into release/
 ```
 
@@ -76,7 +80,7 @@ The `win-unpacked/` directory contains the app in unpacked form — no installer
 ```
 electron/       Node.js main process (window creation, IPC, spoiler log cache)
 src/            TypeScript + React renderer (parser, components, build data)
-tests/          48 automated tests (vitest)
+tests/          automated tests (vitest)
 scripts/        Build data maintenance scripts
 package.json    Dependencies (React, Electron, electron-builder, vite, vitest)
 ```
@@ -107,7 +111,9 @@ The parser supports the real v0.11.4 randomizer spoiler format plus several olde
 
 ## Build Preset Notes
 
-The starter build presets are practical item checklists inspired by public Elden Ring build guides, including Fextralife's Elden Ring Builds page. They cover categories from Beginner through Level 150-200, Journey 2, and SOTE (Shadow of the Erdtree). They are not full route plans, stat calculators, or claims that a seed is beatable with a build. The app matches known build requirements against the currently loaded spoiler log and sorts found items by rough area progression.
+The starter build presets are practical item checklists inspired by public Elden Ring build guides, including Fextralife's Elden Ring Builds page. They cover categories from Beginner through Level 150-200, Journey 2, and SOTE (Shadow of the Erdtree). They are not full route plans or claims that a seed is beatable with a build. The app matches known build requirements against the currently loaded spoiler log and sorts found items by rough area progression.
+
+Stat spreads are source-first. When the saved builds page contains a confidently matched stat spread for a build, the planner labels it `Source stats`. When no exact source spread is available, the planner labels the spread `Estimated stats`; those estimates are generated from item requirements, primary/secondary stat tags, starting classes, and the displayed build level.
 
 ## License
 

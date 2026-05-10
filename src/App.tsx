@@ -31,6 +31,7 @@ const BROWSER_CACHE_KEY = 'elden-ring-randomizer-index:last-log';
 const FAVORITES_KEY = 'elden-ring-randomizer-index:favorites';
 const ACQUIRED_KEY = 'elden-ring-randomizer-index:acquired';
 const USER_BUILDS_KEY = 'elden-ring-randomizer-index:user-builds';
+const BUILD_FAVORITES_KEY = 'elden-ring-randomizer-index:build-favorites';
 
 function loadStoredKeySet(storageKey: string): Set<string> {
   try {
@@ -52,6 +53,7 @@ export default function App() {
   const [selectedBuildId, setSelectedBuildId] = useState('all-knowing-sage');
   const [favoriteKeys, setFavoriteKeys] = useState<Set<string>>(() => loadStoredKeySet(FAVORITES_KEY));
   const [acquiredKeys, setAcquiredKeys] = useState<Set<string>>(() => loadStoredKeySet(ACQUIRED_KEY));
+  const [favoriteBuildIds, setFavoriteBuildIds] = useState<Set<string>>(() => loadStoredKeySet(BUILD_FAVORITES_KEY));
   const [userBuilds, setUserBuilds] = useState<BuildPreset[]>(() => {
     try {
       const raw = localStorage.getItem(USER_BUILDS_KEY);
@@ -148,6 +150,16 @@ export default function App() {
       if (next.has(key)) next.delete(key);
       else next.add(key);
       localStorage.setItem(ACQUIRED_KEY, JSON.stringify([...next]));
+      return next;
+    });
+  }
+
+  function toggleBuildFavorite(buildId: string) {
+    setFavoriteBuildIds((current) => {
+      const next = new Set(current);
+      if (next.has(buildId)) next.delete(buildId);
+      else next.add(buildId);
+      localStorage.setItem(BUILD_FAVORITES_KEY, JSON.stringify([...next]));
       return next;
     });
   }
@@ -303,6 +315,8 @@ export default function App() {
               acquiredKeys={acquiredKeys}
               onToggleFavorite={toggleFavorite}
               onToggleAcquired={toggleAcquired}
+              favoriteBuildIds={favoriteBuildIds}
+              onToggleBuildFavorite={toggleBuildFavorite}
               userBuilds={userBuilds}
               onSaveBuild={(build) => {
                 const existing = userBuilds.findIndex((b) => b.id === build.id);
