@@ -51,7 +51,7 @@ jobs:
         run: |
           # Read product name and version from the branch's package.json
           $pkg        = Get-Content package.json | ConvertFrom-Json
-          $product    = $pkg.productName
+          $product    = $pkg.build.productName
           $version    = $pkg.version
 
           # Determine edition label from the tag
