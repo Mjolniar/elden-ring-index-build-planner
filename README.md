@@ -16,22 +16,23 @@ On the release page, scroll to **Assets** and download one of:
 > **"Windows protected your PC"?** Click **More info → Run anyway**. This appears because the app is unsigned. It is open-source and built from the code in this repository.
 > The app runs **fully offline** and never connects to the internet.
 
-Current release: **1.4.4**.
+Current release: **1.5.0**.
 
-If you are playing a randomized seed and want to know where an item ended up, this app lets you load the spoiler log, search by item or location, mark useful finds as favorites, track what you have already picked up, check common build requirements against the loaded seed, and explore items filtered by stat type sorted by area progression.
+If you are playing a randomized seed and want to know where an item ended up, this app lets you load the spoiler log, search by item or location, mark useful finds as favorites, track what you have already picked up, check common build requirements against the loaded seed, and explore items filtered by stat type sorted by area progression. A spoiler mode hides exact locations behind configurable hints so you can browse your seed without seeing where everything is.
 
 Everything runs locally on your computer. The app does not upload spoiler logs, contact a server, edit game files, or interact with the running game. Wiki links open in your default browser.
 
 ## What It Does
 
 - Loads `.txt` spoiler logs from the Elden Ring Item & Enemy Randomizer.
-- **Search** tab: search by item name, location, area, or replaced item. Filter by source type. Sort by any column.
+- **Search** tab: search by item name, location, or area. Filter by source type. Sort by any column.
 - **Favorites** tab: star important items and mark them acquired. Track pickup progress across sessions.
 - **Builds** tab: 160 curated build presets with stat filtering. Matches weapons, seals, staves, armor, talismans, spells, and ashes against the loaded spoiler log. Items sorted by rough area progression.
 - **Build stat spreads**: source-backed stat spreads are labeled as `Source stats`; fallback spreads are labeled as `Estimated stats` and are generated to match the build's displayed target level where possible.
 - **Build favorites and notes**: favorite builds appear at the top of the build list, and each selected build includes short objective notes about its core equipment and combat profile.
 - **Custom builds**: create your own build checklists. Same matching engine as presets. Persisted locally.
 - **Browse** tab: select stats (e.g. Strength + Faith) to see every matching item in your seed, ordered by how early you can reach it.
+- **Settings** tab: toggle spoiler mode to hide exact item locations. Choose what partial information to show — area, source type, or a generated hint. Three hint difficulty levels (Easy / Medium / Hard) with custom-written hints for 80+ bosses and 30+ merchants.
 - **Guide** tab: built-in tutorial covering all features and mechanics.
 - **Wiki links**: every item name links to the Elden Ring Fextralife wiki for quick reference.
 - Exports visible results as CSV or JSON.
