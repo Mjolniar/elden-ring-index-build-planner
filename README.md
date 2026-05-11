@@ -8,9 +8,6 @@ If you are playing a randomized seed and want to know where an item ended up, th
 
 Everything runs locally on your computer. The app does not upload spoiler logs, contact a server, edit game files, or interact with the running game. Wiki links open in your default browser.
 
-- [Downloads and code signing](DOWNLOADS.md)
-- [Privacy policy](PRIVACY.md)
-
 ## What It Does
 
 - Loads `.txt` spoiler logs from the Elden Ring Item & Enemy Randomizer.
@@ -51,8 +48,6 @@ This app is made for spoiler logs from [thefifthmatt's Elden Ring Item and Enemy
 This is an Electron app — it bundles Chromium + Node.js into a single package. The `electron-builder` tool produces a Windows NSIS installer. Because the file is unsigned, newly built, and the NSIS installer self-extracts to a temp directory at install time, automated reputation-based scanners (e.g. McAfee Artemis, Windows SmartScreen) can flag it as untrusted based purely on heuristics.
 
 The current VirusTotal scan for this release shows **0 detections** across all engines.
-
-Signed Windows release builds use SignPath Foundation when SignPath-signed artifacts are available. Free code signing is provided by SignPath.io, certificate by SignPath Foundation. Older release files and builds published before SignPath onboarding may be unsigned.
 
 ### What this app does and does NOT do
 
