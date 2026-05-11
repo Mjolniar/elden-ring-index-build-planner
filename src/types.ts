@@ -36,10 +36,17 @@ export interface ParseResult {
 
 export type SortField = keyof Pick<ItemRecord, 'itemName' | 'locationName' | 'area' | 'sourceType'>;
 export type SortDir = 'asc' | 'desc';
-export type ActiveTab = 'all' | 'favorites' | 'builds' | 'browse' | 'diagnostics' | 'guide';
+export type ActiveTab = 'all' | 'favorites' | 'builds' | 'browse' | 'diagnostics' | 'guide' | 'settings';
 
 export interface FilterState {
   search: string;
   sourceType: SourceType | 'all';
   keyItemsOnly: boolean;
+}
+
+export interface SpoilerSettings {
+  spoilerMode: boolean;
+  showArea: boolean;
+  showSource: boolean;
+  showHint: boolean;
 }
