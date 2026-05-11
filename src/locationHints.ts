@@ -41,6 +41,145 @@ const AREA_PROGRESSION: Record<string, string> = {
   'Finger Ruins': 'DLC',
   'Cathedral of Manus Metyr': 'DLC',
   'Enir-Ilim': 'DLC',
+  // Limgrave sub-areas
+  'Stormhill': 'early game',
+  'Murkwater Cave': 'early game',
+  'Groveside Cave': 'early game',
+  'Coastal Cave': 'early game',
+  'Highroad Cave': 'early game',
+  'Deathtouched Catacombs': 'early game',
+  'Stormfoot Catacombs': 'early game',
+  'Fringefolk Hero\'s Grave': 'early game',
+  'Limgrave Tunnels': 'early game',
+  'Fort Haight': 'early game',
+  'Church of Elleh': 'early game',
+  'Third Church of Marika': 'early game',
+  'Fourth Church of Marika': 'early game',
+  'Church of Dragon Communion': 'early game',
+  'Stormgate': 'early game',
+  'Gatefront Ruins': 'early game',
+  'Agheel Lake': 'early game',
+  'Dragon-Burnt Ruins': 'early game',
+  'Waypoint Ruins': 'early game',
+  // Weeping Peninsula sub-areas
+  'Morne Tunnel': 'early game',
+  'Tombsward Catacombs': 'early game',
+  'Impaler\'s Catacombs': 'early game',
+  'Castle Morne': 'early game',
+  'Tombsward Cave': 'early game',
+  'Earthbore Cave': 'early game',
+  'Church of Pilgrimage': 'early game',
+  // Liurnia of the Lakes sub-areas
+  'Black Knife Catacombs': 'mid game',
+  'Cliffbottom Catacombs': 'mid game',
+  'Road\'s End Catacombs': 'mid game',
+  'Unsightly Catacombs': 'mid game',
+  'Sages\' Cave': 'mid game',
+  'Stillwater Cave': 'mid game',
+  'Lakeside Crystal Cave': 'mid game',
+  'Raya Lucaria Crystal Tunnel': 'mid game',
+  'Ruin-Strewn Precipice': 'mid game',
+  'Cuckoo\'s Evergaol': 'mid game',
+  'Malefactor\'s Evergaol': 'mid game',
+  'Ringleader\'s Evergaol': 'late game',
+  'Moonlight Altar': 'late game',
+  'Church of Vows': 'mid game',
+  'Carian Study Hall': 'mid game',
+  'Converted Fringe Tower': 'mid game',
+  'Frenzied Flame Village': 'mid game',
+  'Village of the Albinaurics': 'mid game',
+  'Jarburg': 'mid game',
+  'Bellum Church': 'mid game',
+  'Church of Inhibition': 'mid game',
+  'Four Belfries': 'mid game',
+  'Kingsrealm Ruins': 'mid game',
+  'Haligtree': 'late game',
+  // Caelid / Dragonbarrow sub-areas
+  'Sellia Crystal Tunnel': 'mid game',
+  'Caelid Catacombs': 'mid game',
+  'War-Dead Catacombs': 'mid game',
+  'Sellia Evergaol': 'mid game',
+  'Redmane Castle': 'mid game',
+  'Fort Gael': 'mid game',
+  'Fort Faroth': 'mid game',
+  'Dragonbarrow Cave': 'mid game',
+  'Bestial Sanctum': 'mid game',
+  'Church of Dragon Communion (Caelid)': 'mid game',
+  'Minor Erdtree (Caelid)': 'mid game',
+  'Sellia, Town of Sorcery': 'mid game',
+  'Heart of Aeonia': 'mid game',
+  // Altus Plateau / Mt. Gelmir sub-areas
+  'Old Altus Tunnel': 'mid-to-late game',
+  'Altus Tunnel': 'mid-to-late game',
+  'Sainted Hero\'s Grave': 'mid-to-late game',
+  'Auriza Hero\'s Grave': 'mid-to-late game',
+  'Auriza Side Tomb': 'mid-to-late game',
+  'Wyndham Catacombs': 'mid-to-late game',
+  'Perfumer\'s Grotto': 'mid-to-late game',
+  'Shaded Castle': 'mid-to-late game',
+  'Sealed Tunnel': 'mid-to-late game',
+  'Volcano Cave': 'mid-to-late game',
+  'Gelmir Hero\'s Grave': 'mid-to-late game',
+  'Fort Laiedd': 'mid-to-late game',
+  'Hermit Village': 'mid-to-late game',
+  'Windmill Village': 'mid-to-late game',
+  'Lux Ruins': 'mid-to-late game',
+  // Leyndell sub-areas
+  'Leyndell Catacombs': 'late game',
+  'Subterranean Shunning-Grounds': 'late game',
+  'Capital Outskirts': 'late game',
+  // Underground regions
+  'Ainsel River Well': 'mid game',
+  'Siofra River Well': 'early game',
+  'Uhl Palace Ruins': 'mid game',
+  'Night\'s Sacred Ground': 'mid game',
+  'Aqueduct-Facing Cliffs': 'mid game',
+  // Mountaintops / Consecrated Snowfield sub-areas
+  'Castle Sol': 'late game',
+  'Castle Sol Catacombs': 'late game',
+  'Spiritcaller Cave': 'late game',
+  'Giant-Conquering Hero\'s Grave': 'late game',
+  'Giants\' Mountaintop Catacombs': 'late game',
+  'Zamor Ruins': 'late game',
+  'Flame Peak': 'late game',
+  'Lord Contender\'s Evergaol': 'late game',
+  'Apostate Derelict': 'late game',
+  'Consecrated Snowfield Catacombs': 'late game',
+  'Yelough Anix Tunnel': 'late game',
+  'Ordina, Liturgical Town': 'late game',
+  'Hidden Path to the Haligtree': 'late game',
+  // Crumbling Farum Azula sub-areas
+  'Farum Azula': 'endgame',
+  'Beside the Great Bridge': 'endgame',
+  'Dragon Temple': 'endgame',
+  // Elphael / Haligtree sub-areas
+  'Miquella\'s Haligtree': 'late game',
+  'Elphael': 'endgame',
+  // DLC — Land of Shadow sub-areas
+  'Scaduview': 'DLC',
+  'Fog Rift Catacombs': 'DLC',
+  'Darklight Catacombs': 'DLC',
+  'Scorpion River Catacombs': 'DLC',
+  'Belurat Gaol': 'DLC',
+  'Lamenter\'s Gaol': 'DLC',
+  'Bonny Gaol': 'DLC',
+  'Dragon\'s Pit': 'DLC',
+  'Stone Coffin Fissure': 'DLC',
+  'Ruined Forge Lava Intake': 'DLC',
+  'Ruined Forge of Starfall Past': 'DLC',
+  'Ancient Ruins of Rauh': 'DLC',
+  'Moorth Ruins': 'DLC',
+  'Ellac Greatbridge': 'DLC',
+  'Western Nameless Mausoleum': 'DLC',
+  'Eastern Nameless Mausoleum': 'DLC',
+  'Specimen Storehouse': 'DLC',
+  'Shadow Keep, Back Gate': 'DLC',
+  'Church District': 'DLC',
+  'Church District Abandoned Dungeon': 'DLC',
+  'Furnished Ruins': 'DLC',
+  'Highroad Cross': 'DLC',
+  'Rauh Ancient Ruins': 'DLC',
+  'Recluses\' River': 'DLC',
 };
 
 const AREA_REGION_LABEL: Record<string, string> = {
@@ -82,7 +221,157 @@ const AREA_REGION_LABEL: Record<string, string> = {
   'Finger Ruins': 'sacred finger-shaped ruins on the shadow realm peninsula',
   'Cathedral of Manus Metyr': 'the great cathedral on the eastern peninsula of the shadow realm',
   'Enir-Ilim': 'the spiraling divine tower of the shadow realm',
+  // Limgrave sub-areas
+  'Stormhill': 'the storm-swept hills before Stormveil Castle',
+  'Murkwater Cave': 'a river-carved cave in the Limgrave ravine',
+  'Groveside Cave': 'a small cave in the woodlands of Limgrave',
+  'Coastal Cave': 'a sea-level cave on the western shore of Limgrave',
+  'Highroad Cave': 'a cliffside cave along the northern road out of Limgrave',
+  'Deathtouched Catacombs': 'a death-touched crypt cut into the Stormhill cliffs',
+  'Stormfoot Catacombs': 'an underground crypt in the western foot of Stormhill',
+  'Fringefolk Hero\'s Grave': 'an ancient hero\'s tomb beneath the Stranded Graveyard',
+  'Limgrave Tunnels': 'a mining tunnel in the eastern cliffs of Limgrave',
+  'Fort Haight': 'a crumbling coastal fort in eastern Limgrave',
+  'Church of Elleh': 'a ruined church in the grassy starting lands of Limgrave',
+  'Third Church of Marika': 'a roadside church in eastern Limgrave',
+  'Fourth Church of Marika': 'a remote church on the southern coast of Limgrave',
+  'Church of Dragon Communion': 'a dragon communion church on the Limgrave coast',
+  'Stormgate': 'the storm-wracked gate approach to Stormveil Castle',
+  'Gatefront Ruins': 'ancient ruins at the gate road into Limgrave',
+  'Agheel Lake': 'the central lake of Limgrave, hunted by a dragon',
+  'Dragon-Burnt Ruins': 'scorched ruins by the Agheel Lake in Limgrave',
+  'Waypoint Ruins': 'a ruined waypoint complex in eastern Limgrave',
+  // Weeping Peninsula sub-areas
+  'Morne Tunnel': 'a cliffside mining tunnel in the Weeping Peninsula',
+  'Tombsward Catacombs': 'a catacomb beneath the tombsward fields of the peninsula',
+  'Impaler\'s Catacombs': 'a deep crypt on the rainy Weeping Peninsula',
+  'Castle Morne': 'a misbegotten-held fortress at the tip of the Weeping Peninsula',
+  'Tombsward Cave': 'a flower-filled cave in the central Weeping Peninsula',
+  'Earthbore Cave': 'a bear\'s burrow on the eastern shore of the Weeping Peninsula',
+  'Church of Pilgrimage': 'a windswept pilgrimage church in the Weeping Peninsula',
+  // Liurnia of the Lakes sub-areas
+  'Black Knife Catacombs': 'a black-knife crypt in the northeastern cliffs of Liurnia',
+  'Cliffbottom Catacombs': 'a crypt carved into the eastern rim of Liurnia',
+  'Road\'s End Catacombs': 'a crypt at the western fringe of Liurnia\'s cliffs',
+  'Unsightly Catacombs': 'a hidden crypt in southwestern Liurnia',
+  'Sages\' Cave': 'a cave of sages concealed behind an illusory wall in Liurnia',
+  'Stillwater Cave': 'a cave at the southern edge of Liurnia\'s lake',
+  'Lakeside Crystal Cave': 'a crystal-encrusted cave on the shores of Liurnia',
+  'Raya Lucaria Crystal Tunnel': 'a crystal mining tunnel in eastern Liurnia',
+  'Ruin-Strewn Precipice': 'a treacherous cliffside ascent from eastern Liurnia to Altus',
+  'Cuckoo\'s Evergaol': 'a misty evergaol in central Liurnia',
+  'Malefactor\'s Evergaol': 'a clifftop evergaol in southern Liurnia',
+  'Ringleader\'s Evergaol': 'a moonlit evergaol on the high Moonlight Altar plateau of Liurnia',
+  'Moonlight Altar': 'the star-touched plateau above southern Liurnia, reached through Ranni\'s quest',
+  'Church of Vows': 'a church of vows on the eastern cliffs of Liurnia',
+  'Carian Study Hall': 'a Carian study hall on the eastern shore of Liurnia',
+  'Converted Fringe Tower': 'a converted tower on the southern cliffs of Liurnia',
+  'Frenzied Flame Village': 'a village consumed by the frenzied flame in northeastern Liurnia',
+  'Village of the Albinaurics': 'a marshy Albinauric village in southwestern Liurnia',
+  'Jarburg': 'the hidden village of living jars in southeastern Liurnia',
+  'Bellum Church': 'a church on the northern road of Liurnia',
+  'Church of Inhibition': 'a frenzied-flame-cursed church on the northeastern cliffs of Liurnia',
+  'Four Belfries': 'a row of four ancient belfries in western Liurnia',
+  'Kingsrealm Ruins': 'ruins guarding the path to Caria Manor in northern Liurnia',
+  'Haligtree': 'the canopy of Miquella\'s sacred Haligtree in the far north',
+  // Caelid / Dragonbarrow sub-areas
+  'Sellia Crystal Tunnel': 'a crystal mine hidden in eastern Caelid near Sellia',
+  'Caelid Catacombs': 'a catacomb south of the Aeonia swamp in Caelid',
+  'War-Dead Catacombs': 'a tomb of war dead in the far east of Caelid',
+  'Sellia Evergaol': 'an evergaol atop the eastern cliffs of Caelid\'s Sellia',
+  'Redmane Castle': 'a coastal castle in southeastern Caelid, host of the Radahn Festival',
+  'Fort Gael': 'a rot-infected fort in western Caelid',
+  'Fort Faroth': 'a dragon-guarded fort in the Dragonbarrow of Caelid',
+  'Dragonbarrow Cave': 'a cave in the dragon-haunted cliffs of northern Caelid',
+  'Bestial Sanctum': 'the remote beast-clergyman temple in the far northeast of Caelid',
+  'Church of Dragon Communion (Caelid)': 'a dragon communion church on the southern Caelid coast',
+  'Minor Erdtree (Caelid)': 'the minor Erdtree grove in western Caelid',
+  'Sellia, Town of Sorcery': 'a sealed sorcery town of the Nox people in eastern Caelid',
+  'Heart of Aeonia': 'the central rot swamp of Caelid\'s Aeonia crater',
+  // Altus Plateau / Mt. Gelmir sub-areas
+  'Old Altus Tunnel': 'an old mining tunnel in the central Altus Plateau',
+  'Altus Tunnel': 'a mining tunnel at the southern approach of the Altus Plateau',
+  'Sainted Hero\'s Grave': 'an ancient hero\'s tomb carved into the western Altus cliffs',
+  'Auriza Hero\'s Grave': 'an ornate hero\'s tomb on the eastern outskirts of Leyndell',
+  'Auriza Side Tomb': 'a side tomb adjacent to the Auriza Hero\'s Grave near Leyndell',
+  'Wyndham Catacombs': 'a catacomb beneath the Wyndham Ruins in the Altus Plateau',
+  'Perfumer\'s Grotto': 'a fragrant cave on the northern Altus Plateau hillside',
+  'Shaded Castle': 'a poison-filled castle in the northern Altus Plateau valley',
+  'Sealed Tunnel': 'a sealed mining tunnel on the outskirts of Leyndell',
+  'Volcano Cave': 'a volcanic cave on the lower slopes of Mt. Gelmir',
+  'Gelmir Hero\'s Grave': 'an ancient hero\'s tomb cut into the slopes of Mt. Gelmir',
+  'Fort Laiedd': 'a lava-scorched fort on the slopes of Mt. Gelmir',
+  'Hermit Village': 'a decrepit hermit settlement on the winding mountain road of Mt. Gelmir',
+  'Windmill Village': 'an eerie windmill-dotted village in the northern Altus Plateau',
+  'Lux Ruins': 'crumbling ruins on the northern approach to Mt. Gelmir',
+  // Leyndell sub-areas
+  'Leyndell Catacombs': 'the catacombs buried beneath the streets of Leyndell Royal Capital',
+  'Subterranean Shunning-Grounds': 'the sewer labyrinth hidden beneath Leyndell Royal Capital',
+  'Capital Outskirts': 'the outer ramparts and walls surrounding Leyndell Royal Capital',
+  // Underground regions
+  'Ainsel River Well': 'the underground river of cold starlight beneath eastern Liurnia',
+  'Siofra River Well': 'a star-lit underground river beneath the surface of Limgrave',
+  'Uhl Palace Ruins': 'the ruins of an ancient palace in the underground Nokron region',
+  'Night\'s Sacred Ground': 'a sacred underground grove in the depths of Nokron',
+  'Aqueduct-Facing Cliffs': 'the cliffside aqueduct passages linking Nokron to Deeproot Depths',
+  // Mountaintops / Consecrated Snowfield sub-areas
+  'Castle Sol': 'a blizzard-swept fortress in the northern Mountaintops of the Giants',
+  'Castle Sol Catacombs': 'a crypt beneath the frozen walls of Castle Sol',
+  'Spiritcaller Cave': 'a spirit-caller\'s cave in the high Mountaintops snowfields',
+  'Giant-Conquering Hero\'s Grave': 'an ancient giant-slayer\'s tomb in the Mountaintops of the Giants',
+  'Giants\' Mountaintop Catacombs': 'frozen catacombs beneath the Mountaintops of the Giants',
+  'Zamor Ruins': 'the frost-encrusted ruins of ancient Zamor in the Mountaintops',
+  'Flame Peak': 'the volcanic eastern peak of the Mountaintops leading to the Forge of the Giants',
+  'Lord Contender\'s Evergaol': 'an evergaol on the frozen plateau of the Mountaintops',
+  'Apostate Derelict': 'a crumbling heretic church in the far northern Mountaintops',
+  'Consecrated Snowfield Catacombs': 'icy catacombs hidden beneath the Consecrated Snowfield',
+  'Yelough Anix Tunnel': 'a mining tunnel in the far western Consecrated Snowfield',
+  'Ordina, Liturgical Town': 'a silent liturgical town at the entrance to the Haligtree in the Consecrated Snowfield',
+  'Hidden Path to the Haligtree': 'a secret crypt passage leading toward the Haligtree',
+  // Crumbling Farum Azula sub-areas
+  'Farum Azula': 'the time-worn dragon temple suspended in a storm beyond time',
+  'Beside the Great Bridge': 'the great storm-blasted bridge at the heart of Crumbling Farum Azula',
+  'Dragon Temple': 'the ancient dragon temple at the core of Crumbling Farum Azula',
+  // Elphael / Haligtree sub-areas
+  'Miquella\'s Haligtree': 'the canopy of Miquella\'s great Haligtree in the far north',
+  'Elphael': 'the hidden Haligtree sanctuary of Elphael',
+  // DLC — Land of Shadow sub-areas
+  'Scaduview': 'the high eastern plateau of the shadow realm, overlooking the Cathedral of Manus Metyr',
+  'Fog Rift Catacombs': 'dark catacombs sealed behind fog walls in the shadow realm',
+  'Darklight Catacombs': 'elaborate dark catacombs beneath the Abyssal Woods of the shadow realm',
+  'Scorpion River Catacombs': 'scorpion-infested catacombs near the river of the shadow realm',
+  'Belurat Gaol': 'a cliffside prison west of Belurat Tower Settlement in the shadow realm',
+  'Lamenter\'s Gaol': 'an isolated prison tower in the southern Abyssal Woods of the shadow realm',
+  'Bonny Gaol': 'a hidden gaol in the shadow realm\'s eastern reaches',
+  'Dragon\'s Pit': 'a rocky canyon on the approach to the Jagged Peak in the shadow realm',
+  'Stone Coffin Fissure': 'a deep chasm of stone coffins in the southern Land of Shadow',
+  'Ruined Forge Lava Intake': 'a lava-flooded ruined forge in the shadow realm',
+  'Ruined Forge of Starfall Past': 'an ancient forge site in the Gravesite Plain of the shadow realm',
+  'Ancient Ruins of Rauh': 'overgrown ancient ruins in the jungle highlands of the shadow realm',
+  'Moorth Ruins': 'scattered ruins in the central plains of the shadow realm',
+  'Ellac Greatbridge': 'the great stone bridge crossing the shadow realm\'s central plains',
+  'Western Nameless Mausoleum': 'a nameless mausoleum on the western Gravesite Plain of the shadow realm',
+  'Eastern Nameless Mausoleum': 'a nameless mausoleum on the eastern reaches of the shadow realm',
+  'Specimen Storehouse': 'a specimen storehouse within the Shadow Keep of the shadow realm',
+  'Shadow Keep, Back Gate': 'the rear gate passage of Shadow Keep in the shadow realm',
+  'Church District': 'the church district ruins within the shadow realm\'s Belurat area',
+  'Church District Abandoned Dungeon': 'an abandoned dungeon beneath the church district of the shadow realm',
+  'Furnished Ruins': 'furnished ruins among the Gravesite Plain of the shadow realm',
+  'Highroad Cross': 'a crossroads on the high road of the shadow realm\'s Gravesite Plain',
+  'Rauh Ancient Ruins': 'sprawling ancient ruins among the jungle highlands of the shadow realm',
+  'Recluses\' River': 'the recluses\' underground river passage in the shadow realm',
 };
+
+function fuzzyAreaLookup<T>(
+  table: Record<string, T>,
+  area: string
+): T | undefined {
+  const sortedKeys = Object.keys(table).sort((a, b) => b.length - a.length);
+  for (const key of sortedKeys) {
+    if (area.includes(key)) return table[key];
+  }
+  return undefined;
+}
 
 export function generateHint(rec: ItemRecord, difficulty: HintDifficulty): string {
   return fallbackHint(rec, difficulty);
@@ -104,10 +393,13 @@ export function fallbackHint(rec: ItemRecord, difficulty: HintDifficulty): strin
   switch (difficulty) {
     case 'easy':
       return area ? `${label} in ${area}` : label;
-    case 'medium':
+    case 'medium': {
+      const regionLabel =
+        (area && (AREA_REGION_LABEL[area] ?? fuzzyAreaLookup(AREA_REGION_LABEL, area))) ?? null;
       return area
-        ? `${label} somewhere in ${AREA_REGION_LABEL[area] ?? 'an unknown region'}`
+        ? `${label} somewhere in ${regionLabel ?? 'an unknown region'}`
         : label;
+    }
     case 'hard': {
       let verb: string;
       switch (rec.sourceType) {
@@ -119,7 +411,9 @@ export function fallbackHint(rec: ItemRecord, difficulty: HintDifficulty): strin
         case 'event':          verb = 'Quest or event reward'; break;
         default:               verb = 'Obtainable'; break;
       }
-      const stage = area ? AREA_PROGRESSION[area] : null;
+      const stage = area
+        ? (AREA_PROGRESSION[area] ?? fuzzyAreaLookup(AREA_PROGRESSION, area) ?? null)
+        : null;
       return stage ? `${verb} — ${stage}` : verb;
     }
   }
