@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback } from 'react';
-import type { ItemRecord, FilterState, ActiveTab } from './types';
+import type { ItemRecord, FilterState, ActiveTab, SpoilerSettings } from './types';
 import type { BuildPreset } from './buildPlanner';
 import { makeRecordKey } from './recordKey';
 import { VANILLA_ITEMS } from './vanillaData';
@@ -9,14 +9,17 @@ import { ExportButtons } from './components/ExportButtons';
 import { BuildPlannerPanel } from './components/BuildPlannerPanel';
 import { ItemBrowser } from './components/ItemBrowser';
 import { GuidePanel } from './components/GuidePanel';
+import { SettingsPanel } from './components/SettingsPanel';
 
-function applyFilters(records: ItemRecord[], f: FilterState): ItemRecord[] {
+function applyFilters(records: ItemRecord[], f: FilterState, s: SpoilerSettings): ItemRecord[] {
   const q = f.search.toLowerCase().trim();
   return records.filter((r) => {
     if (f.keyItemsOnly && !r.isKeyItem) return false;
     if (f.sourceType !== 'all' && r.sourceType !== f.sourceType) return false;
     if (q) {
-      const haystack = `${r.itemName} ${r.locationName} ${r.area ?? ''} ${r.originalItem ?? ''}`.toLowerCase();
+      const haystack = s.spoilerMode
+        ? `${r.itemName} ${r.area ?? ''} ${r.originalItem ?? ''}`.toLowerCase()
+        : `${r.itemName} ${r.locationName} ${r.area ?? ''} ${r.originalItem ?? ''}`.toLowerCase();
       if (!haystack.includes(q)) return false;
     }
     return true;
@@ -24,6 +27,11 @@ function applyFilters(records: ItemRecord[], f: FilterState): ItemRecord[] {
 }
 
 const DEFAULT_FILTERS: FilterState = { search: '', sourceType: 'all', keyItemsOnly: false };
+const SPOILER_SETTINGS_KEY = 'elden-ring-index:spoiler-settings';
+const DEFAULT_SPOILER_SETTINGS: SpoilerSettings = {
+  spoilerMode: false, showArea: true, showSource: true, showHint: true,
+  hintDifficulty: 'medium',
+};
 const FAVORITES_KEY = 'elden-ring-vanilla:favorites';
 const ACQUIRED_KEY = 'elden-ring-vanilla:acquired';
 const USER_BUILDS_KEY = 'elden-ring-vanilla:user-builds';
@@ -54,6 +62,17 @@ export default function App() {
       return [];
     }
   });
+  const [spoilerSettings, setSpoilerSettings] = useState<SpoilerSettings>(() => {
+    try {
+      const raw = localStorage.getItem(SPOILER_SETTINGS_KEY);
+      return raw ? { ...DEFAULT_SPOILER_SETTINGS, ...JSON.parse(raw) } : DEFAULT_SPOILER_SETTINGS;
+    } catch { return DEFAULT_SPOILER_SETTINGS; }
+  });
+
+  function updateSpoilerSettings(next: SpoilerSettings) {
+    setSpoilerSettings(next);
+    localStorage.setItem(SPOILER_SETTINGS_KEY, JSON.stringify(next));
+  }
 
   const persistUserBuilds = useCallback((builds: BuildPreset[]) => {
     setUserBuilds(builds);
@@ -95,8 +114,8 @@ export default function App() {
   }
 
   const visible = useMemo(
-    () => applyFilters(records, filters),
-    [filters]
+    () => applyFilters(records, filters, spoilerSettings),
+    [filters, spoilerSettings]
   );
 
   const favorites = useMemo(
@@ -162,6 +181,14 @@ export default function App() {
             >
               Guide
             </button>
+            <button
+              className={`tab-btn diagnostics-tab${activeTab === 'settings' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'settings'}
+              onClick={() => setActiveTab('settings')}
+            >
+              Settings
+            </button>
           </div>
         </div>
         {activeTab === 'builds' ? (
@@ -176,6 +203,7 @@ export default function App() {
             favoriteBuildIds={favoriteBuildIds}
             onToggleBuildFavorite={toggleBuildFavorite}
             userBuilds={userBuilds}
+            spoilerSettings={spoilerSettings}
             onSaveBuild={(build) => {
               const existing = userBuilds.findIndex((b) => b.id === build.id);
               const next = existing >= 0
@@ -195,6 +223,8 @@ export default function App() {
           />
         ) : activeTab === 'guide' ? (
           <GuidePanel />
+        ) : activeTab === 'settings' ? (
+          <SettingsPanel settings={spoilerSettings} onChange={updateSpoilerSettings} />
         ) : (
           <>
             <div className="toolbar">
@@ -204,6 +234,7 @@ export default function App() {
                   onChange={setFilters}
                   totalVisible={visible.length}
                   totalRecords={records.length}
+                  spoilerMode={spoilerSettings.spoilerMode}
                 />
               ) : (
                 <div className="favorites-summary">
@@ -219,6 +250,7 @@ export default function App() {
               onToggleFavorite={toggleFavorite}
               onToggleAcquired={toggleAcquired}
               showAcquiredColumn={activeTab === 'favorites'}
+              spoilerSettings={spoilerSettings}
               emptyMessage={
                 activeTab === 'favorites'
                   ? 'No favorites yet. Use the star column in Search to save items here.'
