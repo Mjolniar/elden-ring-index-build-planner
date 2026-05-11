@@ -1,5 +1,26 @@
 # Changelog
 
+## Elden Ring Index and Build Planner 1.1.0 - 2026-05-10
+
+### Added
+- **Settings tab** with a master spoiler mode toggle. When enabled, exact item locations are hidden; users choose what partial information to reveal (area, source type, hint).
+- **Three-level hint system** (Easy / Medium / Hard) for use in spoiler mode. Difficulty is configurable in Settings.
+  - *Easy*: source type and named area (e.g. "Ground pickup in Caelid").
+  - *Medium*: source type and thematic regional description without place names (e.g. "Ground pickup somewhere in the rot-blighted eastern wastes").
+  - *Hard*: acquisition method and broad game-stage only (e.g. "Found on the ground — mid game").
+- **Area progression and region label tables** covering all base-game areas and DLC regions used by hint generation.
+- Spoiler settings applied to the **Build Planner** tab: the "Location" column becomes a "Hint" column in spoiler mode; the Area column is gated on the showArea setting.
+
+### Changed
+- Search haystack in spoiler mode excludes location names but always includes the original scraped location (`originalItem`) so it remains searchable regardless of spoiler settings.
+- Search placeholder updates to "Search item or area…" when spoiler mode is enabled.
+
+### Validation
+- `npm test`: 54 tests passing.
+- `npx tsc --noEmit`: passing.
+
+---
+
 ## Elden Ring Index and Build Planner 1.0.8 - 2026-05-10
 
 ### Changed
