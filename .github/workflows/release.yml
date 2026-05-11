@@ -1,0 +1,125 @@
+name: Release
+
+# Triggered by pushing a version tag from the correct branch:
+#   git tag randomizer-v1.4.5 && git push origin randomizer-v1.4.5   (from main)
+#   git tag vanilla-v1.0.9    && git push origin vanilla-v1.0.9      (from vanilla)
+on:
+  push:
+    tags:
+      - 'randomizer-v*'
+      - 'vanilla-v*'
+
+jobs:
+  release:
+    runs-on: windows-latest
+    permissions:
+      contents: write   # required to create releases and upload assets
+
+    steps:
+      # ── 1. Checkout the tagged commit (picks up the right branch's package.json) ──
+      - uses: actions/checkout@v4
+
+      # ── 2. Node.js with npm cache ──
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # ── 3. Install exact locked dependencies ──
+      - name: Install dependencies
+        run: npm ci
+
+      # ── 4. Tests must pass before we ship anything ──
+      - name: Run tests
+        run: npm test
+
+      # ── 5. Vite production build ──
+      - name: Build web app
+        run: npm run build
+
+      # ── 6. Package with electron-builder (produces Setup.exe + Portable.zip) ──
+      - name: Package desktop app
+        run: npx electron-builder --win --x64
+        env:
+          # Prevents electron-builder from trying to publish (we do that below)
+          EP_DRAFT: true
+
+      # ── 7. Build the release body ──
+      #    Top section: plain-English download instructions for non-technical users.
+      #    Bottom section: the relevant CHANGELOG entry for this version.
+      - name: Generate release notes
+        id: notes
+        shell: pwsh
+        run: |
+          # Read product name and version from the branch's package.json
+          $pkg        = Get-Content package.json | ConvertFrom-Json
+          $product    = $pkg.productName
+          $version    = $pkg.version
+
+          # Determine edition label from the tag
+          $tag    = "${{ github.ref_name }}"
+          $isRand = $tag -match '^randomizer-'
+
+          # Friendly short name for display
+          $shortName = if ($isRand) { "Elden Ring Randomizer Index" } else { "Elden Ring Index" }
+
+          # ── Download instructions block ──
+          $downloadSection = @"
+          ## ⬇️ Download
+
+          Scroll down to the **Assets** section below and pick one:
+
+          | Option | File to download | When to use |
+          |--------|-----------------|-------------|
+          | **Installer** (recommended) | ``$product $version Setup.exe`` | First install — adds a Start Menu shortcut |
+          | **Portable ZIP** | ``$product $version Portable.zip`` | No installation needed — extract and run the `.exe` inside |
+
+          **If Windows shows "Windows protected your PC"** — click **More info → Run anyway**.
+          This appears because the app is unsigned. The binary is built from the public source code in this repository.
+
+          The app runs **fully offline**. It reads the `.txt` spoiler log files you provide and never contacts the internet.
+
+          ---
+
+          "@
+
+          # ── Extract this version's CHANGELOG section ──
+          $changelog = Get-Content CHANGELOG.md -Raw -Encoding UTF8
+
+          # Match from the version heading to just before the next "## " heading (or end of file)
+          $escaped = [regex]::Escape($product)
+          $escaped2 = [regex]::Escape($version)
+          $pattern = "(?s)## $escaped $escaped2[^\n]*\n(.+?)(?=\n## |\z)"
+
+          if ($changelog -match $pattern) {
+            $changelogBody = $Matches[1].Trim()
+          } else {
+            $changelogBody = "_See [CHANGELOG.md](CHANGELOG.md) for the full change history._"
+          }
+
+          $changelogSection = "## What's new in $version`n`n$changelogBody"
+
+          # ── Write combined notes to file (avoids shell quoting issues) ──
+          $combined = $downloadSection + $changelogSection
+          # Dedent the download section (Remove leading spaces added for YAML readability)
+          $combined = $combined -replace '(?m)^          ', ''
+          Set-Content -Path release-notes.md -Value $combined -Encoding UTF8
+
+          # Also expose version for the release title
+          echo "version=$version" >> $env:GITHUB_OUTPUT
+          echo "product=$product" >> $env:GITHUB_OUTPUT
+
+      # ── 8. Create the GitHub Release and attach both exe and zip ──
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ steps.notes.outputs.product }} ${{ steps.notes.outputs.version }}
+          body_path: release-notes.md
+          draft: false
+          prerelease: false
+          files: |
+            release/*.exe
+            release/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

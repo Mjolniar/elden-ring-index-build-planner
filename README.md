@@ -2,6 +2,20 @@
 
 A desktop tool for browsing all Elden Ring items with their fixed vanilla locations (base game + Shadow of the Erdtree), planning builds by stat affinity, and tracking collectible progress.
 
+## ⬇️ Download
+
+**[→ Latest Vanilla release on GitHub](https://github.com/Mjolniar/elden-ring-index-build-planner/releases?q=vanilla&expanded=true)**
+
+On the release page, scroll to **Assets** and download one of:
+
+| Option | File | When to use |
+|--------|------|-------------|
+| **Installer** (recommended) | `...Setup.exe` | First install — adds a Start Menu shortcut |
+| **Portable ZIP** | `...Portable.zip` | No installation needed — extract and run the `.exe` inside |
+
+> **"Windows protected your PC"?** Click **More info → Run anyway**. This appears because the app is unsigned. It is open-source and built from the code in this repository.
+> The app runs **fully offline** and never connects to the internet.
+
 Current release: **1.0.8**.
 
 Everything runs locally on your computer. The app does not contact a server or interact with the running game. Wiki links open in your default browser.
