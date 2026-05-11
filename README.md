@@ -55,79 +55,40 @@ The desktop app keeps a local copy of the most recent spoiler log in `cached-spo
 
 This app is made for spoiler logs from [thefifthmatt's Elden Ring Item and Enemy Randomizer](https://www.nexusmods.com/eldenring/mods/428).
 
-## Notes For Nexus Mods And File Reviewers
+## Why Windows May Warn About This File
 
-### Why the virus scanner may flag this file
+This is an Electron app (bundles Chromium + Node.js). Because it is unsigned, reputation-based scanners like SmartScreen may flag it on first run. Click **More info → Run anyway**. The VirusTotal scan for each release is linked on the release page.
 
-This is an Electron app — it bundles Chromium + Node.js into a single package. The `electron-builder` tool produces a Windows NSIS installer. Because the file is unsigned, newly built, and the NSIS installer self-extracts to a temp directory at install time, automated reputation-based scanners (e.g. McAfee Artemis, Windows SmartScreen) can flag it as untrusted based purely on heuristics.
+- **Does**: reads `.txt` spoiler log files you load, parses them into a searchable table, matches items against build presets, caches the last log in a local file.
+- **Does not**: make network requests, phone home, modify game files, access game memory, or upload any data. The only outbound links are wiki pages you explicitly click.
 
-The current VirusTotal scan for this release shows **0 detections** across all engines.
+## Build From Source
 
-### What this app does and does NOT do
-
-- **Does**: reads `.txt` spoiler logs you drag in, parses them into a searchable table, matches items against build presets, caches the last log you loaded in a local file next to the app.
-- **Does NOT**: install a Windows service, modify Elden Ring game files, inject into any process, access the Elden Ring process memory, make network requests, phone home, or upload any data. The only outbound links are wiki pages you explicitly click on.
-
-### Verifying the build from source
-
-The entire application can be rebuilt from the source code in this repository. The process produces a deterministic build — the reviewer can follow these steps and compare the output:
+Requires Node.js 18+ and npm.
 
 ```bash
 git clone https://github.com/Mjolniar/elden-ring-index-build-planner.git
 cd elden-ring-index-build-planner
-npm ci              # install exact dependencies from package-lock.json
-npm test            # run automated tests
-npm run dist        # build the Windows NSIS installer into release/
+npm ci && npm test && npm run dist
 ```
 
-Expected output after `npm run dist`:
-
-```text
-release/Elden Ring Randomizer Index and Build Planner <version> Setup.exe   (~79 MB)
-release/win-unpacked/                                                       (portable, run directly)
-```
-
-The `win-unpacked/` directory contains the app in unpacked form — no installer, no self-extraction. It can be inspected directly: the main executable is `win-unpacked/Elden Ring Randomizer Index and Build Planner.exe`, the application code is in `win-unpacked/resources/app.asar` (Electron archive format, extractable with `npx asar extract`).
-
-### Source code layout
-
-```
-electron/       Node.js main process (window creation, IPC, spoiler log cache)
-src/            TypeScript + React renderer (parser, components, build data)
-tests/          automated tests (vitest)
-scripts/        Build data maintenance scripts
-package.json    Dependencies (React, Electron, electron-builder, vite, vitest)
-```
-
-All execution happens locally. There is no telemetry, no analytics, no CDN, no server backend.
-
-## Run Or Build From Source
-
-Requirements:
-
-- Node.js 18 or newer
-- npm
-
-Common commands:
+Other commands:
 
 ```bash
-npm ci              # install exact dependencies from package-lock.json
-npm test            # run parser, build planner, and data integrity tests
-npm run dev         # run the browser version locally
-npm run electron:dev # run the desktop app in development mode
-npm run build       # build the web app into dist/
-npm run dist        # build the Windows NSIS installer into release/
+npm run dev          # browser version locally
+npm run electron:dev # desktop app in dev mode
+npm run build        # web app only (no installer)
 ```
 
 ## Parser Notes
 
-The parser supports the real v0.11.4 randomizer spoiler format plus several older/common variants. If a line cannot be understood, it is shown in the parser diagnostics panel instead of being silently ignored.
+The parser supports the real v0.114 randomizer spoiler log format and several older variants. Lines that can't be parsed appear in the Diagnostics tab rather than being silently dropped.
 
 ## Build Preset Notes
 
-The starter build presets are practical item checklists inspired by public Elden Ring build guides, including Fextralife's Elden Ring Builds page. They cover categories from Beginner through Level 150-200, Journey 2, and SOTE (Shadow of the Erdtree). They are not full route plans or claims that a seed is beatable with a build. The app matches known build requirements against the currently loaded spoiler log and sorts found items by rough area progression.
+Build presets are practical item checklists drawn from public Elden Ring build guides. They are not route plans. The planner matches each build's required items against your loaded spoiler log and sorts results by rough area progression.
 
-Stat spreads are source-first. When the saved builds page contains a confidently matched stat spread for a build, the planner labels it `Source stats`. When no exact source spread is available, the planner labels the spread `Estimated stats`; those estimates are generated from item requirements, primary/secondary stat tags, starting classes, and the displayed build level.
+Stat spreads are labeled **Source stats** when taken directly from a Fextralife build page, or **Estimated stats** when computed from item requirements and stat tags.
 
 ## License
 
