@@ -90,8 +90,7 @@ elden-ring-index-build-planner/
 │   └── icon-randomizer.png       # Randomizer edition app icon
 ├── .github/
 │   └── workflows/
-│       ├── release.yml           # Tag-triggered release pipeline
-│       └── issue-digest.yml      # [main only] Weekly GitHub issue summary
+│       └── release.yml           # Tag-triggered release pipeline
 ├── AGENTS.md                     # This file (AI agent context, lives in repo)
 ├── CHANGELOG.md                  # Version history
 ├── package.json
