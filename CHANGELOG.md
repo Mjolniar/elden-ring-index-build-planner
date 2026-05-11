@@ -1,5 +1,22 @@
 # Changelog
 
+## Elden Ring Randomizer Index and Build Planner 1.5.1 - 2026-05-11
+
+### Added
+- **AGENTS.md** — multi-agent context file (AI assistant onboarding, task triage, branch overview, conventions).
+
+### Changed
+- **README download link** — now points to randomizer-tagged releases instead of the generic /latest page, preventing accidental vanilla-edition downloads.
+
+### Fixed
+- **"Unknown region" hints** — expanded area progression and region label tables with 130+ sub-area entries (every cave, catacomb, tunnel, evergaol, fort, and minor location). Added fuzzy substring fallback so unpredictable sub-area strings from real spoiler logs match their parent region. Medium-difficulty hints now show actual region descriptions instead of "an unknown region"; hard-difficulty hints now include game-stage labels instead of giving no stage at all.
+
+### Validation
+- `npm test`: 61 tests passing.
+- `npx tsc --noEmit`: passing.
+
+---
+
 ## Elden Ring Randomizer Index and Build Planner 1.5.0 - 2026-05-10
 
 ### Added

@@ -16,7 +16,7 @@ On the release page, scroll to **Assets** and download one of:
 > **"Windows protected your PC"?** Click **More info → Run anyway**. This appears because the app is unsigned. It is open-source and built from the code in this repository.
 > The app runs **fully offline** and never connects to the internet.
 
-Current release: **1.5.0**.
+Current release: **1.5.1**.
 
 If you are playing a randomized seed and want to know where an item ended up, this app lets you load the spoiler log, search by item or location, mark useful finds as favorites, track what you have already picked up, check common build requirements against the loaded seed, and explore items filtered by stat type sorted by area progression. A spoiler mode hides exact locations behind configurable hints so you can browse your seed without seeing where everything is.
 
