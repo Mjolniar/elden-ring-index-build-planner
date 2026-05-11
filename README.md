@@ -16,7 +16,7 @@ On the release page, scroll to **Assets** and download one of:
 > **"Windows protected your PC"?** Click **More info → Run anyway**. This appears because the app is unsigned. It is open-source and built from the code in this repository.
 > The app runs **fully offline** and never connects to the internet.
 
-Current release: **1.1.0**.
+Current release: **1.1.1**.
 
 Everything runs locally on your computer. The app does not contact a server or interact with the running game. Wiki links open in your default browser.
 

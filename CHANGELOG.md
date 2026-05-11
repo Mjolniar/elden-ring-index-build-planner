@@ -1,5 +1,19 @@
 # Changelog
 
+## Elden Ring Index and Build Planner 1.1.1 - 2026-05-11
+
+### Added
+- **AGENTS.md** — multi-agent context file (AI assistant onboarding, task triage, branch overview, conventions).
+
+### Fixed
+- **"Unknown region" hints** — expanded area progression and region label tables with 130+ sub-area entries covering every cave, catacomb, tunnel, evergaol, fort, and minor location across the base game and DLC. Added fuzzy substring fallback so sub-area strings absent from the exact-match tables resolve to their parent region. Medium-difficulty hints now show actual region descriptions instead of "an unknown region"; hard-difficulty hints now include game-stage labels instead of giving no stage at all.
+
+### Validation
+- `npm test`: 54 tests passing.
+- `npx tsc --noEmit`: passing.
+
+---
+
 ## Elden Ring Index and Build Planner 1.1.0 - 2026-05-10
 
 ### Added
