@@ -1,7 +1,7 @@
 name: Release
 
 # Triggered by pushing a version tag from the correct branch:
-#   git tag randomizer-v1.4.5 && git push origin randomizer-v1.4.5   (from main)
+#   git tag randomizer-v1.4.5 && git push origin randomizer-v1.4.5   (from randomizer)
 #   git tag vanilla-v1.0.9    && git push origin vanilla-v1.0.9      (from vanilla)
 on:
   push:
