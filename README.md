@@ -4,7 +4,7 @@ A desktop tool for searching Elden Ring Item & Enemy Randomizer spoiler logs, pl
 
 ## ⬇️ Download
 
-**[→ Latest release on GitHub](https://github.com/Mjolniar/elden-ring-index-build-planner/releases/latest)**
+**[→ Latest Randomizer release on GitHub](https://github.com/Mjolniar/elden-ring-index-build-planner/releases?q=randomizer&expanded=true)**
 
 On the release page, scroll to **Assets** and download one of:
 
