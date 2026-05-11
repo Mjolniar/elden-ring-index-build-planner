@@ -1,5 +1,28 @@
 # Changelog
 
+## Elden Ring Randomizer Index and Build Planner 1.5.0 - 2026-05-10
+
+### Added
+- **Settings tab** with a master spoiler mode toggle. When enabled, exact item locations are hidden; users choose what partial information to reveal (area, source type, hint).
+- **Three-level hint system** (Easy / Medium / Hard) for use in spoiler mode. Difficulty is configurable in Settings.
+  - *Easy*: source type and named area (e.g. "Ground pickup in Caelid").
+  - *Medium*: source type and thematic regional description without place names (e.g. "Ground pickup somewhere in the rot-blighted eastern wastes").
+  - *Hard*: acquisition method and broad game-stage only (e.g. "Found on the ground — mid game").
+- **80+ hand-written boss hints** and **30+ merchant hints** providing narrative clues at each difficulty level, with specific navigation detail at easy and thematic-only clues at hard.
+- **Area progression and region label tables** (`AREA_PROGRESSION`, `AREA_REGION_LABEL`) covering all base-game areas and DLC regions used by fallback hint generation.
+- Spoiler settings now apply to the **Build Planner** tab: the "Randomized location" column becomes a "Hint" column in spoiler mode (or is hidden); the Area column is gated on the showArea setting.
+
+### Changed
+- `generateHint` moved from `SearchTable.tsx` into `locationHints.ts` as an exported function so it can be shared across components.
+- Fallback hint for `unknown` source type now returns `"Obtainable"` / `"Obtainable — {stage}"` instead of the useless bare string `"Unknown source"`.
+- Search haystack in spoiler mode excludes `locationName` so the search bar cannot be used to accidentally reveal location info.
+
+### Validation
+- `npm test`: 61 tests passing.
+- `npx tsc --noEmit`: passing.
+
+---
+
 ## Elden Ring Randomizer Index and Build Planner 1.4.4 - 2026-05-10
 
 ### Changed
