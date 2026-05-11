@@ -49,51 +49,36 @@ Item locations are harvested from the Elden Ring Fextralife wiki and supplemente
 - **Community checklists**: supplementary data from curated item lists.
 - **Manual corrections**: reviewed overrides for items where automated parsing needed adjustment (see `data/fextra-location-overrides.json`).
 
-## Run Or Build From Source
+## Why Windows May Warn About This File
 
-Requirements:
+This is an Electron app (bundles Chromium + Node.js). Because it is unsigned, reputation-based scanners like SmartScreen may flag it on first run. Click **More info → Run anyway**. The VirusTotal scan for each release is linked on the release page.
 
-- Node.js 18 or newer
-- npm
+- **Does**: reads item and location data bundled with the app, displays it in a searchable table, matches items against build presets, stores favorites and acquired state locally.
+- **Does not**: make network requests, phone home, modify game files, or upload any data. The only outbound links are wiki pages you explicitly click.
 
-Common commands:
+## Build From Source
+
+Requires Node.js 18+ and npm.
 
 ```bash
-npm ci              # install exact dependencies from package-lock.json
-npm test            # run parser, build planner, and data integrity tests
-npm run dev         # run the browser version locally
-npm run electron:dev # run the desktop app in development mode
-npm run build       # build the web app into dist/
-npm run dist        # build the Windows NSIS installer into release/
+git clone https://github.com/Mjolniar/elden-ring-index-build-planner.git
+cd elden-ring-index-build-planner
+npm ci && npm test && npm run dist
 ```
 
-Expected output after `npm run dist`:
+Other commands:
 
-```text
-release/Elden Ring Index and Build Planner <version> Setup.exe   (~81 MB)
-release/win-unpacked/                                             (portable, run directly)
+```bash
+npm run dev          # browser version locally
+npm run electron:dev # desktop app in dev mode
+npm run build        # web app only (no installer)
 ```
-
-The `win-unpacked/` directory contains the app in unpacked form — no installer, no self-extraction. It can be inspected directly: the main executable is `win-unpacked/Elden Ring Index and Build Planner.exe`, the application code is in `win-unpacked/resources/app.asar` (Electron archive format, extractable with `npx asar extract`).
-
-### Source code layout
-
-```
-electron/       Node.js main process (window creation)
-src/            TypeScript + React renderer (components, build data, vanilla database)
-tests/          automated tests (vitest)
-scripts/        Build data maintenance scripts (build-vanilla-db, fextra harvest, build stat reconciliation)
-data/           Fextra location overrides and review files
-package.json    Dependencies (React, Electron, electron-builder, vite, vitest)
-```
-
-All execution happens locally. There is no telemetry, no analytics, no CDN, no server backend.
 
 ## Build Preset Notes
 
-The starter build presets are practical item checklists inspired by public Elden Ring build guides, including Fextralife's Elden Ring Builds page. They cover categories from Beginner through Level 150-200, Journey 2, and SOTE (Shadow of the Erdtree). They are not full route plans or claims that a run is beatable with a build.
+Build presets are practical item checklists drawn from public Elden Ring build guides. They are not route plans. The planner matches each build's required items against the item database and sorts results by rough area progression.
 
-Stat spreads are source-first. When the saved builds page contains a confidently matched stat spread for a build, the planner labels it `Source stats`. When no exact source spread is available, the planner labels the spread `Estimated stats`; those estimates are generated from item requirements, primary/secondary stat tags, starting classes, and the displayed build level.
+Stat spreads are labeled **Source stats** when taken directly from a Fextralife build page, or **Estimated stats** when computed from item requirements and stat tags.
 
 ## License
 
