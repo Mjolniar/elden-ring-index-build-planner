@@ -16,7 +16,7 @@ On the release page, scroll to **Assets** and download one of:
 > **"Windows protected your PC"?** Click **More info → Run anyway**. This appears because the app is unsigned. It is open-source and built from the code in this repository.
 > The app runs **fully offline** and never connects to the internet.
 
-Current release: **1.0.8**.
+Current release: **1.1.0**.
 
 Everything runs locally on your computer. The app does not contact a server or interact with the running game. Wiki links open in your default browser.
 
@@ -29,6 +29,7 @@ Everything runs locally on your computer. The app does not contact a server or i
 - **Build favorites and notes**: favorite builds appear at the top of the build list, and each selected build includes short objective notes about its core equipment and combat profile.
 - **Custom builds**: create your own build checklists. Same matching engine as presets. Persisted locally.
 - **Browse** tab: select stats (e.g. Strength + Faith) to see every matching item, ordered by how early you can reach it.
+- **Settings** tab: toggle spoiler mode to hide exact item locations. Choose what partial information to show — area, source type, or a generated hint. Three hint difficulty levels (Easy / Medium / Hard).
 - **Guide** tab: built-in tutorial covering all features and mechanics.
 - **Wiki links**: every item name links to the Elden Ring Fextralife wiki for quick reference.
 - Exports visible results as CSV or JSON.
