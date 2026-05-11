@@ -16,15 +16,16 @@ interface Props {
   onChange: (f: FilterState) => void;
   totalVisible: number;
   totalRecords: number;
+  spoilerMode: boolean;
 }
 
-export function Filters({ filters, onChange, totalVisible, totalRecords }: Props) {
+export function Filters({ filters, onChange, totalVisible, totalRecords, spoilerMode }: Props) {
   return (
     <div className="filters-bar">
       <input
         className="search-input"
         type="search"
-        placeholder="Search item, location, area…"
+        placeholder={spoilerMode ? 'Search item or area…' : 'Search item, location, area…'}
         value={filters.search}
         onChange={(e) => onChange({ ...filters, search: e.target.value })}
       />

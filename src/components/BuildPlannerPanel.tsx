@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
-import type { ItemRecord } from '../types';
+import type { ItemRecord, SpoilerSettings } from '../types';
+import { generateHint } from '../locationHints';
 import { buildNotesFor } from '../buildNotes';
 import type { BuildItemKind, BuildStat } from '../buildPlanner';
 import {
@@ -103,6 +104,7 @@ interface Props {
   userBuilds: BuildPreset[];
   onSaveBuild: (build: BuildPreset) => void;
   onDeleteBuild: (id: string) => void;
+  spoilerSettings: SpoilerSettings;
 }
 
 export function BuildPlannerPanel({
@@ -118,6 +120,7 @@ export function BuildPlannerPanel({
   userBuilds,
   onSaveBuild,
   onDeleteBuild,
+  spoilerSettings,
 }: Props) {
   const [selectedStats, setSelectedStats] = useState<BuildStat[]>([]);
   const [matchAllStats, setMatchAllStats] = useState(true);
@@ -448,8 +451,12 @@ export function BuildPlannerPanel({
                   <th>Need</th>
                   <th>Type</th>
                   <th>Status</th>
-                  <th>Location</th>
-                  <th>Area</th>
+                  {!spoilerSettings.spoilerMode ? (
+                    <th>Location</th>
+                  ) : (
+                    spoilerSettings.showHint && <th>Hint</th>
+                  )}
+                  {(!spoilerSettings.spoilerMode || spoilerSettings.showArea) && <th>Area</th>}
                   <th>Track</th>
                   <th>Acquired</th>
                 </tr>
@@ -479,8 +486,14 @@ export function BuildPlannerPanel({
                           <span className="badge badge-warn">Missing</span>
                         )}
                       </td>
-                      <td>{record?.locationName ?? (match.isFreeform ? freeformLocationText(match.requirement.kind) : 'Not found in item database')}</td>
-                      <td>{record?.area ?? '-'}</td>
+                      {!spoilerSettings.spoilerMode ? (
+                        <td>{record?.locationName ?? (match.isFreeform ? freeformLocationText(match.requirement.kind) : 'Not found in item database')}</td>
+                      ) : (
+                        spoilerSettings.showHint && (
+                          <td>{record ? generateHint(record, spoilerSettings.hintDifficulty) : (match.isFreeform ? freeformLocationText(match.requirement.kind) : 'Not found in item database')}</td>
+                        )
+                      )}
+                      {(!spoilerSettings.spoilerMode || spoilerSettings.showArea) && <td>{record?.area ?? '-'}</td>}
                       <td className="favorite-cell">
                         {record ? (
                           <button
