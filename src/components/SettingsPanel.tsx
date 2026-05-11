@@ -64,6 +64,24 @@ export function SettingsPanel({ settings, onChange }: Props) {
               A short generated clue combining the source and area without the exact location.
             </span>
           </label>
+          {settings.showHint && (
+            <div className={`hint-difficulty${settings.spoilerMode ? '' : ' disabled'}`}>
+              <span>Hint difficulty:</span>
+              {(['easy', 'medium', 'hard'] as const).map((level) => (
+                <label key={level}>
+                  <input
+                    type="radio"
+                    name="hintDifficulty"
+                    value={level}
+                    checked={settings.hintDifficulty === level}
+                    disabled={!settings.spoilerMode || !settings.showHint}
+                    onChange={() => onChange({ ...settings, hintDifficulty: level })}
+                  />
+                  {level.charAt(0).toUpperCase() + level.slice(1)}
+                </label>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </div>

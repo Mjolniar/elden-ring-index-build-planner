@@ -33,6 +33,7 @@ const DEFAULT_FILTERS: FilterState = { search: '', sourceType: 'all', keyItemsOn
 const SPOILER_SETTINGS_KEY = 'elden-ring-randomizer-index:spoiler-settings';
 const DEFAULT_SPOILER_SETTINGS: SpoilerSettings = {
   spoilerMode: false, showArea: true, showSource: true, showHint: true,
+  hintDifficulty: 'medium',
 };
 const BROWSER_CACHE_KEY = 'elden-ring-randomizer-index:last-log';
 const FAVORITES_KEY = 'elden-ring-randomizer-index:favorites';

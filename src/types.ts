@@ -37,6 +37,7 @@ export interface ParseResult {
 export type SortField = keyof Pick<ItemRecord, 'itemName' | 'locationName' | 'area' | 'sourceType'>;
 export type SortDir = 'asc' | 'desc';
 export type ActiveTab = 'all' | 'favorites' | 'builds' | 'browse' | 'diagnostics' | 'guide' | 'settings';
+export type HintDifficulty = 'easy' | 'medium' | 'hard';
 
 export interface FilterState {
   search: string;
@@ -49,4 +50,5 @@ export interface SpoilerSettings {
   showArea: boolean;
   showSource: boolean;
   showHint: boolean;
+  hintDifficulty: HintDifficulty;
 }

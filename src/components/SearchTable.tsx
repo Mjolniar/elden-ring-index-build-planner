@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react';
-import type { ItemRecord, SortField, SortDir, SpoilerSettings } from '../types';
+import type { ItemRecord, SortField, SortDir, SpoilerSettings, HintDifficulty } from '../types';
+import { BOSS_HINTS, MERCHANT_HINTS, fallbackHint } from '../locationHints';
 import { makeRecordKey } from '../recordKey';
 
 const SOURCE_LABELS: Record<string, string> = {
@@ -33,14 +34,18 @@ function wikiUrl(itemName: string): string {
   return `https://eldenring.wiki.fextralife.com/${encodeURIComponent(itemName.replace(/ /g, '+'))}`;
 }
 
-function generateHint(rec: ItemRecord): string {
-  if (rec.sourceType === 'starting_loadout') return 'Starting equipment';
-  const labels: Record<string, string> = {
-    boss_drop: 'Boss drop', ground_pickup: 'Ground pickup', shop: 'Shop purchase',
-    enemy_drop: 'Enemy drop', event: 'Quest or event reward', unknown: 'Unknown source',
-  };
-  const label = labels[rec.sourceType] ?? 'Unknown source';
-  return rec.area ? `${label} in ${rec.area}` : label;
+function generateHint(rec: ItemRecord, difficulty: HintDifficulty): string {
+  const bossMatch = rec.locationName.match(/^[Dd]ropped by (.+)$/);
+  if (bossMatch) {
+    const hints = BOSS_HINTS[bossMatch[1]];
+    if (hints) return hints[difficulty];
+  }
+  const shopMatch = rec.locationName.match(/^[Ss]old by (.+)$/);
+  if (shopMatch) {
+    const hints = MERCHANT_HINTS[shopMatch[1]];
+    if (hints) return hints[difficulty];
+  }
+  return fallbackHint(rec, difficulty);
 }
 
 const COLS: ColDef[] = [
@@ -195,7 +200,7 @@ export function SearchTable({
                   <>
                     {spoilerSettings.showArea && <td>{rec.area ?? '—'}</td>}
                     {spoilerSettings.showSource && <td><span className={`badge badge-${rec.sourceType}`}>{SOURCE_LABELS[rec.sourceType]}</span></td>}
-                    {spoilerSettings.showHint && <td>{generateHint(rec)}</td>}
+                    {spoilerSettings.showHint && <td>{generateHint(rec, spoilerSettings.hintDifficulty)}</td>}
                   </>
                 )}
                 {showAcquiredColumn && (

@@ -1108,3 +1108,23 @@ details[open] .diagnostics-title::before { content: '▼'; }
   width: 100%;
   padding-left: 22px;
 }
+
+.hint-difficulty {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0 2px 22px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.hint-difficulty label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  color: var(--text);
+}
+.hint-difficulty label:has(input:disabled) {
+  opacity: 0.5;
+  cursor: default;
+}
