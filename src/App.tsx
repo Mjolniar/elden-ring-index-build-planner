@@ -347,6 +347,7 @@ export default function App() {
               favoriteBuildIds={favoriteBuildIds}
               onToggleBuildFavorite={toggleBuildFavorite}
               userBuilds={userBuilds}
+              spoilerSettings={spoilerSettings}
               onSaveBuild={(build) => {
                 const existing = userBuilds.findIndex((b) => b.id === build.id);
                 const next = existing >= 0
