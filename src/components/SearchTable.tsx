@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
-import type { ItemRecord, SortField, SortDir, SpoilerSettings, HintDifficulty } from '../types';
-import { BOSS_HINTS, MERCHANT_HINTS, fallbackHint } from '../locationHints';
+import type { ItemRecord, SortField, SortDir, SpoilerSettings } from '../types';
+import { generateHint } from '../locationHints';
 import { makeRecordKey } from '../recordKey';
 
 const SOURCE_LABELS: Record<string, string> = {
@@ -32,20 +32,6 @@ interface ColDef {
 
 function wikiUrl(itemName: string): string {
   return `https://eldenring.wiki.fextralife.com/${encodeURIComponent(itemName.replace(/ /g, '+'))}`;
-}
-
-function generateHint(rec: ItemRecord, difficulty: HintDifficulty): string {
-  const bossMatch = rec.locationName.match(/^[Dd]ropped by (.+)$/);
-  if (bossMatch) {
-    const hints = BOSS_HINTS[bossMatch[1]];
-    if (hints) return hints[difficulty];
-  }
-  const shopMatch = rec.locationName.match(/^[Ss]old by (.+)$/);
-  if (shopMatch) {
-    const hints = MERCHANT_HINTS[shopMatch[1]];
-    if (hints) return hints[difficulty];
-  }
-  return fallbackHint(rec, difficulty);
 }
 
 const COLS: ColDef[] = [

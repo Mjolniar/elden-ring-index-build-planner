@@ -8,6 +8,88 @@ interface EntityHints {
   hard: string;
 }
 
+const AREA_PROGRESSION: Record<string, string> = {
+  'Limgrave': 'early game',
+  'Weeping Peninsula': 'early game',
+  'Stormveil Castle': 'early game',
+  'Mistwood': 'early game',
+  'Liurnia of the Lakes': 'mid game',
+  'Academy of Raya Lucaria': 'mid game',
+  'Caria Manor': 'mid game',
+  'Ainsel River': 'mid game',
+  'Siofra River': 'early game',
+  'Nokron, Eternal City': 'mid game',
+  'Nokstella, Eternal City': 'mid game',
+  'Deeproot Depths': 'mid game',
+  'Lake of Rot': 'mid game',
+  'Caelid': 'mid game',
+  'Dragonbarrow': 'mid game',
+  'Altus Plateau': 'mid-to-late game',
+  'Mt. Gelmir': 'mid-to-late game',
+  'Volcano Manor': 'mid-to-late game',
+  'Leyndell, Royal Capital': 'late game',
+  'Leyndell, Ashen Capital': 'endgame',
+  'Mountaintops of the Giants': 'late game',
+  'Consecrated Snowfield': 'late game',
+  'Crumbling Farum Azula': 'endgame',
+  'Elphael, Brace of the Haligtree': 'endgame',
+  'Mohgwyn Palace': 'late game (hidden area)',
+  'Roundtable Hold': 'hub area',
+  'Land of Shadow': 'DLC',
+  'Gravesite Plain': 'DLC',
+  'Castle Ensis': 'DLC',
+  'Belurat, Tower Settlement': 'DLC',
+  'Shadow Keep': 'DLC',
+  'Rauh Ruins': 'DLC',
+  'Abyssal Woods': 'DLC',
+  'Jagged Peak': 'DLC',
+  'Cerulean Coast': 'DLC',
+  'Finger Ruins': 'DLC',
+  'Cathedral of Manus Metyr': 'DLC',
+  'Enir-Ilim': 'DLC',
+};
+
+const AREA_REGION_LABEL: Record<string, string> = {
+  'Limgrave': 'the grassy starting lands',
+  'Weeping Peninsula': 'the rainy southern peninsula',
+  'Stormveil Castle': 'a massive storm-wracked castle',
+  'Mistwood': 'the misty forest east of the starting area',
+  'Liurnia of the Lakes': 'the fog-shrouded lake region',
+  'Academy of Raya Lucaria': 'a sorcerers\' academy amid the lakes',
+  'Caria Manor': 'a royal manor estate in the northern highlands',
+  'Ainsel River': 'an underground river of cold starlight',
+  'Siofra River': 'a star-lit underground river beneath the surface',
+  'Nokron, Eternal City': 'an ancient underground city beneath a starry sky',
+  'Nokstella, Eternal City': 'a submerged eternal city of cold silver tears',
+  'Deeproot Depths': 'a vast root-choked chasm deep beneath the capital',
+  'Lake of Rot': 'a putrid underground lake of scarlet rot',
+  'Caelid': 'the rot-blighted eastern wastes',
+  'Dragonbarrow': 'a dragon-haunted plateau of the far northeast',
+  'Altus Plateau': 'a high golden plateau above the fog',
+  'Mt. Gelmir': 'the volcanic mountain region',
+  'Volcano Manor': 'a manor of assassins near the volcano',
+  'Leyndell, Royal Capital': 'the golden royal capital',
+  'Leyndell, Ashen Capital': 'the burned ruins of the royal capital',
+  'Mountaintops of the Giants': 'the frozen mountaintops',
+  'Consecrated Snowfield': 'a hidden snowfield beyond the giants',
+  'Crumbling Farum Azula': 'a dragon temple suspended in a storm',
+  'Elphael, Brace of the Haligtree': 'the hidden Haligtree sanctuary',
+  'Mohgwyn Palace': 'a blood-drenched hidden palace',
+  'Roundtable Hold': 'the hub sanctuary beyond space',
+  'Land of Shadow': 'the realm of shadow beyond the Erdtree',
+  'Gravesite Plain': 'the burial plains at the entrance to the shadow realm',
+  'Castle Ensis': 'a Carian fortress in the shadow realm',
+  'Belurat, Tower Settlement': 'the spiraling tower settlement of the shadow realm',
+  'Shadow Keep': 'the great fortress at the heart of the shadow realm',
+  'Rauh Ruins': 'overgrown jungle ruins in the west of the shadow realm',
+  'Abyssal Woods': 'the dark frenzied forests of the shadow realm',
+  'Jagged Peak': 'a dragon\'s mountain peak in the shadow realm',
+  'Cerulean Coast': 'the azure coastline of the shadow realm',
+  'Finger Ruins': 'sacred finger-shaped ruins on the shadow realm peninsula',
+  'Cathedral of Manus Metyr': 'the great cathedral on the eastern peninsula of the shadow realm',
+  'Enir-Ilim': 'the spiraling divine tower of the shadow realm',
+};
+
 export const BOSS_HINTS: Record<string, EntityHints> = {
   // ── LIMGRAVE / WEEPING PENINSULA ──
   'Grafted Scion': {
@@ -360,7 +442,7 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
     hard: 'Dropped by crystal beings in the mid game.',
   },
   'Cleanrot Knight (Stillwater Cave)': {
-    easy: 'Boss drop. Found in Stillwater Cave in southern Liurnia near the Caelid border, a damp cavern entered from the swampy lowlands.',
+    easy: 'Boss drop. Found in Stillwater Cave on the southern shore of Liurnia, where the lake shallows meet the cliffs — enter the damp cavern from the water\'s edge near the Liurnia Highway South site of grace, close to the path toward Caelid.',
     medium: 'Boss drop in Stillwater Cave near the Liurnia-Caelid border.',
     hard: 'Dropped by a dungeon boss in the mid game.',
   },
@@ -407,7 +489,7 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
     hard: 'Dropped by a field boss in the mid game.',
   },
   "Ancient Hero of Zamor (Sainted Hero's Grave)": {
-    easy: "Boss drop. At the end of the Sainted Hero's Grave in the western Altus Plateau, a grand underground tomb entrance built into the cliffside near the Gelmir border.",
+    easy: "Boss drop. At the end of the Sainted Hero's Grave in the western Altus Plateau — find the ornate tomb entrance carved into the cliffside directly west of the Grand Lift of Dectus, across the shallow lake from the Erdtree-Gazing Hill site of grace.",
     medium: "Boss drop in the Sainted Hero's Grave, Altus Plateau.",
     hard: 'Dropped by a hero grave boss in the mid game.',
   },
@@ -457,8 +539,8 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
     hard: 'Dropped by paired dungeon bosses in the mid game.',
   },
   'Guardian Golem (Highroad Cave)': {
-    easy: 'Boss drop. A towering golem at the end of Highroad Cave in northern Liurnia near the Altus border, a deep cavern with a waterfall accessed from the cliff road.',
-    medium: 'Boss drop in Highroad Cave, northern Liurnia near Altus.',
+    easy: 'Boss drop. A towering golem at the end of Highroad Cave, a cliffside cavern in northern Liurnia — follow the road north from the East Raya Lucaria Gate, past the ravine, to find the cave mouth on the left cliff face beneath the broken bridge.',
+    medium: 'Boss drop in Highroad Cave, northern Liurnia.',
     hard: 'Dropped by a dungeon boss in the mid game.',
   },
   'Wormface (minor erdtree Altus)': {
@@ -469,9 +551,9 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
 
   // ── LEYNDELL ──
   'Godfrey First Elden Lord': {
-    easy: 'Boss drop. The golden shade of Godfrey bars entry to the Erdtree Sanctuary deep within Leyndell Royal Capital, the great city at the heart of the Altus Plateau — navigate the city streets and climb the dragon statue.',
-    medium: 'Boss drop in the Erdtree Sanctuary of Leyndell Royal Capital.',
-    hard: 'Dropped by a story boss in the mid game.',
+    easy: 'Boss drop. The true Godfrey stands in the ashen arena at the foot of the burning Erdtree within Leyndell Ashen Capital — after the city burns, follow the ruined boulevard from the capital of ash through the toppled buildings to the final plaza.',
+    medium: 'Boss drop in Leyndell Ashen Capital.',
+    hard: 'Dropped by a story boss in the endgame.',
   },
   'Morgott the Omen King': {
     easy: 'Boss drop. Morgott awaits at the foot of the Erdtree itself, at the highest point of Leyndell Royal Capital — ascend through the Queen\'s Bedchamber and cross the great bridge.',
@@ -635,8 +717,8 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
     hard: 'Dropped by a story boss in the endgame.',
   },
   'Godfrey First Elden Lord (Golden Shade)': {
-    easy: 'Boss drop. The golden shade of Godfrey bars entry to the Erdtree Sanctuary deep within Leyndell Royal Capital, the great city at the heart of the Altus Plateau.',
-    medium: 'Boss drop in Leyndell Royal Capital.',
+    easy: 'Boss drop. The golden shade of Godfrey bars entry to the Erdtree Sanctuary deep within Leyndell Royal Capital — work through the city streets from the East Capital Rampart, climb the wing of the fallen dragon statue, and ascend the tree branch to the sanctuary.',
+    medium: 'Boss drop in the Erdtree Sanctuary of Leyndell Royal Capital.',
     hard: 'Dropped by a story boss in the mid game.',
   },
 
@@ -669,18 +751,18 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
     hard: 'Dropped by a story boss in the DLC.',
   },
   'Romina Saint of the Bud': {
-    easy: 'Boss drop. Romina waits in the Church of the Bud deep in the Rauh Ruins of the Land of Shadow — a sunken temple surrounded by overgrown rot in the western jungles.',
+    easy: 'Boss drop. Romina waits in the Church of the Bud deep in the Rauh Ruins of the Land of Shadow — descend through the crumbling stone corridors of the southern ruins, past the rot-ridden hollows, to reach the sunken temple.',
     medium: 'Boss drop in the Rauh Ruins, Land of Shadow (DLC).',
-    hard: 'Dropped by a boss in the DLC.',
+    hard: 'Dropped by a rot saint in the DLC.',
   },
   'Scadutree Avatar': {
-    easy: 'Boss drop. A twisted Scadutree Avatar guarding the church area near the Scaduview region of the Land of Shadow — found near the shadow of the great tree itself.',
+    easy: 'Boss drop. A twisted Scadutree Avatar stands before the church in the Scaduview region of the Land of Shadow — travel the high road east of the Shadow Keep, past the tree-worship encampment, to reach the cathedral clearing.',
     medium: 'Boss drop in the Scaduview area, Land of Shadow (DLC).',
     hard: 'Dropped by a Scadutree avatar in the DLC.',
   },
   'Divine Beast Dancing Lion': {
-    easy: 'Boss drop. A dancing divine beast found in the Belurat Gaol or the Jagged Peak area of the Land of Shadow — a fearsome creature wreathed in elemental power.',
-    medium: 'Boss drop in the Belurat region of the Land of Shadow (DLC).',
+    easy: 'Boss drop. A dancing divine beast encountered in the ancient theatre of Belurat, Tower Settlement — the first great legacy ruin of the Land of Shadow, reached by crossing the great bridge from the Gravesite Plain entrance.',
+    medium: 'Boss drop in Belurat, Tower Settlement, Land of Shadow (DLC).',
     hard: 'Dropped by a divine beast in the DLC.',
   },
   'Midra Lord of Frenzied Flame': {
@@ -749,8 +831,8 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
     hard: 'Dropped by a catacomb boss in the DLC.',
   },
   'Demi-Human Swordmaster Onze': {
-    easy: 'Boss drop. A skilled demi-human swordsman found in the Belurat Gaol or the hidden fissure areas of the Land of Shadow, in the western approaches to the ancient ruins.',
-    medium: 'Boss drop in the Belurat region of the Land of Shadow (DLC).',
+    easy: 'Boss drop. A skilled demi-human swordsman imprisoned deep within Belurat Gaol, the cliffside prison of the Land of Shadow — enter the gaol through the sealed doorway on the lower cliff path west of the Tower Settlement.',
+    medium: 'Boss drop in the Belurat Gaol, Land of Shadow (DLC).',
     hard: 'Dropped by a demi-human swordsman in the DLC.',
   },
   'Red Bear': {
@@ -759,13 +841,13 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
     hard: 'Dropped by a field boss in the DLC.',
   },
   'Death Knight': {
-    easy: 'Boss drop. A deathly knight found in various catacombs or ruins throughout the Land of Shadow — a recurring foe guarding eternal crypts.',
-    medium: 'Boss drop in crypts throughout the Land of Shadow (DLC).',
+    easy: 'Boss drop. A deathly knight found in the Fog Rift Catacombs of the Land of Shadow, accessed through a hidden passage in the lower Gravesite Plain — a crypt of eternal darkness sealed behind a fog wall.',
+    medium: 'Boss drop in the Fog Rift Catacombs, Land of Shadow (DLC).',
     hard: 'Dropped by a death knight in the DLC.',
   },
   'Furnace Golem': {
-    easy: 'Boss drop. A towering furnace golem found near the various ruined forges scattered across the Land of Shadow — siege golems animated by charred flame.',
-    medium: 'Boss drop at ruined forges throughout the Land of Shadow (DLC).',
+    easy: 'Boss drop. A towering furnace golem found near the ruined forges of the ancient stone dragon corpse in the Gravesite Plain of the Land of Shadow — follow the scorched road west from the starting grace to the hollowed-out forge basin.',
+    medium: 'Boss drop at a ruined forge in the Gravesite Plain, Land of Shadow (DLC).',
     hard: 'Dropped by a siege golem in the DLC.',
   },
   'Tree Sentinel (Shadow Realm)': {
@@ -1002,6 +1084,20 @@ export const MERCHANT_HINTS: Record<string, EntityHints> = {
   },
 };
 
+export function generateHint(rec: ItemRecord, difficulty: HintDifficulty): string {
+  const bossMatch = rec.locationName.match(/^[Dd]ropped by (.+)$/);
+  if (bossMatch) {
+    const hints = BOSS_HINTS[bossMatch[1]];
+    if (hints) return hints[difficulty];
+  }
+  const shopMatch = rec.locationName.match(/^[Ss]old by (.+)$/);
+  if (shopMatch) {
+    const hints = MERCHANT_HINTS[shopMatch[1]];
+    if (hints) return hints[difficulty];
+  }
+  return fallbackHint(rec, difficulty);
+}
+
 export function fallbackHint(rec: ItemRecord, difficulty: HintDifficulty): string {
   const sourceLabels: Record<string, string> = {
     boss_drop: 'Boss drop',
@@ -1010,25 +1106,31 @@ export function fallbackHint(rec: ItemRecord, difficulty: HintDifficulty): strin
     enemy_drop: 'Enemy drop',
     starting_loadout: 'Starting equipment',
     event: 'Quest or event reward',
-    unknown: 'Unknown source',
+    unknown: 'Obtainable',
   };
-  const label = sourceLabels[rec.sourceType] ?? 'Unknown source';
+  const label = sourceLabels[rec.sourceType] ?? 'Obtainable';
+  const area = rec.area ?? null;
 
   switch (difficulty) {
     case 'easy':
-      return rec.area ? `${label} in ${rec.area}` : label;
+      return area ? `${label} in ${area}` : label;
     case 'medium':
-      return rec.area ? `${label} somewhere in ${rec.area}` : label;
+      return area
+        ? `${label} somewhere in ${AREA_REGION_LABEL[area] ?? 'an unknown region'}`
+        : label;
     case 'hard': {
+      let verb: string;
       switch (rec.sourceType) {
-        case 'boss_drop': return 'Dropped by a boss';
-        case 'ground_pickup': return 'Found on the ground';
-        case 'shop': return 'Available for purchase';
-        case 'enemy_drop': return 'Dropped by an enemy';
-        case 'starting_loadout': return 'Starting equipment';
-        case 'event': return 'Quest or event reward';
-        default: return 'Unknown source';
+        case 'boss_drop':      verb = 'Dropped by a boss'; break;
+        case 'ground_pickup':  verb = 'Found on the ground'; break;
+        case 'shop':           verb = 'Purchased from a merchant'; break;
+        case 'enemy_drop':     verb = 'Dropped by an enemy'; break;
+        case 'starting_loadout': verb = 'Starting equipment'; break;
+        case 'event':          verb = 'Quest or event reward'; break;
+        default:               verb = 'Obtainable'; break;
       }
+      const stage = area ? AREA_PROGRESSION[area] : null;
+      return stage ? `${verb} — ${stage}` : verb;
     }
   }
 }
