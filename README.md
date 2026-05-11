@@ -91,6 +91,10 @@ Build presets are practical item checklists drawn from public Elden Ring build g
 
 Stat spreads are labeled **Source stats** when taken directly from a Fextralife build page, or **Estimated stats** when computed from item requirements and stat tags.
 
+## Privacy
+
+This app collects no data. Full privacy policy: https://mjolniar.github.io/elden-ring-apps-privacy/
+
 ## License
 
 MIT
