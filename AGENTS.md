@@ -29,7 +29,7 @@ Two distinct desktop app editions, both built from the same codebase. They share
 
 | Edition | Branch | Version | Description |
 |---------|--------|---------|-------------|
-| **Randomizer** | `main` | 1.5.0 | Loads a Fextralife spoiler log `.txt` file and maps randomized item locations |
+| **Randomizer** | `randomizer` | 1.5.1 | Loads a Fextralife spoiler log `.txt` file and maps randomized item locations |
 | **Vanilla** | `vanilla` | 1.1.0 | Static item database — all fixed vanilla locations (base game + Shadow of the Erdtree) |
 
 Both are Windows-only Electron desktop apps distributed as an installer (`.exe`) and portable ZIP.  
@@ -76,7 +76,7 @@ elden-ring-index-build-planner/
 │       ├── ExportButtons.tsx     # CSV / JSON export
 │       ├── Filters.tsx           # Source type filter buttons
 │       ├── CustomBuildEditor.tsx # Custom build checklist creator
-│       ├── UploadPanel.tsx       # [main/randomizer only] Spoiler log upload
+│       ├── UploadPanel.tsx       # [randomizer only] Spoiler log upload
 │       └── DiagnosticsPanel.tsx  # Dev diagnostics
 ├── electron/
 │   ├── main.js                   # Electron main process
@@ -145,9 +145,9 @@ Randomizer edition also has `BOSS_HINTS` (~80 entries) and `MERCHANT_HINTS` (~30
 
 ---
 
-## Branch Differences (main vs vanilla)
+## Branch Differences (randomizer vs vanilla)
 
-| Aspect | `main` (Randomizer) | `vanilla` |
+| Aspect | `randomizer` (Randomizer) | `vanilla` |
 |--------|---------------------|-----------|
 | Item source | Loaded from user-supplied spoiler log `.txt` | Bundled static database (`vanillaData.ts`) |
 | Upload tab | Yes (`UploadPanel.tsx`) | No |
@@ -225,7 +225,7 @@ When `spoilerMode: true`:
 ## Task Triage — Which Agent to Use
 
 ### Use DeepSeek (OpenCode) — Free, Use First
-- Large feature ports between branches (e.g. vanilla ← main)
+- Large feature ports between branches (e.g. vanilla ← randomizer)
 - New React components when given typed interfaces
 - Repetitive refactors across many files
 - Writing/expanding Vitest test cases
@@ -272,7 +272,7 @@ When `spoilerMode: true`:
 ## Important Conventions
 
 - **Never skip `npx tsc --noEmit` + `npm test`** before committing. Both must pass clean.
-- **Never commit to `main` directly** for large features — use a feature branch.
+- **Never commit to `randomizer` directly** for large features — use a feature branch.
 - **Branch naming**: `feature/short-description` (kebab-case)
 - **Commit messages**: imperative mood, present tense ("Add spoiler mode", "Fix hint label")
 - **Version bumping**: update `package.json` `version` field AND add a `CHANGELOG.md` entry
