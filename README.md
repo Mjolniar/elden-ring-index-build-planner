@@ -2,6 +2,20 @@
 
 A desktop tool for searching Elden Ring Item & Enemy Randomizer spoiler logs, planning build pickups, and browsing items by stat affinity.
 
+## ⬇️ Download
+
+**[→ Latest release on GitHub](https://github.com/Mjolniar/elden-ring-index-build-planner/releases/latest)**
+
+On the release page, scroll to **Assets** and download one of:
+
+| Option | File | When to use |
+|--------|------|-------------|
+| **Installer** (recommended) | `...Setup.exe` | First install — adds a Start Menu shortcut |
+| **Portable ZIP** | `...Portable.zip` | No installation needed — extract and run the `.exe` inside |
+
+> **"Windows protected your PC"?** Click **More info → Run anyway**. This appears because the app is unsigned. It is open-source and built from the code in this repository.
+> The app runs **fully offline** and never connects to the internet.
+
 Current release: **1.4.4**.
 
 If you are playing a randomized seed and want to know where an item ended up, this app lets you load the spoiler log, search by item or location, mark useful finds as favorites, track what you have already picked up, check common build requirements against the loaded seed, and explore items filtered by stat type sorted by area progression.

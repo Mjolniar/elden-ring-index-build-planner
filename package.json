@@ -44,15 +44,18 @@
       "electron/preload.js",
       "package.json"
     ],
+    "artifactName": "${productName} ${version} Portable.${ext}",
     "win": {
       "signAndEditExecutable": false,
       "icon": "assets/icon-randomizer.png",
       "target": [
         {
           "target": "nsis",
-          "arch": [
-            "x64"
-          ]
+          "arch": ["x64"]
+        },
+        {
+          "target": "zip",
+          "arch": ["x64"]
         }
       ]
     },
