@@ -39,10 +39,8 @@ jobs:
 
       # ── 6. Package with electron-builder (produces Setup.exe + Portable.zip) ──
       - name: Package desktop app
-        run: npx electron-builder --win --x64
-        env:
-          # Prevents electron-builder from trying to publish (we do that below)
-          EP_DRAFT: true
+        # --publish never: build artifacts only; the release step below handles publishing
+        run: npx electron-builder --win --x64 --publish never
 
       # ── 7. Build the release body ──
       #    Top section: plain-English download instructions for non-technical users.
