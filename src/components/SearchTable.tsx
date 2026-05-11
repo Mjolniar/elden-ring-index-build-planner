@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react';
-import type { ItemRecord, SortField, SortDir } from '../types';
+import type { ItemRecord, SortField, SortDir, SpoilerSettings } from '../types';
+import { generateHint } from '../locationHints';
 import { makeRecordKey } from '../recordKey';
 
 const SOURCE_LABELS: Record<string, string> = {
@@ -19,6 +20,7 @@ interface Props {
   onToggleFavorite: (record: ItemRecord) => void;
   onToggleAcquired: (record: ItemRecord) => void;
   showAcquiredColumn: boolean;
+  spoilerSettings: SpoilerSettings;
   emptyMessage?: string;
 }
 
@@ -46,6 +48,7 @@ export function SearchTable({
   onToggleFavorite,
   onToggleAcquired,
   showAcquiredColumn,
+  spoilerSettings,
   emptyMessage = 'No records match the current filters.',
 }: Props) {
   const [sortField, setSortField] = useState<SortField>('itemName');
@@ -68,6 +71,14 @@ export function SearchTable({
     return sortDir === 'asc' ? cmp : -cmp;
   });
 
+  const visibleDataColCount = spoilerSettings.spoilerMode
+    ? 1
+      + (spoilerSettings.showArea ? 1 : 0)
+      + (spoilerSettings.showSource ? 1 : 0)
+      + (spoilerSettings.showHint ? 1 : 0)
+    : 4;
+  const detailColSpan = 1 + visibleDataColCount + (showAcquiredColumn ? 1 : 0);
+
   if (records.length === 0) {
     return <p className="empty-state">{emptyMessage}</p>;
   }
@@ -77,22 +88,63 @@ export function SearchTable({
       <table className="records-table">
         <colgroup>
           <col style={{ width: '4%' }} />
-          {COLS.map((c) => <col key={c.field} style={{ width: c.width }} />)}
+          <col style={{ width: spoilerSettings.spoilerMode ? '28%' : '25%' }} />
+          {!spoilerSettings.spoilerMode ? (
+            <>
+              <col style={{ width: '34%' }} />
+              <col style={{ width: '18%' }} />
+              <col style={{ width: '12%' }} />
+            </>
+          ) : (
+            <>
+              {spoilerSettings.showArea && <col style={{ width: '18%' }} />}
+              {spoilerSettings.showSource && <col style={{ width: '12%' }} />}
+              {spoilerSettings.showHint && <col style={{ width: '22%' }} />}
+            </>
+          )}
           {showAcquiredColumn && <col style={{ width: '8%' }} />}
         </colgroup>
         <thead>
           <tr>
             <th className="favorite-col">★</th>
-            {COLS.map((c) => (
-              <th
-                key={c.field}
-                className={`sortable${sortField === c.field ? ' sorted' : ''}`}
-                onClick={() => handleSort(c.field)}
-              >
-                {c.label}
-                {sortField === c.field ? (sortDir === 'asc' ? ' ↑' : ' ↓') : ''}
-              </th>
-            ))}
+            {!spoilerSettings.spoilerMode ? (
+              COLS.map((c) => (
+                <th
+                  key={c.field}
+                  className={`sortable${sortField === c.field ? ' sorted' : ''}`}
+                  onClick={() => handleSort(c.field)}
+                >
+                  {c.label}
+                  {sortField === c.field ? (sortDir === 'asc' ? ' ↑' : ' ↓') : ''}
+                </th>
+              ))
+            ) : (
+              <>
+                <th
+                  className={`sortable${sortField === 'itemName' ? ' sorted' : ''}`}
+                  onClick={() => handleSort('itemName')}
+                >
+                  Item{sortField === 'itemName' ? (sortDir === 'asc' ? ' ↑' : ' ↓') : ''}
+                </th>
+                {spoilerSettings.showArea && (
+                  <th
+                    className={`sortable${sortField === 'area' ? ' sorted' : ''}`}
+                    onClick={() => handleSort('area')}
+                  >
+                    Area{sortField === 'area' ? (sortDir === 'asc' ? ' ↑' : ' ↓') : ''}
+                  </th>
+                )}
+                {spoilerSettings.showSource && (
+                  <th
+                    className={`sortable${sortField === 'sourceType' ? ' sorted' : ''}`}
+                    onClick={() => handleSort('sourceType')}
+                  >
+                    Source{sortField === 'sourceType' ? (sortDir === 'asc' ? ' ↑' : ' ↓') : ''}
+                  </th>
+                )}
+                {spoilerSettings.showHint && <th>Hint</th>}
+              </>
+            )}
             {showAcquiredColumn && <th>Acquired</th>}
           </tr>
         </thead>
@@ -124,9 +176,19 @@ export function SearchTable({
                   {rec.itemName}
                   <a className="wiki-link" href={wikiUrl(rec.itemName)} target="_blank" rel="noreferrer" title="View on Elden Ring Wiki" onClick={(e) => e.stopPropagation()}>⧉</a>
                 </td>
-                <td>{rec.locationName}</td>
-                <td>{rec.area ?? '—'}</td>
-                <td><span className={`badge badge-${rec.sourceType}`}>{SOURCE_LABELS[rec.sourceType]}</span></td>
+                {!spoilerSettings.spoilerMode ? (
+                  <>
+                    <td>{rec.locationName}</td>
+                    <td>{rec.area ?? '—'}</td>
+                    <td><span className={`badge badge-${rec.sourceType}`}>{SOURCE_LABELS[rec.sourceType]}</span></td>
+                  </>
+                ) : (
+                  <>
+                    {spoilerSettings.showArea && <td>{rec.area ?? '—'}</td>}
+                    {spoilerSettings.showSource && <td><span className={`badge badge-${rec.sourceType}`}>{SOURCE_LABELS[rec.sourceType]}</span></td>}
+                    {spoilerSettings.showHint && <td>{generateHint(rec, spoilerSettings.hintDifficulty)}</td>}
+                  </>
+                )}
                 {showAcquiredColumn && (
                   <td className="acquired-cell">
                     <input
@@ -145,11 +207,16 @@ export function SearchTable({
               </tr>
               {expanded === rec.id && (
                 <tr key={`${rec.id}-detail`} className="detail-row">
-                  <td colSpan={showAcquiredColumn ? 6 : 5}>
+                  <td colSpan={detailColSpan}>
                     <div className="detail-content">
-                      {rec.originalItem && <div><strong>Replaced:</strong> {rec.originalItem}</div>}
-                      <div><strong>Section:</strong> {rec.section}</div>
-                      <div><strong>Raw line:</strong> <code>{rec.rawLine}</code></div>
+                      {spoilerSettings.spoilerMode ? (
+                        <div><em>Turn off spoiler mode in Settings to see full location details.</em></div>
+                      ) : (
+                        <>
+                          <div><strong>Section:</strong> {rec.section}</div>
+                          <div><strong>Raw line:</strong> <code>{rec.rawLine}</code></div>
+                        </>
+                      )}
                     </div>
                   </td>
                 </tr>

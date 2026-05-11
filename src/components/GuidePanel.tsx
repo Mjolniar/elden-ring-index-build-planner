@@ -17,10 +17,10 @@ export function GuidePanel() {
         <h3>Search tab</h3>
         <p>Find any item in your randomized seed.</p>
         <ul>
-          <li>Type in the search box to filter by <strong>item name</strong>, <strong>location</strong>, <strong>area</strong>, or <strong>replaced item</strong>.</li>
+          <li>Type in the search box to filter by <strong>item name</strong>, <strong>location</strong>, or <strong>area</strong>. When spoiler mode is enabled in Settings, location search is removed to avoid revealing exact placements.</li>
           <li>Use the source dropdown to limit results to boss drops, shops, ground pickups, starting loadouts, quest rewards, or enemy drops.</li>
           <li>Check <strong>"Key items only"</strong> to see only essential progression items (medallions, great runes, keys).</li>
-          <li>Click any row to expand it and see the original item that was replaced, the spoiler-log section it came from, and the raw line.</li>
+          <li>Click any row to expand it and see the spoiler-log section it came from and the raw line.</li>
           <li>Click column headers to sort by item name, location, area, or source type.</li>
           <li>Star items using the ★ column to save them to your Favorites. Mark items as acquired using the checkbox.</li>
           <li>Export visible results as CSV or JSON using the buttons in the toolbar.</li>
@@ -107,6 +107,18 @@ export function GuidePanel() {
           <li>Build presets are curated from public build guides (Fextralife, YouTube, community guides). They are item checklists, not stat calculators or full route plans.</li>
           <li>If an item shows as <span className="badge badge-warn">Missing</span> but you know it's in your seed, check the Diagnostics tab — the parser may have skipped it due to unusual formatting.</li>
           <li>No network access is needed — the app works fully offline.</li>
+        </ul>
+      </section>
+      <section className="guide-section">
+        <h3>Settings tab</h3>
+        <p>Control what spoiler information is visible.</p>
+        <ul>
+          <li><strong>Spoiler mode off</strong> (default): exact locations, areas, and source types are shown for every randomized item.</li>
+          <li><strong>Spoiler mode on</strong>: exact locations are hidden. You choose what partial information to show instead — area, source type, or a generated hint combining the two.</li>
+          <li><strong>Show area</strong> reveals the broad region the item is in (e.g. Limgrave, Leyndell) without the specific location name.</li>
+          <li><strong>Show source type</strong> reveals how the item is obtained: boss drop, shop purchase, enemy drop, etc.</li>
+          <li><strong>Show hint</strong> generates a short clue combining the source type and area, e.g. "Boss drop in Limgrave."</li>
+          <li>Settings persist across launches in your browser.</li>
         </ul>
       </section>
     </div>
