@@ -1,89 +1,176 @@
 # Elden Ring Index and Build Planner
 
-A desktop tool for browsing all Elden Ring items with their fixed vanilla locations (base game + Shadow of the Erdtree), planning builds by stat affinity, and tracking collectible progress.
+This branch is the in-progress integrated edition of Elden Ring Index and Build Planner. It combines the fixed-location vanilla item index with the randomizer spoiler-log companion workflow in one offline desktop app.
 
-## ⬇️ Download
+The default experience remains the normal vanilla Elden Ring index: open the app, search items, plan builds, track favorites, and mark pickups acquired. Randomizer support is enabled from Settings by loading a spoiler log, which lets the same search, favorites, browse, and build-planner tools use randomized item locations.
 
-**[→ Latest Vanilla release on GitHub](https://github.com/Mjolniar/elden-ring-index-build-planner/releases?q=vanilla&expanded=true)**
+This branch is not a published release yet. Public releases are still tracked separately with `vanilla-v*` and `randomizer-v*` tags until the integrated app is ready.
 
-On the release page, scroll to **Assets** and download one of:
+## Integrated Branch Goals
 
-| Option | File | When to use |
-|--------|------|-------------|
-| **Installer** (recommended) | `...Setup.exe` | First install — adds a Start Menu shortcut |
-| **Portable ZIP** | `...Portable.zip` | No installation needed — extract and run the `.exe` inside |
+- Keep Vanilla as the default app mode.
+- Move Randomizer support into Settings as a content-profile option.
+- Load Randomizer spoiler logs locally and use them as the active placement source.
+- Preserve Randomizer diagnostics, cache restore, and spoiler-log parsing behavior.
+- Keep favorites, acquired items, custom builds, and build favorites scoped by active content source.
+- Prepare the architecture for future mod content packs such as Elden Ring Reforged and The Convergence.
+- Stay fully offline: no telemetry, analytics, remote API calls, or runtime downloads.
 
-> **"Windows protected your PC"?** Click **More info → Run anyway**. This appears because the app is unsigned. It is open-source and built from the code in this repository.
-> The app runs **fully offline** and never connects to the internet.
+## Content Model
 
-Current release: **1.1.1**.
+The integrated app should be built around a content profile rather than separate app editions.
 
-Everything runs locally on your computer. The app does not contact a server or interact with the running game. Wiki links open in your default browser.
+```ts
+type BaseContentMode = 'vanilla' | 'randomizer-log';
+type ModPackId = 'reforged' | 'convergence';
+
+interface ContentProfile {
+  baseMode: BaseContentMode;
+  enabledModPacks: ModPackId[];
+}
+```
+
+The long-term active dataset model is:
+
+```text
+Vanilla records
++ enabled mod-pack additions/overrides
++ optional randomizer spoiler-log placements
+= active item dataset
+```
+
+Randomizer is treated as a placement/source mode, not a mod pack. Reforged and Convergence are planned as future content packs because they may add or override items, bosses, shops, areas, stats, and locations.
+
+## Current Scope
+
+Implemented or under active review on this branch:
+
+- Vanilla item database mode.
+- Randomizer spoiler-log mode.
+- Source/content-profile scoped persistence.
+- Shared search, favorites, acquired tracking, build planner, browse, export, and guide behavior.
+- Randomizer spoiler-log cache IPC in Electron.
+- Randomizer parser diagnostics when a log is loaded.
+- Source-aware UI copy for vanilla database vs. loaded spoiler log.
+- Randomizer boss and merchant hint parity with the `randomizer` branch.
+
+## Planned Settings Layout
+
+The app should open directly into the vanilla index/build planner. Settings should own content configuration.
+
+Planned Settings sections:
+
+### Content Profile
+
+- Vanilla: default fixed-location item database.
+- Randomizer spoiler log: enables spoiler-log loading and uses randomized locations.
+
+When Randomizer spoiler-log mode is selected, Settings should expose:
+
+- Load spoiler log.
+- Cached log status.
+- Clear loaded log.
+- Parser diagnostics status/link.
+
+### Mod Content
+
+Future placeholder controls only:
+
+- Elden Ring Reforged.
+- The Convergence.
+
+These should remain disabled/planned until a separate data pipeline and permission review exist.
+
+## Future Mod Support
+
+The integrated branch should prepare for mod support, but should not bundle real mod data yet.
+
+Future mod support will likely need:
+
+- A structured mod-pack manifest format.
+- Local/offline imported records.
+- Item aliases and conflict handling.
+- Source labels for modded locations and altered stats.
+- Permission review for each mod source.
+- Separate validation for added or overridden records.
+
+Do not add Reforged or Convergence data in this branch until that plan is explicit.
+
+## Out Of Scope For This Branch
+
+- Reforged data integration.
+- Convergence data integration.
+- Nexus downloads.
+- Wiki scraping for mod content.
+- Remote repository fetching at runtime.
+- Seed-to-spoiler-log generation.
+- Game file modification.
+- Game memory access.
+- Telemetry, analytics, or runtime network calls.
+- Release tagging or publishing.
 
 ## What It Does
 
-- **Search** tab: search 1,200+ items by name, location, or area. Filter by source type. Sort by any column.
-- **Favorites** tab: star important items and mark them acquired. Track pickup progress across sessions.
-- **Builds** tab: 160 curated build presets with stat filtering. Each preset shows required weapons, seals, staves, armor, talismans, spells, and ashes along with their vanilla locations sorted by rough area progression.
-- **Build stat spreads**: source-backed stat spreads are labeled as `Source stats`; fallback spreads are labeled as `Estimated stats` and are generated to match the build's displayed target level where possible.
-- **Build favorites and notes**: favorite builds appear at the top of the build list, and each selected build includes short objective notes about its core equipment and combat profile.
-- **Custom builds**: create your own build checklists. Same matching engine as presets. Persisted locally.
-- **Browse** tab: select stats (e.g. Strength + Faith) to see every matching item, ordered by how early you can reach it.
-- **Settings** tab: toggle spoiler mode to hide exact item locations. Choose what partial information to show — area, source type, or a generated hint. Three hint difficulty levels (Easy / Medium / Hard).
-- **Guide** tab: built-in tutorial covering all features and mechanics.
-- **Wiki links**: every item name links to the Elden Ring Fextralife wiki for quick reference.
-- Exports visible results as CSV or JSON.
+- Search items by name, location, area, source type, or active content source metadata.
+- Star favorites and mark items acquired.
+- Use curated build presets to find required weapons, seals, staves, armor, talismans, spells, and ashes.
+- Create custom build checklists.
+- Browse items by stat affinity.
+- Export visible results as CSV or JSON.
+- Load Randomizer spoiler logs locally when Randomizer mode is enabled.
+- Show parser diagnostics for loaded Randomizer logs.
 
-## How To Use It
-
-1. Install or run Elden Ring Index and Build Planner.
-2. Use the tabs at the top to search, manage favorites, plan builds, or browse items.
-3. Star useful results and mark them acquired as you collect them.
-
-Item locations are harvested from the Elden Ring Fextralife wiki and supplemented with manual corrections. They reflect fixed vanilla placements, not randomized drops.
-
-## Data Sources
-
-- **Fextralife wiki**: item locations harvested from [eldenring.wiki.fextralife.com](https://eldenring.wiki.fextralife.com/), parsed by `scripts/fextra/`.
-- **Cached Fextralife builds page**: build requirements, stat tags, and available source stat spreads from `Builds _ Elden Ring Wiki.htm`.
-- **ERDB**: canonical item names and stats from [EldenRingDatabase/erdb](https://github.com/EldenRingDatabase/erdb).
-- **Community checklists**: supplementary data from curated item lists.
-- **Manual corrections**: reviewed overrides for items where automated parsing needed adjustment (see `data/fextra-location-overrides.json`).
-
-## Why Windows May Warn About This File
-
-This is an Electron app (bundles Chromium + Node.js). Because it is unsigned, reputation-based scanners like SmartScreen may flag it on first run. Click **More info → Run anyway**. The VirusTotal scan for each release is linked on the release page.
-
-- **Does**: reads item and location data bundled with the app, displays it in a searchable table, matches items against build presets, stores favorites and acquired state locally.
-- **Does not**: make network requests, phone home, modify game files, or upload any data. The only outbound links are wiki pages you explicitly click.
-
-## Build From Source
+## How To Use During Development
 
 Requires Node.js 18+ and npm.
 
 ```bash
 git clone https://github.com/Mjolniar/elden-ring-index-build-planner.git
 cd elden-ring-index-build-planner
-npm ci && npm test && npm run dist
+git switch integrated
+npm ci
+npm run dev
 ```
 
-Other commands:
+Desktop development:
 
 ```bash
-npm run dev          # browser version locally
-npm run electron:dev # desktop app in dev mode
-npm run build        # web app only (no installer)
+npm run electron:dev
 ```
 
-## Build Preset Notes
+Validation:
 
-Build presets are practical item checklists drawn from public Elden Ring build guides. They are not route plans. The planner matches each build's required items against the item database and sorts results by rough area progression.
+```bash
+npx tsc --noEmit
+npm test
+npm run build
+```
 
-Stat spreads are labeled **Source stats** when taken directly from a Fextralife build page, or **Estimated stats** when computed from item requirements and stat tags.
+Packaging remains release-controlled and should not be treated as final for this branch until product naming/versioning are decided.
+
+## Data Sources
+
+Current vanilla data sources:
+
+- Fextralife wiki item locations harvested from eldenring.wiki.fextralife.com.
+- Cached Fextralife build page data.
+- ERDB item names and stats.
+- Community item checklists.
+- Manual location corrections in `data/fextra-location-overrides.json`.
+
+Current randomizer data source:
+
+- User-supplied Elden Ring Randomizer spoiler log text files.
+
+Future mod data sources are not yet approved or integrated.
 
 ## Privacy
 
-This app collects no data. Full privacy policy: https://mjolniar.github.io/elden-ring-apps-privacy/
+This app is designed to run fully offline. It stores favorites, acquired state, custom builds, settings, and cached spoiler logs locally on the user's computer.
+
+The app does not phone home, upload data, modify game files, or interact with a running game. External wiki links open only when clicked.
+
+Full privacy policy: https://mjolniar.github.io/elden-ring-apps-privacy/
 
 ## License
 
