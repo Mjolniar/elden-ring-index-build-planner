@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react';
-import type { ItemRecord } from '../types';
+import type { ItemRecord, DataSourceKind } from '../types';
 import type { BuildStat, BuildItemKind } from '../buildPlanner';
 import { BUILD_STATS, getItemsForStats, getAreaRank } from '../buildPlanner';
 import { makeRecordKey } from '../recordKey';
+import { itemSourceDescription } from '../dataSources';
 
 const KIND_LABELS: Record<string, string> = {
   weapon: 'Weapon', shield: 'Shield', seal: 'Seal', staff: 'Staff',
@@ -17,6 +18,7 @@ interface Props {
   acquiredKeys: Set<string>;
   onToggleFavorite: (record: ItemRecord) => void;
   onToggleAcquired: (record: ItemRecord) => void;
+  sourceKind?: DataSourceKind;
 }
 
 interface BrowserResult {
@@ -33,6 +35,7 @@ export function ItemBrowser({
   acquiredKeys,
   onToggleFavorite,
   onToggleAcquired,
+  sourceKind = 'vanilla',
 }: Props) {
   const [selectedStats, setSelectedStats] = useState<BuildStat[]>([]);
   const [matchAll, setMatchAll] = useState(true);
@@ -143,21 +146,21 @@ export function ItemBrowser({
             </select>
           </label>
         </div>
-        <div className="browser-counts">
+          <div className="browser-counts">
           Matching items: <strong>{filtered.length}</strong>
           {selectedStats.length > 0 && (
-            <span>across {statItems.length} unique requirements from {filtered.length > 0 ? 'the loaded spoiler log' : 'build data'}</span>
+            <span>across {statItems.length} unique requirements from the {itemSourceDescription(sourceKind)}</span>
           )}
         </div>
       </div>
 
       {!selectedStats.length ? (
         <p className="empty-state">
-          Select one or more stats above to see items from the spoiler log that fit those build types, sorted by how early you can find them.
+          Select one or more stats above to see items from the {itemSourceDescription(sourceKind)} that fit those build types, sorted by how early you can find them.
         </p>
       ) : filtered.length === 0 ? (
         <p className="empty-state">
-          No items matching those stats found in the loaded spoiler log. Try different stat combinations or load a spoiler log first.
+          No items matching those stats found in the {itemSourceDescription(sourceKind)}. Try different stat combinations.
         </p>
       ) : (
         <div className="table-wrapper">

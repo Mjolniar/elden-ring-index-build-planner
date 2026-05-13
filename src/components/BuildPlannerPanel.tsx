@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import type { ItemRecord, SpoilerSettings } from '../types';
+import type { ItemRecord, SpoilerSettings, DataSourceKind } from '../types';
 import { generateHint } from '../locationHints';
 import { buildNotesFor } from '../buildNotes';
 import type { BuildItemKind, BuildStat } from '../buildPlanner';
@@ -105,6 +105,10 @@ interface Props {
   onSaveBuild: (build: BuildPreset) => void;
   onDeleteBuild: (id: string) => void;
   spoilerSettings: SpoilerSettings;
+  datasetKind: DataSourceKind;
+  locationColumnLabel?: string;
+  missingItemText?: string;
+  plannerNote?: string;
 }
 
 export function BuildPlannerPanel({
@@ -121,6 +125,10 @@ export function BuildPlannerPanel({
   onSaveBuild,
   onDeleteBuild,
   spoilerSettings,
+  datasetKind: _datasetKind,
+  locationColumnLabel = 'Location',
+  missingItemText = 'Not found in item database',
+  plannerNote: plannerText,
 }: Props) {
   const [selectedStats, setSelectedStats] = useState<BuildStat[]>([]);
   const [matchAllStats, setMatchAllStats] = useState(true);
@@ -441,7 +449,7 @@ export function BuildPlannerPanel({
           <div className="planner-note">
             {isUserBuild
               ? 'Your custom build. Edit it anytime using the Edit button above.'
-              : 'The catalog uses paraphrased build metadata from the saved reference page. Matched items are sorted by rough area progression, not by a solved route.'}
+              : plannerText ?? 'The catalog uses paraphrased build metadata from the saved reference page. Matched items are sorted by rough area progression, not by a solved route.'}
           </div>
 
           <div className="table-wrapper">
@@ -452,7 +460,7 @@ export function BuildPlannerPanel({
                   <th>Type</th>
                   <th>Status</th>
                   {!spoilerSettings.spoilerMode ? (
-                    <th>Location</th>
+                    <th>{locationColumnLabel}</th>
                   ) : (
                     spoilerSettings.showHint && <th>Hint</th>
                   )}
@@ -487,10 +495,10 @@ export function BuildPlannerPanel({
                         )}
                       </td>
                       {!spoilerSettings.spoilerMode ? (
-                        <td>{record?.locationName ?? (match.isFreeform ? freeformLocationText(match.requirement.kind) : 'Not found in item database')}</td>
+                        <td>{record?.locationName ?? (match.isFreeform ? freeformLocationText(match.requirement.kind) : missingItemText)}</td>
                       ) : (
                         spoilerSettings.showHint && (
-                          <td>{record ? generateHint(record, spoilerSettings.hintDifficulty) : (match.isFreeform ? freeformLocationText(match.requirement.kind) : 'Not found in item database')}</td>
+                          <td>{record ? generateHint(record, spoilerSettings.hintDifficulty) : (match.isFreeform ? freeformLocationText(match.requirement.kind) : missingItemText)}</td>
                         )
                       )}
                       {(!spoilerSettings.spoilerMode || spoilerSettings.showArea) && <td>{record?.area ?? '-'}</td>}

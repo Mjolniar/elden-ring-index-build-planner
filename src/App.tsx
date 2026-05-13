@@ -1,10 +1,26 @@
-import { useState, useMemo, useCallback } from 'react';
-import type { ItemRecord, FilterState, ActiveTab, SpoilerSettings } from './types';
+import { useState, useMemo, useEffect, useCallback } from 'react';
+import type { ItemRecord, FilterState, ActiveTab, SpoilerSettings, ParseResult, DataSourceKind, ItemDataset } from './types';
+import type { SpoilerLogCacheEntry } from './electron';
 import type { BuildPreset } from './buildPlanner';
+import { parseSpoilerLog } from './parser';
 import { makeRecordKey } from './recordKey';
-import { VANILLA_ITEMS } from './vanillaData';
+import { buildVanillaDataset, buildRandomizerDataset, originalItemLabel, locationColumnLabel, missingItemText, plannerNote, SOURCE_IDS } from './dataSources';
+import {
+  spoilerSettingsKey,
+  favoritesKey,
+  acquiredKey,
+  userBuildsKey,
+  buildFavoritesKey,
+  browserCacheKey,
+  activeSourceKey,
+  loadStoredKeySet,
+  loadStoredJSON,
+} from './storageKeys';
+import { SourceSelector } from './components/SourceSelector';
+import { UploadPanel } from './components/UploadPanel';
 import { Filters } from './components/Filters';
 import { SearchTable } from './components/SearchTable';
+import { DiagnosticsPanel } from './components/DiagnosticsPanel';
 import { ExportButtons } from './components/ExportButtons';
 import { BuildPlannerPanel } from './components/BuildPlannerPanel';
 import { ItemBrowser } from './components/ItemBrowser';
@@ -27,59 +43,118 @@ function applyFilters(records: ItemRecord[], f: FilterState, s: SpoilerSettings)
 }
 
 const DEFAULT_FILTERS: FilterState = { search: '', sourceType: 'all', keyItemsOnly: false };
-const SPOILER_SETTINGS_KEY = 'elden-ring-index:spoiler-settings';
 const DEFAULT_SPOILER_SETTINGS: SpoilerSettings = {
   spoilerMode: false, showArea: true, showSource: true, showHint: true,
   hintDifficulty: 'medium',
 };
-const FAVORITES_KEY = 'elden-ring-vanilla:favorites';
-const ACQUIRED_KEY = 'elden-ring-vanilla:acquired';
-const USER_BUILDS_KEY = 'elden-ring-vanilla:user-builds';
-const BUILD_FAVORITES_KEY = 'elden-ring-vanilla:build-favorites';
-
-function loadStoredKeySet(storageKey: string): Set<string> {
-  try {
-    const raw = localStorage.getItem(storageKey);
-    const parsed = raw ? JSON.parse(raw) : [];
-    return Array.isArray(parsed) ? new Set(parsed.filter((v) => typeof v === 'string')) : new Set();
-  } catch {
-    return new Set();
-  }
-}
 
 export default function App() {
+  const [activeSource, setActiveSource] = useState<DataSourceKind>(() =>
+    loadStoredJSON<DataSourceKind>(activeSourceKey(), 'vanilla')
+  );
+
+  const [randomizerResult, setRandomizerResult] = useState<ParseResult | null>(null);
+  const [randomizerFilename, setRandomizerFilename] = useState('');
+  const [randomizerCacheEntry, setRandomizerCacheEntry] = useState<SpoilerLogCacheEntry | null>(null);
+  const [randomizerCacheMessage, setRandomizerCacheMessage] = useState('');
+  const [restoredCache, setRestoredCache] = useState(false);
+
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
   const [activeTab, setActiveTab] = useState<ActiveTab>('all');
   const [selectedBuildId, setSelectedBuildId] = useState('all-knowing-sage');
-  const [favoriteKeys, setFavoriteKeys] = useState<Set<string>>(() => loadStoredKeySet(FAVORITES_KEY));
-  const [acquiredKeys, setAcquiredKeys] = useState<Set<string>>(() => loadStoredKeySet(ACQUIRED_KEY));
-  const [favoriteBuildIds, setFavoriteBuildIds] = useState<Set<string>>(() => loadStoredKeySet(BUILD_FAVORITES_KEY));
-  const [userBuilds, setUserBuilds] = useState<BuildPreset[]>(() => {
-    try {
-      const raw = localStorage.getItem(USER_BUILDS_KEY);
-      return raw ? JSON.parse(raw) : [];
-    } catch {
-      return [];
-    }
-  });
-  const [spoilerSettings, setSpoilerSettings] = useState<SpoilerSettings>(() => {
-    try {
-      const raw = localStorage.getItem(SPOILER_SETTINGS_KEY);
-      return raw ? { ...DEFAULT_SPOILER_SETTINGS, ...JSON.parse(raw) } : DEFAULT_SPOILER_SETTINGS;
-    } catch { return DEFAULT_SPOILER_SETTINGS; }
-  });
+
+  const sourceId = activeSource === 'vanilla' ? SOURCE_IDS.vanilla : SOURCE_IDS.randomizer;
+
+  const [favoriteKeys, setFavoriteKeys] = useState<Set<string>>(() => loadStoredKeySet(favoritesKey(sourceId)));
+  const [acquiredKeys, setAcquiredKeys] = useState<Set<string>>(() => loadStoredKeySet(acquiredKey(sourceId)));
+  const [favoriteBuildIds, setFavoriteBuildIds] = useState<Set<string>>(() => loadStoredKeySet(buildFavoritesKey(sourceId)));
+  const [userBuilds, setUserBuilds] = useState<BuildPreset[]>(() =>
+    loadStoredJSON<BuildPreset[]>(userBuildsKey(sourceId), [])
+  );
+  const [spoilerSettings, setSpoilerSettings] = useState<SpoilerSettings>(() =>
+    loadStoredJSON<SpoilerSettings>(spoilerSettingsKey(sourceId), DEFAULT_SPOILER_SETTINGS)
+  );
+
+  function handleSourceChange(nextSource: DataSourceKind) {
+    setActiveSource(nextSource);
+    localStorage.setItem(activeSourceKey(), JSON.stringify(nextSource));
+    setFilters(DEFAULT_FILTERS);
+    setActiveTab('all');
+  }
 
   function updateSpoilerSettings(next: SpoilerSettings) {
     setSpoilerSettings(next);
-    localStorage.setItem(SPOILER_SETTINGS_KEY, JSON.stringify(next));
+    localStorage.setItem(spoilerSettingsKey(sourceId), JSON.stringify(next));
   }
 
   const persistUserBuilds = useCallback((builds: BuildPreset[]) => {
     setUserBuilds(builds);
-    localStorage.setItem(USER_BUILDS_KEY, JSON.stringify(builds));
-  }, []);
+    localStorage.setItem(userBuildsKey(sourceId), JSON.stringify(builds));
+  }, [sourceId]);
 
-  const records = VANILLA_ITEMS;
+  function loadText(text: string, name: string) {
+    setRandomizerFilename(name);
+    setFilters(DEFAULT_FILTERS);
+    setActiveTab('all');
+    const parsed = parseSpoilerLog(text);
+    setRandomizerResult(parsed);
+    return parsed;
+  }
+
+  async function cacheSpoilerLog(text: string, name: string, parsed: ParseResult) {
+    try {
+      if (window.electronAPI?.saveSpoilerLogCache) {
+        const saved = await window.electronAPI.saveSpoilerLogCache({
+          filename: name,
+          text,
+          seed: parsed.seed,
+        });
+        setRandomizerCacheEntry(saved);
+        setRandomizerCacheMessage(`Cached for next launch: ${saved.latestPath}`);
+        return;
+      }
+
+      const browserEntry: SpoilerLogCacheEntry = {
+        filename: name,
+        text,
+        seed: parsed.seed,
+        cachedAt: new Date().toISOString(),
+        cachePath: 'browser local storage',
+        cacheDir: 'browser local storage',
+        latestPath: 'browser local storage',
+      };
+      localStorage.setItem(browserCacheKey(sourceId), JSON.stringify(browserEntry));
+      setRandomizerCacheEntry(browserEntry);
+      setRandomizerCacheMessage('Cached in this browser for next launch.');
+    } catch (error) {
+      console.error(error);
+      setRandomizerCacheMessage('Could not cache this spoiler log. The loaded data is still usable.');
+    }
+  }
+
+  async function handleFile(text: string, name: string) {
+    const parsed = loadText(text, name);
+    await cacheSpoilerLog(text, name, parsed);
+  }
+
+  async function handleRandomizerReset() {
+    setRandomizerResult(null);
+    setRandomizerFilename('');
+    setRandomizerCacheEntry(null);
+    setRandomizerCacheMessage('');
+    setFilters(DEFAULT_FILTERS);
+    setActiveTab('all');
+    try {
+      if (window.electronAPI?.clearSpoilerLogCache) {
+        await window.electronAPI.clearSpoilerLogCache();
+      } else {
+        localStorage.removeItem(browserCacheKey(sourceId));
+      }
+    } catch (error) {
+      console.error(error);
+      setRandomizerCacheMessage('The loaded log was cleared, but the cached copy could not be removed.');
+    }
+  }
 
   function toggleFavorite(record: ItemRecord) {
     const key = makeRecordKey(record);
@@ -87,7 +162,7 @@ export default function App() {
       const next = new Set(current);
       if (next.has(key)) next.delete(key);
       else next.add(key);
-      localStorage.setItem(FAVORITES_KEY, JSON.stringify([...next]));
+      localStorage.setItem(favoritesKey(sourceId), JSON.stringify([...next]));
       return next;
     });
   }
@@ -98,7 +173,7 @@ export default function App() {
       const next = new Set(current);
       if (next.has(key)) next.delete(key);
       else next.add(key);
-      localStorage.setItem(ACQUIRED_KEY, JSON.stringify([...next]));
+      localStorage.setItem(acquiredKey(sourceId), JSON.stringify([...next]));
       return next;
     });
   }
@@ -108,19 +183,72 @@ export default function App() {
       const next = new Set(current);
       if (next.has(buildId)) next.delete(buildId);
       else next.add(buildId);
-      localStorage.setItem(BUILD_FAVORITES_KEY, JSON.stringify([...next]));
+      localStorage.setItem(buildFavoritesKey(sourceId), JSON.stringify([...next]));
       return next;
     });
   }
 
+  async function openCacheFolder() {
+    await window.electronAPI?.openSpoilerLogCacheDir?.();
+  }
+
+  useEffect(() => {
+    if (activeSource !== 'randomizer-log' || restoredCache) return;
+    let cancelled = false;
+
+    async function restoreCachedLog() {
+      try {
+        if (window.electronAPI?.loadSpoilerLogCache) {
+          const cached = await window.electronAPI.loadSpoilerLogCache();
+          if (!cached || !cached.text || cancelled) return;
+
+          setRandomizerCacheEntry(cached);
+          setRandomizerCacheMessage(`Restored cached log: ${cached.latestPath}`);
+          loadText(cached.text, cached.filename || 'latest-spoiler-log.txt');
+          setRestoredCache(true);
+          return;
+        }
+
+        const raw = localStorage.getItem(browserCacheKey(sourceId));
+        if (!raw || cancelled) return;
+
+        const cached = JSON.parse(raw) as SpoilerLogCacheEntry;
+        if (!cached.text) return;
+
+        setRandomizerCacheEntry(cached);
+        setRandomizerCacheMessage('Restored cached browser log.');
+        loadText(cached.text, cached.filename || 'cached spoiler log');
+        setRestoredCache(true);
+      } catch (error) {
+        console.error(error);
+        if (!cancelled) setRandomizerCacheMessage('Could not restore the cached spoiler log.');
+      }
+    }
+
+    restoreCachedLog();
+    return () => { cancelled = true; };
+  }, [activeSource, restoredCache, sourceId]);
+
+  const activeDataset: ItemDataset | null = useMemo(() => {
+    if (activeSource === 'vanilla') {
+      return buildVanillaDataset();
+    }
+    if (randomizerResult) {
+      return buildRandomizerDataset(randomizerResult, randomizerFilename, randomizerCacheEntry);
+    }
+    return null;
+  }, [activeSource, randomizerResult, randomizerFilename, randomizerCacheEntry]);
+
+  const records = activeDataset?.records ?? [];
+
   const visible = useMemo(
     () => applyFilters(records, filters, spoilerSettings),
-    [filters, spoilerSettings]
+    [records, filters, spoilerSettings]
   );
 
   const favorites = useMemo(
     () => records.filter((record) => favoriteKeys.has(makeRecordKey(record))),
-    [favoriteKeys]
+    [records, favoriteKeys]
   );
   const acquiredFavoritesCount = useMemo(
     () => favorites.filter((record) => acquiredKeys.has(makeRecordKey(record))).length,
@@ -128,138 +256,192 @@ export default function App() {
   );
 
   const activeRecords = activeTab === 'favorites' ? favorites : visible;
-  const exportFilename = 'elden-ring-vanilla-items';
+
+  const exportFilename = useMemo(() => {
+    const base = activeSource === 'vanilla'
+      ? 'elden-ring-vanilla-items'
+      : randomizerFilename
+        ? randomizerFilename.replace(/\.[^.]+$/, '')
+        : 'elden-ring-randomizer-items';
+    return activeTab === 'favorites' ? `${base}-favorites` : base;
+  }, [activeSource, randomizerFilename, activeTab]);
+
+  const datasetKind = activeDataset?.kind ?? 'vanilla';
 
   return (
     <div className="app">
       <header className="app-header">
         <h1>Elden Ring Index and Build Planner</h1>
+        <div className="header-controls">
+          <SourceSelector activeSource={activeSource} onChange={handleSourceChange} />
+          {activeSource === 'randomizer-log' && randomizerResult && (
+            <button className="reset-btn" onClick={handleRandomizerReset}>
+              Load new log
+            </button>
+          )}
+        </div>
       </header>
 
-      <main className="main-layout">
-        <div className="tabs-bar" role="tablist" aria-label="Record views">
-          <div className="primary-tabs">
-            <button
-              className={`tab-btn${activeTab === 'all' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'all'}
-              onClick={() => setActiveTab('all')}
-            >
-              Search
-            </button>
-            <button
-              className={`tab-btn${activeTab === 'favorites' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'favorites'}
-              onClick={() => setActiveTab('favorites')}
-            >
-              Favorites ({favorites.length})
-            </button>
-            <button
-              className={`tab-btn${activeTab === 'builds' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'builds'}
-              onClick={() => setActiveTab('builds')}
-            >
-              Builds
-            </button>
-            <button
-              className={`tab-btn${activeTab === 'browse' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'browse'}
-              onClick={() => setActiveTab('browse')}
-            >
-              Browse
-            </button>
-          </div>
-          <div className="utility-tabs">
-            <button
-              className={`tab-btn diagnostics-tab${activeTab === 'guide' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'guide'}
-              onClick={() => setActiveTab('guide')}
-            >
-              Guide
-            </button>
-            <button
-              className={`tab-btn diagnostics-tab${activeTab === 'settings' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'settings'}
-              onClick={() => setActiveTab('settings')}
-            >
-              Settings
-            </button>
-          </div>
+      {activeSource === 'randomizer-log' && !randomizerResult ? (
+        <div className="landing">
+          <UploadPanel onFile={handleFile} />
+          <p className="landing-hint">
+            Generate a spoiler log in the Elden Ring Randomizer, then load it here to search
+            item placements and plan build pickups. All processing happens locally.
+          </p>
+          {randomizerCacheMessage && <p className="cache-message">{randomizerCacheMessage}</p>}
         </div>
-        {activeTab === 'builds' ? (
-          <BuildPlannerPanel
-            records={records}
-            selectedBuildId={selectedBuildId}
-            onSelectedBuildIdChange={setSelectedBuildId}
-            favoriteKeys={favoriteKeys}
-            acquiredKeys={acquiredKeys}
-            onToggleFavorite={toggleFavorite}
-            onToggleAcquired={toggleAcquired}
-            favoriteBuildIds={favoriteBuildIds}
-            onToggleBuildFavorite={toggleBuildFavorite}
-            userBuilds={userBuilds}
-            spoilerSettings={spoilerSettings}
-            onSaveBuild={(build) => {
-              const existing = userBuilds.findIndex((b) => b.id === build.id);
-              const next = existing >= 0
-                ? userBuilds.map((b, i) => i === existing ? build : b)
-                : [...userBuilds, build];
-              persistUserBuilds(next);
-            }}
-            onDeleteBuild={(id) => persistUserBuilds(userBuilds.filter((b) => b.id !== id))}
-          />
-        ) : activeTab === 'browse' ? (
-          <ItemBrowser
-            records={records}
-            favoriteKeys={favoriteKeys}
-            acquiredKeys={acquiredKeys}
-            onToggleFavorite={toggleFavorite}
-            onToggleAcquired={toggleAcquired}
-          />
-        ) : activeTab === 'guide' ? (
-          <GuidePanel />
-        ) : activeTab === 'settings' ? (
-          <SettingsPanel settings={spoilerSettings} onChange={updateSpoilerSettings} />
-        ) : (
-          <>
-            <div className="toolbar">
-              {activeTab === 'all' ? (
-                <Filters
-                  filters={filters}
-                  onChange={setFilters}
-                  totalVisible={visible.length}
-                  totalRecords={records.length}
-                  spoilerMode={spoilerSettings.spoilerMode}
-                />
-              ) : (
-                <div className="favorites-summary">
-                  Saved favorites from the Elden Ring item database. Acquired: {acquiredFavoritesCount} / {favorites.length}
-                </div>
-              )}
-              <ExportButtons records={activeRecords} filename={exportFilename} />
+      ) : (
+        <main className="main-layout">
+          <div className="tabs-bar" role="tablist" aria-label="Record views">
+            <div className="primary-tabs">
+              <button
+                className={`tab-btn${activeTab === 'all' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'all'}
+                onClick={() => setActiveTab('all')}
+              >
+                Search
+              </button>
+              <button
+                className={`tab-btn${activeTab === 'favorites' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'favorites'}
+                onClick={() => setActiveTab('favorites')}
+              >
+                Favorites ({favorites.length})
+              </button>
+              <button
+                className={`tab-btn${activeTab === 'builds' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'builds'}
+                onClick={() => setActiveTab('builds')}
+              >
+                Builds
+              </button>
+              <button
+                className={`tab-btn${activeTab === 'browse' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'browse'}
+                onClick={() => setActiveTab('browse')}
+              >
+                Browse
+              </button>
             </div>
-            <SearchTable
-              records={activeRecords}
+            <div className="utility-tabs">
+              {activeSource === 'randomizer-log' && randomizerResult && (
+                <button
+                  className={`tab-btn diagnostics-tab${activeTab === 'diagnostics' ? ' active' : ''}`}
+                  role="tab"
+                  aria-selected={activeTab === 'diagnostics'}
+                  onClick={() => setActiveTab('diagnostics')}
+                >
+                  Diagnostics
+                </button>
+              )}
+              <button
+                className={`tab-btn diagnostics-tab${activeTab === 'guide' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'guide'}
+                onClick={() => setActiveTab('guide')}
+              >
+                Guide
+              </button>
+              <button
+                className={`tab-btn diagnostics-tab${activeTab === 'settings' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'settings'}
+                onClick={() => setActiveTab('settings')}
+              >
+                Settings
+              </button>
+            </div>
+          </div>
+          {activeTab === 'diagnostics' && activeSource === 'randomizer-log' && randomizerResult ? (
+            <DiagnosticsPanel
+              diagnostics={randomizerResult.diagnostics}
+              seed={randomizerResult.seed}
+              filename={randomizerFilename}
+              cacheEntry={randomizerCacheEntry}
+              cacheMessage={randomizerCacheMessage}
+              onOpenCacheFolder={window.electronAPI?.openSpoilerLogCacheDir ? openCacheFolder : undefined}
+            />
+          ) : activeTab === 'guide' ? (
+            <GuidePanel sourceKind={datasetKind} />
+          ) : activeTab === 'settings' ? (
+            <SettingsPanel settings={spoilerSettings} onChange={updateSpoilerSettings} />
+          ) : activeTab === 'builds' ? (
+            <BuildPlannerPanel
+              records={records}
+              selectedBuildId={selectedBuildId}
+              onSelectedBuildIdChange={setSelectedBuildId}
               favoriteKeys={favoriteKeys}
               acquiredKeys={acquiredKeys}
               onToggleFavorite={toggleFavorite}
               onToggleAcquired={toggleAcquired}
-              showAcquiredColumn={activeTab === 'favorites'}
+              favoriteBuildIds={favoriteBuildIds}
+              onToggleBuildFavorite={toggleBuildFavorite}
+              userBuilds={userBuilds}
               spoilerSettings={spoilerSettings}
-              emptyMessage={
-                activeTab === 'favorites'
-                  ? 'No favorites yet. Use the star column in Search to save items here.'
-                  : 'No records match the current filters.'
-              }
+              datasetKind={datasetKind}
+              locationColumnLabel={locationColumnLabel(datasetKind)}
+              missingItemText={missingItemText(datasetKind)}
+              plannerNote={plannerNote(datasetKind)}
+              onSaveBuild={(build) => {
+                const existing = userBuilds.findIndex((b) => b.id === build.id);
+                const next = existing >= 0
+                  ? userBuilds.map((b, i) => i === existing ? build : b)
+                  : [...userBuilds, build];
+                persistUserBuilds(next);
+              }}
+              onDeleteBuild={(id) => persistUserBuilds(userBuilds.filter((b) => b.id !== id))}
             />
-          </>
-        )}
-      </main>
+          ) : activeTab === 'browse' ? (
+            <ItemBrowser
+              records={records}
+              favoriteKeys={favoriteKeys}
+              acquiredKeys={acquiredKeys}
+              onToggleFavorite={toggleFavorite}
+              onToggleAcquired={toggleAcquired}
+              sourceKind={datasetKind}
+            />
+          ) : (
+            <>
+              <div className="toolbar">
+                {activeTab === 'all' ? (
+                  <Filters
+                    filters={filters}
+                    onChange={setFilters}
+                    totalVisible={visible.length}
+                    totalRecords={records.length}
+                    spoilerMode={spoilerSettings.spoilerMode}
+                  />
+                ) : (
+                  <div className="favorites-summary">
+                    Saved favorites from the current item source. Acquired: {acquiredFavoritesCount} / {favorites.length}
+                  </div>
+                )}
+                <ExportButtons records={activeRecords} filename={exportFilename} />
+              </div>
+              <SearchTable
+                records={activeRecords}
+                favoriteKeys={favoriteKeys}
+                acquiredKeys={acquiredKeys}
+                onToggleFavorite={toggleFavorite}
+                onToggleAcquired={toggleAcquired}
+                showAcquiredColumn={activeTab === 'favorites'}
+                spoilerSettings={spoilerSettings}
+                emptyMessage={
+                  activeTab === 'favorites'
+                    ? 'No favorites yet. Use the star column in Search to save items here.'
+                    : 'No records match the current filters.'
+                }
+                originalItemLabel={originalItemLabel(datasetKind)}
+              />
+            </>
+          )}
+        </main>
+      )}
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import type { SpoilerLogCacheEntry } from './electron';
+
 export type SourceType =
   | 'ground_pickup'
   | 'shop'
@@ -51,4 +53,27 @@ export interface SpoilerSettings {
   showSource: boolean;
   showHint: boolean;
   hintDifficulty: HintDifficulty;
+}
+
+export type DataSourceKind = 'vanilla' | 'randomizer-log';
+
+export interface ItemDataset {
+  id: string;
+  kind: DataSourceKind;
+  label: string;
+  shortLabel: string;
+  records: ItemRecord[];
+  filename?: string;
+  seed?: string | null;
+  header?: string[];
+  diagnostics?: ParseDiagnostics;
+  cacheEntry?: SpoilerLogCacheEntry | null;
+  loadedAt?: string;
+}
+
+export interface SourceMeta {
+  kind: DataSourceKind;
+  label: string;
+  shortLabel: string;
+  description: string;
 }

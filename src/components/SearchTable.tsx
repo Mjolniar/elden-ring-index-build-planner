@@ -22,6 +22,7 @@ interface Props {
   showAcquiredColumn: boolean;
   spoilerSettings: SpoilerSettings;
   emptyMessage?: string;
+  originalItemLabel?: string;
 }
 
 interface ColDef {
@@ -50,6 +51,7 @@ export function SearchTable({
   showAcquiredColumn,
   spoilerSettings,
   emptyMessage = 'No records match the current filters.',
+  originalItemLabel = 'Source data',
 }: Props) {
   const [sortField, setSortField] = useState<SortField>('itemName');
   const [sortDir, setSortDir] = useState<SortDir>('asc');
@@ -209,7 +211,7 @@ export function SearchTable({
                 <tr key={`${rec.id}-detail`} className="detail-row">
                   <td colSpan={detailColSpan}>
                     <div className="detail-content">
-                      {rec.originalItem && <div><strong>Source data:</strong> {rec.originalItem}</div>}
+                      {rec.originalItem && <div><strong>{originalItemLabel}:</strong> {rec.originalItem}</div>}
                       {spoilerSettings.spoilerMode ? (
                         <div><em>Turn off spoiler mode in Settings to see full location details.</em></div>
                       ) : (

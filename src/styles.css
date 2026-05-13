@@ -47,6 +47,53 @@ html, body {
 }
 .app-header h1 { font-size: 16px; font-weight: 650; color: var(--accent); }
 
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.source-selector {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.source-option {
+  padding: 5px 12px;
+  background: var(--surface);
+  border: 0;
+  border-right: 1px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+  transition: background .15s, color .15s;
+}
+
+.source-option:last-child {
+  border-right: 0;
+}
+
+.source-option:hover {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+.source-option.active {
+  background: #2b2414;
+  color: var(--accent);
+  box-shadow: inset 0 1px 0 rgba(209, 173, 82, .25);
+}
+
+.source-option:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
 .reset-btn {
   font-size: 12px; padding: 6px 12px;
   background: var(--surface2); border: 1px solid var(--border); color: var(--text);
@@ -668,6 +715,10 @@ details[open] .diagnostics-title::before { content: '▼'; }
     align-items: flex-start;
     flex-direction: column;
     gap: 8px;
+  }
+
+  .header-controls {
+    flex-wrap: wrap;
   }
 
   .build-controls {
