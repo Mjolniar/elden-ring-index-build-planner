@@ -57,6 +57,11 @@ export interface SpoilerSettings {
 
 export type DataSourceKind = 'vanilla' | 'randomizer-log';
 
+export interface ContentProfile {
+  baseMode: DataSourceKind;
+  enabledModPacks: string[];
+}
+
 export interface ItemDataset {
   id: string;
   kind: DataSourceKind;

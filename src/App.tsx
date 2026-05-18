@@ -1,10 +1,10 @@
 import { useState, useMemo, useEffect, useCallback } from 'react';
-import type { ItemRecord, FilterState, ActiveTab, SpoilerSettings, ParseResult, DataSourceKind, ItemDataset } from './types';
+import type { ItemRecord, FilterState, ActiveTab, SpoilerSettings, ParseResult, ItemDataset, ContentProfile } from './types';
 import type { SpoilerLogCacheEntry } from './electron';
 import type { BuildPreset } from './buildPlanner';
 import { parseSpoilerLog } from './parser';
 import { makeRecordKey } from './recordKey';
-import { buildVanillaDataset, buildRandomizerDataset, originalItemLabel, locationColumnLabel, missingItemText, plannerNote, SOURCE_IDS } from './dataSources';
+import { buildVanillaDataset, buildRandomizerDataset, originalItemLabel, locationColumnLabel, missingItemText, plannerNote, DEFAULT_CONTENT_PROFILE, sourceIdForProfile } from './dataSources';
 import {
   spoilerSettingsKey,
   favoritesKey,
@@ -12,12 +12,10 @@ import {
   userBuildsKey,
   buildFavoritesKey,
   browserCacheKey,
-  activeSourceKey,
+  contentProfileKey,
   loadStoredKeySet,
   loadStoredJSON,
 } from './storageKeys';
-import { SourceSelector } from './components/SourceSelector';
-import { UploadPanel } from './components/UploadPanel';
 import { Filters } from './components/Filters';
 import { SearchTable } from './components/SearchTable';
 import { DiagnosticsPanel } from './components/DiagnosticsPanel';
@@ -49,8 +47,8 @@ const DEFAULT_SPOILER_SETTINGS: SpoilerSettings = {
 };
 
 export default function App() {
-  const [activeSource, setActiveSource] = useState<DataSourceKind>(() =>
-    loadStoredJSON<DataSourceKind>(activeSourceKey(), 'vanilla')
+  const [contentProfile, setContentProfile] = useState<ContentProfile>(() =>
+    loadStoredJSON<ContentProfile>(contentProfileKey(), DEFAULT_CONTENT_PROFILE)
   );
 
   const [randomizerResult, setRandomizerResult] = useState<ParseResult | null>(null);
@@ -63,7 +61,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('all');
   const [selectedBuildId, setSelectedBuildId] = useState('all-knowing-sage');
 
-  const sourceId = activeSource === 'vanilla' ? SOURCE_IDS.vanilla : SOURCE_IDS.randomizer;
+  const sourceId = sourceIdForProfile(contentProfile);
 
   const [favoriteKeys, setFavoriteKeys] = useState<Set<string>>(() => loadStoredKeySet(favoritesKey(sourceId)));
   const [acquiredKeys, setAcquiredKeys] = useState<Set<string>>(() => loadStoredKeySet(acquiredKey(sourceId)));
@@ -75,11 +73,23 @@ export default function App() {
     loadStoredJSON<SpoilerSettings>(spoilerSettingsKey(sourceId), DEFAULT_SPOILER_SETTINGS)
   );
 
-  function handleSourceChange(nextSource: DataSourceKind) {
-    setActiveSource(nextSource);
-    localStorage.setItem(activeSourceKey(), JSON.stringify(nextSource));
-    setFilters(DEFAULT_FILTERS);
-    setActiveTab('all');
+  function handleProfileChange(nextProfile: ContentProfile) {
+    const prevMode = contentProfile.baseMode;
+    const nextMode = nextProfile.baseMode;
+    const nextSourceId = sourceIdForProfile(nextProfile);
+    setContentProfile(nextProfile);
+    localStorage.setItem(contentProfileKey(), JSON.stringify(nextProfile));
+    if (prevMode !== nextMode) {
+      setFilters(DEFAULT_FILTERS);
+      if (activeTab === 'diagnostics' && nextMode !== 'randomizer-log') {
+        setActiveTab('all');
+      }
+      setFavoriteKeys(loadStoredKeySet(favoritesKey(nextSourceId)));
+      setAcquiredKeys(loadStoredKeySet(acquiredKey(nextSourceId)));
+      setFavoriteBuildIds(loadStoredKeySet(buildFavoritesKey(nextSourceId)));
+      setUserBuilds(loadStoredJSON<BuildPreset[]>(userBuildsKey(nextSourceId), []));
+      setSpoilerSettings(loadStoredJSON<SpoilerSettings>(spoilerSettingsKey(nextSourceId), DEFAULT_SPOILER_SETTINGS));
+    }
   }
 
   function updateSpoilerSettings(next: SpoilerSettings) {
@@ -193,7 +203,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (activeSource !== 'randomizer-log' || restoredCache) return;
+    if (contentProfile.baseMode !== 'randomizer-log' || restoredCache) return;
     let cancelled = false;
 
     async function restoreCachedLog() {
@@ -227,17 +237,17 @@ export default function App() {
 
     restoreCachedLog();
     return () => { cancelled = true; };
-  }, [activeSource, restoredCache, sourceId]);
+  }, [contentProfile.baseMode, restoredCache, sourceId]);
 
   const activeDataset: ItemDataset | null = useMemo(() => {
-    if (activeSource === 'vanilla') {
+    if (contentProfile.baseMode === 'vanilla') {
       return buildVanillaDataset();
     }
     if (randomizerResult) {
       return buildRandomizerDataset(randomizerResult, randomizerFilename, randomizerCacheEntry);
     }
     return null;
-  }, [activeSource, randomizerResult, randomizerFilename, randomizerCacheEntry]);
+  }, [contentProfile.baseMode, randomizerResult, randomizerFilename, randomizerCacheEntry]);
 
   const records = activeDataset?.records ?? [];
 
@@ -258,13 +268,13 @@ export default function App() {
   const activeRecords = activeTab === 'favorites' ? favorites : visible;
 
   const exportFilename = useMemo(() => {
-    const base = activeSource === 'vanilla'
+    const base = contentProfile.baseMode === 'vanilla'
       ? 'elden-ring-vanilla-items'
       : randomizerFilename
         ? randomizerFilename.replace(/\.[^.]+$/, '')
         : 'elden-ring-randomizer-items';
     return activeTab === 'favorites' ? `${base}-favorites` : base;
-  }, [activeSource, randomizerFilename, activeTab]);
+  }, [contentProfile.baseMode, randomizerFilename, activeTab]);
 
   const datasetKind = activeDataset?.kind ?? 'vanilla';
 
@@ -272,176 +282,170 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <h1>Elden Ring Index and Build Planner</h1>
-        <div className="header-controls">
-          <SourceSelector activeSource={activeSource} onChange={handleSourceChange} />
-          {activeSource === 'randomizer-log' && randomizerResult && (
-            <button className="reset-btn" onClick={handleRandomizerReset}>
-              Load new log
-            </button>
-          )}
-        </div>
       </header>
 
-      {activeSource === 'randomizer-log' && !randomizerResult ? (
-        <div className="landing">
-          <UploadPanel onFile={handleFile} />
-          <p className="landing-hint">
-            Generate a spoiler log in the Elden Ring Randomizer, then load it here to search
-            item placements and plan build pickups. All processing happens locally.
-          </p>
-          {randomizerCacheMessage && <p className="cache-message">{randomizerCacheMessage}</p>}
-        </div>
-      ) : (
-        <main className="main-layout">
-          <div className="tabs-bar" role="tablist" aria-label="Record views">
-            <div className="primary-tabs">
-              <button
-                className={`tab-btn${activeTab === 'all' ? ' active' : ''}`}
-                role="tab"
-                aria-selected={activeTab === 'all'}
-                onClick={() => setActiveTab('all')}
-              >
-                Search
-              </button>
-              <button
-                className={`tab-btn${activeTab === 'favorites' ? ' active' : ''}`}
-                role="tab"
-                aria-selected={activeTab === 'favorites'}
-                onClick={() => setActiveTab('favorites')}
-              >
-                Favorites ({favorites.length})
-              </button>
-              <button
-                className={`tab-btn${activeTab === 'builds' ? ' active' : ''}`}
-                role="tab"
-                aria-selected={activeTab === 'builds'}
-                onClick={() => setActiveTab('builds')}
-              >
-                Builds
-              </button>
-              <button
-                className={`tab-btn${activeTab === 'browse' ? ' active' : ''}`}
-                role="tab"
-                aria-selected={activeTab === 'browse'}
-                onClick={() => setActiveTab('browse')}
-              >
-                Browse
-              </button>
-            </div>
-            <div className="utility-tabs">
-              {activeSource === 'randomizer-log' && randomizerResult && (
-                <button
-                  className={`tab-btn diagnostics-tab${activeTab === 'diagnostics' ? ' active' : ''}`}
-                  role="tab"
-                  aria-selected={activeTab === 'diagnostics'}
-                  onClick={() => setActiveTab('diagnostics')}
-                >
-                  Diagnostics
-                </button>
-              )}
-              <button
-                className={`tab-btn diagnostics-tab${activeTab === 'guide' ? ' active' : ''}`}
-                role="tab"
-                aria-selected={activeTab === 'guide'}
-                onClick={() => setActiveTab('guide')}
-              >
-                Guide
-              </button>
-              <button
-                className={`tab-btn diagnostics-tab${activeTab === 'settings' ? ' active' : ''}`}
-                role="tab"
-                aria-selected={activeTab === 'settings'}
-                onClick={() => setActiveTab('settings')}
-              >
-                Settings
-              </button>
-            </div>
+      <main className="main-layout">
+        <div className="tabs-bar" role="tablist" aria-label="Record views">
+          <div className="primary-tabs">
+            <button
+              className={`tab-btn${activeTab === 'all' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'all'}
+              onClick={() => setActiveTab('all')}
+            >
+              Search
+            </button>
+            <button
+              className={`tab-btn${activeTab === 'favorites' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'favorites'}
+              onClick={() => setActiveTab('favorites')}
+            >
+              Favorites ({favorites.length})
+            </button>
+            <button
+              className={`tab-btn${activeTab === 'builds' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'builds'}
+              onClick={() => setActiveTab('builds')}
+            >
+              Builds
+            </button>
+            <button
+              className={`tab-btn${activeTab === 'browse' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'browse'}
+              onClick={() => setActiveTab('browse')}
+            >
+              Browse
+            </button>
           </div>
-          {activeTab === 'diagnostics' && activeSource === 'randomizer-log' && randomizerResult ? (
-            <DiagnosticsPanel
-              diagnostics={randomizerResult.diagnostics}
-              seed={randomizerResult.seed}
-              filename={randomizerFilename}
-              cacheEntry={randomizerCacheEntry}
-              cacheMessage={randomizerCacheMessage}
-              onOpenCacheFolder={window.electronAPI?.openSpoilerLogCacheDir ? openCacheFolder : undefined}
-            />
-          ) : activeTab === 'guide' ? (
-            <GuidePanel sourceKind={datasetKind} />
-          ) : activeTab === 'settings' ? (
-            <SettingsPanel settings={spoilerSettings} onChange={updateSpoilerSettings} />
-          ) : activeTab === 'builds' ? (
-            <BuildPlannerPanel
-              records={records}
-              selectedBuildId={selectedBuildId}
-              onSelectedBuildIdChange={setSelectedBuildId}
+          <div className="utility-tabs">
+            {contentProfile.baseMode === 'randomizer-log' && randomizerResult && (
+              <button
+                className={`tab-btn diagnostics-tab${activeTab === 'diagnostics' ? ' active' : ''}`}
+                role="tab"
+                aria-selected={activeTab === 'diagnostics'}
+                onClick={() => setActiveTab('diagnostics')}
+              >
+                Diagnostics
+              </button>
+            )}
+            <button
+              className={`tab-btn diagnostics-tab${activeTab === 'guide' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'guide'}
+              onClick={() => setActiveTab('guide')}
+            >
+              Guide
+            </button>
+            <button
+              className={`tab-btn diagnostics-tab${activeTab === 'settings' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'settings'}
+              onClick={() => setActiveTab('settings')}
+            >
+              Settings
+            </button>
+          </div>
+        </div>
+        {activeTab === 'diagnostics' && contentProfile.baseMode === 'randomizer-log' && randomizerResult ? (
+          <DiagnosticsPanel
+            diagnostics={randomizerResult.diagnostics}
+            seed={randomizerResult.seed}
+            filename={randomizerFilename}
+            cacheEntry={randomizerCacheEntry}
+            cacheMessage={randomizerCacheMessage}
+            onOpenCacheFolder={window.electronAPI?.openSpoilerLogCacheDir ? openCacheFolder : undefined}
+          />
+        ) : activeTab === 'guide' ? (
+          <GuidePanel sourceKind={datasetKind} />
+        ) : activeTab === 'settings' ? (
+          <SettingsPanel
+            contentProfile={contentProfile}
+            onProfileChange={handleProfileChange}
+            spoilerSettings={spoilerSettings}
+            onSpoilerSettingsChange={updateSpoilerSettings}
+            randomizerLoaded={!!randomizerResult}
+            randomizerFilename={randomizerFilename}
+            randomizerCacheMessage={randomizerCacheMessage}
+            onLoadFile={handleFile}
+            onResetRandomizer={handleRandomizerReset}
+            onOpenCacheFolder={window.electronAPI?.openSpoilerLogCacheDir ? openCacheFolder : undefined}
+          />
+        ) : activeTab === 'builds' ? (
+          <BuildPlannerPanel
+            records={records}
+            selectedBuildId={selectedBuildId}
+            onSelectedBuildIdChange={setSelectedBuildId}
+            favoriteKeys={favoriteKeys}
+            acquiredKeys={acquiredKeys}
+            onToggleFavorite={toggleFavorite}
+            onToggleAcquired={toggleAcquired}
+            favoriteBuildIds={favoriteBuildIds}
+            onToggleBuildFavorite={toggleBuildFavorite}
+            userBuilds={userBuilds}
+            spoilerSettings={spoilerSettings}
+            datasetKind={datasetKind}
+            locationColumnLabel={locationColumnLabel(datasetKind)}
+            missingItemText={missingItemText(datasetKind)}
+            plannerNote={plannerNote(datasetKind)}
+            onSaveBuild={(build) => {
+              const existing = userBuilds.findIndex((b) => b.id === build.id);
+              const next = existing >= 0
+                ? userBuilds.map((b, i) => i === existing ? build : b)
+                : [...userBuilds, build];
+              persistUserBuilds(next);
+            }}
+            onDeleteBuild={(id) => persistUserBuilds(userBuilds.filter((b) => b.id !== id))}
+          />
+        ) : activeTab === 'browse' ? (
+          <ItemBrowser
+            records={records}
+            favoriteKeys={favoriteKeys}
+            acquiredKeys={acquiredKeys}
+            onToggleFavorite={toggleFavorite}
+            onToggleAcquired={toggleAcquired}
+            sourceKind={datasetKind}
+          />
+        ) : (
+          <>
+            <div className="toolbar">
+              {activeTab === 'all' ? (
+                <Filters
+                  filters={filters}
+                  onChange={setFilters}
+                  totalVisible={visible.length}
+                  totalRecords={records.length}
+                  spoilerMode={spoilerSettings.spoilerMode}
+                />
+              ) : (
+                <div className="favorites-summary">
+                  Saved favorites from the current item source. Acquired: {acquiredFavoritesCount} / {favorites.length}
+                </div>
+              )}
+              <ExportButtons records={activeRecords} filename={exportFilename} />
+            </div>
+            <SearchTable
+              records={activeRecords}
               favoriteKeys={favoriteKeys}
               acquiredKeys={acquiredKeys}
               onToggleFavorite={toggleFavorite}
               onToggleAcquired={toggleAcquired}
-              favoriteBuildIds={favoriteBuildIds}
-              onToggleBuildFavorite={toggleBuildFavorite}
-              userBuilds={userBuilds}
+              showAcquiredColumn={activeTab === 'favorites'}
               spoilerSettings={spoilerSettings}
-              datasetKind={datasetKind}
-              locationColumnLabel={locationColumnLabel(datasetKind)}
-              missingItemText={missingItemText(datasetKind)}
-              plannerNote={plannerNote(datasetKind)}
-              onSaveBuild={(build) => {
-                const existing = userBuilds.findIndex((b) => b.id === build.id);
-                const next = existing >= 0
-                  ? userBuilds.map((b, i) => i === existing ? build : b)
-                  : [...userBuilds, build];
-                persistUserBuilds(next);
-              }}
-              onDeleteBuild={(id) => persistUserBuilds(userBuilds.filter((b) => b.id !== id))}
-            />
-          ) : activeTab === 'browse' ? (
-            <ItemBrowser
-              records={records}
-              favoriteKeys={favoriteKeys}
-              acquiredKeys={acquiredKeys}
-              onToggleFavorite={toggleFavorite}
-              onToggleAcquired={toggleAcquired}
-              sourceKind={datasetKind}
-            />
-          ) : (
-            <>
-              <div className="toolbar">
-                {activeTab === 'all' ? (
-                  <Filters
-                    filters={filters}
-                    onChange={setFilters}
-                    totalVisible={visible.length}
-                    totalRecords={records.length}
-                    spoilerMode={spoilerSettings.spoilerMode}
-                  />
-                ) : (
-                  <div className="favorites-summary">
-                    Saved favorites from the current item source. Acquired: {acquiredFavoritesCount} / {favorites.length}
-                  </div>
-                )}
-                <ExportButtons records={activeRecords} filename={exportFilename} />
-              </div>
-              <SearchTable
-                records={activeRecords}
-                favoriteKeys={favoriteKeys}
-                acquiredKeys={acquiredKeys}
-                onToggleFavorite={toggleFavorite}
-                onToggleAcquired={toggleAcquired}
-                showAcquiredColumn={activeTab === 'favorites'}
-                spoilerSettings={spoilerSettings}
-                emptyMessage={
-                  activeTab === 'favorites'
-                    ? 'No favorites yet. Use the star column in Search to save items here.'
+              emptyMessage={
+                activeTab === 'favorites'
+                  ? 'No favorites yet. Use the star column in Search to save items here.'
+                  : contentProfile.baseMode === 'randomizer-log' && !randomizerResult
+                    ? 'No spoiler log loaded. Open the Settings tab to load one.'
                     : 'No records match the current filters.'
-                }
-                originalItemLabel={originalItemLabel(datasetKind)}
-              />
-            </>
-          )}
-        </main>
-      )}
+              }
+              originalItemLabel={originalItemLabel(datasetKind)}
+            />
+          </>
+        )}
+      </main>
     </div>
   );
 }

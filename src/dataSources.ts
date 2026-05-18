@@ -1,4 +1,4 @@
-import type { ItemDataset, DataSourceKind, SourceMeta, ParseResult } from './types';
+import type { ItemDataset, DataSourceKind, SourceMeta, ParseResult, ContentProfile } from './types';
 import { VANILLA_ITEMS } from './vanillaData';
 
 export const SOURCE_IDS = {
@@ -99,4 +99,13 @@ export function itemSourceDescription(kind: DataSourceKind): string {
     case 'randomizer-log':
       return 'loaded spoiler log';
   }
+}
+
+export const DEFAULT_CONTENT_PROFILE: ContentProfile = {
+  baseMode: 'vanilla',
+  enabledModPacks: [],
+};
+
+export function sourceIdForProfile(profile: ContentProfile): string {
+  return profile.baseMode === 'vanilla' ? SOURCE_IDS.vanilla : SOURCE_IDS.randomizer;
 }

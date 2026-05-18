@@ -12,6 +12,7 @@ const KEYS = {
   buildFavorites: 'build-favorites',
   browserCache: 'last-log',
   activeSource: 'active-source',
+  contentProfile: 'content-profile',
 } as const;
 
 export function spoilerSettingsKey(sourceId: string): string {
@@ -40,6 +41,10 @@ export function browserCacheKey(sourceId: string): string {
 
 export function activeSourceKey(): string {
   return storageKey('app', KEYS.activeSource);
+}
+
+export function contentProfileKey(): string {
+  return storageKey('app', KEYS.contentProfile);
 }
 
 export function loadStoredKeySet(storageKey: string): Set<string> {

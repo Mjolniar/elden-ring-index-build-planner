@@ -239,7 +239,7 @@ export function CustomBuildEditor({ onSave, onCancel, editingBuild }: Props) {
         </button>
         <button className="toggle-btn" onClick={onCancel}>Cancel</button>
         <span className="editor-hint">
-          Saved builds appear in the build list and are matched against the loaded spoiler log.
+          Saved builds appear in the build list and are matched against the active item source.
         </span>
       </div>
     </div>

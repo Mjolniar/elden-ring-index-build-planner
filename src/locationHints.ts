@@ -30,6 +30,56 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
     medium: 'Boss drop in Groveside Cave, Limgrave.',
     hard: 'Dropped by a dungeon boss in the early game.',
   },
+  'Grafted Scion': {
+    easy: 'Boss drop. Found at the Chapel of Anticipation, the isolated cliffside chapel reached at the very start of the game — accessible later via the Four Belfries in western Liurnia.',
+    medium: 'Boss drop in the Chapel of Anticipation, an isolated area off the coast of Limgrave.',
+    hard: 'Dropped by a tutorial boss in the early game.',
+  },
+  'Flying Dragon Agheel': {
+    easy: 'Boss drop. Agheel descends on the shallow lake in central Limgrave, just east of the Gatefront Ruins along the main road from the First Step.',
+    medium: 'Boss drop in the lake of central Limgrave.',
+    hard: 'Dropped by a field boss in the early game.',
+  },
+  'Tree Sentinel': {
+    easy: 'Boss drop. The Tree Sentinel patrols the road directly outside the First Step, at the entrance to Limgrave — ride south from the Church of Elleh.',
+    medium: 'Boss drop in western Limgrave, along the main approach road.',
+    hard: 'Dropped by a field boss in the early game.',
+  },
+  'Bloodhound Knight Darriwil': {
+    easy: 'Boss drop. Imprisoned within the Forlorn Hound Evergaol in southern Limgrave, just south of the Agheel Lake South site of grace.',
+    medium: 'Boss drop in the Forlorn Hound Evergaol, Limgrave.',
+    hard: 'Dropped by an evergaol boss in the early game.',
+  },
+  'Pumpkin Head': {
+    easy: 'Boss drop. Found in the basement of the Waypoint Ruins in central-eastern Limgrave, a small ruin complex east of Agheel Lake.',
+    medium: 'Boss drop in the Waypoint Ruins, Limgrave.',
+    hard: 'Dropped by a dungeon boss in the early game.',
+  },
+  'Mad Pumpkin Head (Caelem Ruins)': {
+    easy: 'Boss drop. Trapped in the sealed cellar of Caelem Ruins, a small crumbling ruin just south of the Saintsbridge in eastern Limgrave.',
+    medium: 'Boss drop in Caelem Ruins, Limgrave.',
+    hard: 'Dropped by a dungeon boss in the early game.',
+  },
+  'Tibia Mariner (Summonwater Village)': {
+    easy: 'Boss drop. Paddles through the flooded ruins of Summonwater Village in eastern Limgrave, just north of the main road toward Caelid.',
+    medium: 'Boss drop in Summonwater Village, Limgrave.',
+    hard: 'Dropped by a field boss in the early game.',
+  },
+  'Deathbird (Limgrave)': {
+    easy: 'Boss drop. Appears at night near the ruins just east of the Warmaster\'s Shack in Stormhill, Limgrave.',
+    medium: 'Boss drop at night in Stormhill, Limgrave.',
+    hard: 'Dropped by a night-time field boss in the early game.',
+  },
+  'Black Knife Assassin (Deathtouched Catacombs)': {
+    easy: 'Boss drop. Lurks at the end of the Deathtouched Catacombs in western Stormhill, Limgrave — the entrance is built into the cliffs west of the Warmaster\'s Shack.',
+    medium: 'Boss drop in the Deathtouched Catacombs, Limgrave.',
+    hard: 'Dropped by a catacomb boss in the early game.',
+  },
+  'Crucible Knight (Stormhill Evergaol)': {
+    easy: 'Boss drop. Imprisoned in the Stormhill Evergaol, located on the high cliffs of Stormhill in western Limgrave, near the path toward Stormveil Castle.',
+    medium: 'Boss drop in the Stormhill Evergaol, Limgrave.',
+    hard: 'Dropped by an evergaol boss in the early game.',
+  },
   'Demi-Human Chiefs (Coastal Cave)': {
     easy: 'Boss drop. A pair of demi-human chiefs found in the Coastal Cave on the western shore of Limgrave — enter the cave from the beach west of the Church of Elleh.',
     medium: 'Boss drop in Coastal Cave, western Limgrave.',
@@ -79,6 +129,26 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
     easy: 'Boss drop. Found in the Morne Tunnel on the western shore of the Weeping Peninsula, a mining tunnel cut into the seaside cliff.',
     medium: 'Boss drop in the Morne Tunnel, Weeping Peninsula.',
     hard: 'Dropped by a dungeon boss in the early game.',
+  },
+  'Crucible Knight (Morne Tunnel)': {
+    easy: 'Boss drop. Found at the end of Morne Tunnel, a mining passage in the southern cliffs of the Weeping Peninsula.',
+    medium: 'Boss drop in Morne Tunnel, Weeping Peninsula.',
+    hard: 'Dropped by a dungeon boss in the early game.',
+  },
+  'Demi-Human Chief': {
+    easy: 'Boss drop. Found in the Demi-Human Forest Ruins in the Weeping Peninsula, a small woodland ruin west of the main road south.',
+    medium: 'Boss drop in the Demi-Human Forest Ruins, Weeping Peninsula.',
+    hard: 'Dropped by a dungeon boss in the early game.',
+  },
+  'Ancient Hero of Zamor (Weeping Peninsula)': {
+    easy: 'Boss drop. Found at the end of the Weeping Evergaol on the eastern side of the Weeping Peninsula, atop a rise overlooking the water.',
+    medium: 'Boss drop in the Weeping Evergaol, Weeping Peninsula.',
+    hard: 'Dropped by an evergaol boss in the early game.',
+  },
+  'Tibia Mariner (Weeping Peninsula)': {
+    easy: 'Boss drop. Wanders among the sunken graves east of the Minor Erdtree in the Weeping Peninsula, in a shallow marshland hollow.',
+    medium: 'Boss drop in the cemetery east of the Minor Erdtree, Weeping Peninsula.',
+    hard: 'Dropped by a field boss in the early game.',
   },
   'Erdtree Burial Watchdog (Cliffbottom Catacombs)': {
     easy: 'Boss drop. Found in the Cliffbottom Catacombs on the eastern cliffs of Liurnia, overlooking the lake.',
@@ -154,6 +224,46 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
     easy: 'Boss drop. Imprisoned in the Malefactor\'s Evergaol on the southern cliffs of Liurnia, overlooking the lake.',
     medium: 'Boss drop in the Malefactor\'s Evergaol, southern Liurnia.',
     hard: 'Dropped by an evergaol boss in the mid game.',
+  },
+  'Dragonkin Soldier of Nokstella': {
+    easy: 'Boss drop. Found deep in the Ainsel River underground region, in a vast watery cavern chamber near the Nokstella Waterfall Basin — accessible via the Ainsel River Well in eastern Liurnia.',
+    medium: 'Boss drop in the Ainsel River underground region beneath Liurnia.',
+    hard: 'Dropped by a boss in an underground river in the mid game.',
+  },
+  'Black Knife Assassin (Raya Lucaria)': {
+    easy: 'Boss drop. Hides on the rooftops of the Academy of Raya Lucaria in central Liurnia — drop down from the main academy halls onto the lower roofs to find this assassin.',
+    medium: 'Boss drop on the rooftops of the Academy of Raya Lucaria, Liurnia.',
+    hard: 'Dropped by a hidden boss in the mid game.',
+  },
+  'Ancient Hero of Zamor (Ruin-Strewn Precipice)': {
+    easy: 'Boss drop. At the very top of the Ruin-Strewn Precipice, the treacherous mountain path connecting eastern Liurnia to the Altus Plateau — follow the winding ascent past harpies and bats.',
+    medium: 'Boss drop at the Ruin-Strewn Precipice summit between Liurnia and Altus Plateau.',
+    hard: 'Dropped by a dungeon boss in the mid game.',
+  },
+  'Bloodhound Knight (Ruin-Strewn Precipice)': {
+    easy: 'Boss drop. Found partway up the Ruin-Strewn Precipice in eastern Liurnia, a secondary boss in the winding cliffside path to Altus.',
+    medium: 'Boss drop on the Ruin-Strewn Precipice, Liurnia.',
+    hard: 'Dropped by a dungeon boss in the mid game.',
+  },
+  'Crystalians (Raya Lucaria Crystal Tunnel)': {
+    easy: 'Boss drop. A trio of crystal beings at the end of the Raya Lucaria Crystal Tunnel in eastern Liurnia, a mining cave entrance just northeast of the Academy on the lakeshore.',
+    medium: 'Boss drop in the Raya Lucaria Crystal Tunnel, Liurnia.',
+    hard: 'Dropped by crystal beings in the mid game.',
+  },
+  'Full-Grown Fallingstar Beast (Liurnia)': {
+    easy: 'Boss drop. Perches atop the crater on the summit of Mt. Gelmir overlooking Liurnia, reachable by climbing the slopes from the Ninth Mt. Gelmir Campsite.',
+    medium: 'Boss drop at the summit crater of Mt. Gelmir.',
+    hard: 'Dropped by a fallingstar beast in the mid game.',
+  },
+  'Fell Twins (Unsightly Catacombs)': {
+    easy: 'Boss drop. Encountered in the Unsightly Catacombs in southwestern Liurnia — a second boss encounter deeper within the same crypt.',
+    medium: 'Boss drop in the Unsightly Catacombs, Liurnia.',
+    hard: 'Dropped by a pair of phantom warriors in the mid game.',
+  },
+  'Perfumer Tricia (Unsightly Catacombs)': {
+    easy: 'Boss drop. Found in the Unsightly Catacombs in southwestern Liurnia, a hidden underground crypt entered from a rocky hillside near the Purified Ruins.',
+    medium: 'Boss drop in the Unsightly Catacombs, Liurnia.',
+    hard: 'Dropped by a dungeon boss in the mid game.',
   },
   'Bols Carian Knight (Cuckoo\'s Evergaol)': {
     easy: 'Boss drop. Imprisoned in Cuckoo\'s Evergaol north of the Academy of Raya Lucaria in central Liurnia.',
@@ -238,6 +348,11 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
   'Beastman of Farum Azula (Sellia Crystal Tunnel)': {
     easy: 'Boss drop. At the end of the Sellia Crystal Tunnel in eastern Caelid, a mine entrance hidden on a lower cliff ledge near Sellia, reachable by descending carefully.',
     medium: 'Boss drop in the Sellia Crystal Tunnel, Caelid.',
+    hard: 'Dropped by a dungeon boss in the mid game.',
+  },
+  'Beastman of Farum Azula (Dragonbarrow Cave)': {
+    easy: 'Boss drop. Found in the Dragonbarrow Cave deep in the northernmost reaches of Caelid\'s Dragonbarrow, hidden among the cliffs east of the Minor Erdtree.',
+    medium: 'Boss drop in Dragonbarrow Cave, Dragonbarrow in Caelid.',
     hard: 'Dropped by a dungeon boss in the mid game.',
   },
   'Crystalians (Sellia Crystal Tunnel)': {
@@ -449,6 +564,11 @@ export const BOSS_HINTS: Record<string, EntityHints> = {
     easy: 'Boss drop. Appears at night near the frozen river in the eastern Mountaintops, just west of the main road to the Fire Giant.',
     medium: 'Boss drop at night in the eastern Mountaintops of the Giants.',
     hard: 'Dropped by a death rite bird in the late game.',
+  },
+  'Kindred of Rot (Yelough Anix Tunnel)': {
+    easy: 'Boss drop. In the depths of the Yelough Anix Tunnel in the far western Consecrated Snowfield, a mining tunnel among the frozen highlands beyond the Mountaintops.',
+    medium: 'Boss drop in the Yelough Anix Tunnel, Consecrated Snowfield.',
+    hard: 'Dropped by a dungeon boss in the late game.',
   },
   'Vyke Knight of the Roundtable': {
     easy: 'Boss drop. Imprisoned in the Lord Contender\'s Evergaol on the plateau of the northern Mountaintops, reachable by taking the Spirit Spring up from the frozen river.',
@@ -1224,12 +1344,16 @@ function fuzzyAreaLookup<T>(
 export function generateHint(rec: ItemRecord, difficulty: HintDifficulty): string {
   const bossMatch = rec.locationName.match(/^[Dd]ropped by (.+)$/);
   if (bossMatch) {
-    const hints = BOSS_HINTS[bossMatch[1]];
+    const bossName = bossMatch[1];
+    const areaKey = rec.area ? `${bossName} (${rec.area})` : null;
+    const hints = (areaKey ? BOSS_HINTS[areaKey] : undefined) ?? BOSS_HINTS[bossName];
     if (hints) return hints[difficulty];
   }
   const shopMatch = rec.locationName.match(/^[Ss]old by (.+)$/);
   if (shopMatch) {
-    const hints = MERCHANT_HINTS[shopMatch[1]];
+    const merchantName = shopMatch[1];
+    const areaKey = rec.area ? `${merchantName} (${rec.area})` : null;
+    const hints = (areaKey ? MERCHANT_HINTS[areaKey] : undefined) ?? MERCHANT_HINTS[merchantName];
     if (hints) return hints[difficulty];
   }
   return fallbackHint(rec, difficulty);

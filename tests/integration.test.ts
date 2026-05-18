@@ -1,7 +1,18 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { buildVanillaDataset, buildRandomizerDataset, originalItemLabel, locationColumnLabel, missingItemText, plannerNote, itemSourceDescription, SOURCE_IDS } from '../src/dataSources';
-import { storageKey, favoritesKey, acquiredKey, spoilerSettingsKey, userBuildsKey, buildFavoritesKey, browserCacheKey, activeSourceKey } from '../src/storageKeys';
-import type { ParseResult } from '../src/types';
+import { buildVanillaDataset, buildRandomizerDataset, originalItemLabel, locationColumnLabel, missingItemText, plannerNote, itemSourceDescription, SOURCE_IDS, DEFAULT_CONTENT_PROFILE, sourceIdForProfile } from '../src/dataSources';
+import { storageKey, favoritesKey, acquiredKey, spoilerSettingsKey, userBuildsKey, buildFavoritesKey, browserCacheKey, activeSourceKey, contentProfileKey } from '../src/storageKeys';
+import { generateHint } from '../src/locationHints';
+import type { ParseResult, ItemRecord } from '../src/types';
+
+function makeRecord(overrides: Partial<ItemRecord> = {}): ItemRecord {
+  return {
+    id: 'test-1', itemName: 'Test Item', originalItem: null,
+    locationName: 'Ground pickup', area: null,
+    sourceType: 'ground_pickup', isKeyItem: false,
+    rawLine: '', section: 'test',
+    ...overrides,
+  };
+}
 
 describe('dataSources', () => {
   describe('buildVanillaDataset', () => {
@@ -126,5 +137,130 @@ describe('storageKeys', () => {
     expect(key).toContain('active-source');
     expect(key).not.toContain('vanilla');
     expect(key).not.toContain('randomizer-log');
+  });
+});
+
+describe('ContentProfile helpers', () => {
+  it('DEFAULT_CONTENT_PROFILE has vanilla baseMode and no mod packs', () => {
+    expect(DEFAULT_CONTENT_PROFILE.baseMode).toBe('vanilla');
+    expect(DEFAULT_CONTENT_PROFILE.enabledModPacks).toEqual([]);
+  });
+
+  it('sourceIdForProfile returns vanilla source id for vanilla mode', () => {
+    expect(sourceIdForProfile(DEFAULT_CONTENT_PROFILE)).toBe(SOURCE_IDS.vanilla);
+  });
+
+  it('sourceIdForProfile returns randomizer source id for randomizer-log mode', () => {
+    expect(sourceIdForProfile({ baseMode: 'randomizer-log', enabledModPacks: [] })).toBe(SOURCE_IDS.randomizer);
+  });
+
+  it('contentProfileKey is app-level and not source-scoped', () => {
+    const key = contentProfileKey();
+    expect(key).toContain('content-profile');
+    expect(key).not.toContain('vanilla');
+    expect(key).not.toContain('randomizer-log');
+  });
+
+  it('contentProfileKey and activeSourceKey produce distinct keys', () => {
+    expect(contentProfileKey()).not.toBe(activeSourceKey());
+  });
+});
+
+describe('generateHint', () => {
+  describe('area-qualified BOSS_HINTS lookup', () => {
+    it('resolves qualified key when area matches a known boss location', () => {
+      const rec = makeRecord({
+        locationName: 'Dropped by Margit the Fell Omen',
+        area: 'Stormveil Castle',
+        sourceType: 'boss_drop',
+      });
+      const hint = generateHint(rec, 'easy');
+      expect(hint).toContain('Stormveil');
+    });
+
+    it('falls back to unqualified key when area does not match any qualified entry', () => {
+      const rec = makeRecord({
+        locationName: 'Dropped by Margit the Fell Omen',
+        area: null,
+        sourceType: 'boss_drop',
+      });
+      const hint = generateHint(rec, 'medium');
+      expect(hint).toContain('Stormveil');
+    });
+
+    it('resolves newly-added Tree Sentinel hint via unqualified key', () => {
+      const rec = makeRecord({
+        locationName: 'Dropped by Tree Sentinel',
+        area: null,
+        sourceType: 'boss_drop',
+      });
+      const hint = generateHint(rec, 'easy');
+      expect(hint).toContain('Limgrave');
+    });
+
+    it('resolves Grafted Scion hint', () => {
+      const rec = makeRecord({
+        locationName: 'Dropped by Grafted Scion',
+        area: null,
+        sourceType: 'boss_drop',
+      });
+      const hint = generateHint(rec, 'easy');
+      expect(hint).toContain('Chapel of Anticipation');
+    });
+
+    it('resolves area-qualified Deathbird hint when area is Weeping Peninsula', () => {
+      const rec = makeRecord({
+        locationName: 'Dropped by Deathbird',
+        area: 'Weeping Peninsula',
+        sourceType: 'boss_drop',
+      });
+      const hint = generateHint(rec, 'easy');
+      expect(hint).toContain('Weeping Peninsula');
+    });
+
+    it('resolves area-qualified Deathbird hint when area is Limgrave', () => {
+      const rec = makeRecord({
+        locationName: 'Dropped by Deathbird',
+        area: 'Limgrave',
+        sourceType: 'boss_drop',
+      });
+      const hint = generateHint(rec, 'easy');
+      expect(hint).toContain('Limgrave');
+    });
+  });
+
+  describe('area-qualified MERCHANT_HINTS lookup', () => {
+    it('resolves Patches hint by unqualified key', () => {
+      const rec = makeRecord({
+        locationName: 'Sold by Patches',
+        area: null,
+        sourceType: 'shop',
+      });
+      const hint = generateHint(rec, 'easy');
+      expect(hint).not.toBe('');
+      expect(hint).toContain('Patches');
+    });
+  });
+
+  describe('fallback hints', () => {
+    it('returns a non-empty fallback for unknown boss', () => {
+      const rec = makeRecord({
+        locationName: 'Dropped by Unknown Boss',
+        area: 'Limgrave',
+        sourceType: 'boss_drop',
+      });
+      const hint = generateHint(rec, 'hard');
+      expect(hint.length).toBeGreaterThan(0);
+    });
+
+    it('includes area in easy fallback hint', () => {
+      const rec = makeRecord({
+        locationName: 'Ground pickup in a field',
+        area: 'Caelid',
+        sourceType: 'ground_pickup',
+      });
+      const hint = generateHint(rec, 'easy');
+      expect(hint).toContain('Caelid');
+    });
   });
 });

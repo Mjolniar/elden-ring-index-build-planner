@@ -53,13 +53,15 @@ html, body {
   gap: 10px;
 }
 
-.source-selector {
+.content-mode-toggle {
   display: flex;
   align-items: center;
   gap: 0;
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
+  width: fit-content;
+  margin: 12px 0 10px;
 }
 
 .source-option {
@@ -114,10 +116,7 @@ html, body {
   outline-offset: 2px;
 }
 
-/* ---- Landing ---- */
-.landing { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 16px; padding: 40px 20px; }
-.landing-hint { color: var(--text-dim); font-size: 13px; max-width: 480px; text-align: center; }
-.cache-message { color: var(--accent); font-size: 12px; max-width: 640px; text-align: center; word-break: break-word; }
+.cache-message { color: var(--accent); font-size: 12px; max-width: 640px; word-break: break-word; }
 
 /* ---- Upload panel ---- */
 .upload-panel {
@@ -1183,4 +1182,74 @@ details[open] .diagnostics-title::before { content: '▼'; }
 .hint-difficulty label:has(input:disabled) {
   opacity: 0.5;
   cursor: default;
+}
+
+/* ---- Randomizer log section (inside Settings) ---- */
+.randomizer-log-section {
+  margin-top: 12px;
+}
+
+.log-upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upload-hint-text {
+  color: var(--text-dim);
+  font-size: 13px;
+  max-width: 480px;
+}
+
+.log-status {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.log-loaded-name {
+  font-size: 13px;
+  color: var(--accent);
+  word-break: break-word;
+}
+
+.log-status-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ---- Mod Content section ---- */
+.mod-content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.mod-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: default;
+}
+
+.mod-option.disabled {
+  opacity: 0.45;
+}
+
+.mod-name {
+  flex: 1;
+}
+
+.badge-planned {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: #2a1a2a;
+  color: #c070c0;
+  border: 1px solid #4a2a4a;
+  white-space: nowrap;
 }

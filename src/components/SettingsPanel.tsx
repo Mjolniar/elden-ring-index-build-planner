@@ -1,14 +1,82 @@
-import type { SpoilerSettings } from '../types';
+import type { ContentProfile, SpoilerSettings } from '../types';
+import { UploadPanel } from './UploadPanel';
 
 interface Props {
-  settings: SpoilerSettings;
-  onChange: (s: SpoilerSettings) => void;
+  contentProfile: ContentProfile;
+  onProfileChange: (profile: ContentProfile) => void;
+  spoilerSettings: SpoilerSettings;
+  onSpoilerSettingsChange: (s: SpoilerSettings) => void;
+  randomizerLoaded: boolean;
+  randomizerFilename: string;
+  randomizerCacheMessage: string;
+  onLoadFile: (text: string, filename: string) => void;
+  onResetRandomizer: () => void;
+  onOpenCacheFolder?: () => void;
 }
 
-export function SettingsPanel({ settings, onChange }: Props) {
+export function SettingsPanel({
+  contentProfile,
+  onProfileChange,
+  spoilerSettings,
+  onSpoilerSettingsChange,
+  randomizerLoaded,
+  randomizerFilename,
+  randomizerCacheMessage,
+  onLoadFile,
+  onResetRandomizer,
+  onOpenCacheFolder,
+}: Props) {
   return (
     <div className="settings-panel">
       <h2>Settings</h2>
+
+      <section className="guide-section">
+        <h3>Content Mode</h3>
+        <p>Choose the item source for browsing, searching, and build planning.</p>
+
+        <div className="content-mode-toggle">
+          <button
+            type="button"
+            className={`source-option${contentProfile.baseMode === 'vanilla' ? ' active' : ''}`}
+            onClick={() => onProfileChange({ ...contentProfile, baseMode: 'vanilla' })}
+          >
+            Vanilla
+          </button>
+          <button
+            type="button"
+            className={`source-option${contentProfile.baseMode === 'randomizer-log' ? ' active' : ''}`}
+            onClick={() => onProfileChange({ ...contentProfile, baseMode: 'randomizer-log' })}
+          >
+            Randomizer
+          </button>
+        </div>
+
+        {contentProfile.baseMode === 'randomizer-log' && (
+          <div className="randomizer-log-section">
+            {randomizerLoaded ? (
+              <div className="log-status">
+                <span className="log-loaded-name">Loaded: {randomizerFilename}</span>
+                <div className="log-status-actions">
+                  <button className="toggle-btn" onClick={onResetRandomizer}>Load new log</button>
+                  {onOpenCacheFolder && (
+                    <button className="toggle-btn" onClick={onOpenCacheFolder}>Open cache folder</button>
+                  )}
+                </div>
+                {randomizerCacheMessage && <p className="cache-message">{randomizerCacheMessage}</p>}
+              </div>
+            ) : (
+              <div className="log-upload-section">
+                <UploadPanel onFile={onLoadFile} />
+                <p className="upload-hint-text">
+                  Generate a spoiler log in the Elden Ring Randomizer, then load it here to search
+                  item placements and plan build pickups. All processing happens locally.
+                </p>
+                {randomizerCacheMessage && <p className="cache-message">{randomizerCacheMessage}</p>}
+              </div>
+            )}
+          </div>
+        )}
+      </section>
 
       <section className="guide-section">
         <h3>Spoiler Mode</h3>
@@ -21,19 +89,19 @@ export function SettingsPanel({ settings, onChange }: Props) {
         <label className="settings-master-toggle">
           <input
             type="checkbox"
-            checked={settings.spoilerMode}
-            onChange={(e) => onChange({ ...settings, spoilerMode: e.target.checked })}
+            checked={spoilerSettings.spoilerMode}
+            onChange={(e) => onSpoilerSettingsChange({ ...spoilerSettings, spoilerMode: e.target.checked })}
           />
           <strong>Enable spoiler mode</strong>
         </label>
 
-        <div className={`settings-sub-options${settings.spoilerMode ? '' : ' disabled'}`}>
+        <div className={`settings-sub-options${spoilerSettings.spoilerMode ? '' : ' disabled'}`}>
           <label>
             <input
               type="checkbox"
-              checked={settings.showArea}
-              onChange={(e) => onChange({ ...settings, showArea: e.target.checked })}
-              disabled={!settings.spoilerMode}
+              checked={spoilerSettings.showArea}
+              onChange={(e) => onSpoilerSettingsChange({ ...spoilerSettings, showArea: e.target.checked })}
+              disabled={!spoilerSettings.spoilerMode}
             />
             <strong>Show area</strong>
             <span className="settings-option-desc">
@@ -43,9 +111,9 @@ export function SettingsPanel({ settings, onChange }: Props) {
           <label>
             <input
               type="checkbox"
-              checked={settings.showSource}
-              onChange={(e) => onChange({ ...settings, showSource: e.target.checked })}
-              disabled={!settings.spoilerMode}
+              checked={spoilerSettings.showSource}
+              onChange={(e) => onSpoilerSettingsChange({ ...spoilerSettings, showSource: e.target.checked })}
+              disabled={!spoilerSettings.spoilerMode}
             />
             <strong>Show source type</strong>
             <span className="settings-option-desc">
@@ -55,17 +123,17 @@ export function SettingsPanel({ settings, onChange }: Props) {
           <label>
             <input
               type="checkbox"
-              checked={settings.showHint}
-              onChange={(e) => onChange({ ...settings, showHint: e.target.checked })}
-              disabled={!settings.spoilerMode}
+              checked={spoilerSettings.showHint}
+              onChange={(e) => onSpoilerSettingsChange({ ...spoilerSettings, showHint: e.target.checked })}
+              disabled={!spoilerSettings.spoilerMode}
             />
             <strong>Show hint</strong>
             <span className="settings-option-desc">
               A short generated clue combining the source and area without the exact location.
             </span>
           </label>
-          {settings.showHint && (
-            <div className={`hint-difficulty${settings.spoilerMode ? '' : ' disabled'}`}>
+          {spoilerSettings.showHint && (
+            <div className={`hint-difficulty${spoilerSettings.spoilerMode ? '' : ' disabled'}`}>
               <span>Hint difficulty:</span>
               {(['easy', 'medium', 'hard'] as const).map((level) => (
                 <label key={level}>
@@ -73,15 +141,35 @@ export function SettingsPanel({ settings, onChange }: Props) {
                     type="radio"
                     name="hintDifficulty"
                     value={level}
-                    checked={settings.hintDifficulty === level}
-                    disabled={!settings.spoilerMode || !settings.showHint}
-                    onChange={() => onChange({ ...settings, hintDifficulty: level })}
+                    checked={spoilerSettings.hintDifficulty === level}
+                    disabled={!spoilerSettings.spoilerMode || !spoilerSettings.showHint}
+                    onChange={() => onSpoilerSettingsChange({ ...spoilerSettings, hintDifficulty: level })}
                   />
                   {level.charAt(0).toUpperCase() + level.slice(1)}
                 </label>
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="guide-section mod-content-section">
+        <h3>Mod Content</h3>
+        <p>
+          Support for additional item databases from popular Elden Ring mods. Select a mod to
+          overlay its item placements on top of vanilla data.
+        </p>
+        <div className="mod-content-list">
+          <label className="mod-option disabled">
+            <input type="checkbox" disabled />
+            <span className="mod-name">Elden Ring Reforged</span>
+            <span className="badge-planned">Planned</span>
+          </label>
+          <label className="mod-option disabled">
+            <input type="checkbox" disabled />
+            <span className="mod-name">The Convergence</span>
+            <span className="badge-planned">Planned</span>
+          </label>
         </div>
       </section>
     </div>
