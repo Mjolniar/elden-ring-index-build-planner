@@ -158,9 +158,9 @@ export function SettingsPanel({
       {onResetSetup && (
         <section className="guide-section">
           <h3>First-Run Setup</h3>
-          <p>Show the startup setup screen again on next launch.</p>
+          <p>Return to the startup setup screen to change your item source.</p>
           <button type="button" className="toggle-btn" onClick={onResetSetup}>
-            Reset startup setup
+            Return to startup setup
           </button>
         </section>
       )}

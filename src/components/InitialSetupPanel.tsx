@@ -56,8 +56,8 @@ export function InitialSetupPanel({
               >
                 <span className="setup-choice-title">Yes, load Randomizer spoiler log</span>
                 <span className="setup-choice-desc">
-                  Load a spoiler log from your randomizer seed to see where items were
-                  placed in your run.
+                  Load a spoiler log from the Elden Ring Randomizer to see where items
+                  were placed in your run.
                 </span>
               </button>
             </div>

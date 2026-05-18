@@ -17,7 +17,7 @@ export const SOURCE_METAS: Record<DataSourceKind, SourceMeta> = {
     kind: 'randomizer-log',
     label: 'Randomizer Log',
     shortLabel: 'Randomizer Log',
-    description: 'Load a spoiler log .txt file from an Elden Ring randomizer seed.',
+    description: 'Load a spoiler log .txt file exported from the Elden Ring Randomizer.',
   },
 };
 

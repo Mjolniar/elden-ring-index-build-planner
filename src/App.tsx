@@ -81,6 +81,14 @@ export default function App() {
     loadStoredJSON<SpoilerSettings>(spoilerSettingsKey(sourceId), DEFAULT_SPOILER_SETTINGS)
   );
 
+  function reloadSourceState(nextSourceId: string) {
+    setFavoriteKeys(loadStoredKeySet(favoritesKey(nextSourceId)));
+    setAcquiredKeys(loadStoredKeySet(acquiredKey(nextSourceId)));
+    setFavoriteBuildIds(loadStoredKeySet(buildFavoritesKey(nextSourceId)));
+    setUserBuilds(loadStoredJSON<BuildPreset[]>(userBuildsKey(nextSourceId), []));
+    setSpoilerSettings(loadStoredJSON<SpoilerSettings>(spoilerSettingsKey(nextSourceId), DEFAULT_SPOILER_SETTINGS));
+  }
+
   function handleProfileChange(nextProfile: ContentProfile) {
     const prevMode = contentProfile.baseMode;
     const nextMode = nextProfile.baseMode;
@@ -92,11 +100,7 @@ export default function App() {
       if (activeTab === 'diagnostics' && nextMode !== 'randomizer-log') {
         setActiveTab('all');
       }
-      setFavoriteKeys(loadStoredKeySet(favoritesKey(nextSourceId)));
-      setAcquiredKeys(loadStoredKeySet(acquiredKey(nextSourceId)));
-      setFavoriteBuildIds(loadStoredKeySet(buildFavoritesKey(nextSourceId)));
-      setUserBuilds(loadStoredJSON<BuildPreset[]>(userBuildsKey(nextSourceId), []));
-      setSpoilerSettings(loadStoredJSON<SpoilerSettings>(spoilerSettingsKey(nextSourceId), DEFAULT_SPOILER_SETTINGS));
+      reloadSourceState(nextSourceId);
     }
   }
 
@@ -212,8 +216,11 @@ export default function App() {
 
   function handleSetupVanilla() {
     const vanillaProfile: ContentProfile = DEFAULT_CONTENT_PROFILE;
+    const nextSourceId = sourceIdForProfile(vanillaProfile);
     setContentProfile(vanillaProfile);
     localStorage.setItem(contentProfileKey(), JSON.stringify(vanillaProfile));
+    setFilters(DEFAULT_FILTERS);
+    reloadSourceState(nextSourceId);
     localStorage.setItem(initialSetupCompleteKey(), 'true');
     setSetupComplete(true);
   }
@@ -228,8 +235,10 @@ export default function App() {
       return;
     }
     const randomizerProfile: ContentProfile = { baseMode: 'randomizer-log', enabledModPacks: [] };
+    const nextSourceId = sourceIdForProfile(randomizerProfile);
     setContentProfile(randomizerProfile);
     localStorage.setItem(contentProfileKey(), JSON.stringify(randomizerProfile));
+    reloadSourceState(nextSourceId);
     loadText(text, name);
     setRestoredCache(true);
     await cacheSpoilerLog(text, name, parsed, 'randomizer-log');

@@ -20,7 +20,7 @@ export function GuidePanel({ sourceKind = 'vanilla' }: Props) {
           </ol>
         ) : (
           <ol>
-            <li>You are in <strong>Randomizer Log</strong> mode. Load a spoiler log <code>.txt</code> file from your Elden Ring Randomizer seed to get started.</li>
+            <li>You are in <strong>Randomizer Log</strong> mode. Load a spoiler log <code>.txt</code> file exported from the Elden Ring Randomizer to get started.</li>
             <li>Drop the file on the upload zone or click to browse. The app parses the file locally — nothing is uploaded.</li>
             <li>Once loaded, use the tabs at the top to search, manage favorites, plan builds, or browse items by stat type against the randomized placements.</li>
             <li>Switch to the <strong>Vanilla</strong> source at any time from the <strong>Settings</strong> tab to see the default item database.</li>
@@ -32,7 +32,7 @@ export function GuidePanel({ sourceKind = 'vanilla' }: Props) {
         <h3>Source modes</h3>
         <ul>
           <li><strong>Vanilla</strong> — the default mode. Shows all items with their fixed vanilla locations. Ready immediately, no upload needed.</li>
-          <li><strong>Randomizer Log</strong> — load a spoiler log <code>.txt</code> to see where items were placed in your randomizer seed. The upload and parsing happen entirely on your computer.</li>
+          <li><strong>Randomizer Log</strong> — load a spoiler log <code>.txt</code> exported from the Elden Ring Randomizer to see where items were placed in your run. The upload and parsing happen entirely on your computer.</li>
           <li>Switching sources does not erase your favorites or acquired progress — each source keeps its own saved state.</li>
         </ul>
       </section>

@@ -117,7 +117,7 @@ export function RegionsPanel({
         acquiredKeys={acquiredKeys}
         onToggleFavorite={onToggleFavorite}
         onToggleAcquired={onToggleAcquired}
-        showAcquiredColumn={false}
+        showAcquiredColumn={true}
         spoilerSettings={spoilerSettings}
         emptyMessage={emptyMessage}
         originalItemLabel={originalItemLabel(sourceKind)}
