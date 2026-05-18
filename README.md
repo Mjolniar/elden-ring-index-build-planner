@@ -4,7 +4,7 @@ This branch is the in-progress integrated edition of Elden Ring Index and Build 
 
 The default experience remains the normal vanilla Elden Ring index: answer the first-run setup prompt, search items, plan builds, track favorites, and mark pickups acquired. Randomizer support can be selected during first-run setup or enabled later from Settings by loading a spoiler log, which lets the same search, favorites, regions, browse, and build-planner tools use randomized item locations.
 
-This branch is not a published release yet. Public releases are still tracked separately with `vanilla-v*` and `randomizer-v*` tags until the integrated app is ready.
+This branch is the release candidate for the integrated app line. Public legacy releases are still available under `vanilla-v*` and `randomizer-v*` tags; integrated releases use `integrated-v*` tags.
 
 ## Integrated Branch Goals
 

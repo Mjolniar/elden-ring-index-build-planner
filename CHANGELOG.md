@@ -1,5 +1,35 @@
 # Changelog
 
+## Elden Ring Index and Build Planner 1.2.0 - 2026-05-18
+
+### Added
+- **Integrated release** combining the vanilla fixed-location item database and randomizer spoiler-log workflow in one offline Electron app.
+- **First-run setup** asks whether the user is using Elden Ring Randomizer. Vanilla opens directly into the fixed-location app; Randomizer asks for a spoiler log before entering the app.
+- **Settings-driven content mode** lets users switch between Vanilla and Randomizer later without erasing source-specific favorites, acquired progress, custom builds, or spoiler settings.
+- **Active mode header badge** clearly distinguishes Vanilla and Randomizer Log mode.
+- **Regions tab** for looking up available weapons by major region or child location in the active item source.
+- **Future mod content placeholders** for Elden Ring Reforged and The Convergence. These are intentionally disabled pending a separate data and permission plan.
+
+### Changed
+- Shared Search, Favorites, Build Planner, Browse, Regions, Export, Guide, and Settings flows now operate against the active content source.
+- Regions are grouped by major root areas instead of a flat location chip list.
+- Source-aware labels distinguish fixed vanilla source data from Randomizer replaced-item metadata.
+
+### Fixed
+- Source switching and first-run setup reload source-scoped favorites, acquired state, build favorites, custom builds, and spoiler settings instead of leaking in-memory state between Vanilla and Randomizer.
+- Regions weapon lookup now uses broader weapon-family detection so weapons absent from curated build presets still appear.
+- Weapon names with upgrade suffixes are recognized in region lookup.
+- Randomizer boss and merchant hint data were ported into the integrated branch, including area-qualified boss hint lookup.
+- Randomizer copy consistently asks for a spoiler log rather than implying the seed alone is enough.
+
+### Validation
+- `npx tsc --noEmit`: passing.
+- `npm test -- --run`: 121 tests passing.
+- `npm run dist`: passing, with Vite's existing large chunk-size warning.
+- Browser smoke passed for first-run setup, Vanilla entry, mode badge, Settings return-to-setup, major-region layout, Limgrave root selection, and Regions acquired-column rendering.
+
+---
+
 ## Elden Ring Index and Build Planner 1.2.0-preview.2 - 2026-05-18
 
 ### Fixed
