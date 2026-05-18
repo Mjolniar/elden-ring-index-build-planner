@@ -24,6 +24,7 @@ import { BuildPlannerPanel } from './components/BuildPlannerPanel';
 import { ItemBrowser } from './components/ItemBrowser';
 import { GuidePanel } from './components/GuidePanel';
 import { SettingsPanel } from './components/SettingsPanel';
+import { RegionsPanel } from './components/RegionsPanel';
 
 function applyFilters(records: ItemRecord[], f: FilterState, s: SpoilerSettings): ItemRecord[] {
   const q = f.search.toLowerCase().trim();
@@ -319,6 +320,14 @@ export default function App() {
             >
               Browse
             </button>
+            <button
+              className={`tab-btn${activeTab === 'regions' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'regions'}
+              onClick={() => setActiveTab('regions')}
+            >
+              Regions
+            </button>
           </div>
           <div className="utility-tabs">
             {contentProfile.baseMode === 'randomizer-log' && randomizerResult && (
@@ -407,6 +416,17 @@ export default function App() {
             onToggleFavorite={toggleFavorite}
             onToggleAcquired={toggleAcquired}
             sourceKind={datasetKind}
+          />
+        ) : activeTab === 'regions' ? (
+          <RegionsPanel
+            records={records}
+            favoriteKeys={favoriteKeys}
+            acquiredKeys={acquiredKeys}
+            onToggleFavorite={toggleFavorite}
+            onToggleAcquired={toggleAcquired}
+            spoilerSettings={spoilerSettings}
+            sourceKind={datasetKind}
+            randomizerNeedsLog={contentProfile.baseMode === 'randomizer-log' && !randomizerResult}
           />
         ) : (
           <>
