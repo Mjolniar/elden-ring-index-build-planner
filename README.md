@@ -148,7 +148,7 @@ npm test -- --run
 npm run build
 ```
 
-Current integrated-branch validation status: `npx tsc --noEmit`, `npm test -- --run` with 115 passing tests, and `npm run build` all pass. The production build currently reports Vite's existing large chunk-size warning.
+Current integrated-branch validation status: `npx tsc --noEmit`, `npm test -- --run` with 121 passing tests, and `npm run build` all pass. The production build currently reports Vite's existing large chunk-size warning.
 
 Packaging remains release-controlled and should not be treated as final for this branch until product naming/versioning are decided.
 

@@ -1,6 +1,6 @@
 {
   "name": "elden-ring-index",
-  "version": "1.2.0-preview.1",
+  "version": "1.2.0-preview.2",
   "description": "Searchable index and build planner for Elden Ring — all items, vanilla locations, stat-filtered builds.",
   "author": "Mjolniar",
   "private": true,

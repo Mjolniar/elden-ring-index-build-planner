@@ -327,6 +327,12 @@ export default function App() {
   }, [contentProfile.baseMode, randomizerFilename, activeTab]);
 
   const datasetKind = activeDataset?.kind ?? 'vanilla';
+  const headerModeLabel = contentProfile.baseMode === 'randomizer-log' ? 'Randomizer Log' : 'Vanilla';
+  const headerModeDetail = contentProfile.baseMode === 'randomizer-log'
+    ? randomizerResult
+      ? randomizerFilename || (randomizerResult.seed ? `Seed ${randomizerResult.seed}` : 'Spoiler log loaded')
+      : 'No spoiler log loaded'
+    : 'Fixed item locations';
 
   if (!setupComplete) {
     return (
@@ -347,7 +353,13 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Elden Ring Index and Build Planner</h1>
+        <div className="app-title-block">
+          <h1>Elden Ring Index and Build Planner</h1>
+          <div className={`mode-indicator mode-${datasetKind === 'randomizer-log' ? 'randomizer' : 'vanilla'}`}>
+            <span className="mode-label">{headerModeLabel}</span>
+            <span className="mode-detail">{headerModeDetail}</span>
+          </div>
+        </div>
       </header>
 
       <main className="main-layout">

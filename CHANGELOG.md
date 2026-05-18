@@ -1,5 +1,20 @@
 # Changelog
 
+## Elden Ring Index and Build Planner 1.2.0-preview.2 - 2026-05-18
+
+### Fixed
+- **Randomizer mode header clarity** — the app header now shows the active content mode, including a visible "Randomizer Log" badge and loaded spoiler-log filename/detail when applicable.
+- **Regions tab grouping** — replaced the flat location chip wall with major region groups. Selecting a major region now includes all known sublocations under it; child location filters appear only when useful.
+- **Regions weapon counts** — broadened weapon detection so the Regions tab no longer misses weapons that are absent from the curated build preset catalog. The detector now handles weapon-family names and upgraded item suffixes.
+
+### Validation
+- `npx tsc --noEmit`: passing.
+- `npm test -- --run`: 121 tests passing.
+- `npm run build`: passing, with Vite's existing large chunk-size warning.
+- Browser smoke passed for the mode badge, major-region layout, Limgrave root selection, and acquired-column rendering.
+
+---
+
 ## Elden Ring Index and Build Planner 1.2.0-preview.1 - 2026-05-18
 
 ### Added

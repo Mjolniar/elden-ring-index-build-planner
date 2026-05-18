@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import type { ItemRecord } from '../src/types';
-import { isWeaponRecord, regionsForRecords, weaponsForRegions } from '../src/itemClassifiers';
+import {
+  isWeaponRecord,
+  regionGroupsForRecords,
+  regionsForRecords,
+  rootRegionForArea,
+  weaponsForRegionSelection,
+  weaponsForRegions,
+} from '../src/itemClassifiers';
 
 function rec(itemName: string, area: string | null = 'Limgrave', locationName = `Found in ${area ?? 'unknown'}`): ItemRecord {
   return {
@@ -35,6 +42,12 @@ describe('isWeaponRecord', () => {
     expect(isWeaponRecord(rec('Zamor Curved Sword'))).toBe(true);
   });
 
+  it('detects weapon names with upgrade suffixes and weapon-family names', () => {
+    expect(isWeaponRecord(rec('Sacred Relic Sword +9'))).toBe(true);
+    expect(isWeaponRecord(rec('Cipher Pata'))).toBe(true);
+    expect(isWeaponRecord(rec('Dryleaf Arts'))).toBe(true);
+  });
+
   it('excludes shields even with Strength requirements', () => {
     expect(isWeaponRecord(rec('Banished Knight\'s Shield'))).toBe(false);
     expect(isWeaponRecord(rec('Wolf Crest Shield'))).toBe(false);
@@ -63,6 +76,20 @@ describe('isWeaponRecord', () => {
 
   it('returns false for completely unknown item names', () => {
     expect(isWeaponRecord(rec('Some Random Nonexistent Item XYZ'))).toBe(false);
+  });
+});
+
+describe('rootRegionForArea', () => {
+  it('maps sublocations into root regions', () => {
+    expect(rootRegionForArea('Stormveil Castle')).toBe('Limgrave');
+    expect(rootRegionForArea('Murkwater Cave')).toBe('Limgrave');
+    expect(rootRegionForArea('Academy of Raya Lucaria')).toBe('Liurnia');
+    expect(rootRegionForArea('Volcano Manor')).toBe('Mt. Gelmir');
+    expect(rootRegionForArea('Nokron, Eternal City')).toBe('Underground');
+  });
+
+  it('keeps unknown regions as their own root', () => {
+    expect(rootRegionForArea('Some Custom Mod Region')).toBe('Some Custom Mod Region');
   });
 });
 
@@ -109,6 +136,23 @@ describe('regionsForRecords', () => {
   });
 });
 
+describe('regionGroupsForRecords', () => {
+  it('rolls sublocations into a selectable root region', () => {
+    const groups = regionGroupsForRecords([
+      rec('Moonveil', 'Stormveil Castle'),
+      rec('Uchigatana', 'Murkwater Cave'),
+      rec('Claymore', 'Limgrave'),
+      rec('Shard of Alexander', 'Limgrave'),
+    ].filter(isWeaponRecord));
+
+    const limgrave = groups.find((group) => group.root === 'Limgrave');
+    expect(limgrave?.count).toBe(3);
+    expect(limgrave?.areas.map((area) => area.area)).toEqual(
+      expect.arrayContaining(['Stormveil Castle', 'Murkwater Cave', 'Limgrave']),
+    );
+  });
+});
+
 // ---------------------------------------------------------------------------
 // weaponsForRegions
 // ---------------------------------------------------------------------------
@@ -148,5 +192,29 @@ describe('weaponsForRegions', () => {
   it('excludes records with null area even if isWeapon', () => {
     const nullAreaRecords = [rec('Uchigatana', null)];
     expect(weaponsForRegions(nullAreaRecords, new Set(['Limgrave']))).toEqual([]);
+  });
+});
+
+describe('weaponsForRegionSelection', () => {
+  const records = [
+    rec('Moonveil', 'Stormveil Castle'),
+    rec('Sacred Relic Sword', 'Murkwater Cave'),
+    rec('Claymore', 'Limgrave'),
+    rec('Rivers of Blood', 'Caelid'),
+    rec('Shard of Alexander', 'Limgrave'),
+  ];
+
+  it('returns all weapons under a selected root region', () => {
+    const result = weaponsForRegionSelection(records, { root: 'Limgrave' });
+    expect(result.map((r) => r.itemName)).toEqual(
+      expect.arrayContaining(['Moonveil', 'Sacred Relic Sword', 'Claymore']),
+    );
+    expect(result.map((r) => r.itemName)).not.toContain('Shard of Alexander');
+    expect(result.map((r) => r.itemName)).not.toContain('Rivers of Blood');
+  });
+
+  it('can narrow a root selection to one child location', () => {
+    const result = weaponsForRegionSelection(records, { root: 'Limgrave', area: 'Stormveil Castle' });
+    expect(result.map((r) => r.itemName)).toEqual(['Moonveil']);
   });
 });
