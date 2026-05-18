@@ -1,5 +1,33 @@
 # Changelog
 
+## Elden Ring Index and Build Planner 1.2.0-preview.1 - 2026-05-18
+
+### Added
+- **Integrated preview branch** combining the vanilla fixed-location item database and randomizer spoiler-log workflow in one offline Electron app.
+- **First-run setup** asks whether the user is using Elden Ring Randomizer. Vanilla opens directly into the fixed-location app; Randomizer asks for a spoiler log before entering the app.
+- **Settings-driven content mode** lets users switch between Vanilla and Randomizer later without erasing source-specific favorites, acquired progress, custom builds, or spoiler settings.
+- **Randomizer spoiler-log cache IPC** restored for the integrated Electron app, including save, load, clear, and open-cache-folder handlers.
+- **Regions tab** for looking up available weapons by selected region in the active item source.
+- **Future mod content placeholders** for Elden Ring Reforged and The Convergence. These are intentionally disabled pending a separate data and permission plan.
+
+### Changed
+- Shared Search, Favorites, Build Planner, Browse, Regions, Export, Guide, and Settings flows now operate against the active content source.
+- Source-aware labels distinguish fixed vanilla source data from Randomizer replaced-item metadata.
+- Startup setup reset from Settings now returns to the setup screen and then lands back on Search when Vanilla is selected.
+
+### Fixed
+- Source switching and first-run setup now reload source-scoped favorites, acquired state, build favorites, custom builds, and spoiler settings instead of leaking in-memory state between Vanilla and Randomizer.
+- Randomizer boss and merchant hint data were ported into the integrated branch, including area-qualified boss hint lookup.
+- Randomizer copy now consistently asks for a spoiler log rather than implying the seed alone is enough.
+
+### Validation
+- `npx tsc --noEmit`: passing.
+- `npm test -- --run`: 115 tests passing.
+- `npm run build`: passing, with Vite's existing large chunk-size warning.
+- Browser smoke passed for first-run setup, Vanilla entry, Settings return-to-setup, and Regions acquired-column rendering.
+
+---
+
 ## Elden Ring Index and Build Planner 1.1.1 - 2026-05-11
 
 ### Added

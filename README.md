@@ -2,7 +2,7 @@
 
 This branch is the in-progress integrated edition of Elden Ring Index and Build Planner. It combines the fixed-location vanilla item index with the randomizer spoiler-log companion workflow in one offline desktop app.
 
-The default experience remains the normal vanilla Elden Ring index: open the app, search items, plan builds, track favorites, and mark pickups acquired. Randomizer support is enabled from Settings by loading a spoiler log, which lets the same search, favorites, browse, and build-planner tools use randomized item locations.
+The default experience remains the normal vanilla Elden Ring index: answer the first-run setup prompt, search items, plan builds, track favorites, and mark pickups acquired. Randomizer support can be selected during first-run setup or enabled later from Settings by loading a spoiler log, which lets the same search, favorites, regions, browse, and build-planner tools use randomized item locations.
 
 This branch is not a published release yet. Public releases are still tracked separately with `vanilla-v*` and `randomizer-v*` tags until the integrated app is ready.
 
@@ -47,8 +47,9 @@ Implemented or under active review on this branch:
 
 - Vanilla item database mode.
 - Randomizer spoiler-log mode.
+- First-run setup that asks whether the user is using the Elden Ring Randomizer.
 - Source/content-profile scoped persistence.
-- Shared search, favorites, acquired tracking, build planner, browse, export, and guide behavior.
+- Shared search, regions, favorites, acquired tracking, build planner, browse, export, and guide behavior.
 - Randomizer spoiler-log cache IPC in Electron.
 - Randomizer parser diagnostics when a log is loaded.
 - Source-aware UI copy for vanilla database vs. loaded spoiler log.
@@ -115,6 +116,7 @@ Do not add Reforged or Convergence data in this branch until that plan is explic
 - Star favorites and mark items acquired.
 - Use curated build presets to find required weapons, seals, staves, armor, talismans, spells, and ashes.
 - Create custom build checklists.
+- Look up available weapons by selected region.
 - Browse items by stat affinity.
 - Export visible results as CSV or JSON.
 - Load Randomizer spoiler logs locally when Randomizer mode is enabled.
@@ -142,9 +144,11 @@ Validation:
 
 ```bash
 npx tsc --noEmit
-npm test
+npm test -- --run
 npm run build
 ```
+
+Current integrated-branch validation status: `npx tsc --noEmit`, `npm test -- --run` with 115 passing tests, and `npm run build` all pass. The production build currently reports Vite's existing large chunk-size warning.
 
 Packaging remains release-controlled and should not be treated as final for this branch until product naming/versioning are decided.
 

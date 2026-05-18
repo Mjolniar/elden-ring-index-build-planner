@@ -220,6 +220,7 @@ export default function App() {
     setContentProfile(vanillaProfile);
     localStorage.setItem(contentProfileKey(), JSON.stringify(vanillaProfile));
     setFilters(DEFAULT_FILTERS);
+    setActiveTab('all');
     reloadSourceState(nextSourceId);
     localStorage.setItem(initialSetupCompleteKey(), 'true');
     setSetupComplete(true);
