@@ -13,6 +13,7 @@ import {
   buildFavoritesKey,
   browserCacheKey,
   contentProfileKey,
+  initialSetupCompleteKey,
   loadStoredKeySet,
   loadStoredJSON,
 } from './storageKeys';
@@ -25,6 +26,7 @@ import { ItemBrowser } from './components/ItemBrowser';
 import { GuidePanel } from './components/GuidePanel';
 import { SettingsPanel } from './components/SettingsPanel';
 import { RegionsPanel } from './components/RegionsPanel';
+import { InitialSetupPanel } from './components/InitialSetupPanel';
 
 function applyFilters(records: ItemRecord[], f: FilterState, s: SpoilerSettings): ItemRecord[] {
   const q = f.search.toLowerCase().trim();
@@ -51,6 +53,11 @@ export default function App() {
   const [contentProfile, setContentProfile] = useState<ContentProfile>(() =>
     loadStoredJSON<ContentProfile>(contentProfileKey(), DEFAULT_CONTENT_PROFILE)
   );
+
+  const [setupComplete, setSetupComplete] = useState<boolean>(
+    () => localStorage.getItem(initialSetupCompleteKey()) === 'true'
+  );
+  const [setupUploadError, setSetupUploadError] = useState('');
 
   const [randomizerResult, setRandomizerResult] = useState<ParseResult | null>(null);
   const [randomizerFilename, setRandomizerFilename] = useState('');
@@ -112,7 +119,7 @@ export default function App() {
     return parsed;
   }
 
-  async function cacheSpoilerLog(text: string, name: string, parsed: ParseResult) {
+  async function cacheSpoilerLog(text: string, name: string, parsed: ParseResult, targetSourceId?: string) {
     try {
       if (window.electronAPI?.saveSpoilerLogCache) {
         const saved = await window.electronAPI.saveSpoilerLogCache({
@@ -134,7 +141,7 @@ export default function App() {
         cacheDir: 'browser local storage',
         latestPath: 'browser local storage',
       };
-      localStorage.setItem(browserCacheKey(sourceId), JSON.stringify(browserEntry));
+      localStorage.setItem(browserCacheKey(targetSourceId ?? sourceId), JSON.stringify(browserEntry));
       setRandomizerCacheEntry(browserEntry);
       setRandomizerCacheMessage('Cached in this browser for next launch.');
     } catch (error) {
@@ -201,6 +208,38 @@ export default function App() {
 
   async function openCacheFolder() {
     await window.electronAPI?.openSpoilerLogCacheDir?.();
+  }
+
+  function handleSetupVanilla() {
+    const vanillaProfile: ContentProfile = DEFAULT_CONTENT_PROFILE;
+    setContentProfile(vanillaProfile);
+    localStorage.setItem(contentProfileKey(), JSON.stringify(vanillaProfile));
+    localStorage.setItem(initialSetupCompleteKey(), 'true');
+    setSetupComplete(true);
+  }
+
+  async function handleSetupRandomizerFile(text: string, name: string) {
+    const parsed = parseSpoilerLog(text);
+    if (!parsed.records.length) {
+      setSetupUploadError(
+        'No item records were found in this file. Make sure you are loading a spoiler log ' +
+        '(.txt) exported from the Elden Ring Randomizer, not the seed file or another text file.'
+      );
+      return;
+    }
+    const randomizerProfile: ContentProfile = { baseMode: 'randomizer-log', enabledModPacks: [] };
+    setContentProfile(randomizerProfile);
+    localStorage.setItem(contentProfileKey(), JSON.stringify(randomizerProfile));
+    loadText(text, name);
+    setRestoredCache(true);
+    await cacheSpoilerLog(text, name, parsed, 'randomizer-log');
+    localStorage.setItem(initialSetupCompleteKey(), 'true');
+    setSetupComplete(true);
+  }
+
+  function handleResetSetup() {
+    localStorage.removeItem(initialSetupCompleteKey());
+    setSetupComplete(false);
   }
 
   useEffect(() => {
@@ -278,6 +317,22 @@ export default function App() {
   }, [contentProfile.baseMode, randomizerFilename, activeTab]);
 
   const datasetKind = activeDataset?.kind ?? 'vanilla';
+
+  if (!setupComplete) {
+    return (
+      <div className="app">
+        <header className="app-header">
+          <h1>Elden Ring Index and Build Planner</h1>
+        </header>
+        <InitialSetupPanel
+          onChooseVanilla={handleSetupVanilla}
+          onRandomizerFile={handleSetupRandomizerFile}
+          uploadError={setupUploadError}
+          onClearUploadError={() => setSetupUploadError('')}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="app">
@@ -381,6 +436,7 @@ export default function App() {
             onLoadFile={handleFile}
             onResetRandomizer={handleRandomizerReset}
             onOpenCacheFolder={window.electronAPI?.openSpoilerLogCacheDir ? openCacheFolder : undefined}
+            onResetSetup={handleResetSetup}
           />
         ) : activeTab === 'builds' ? (
           <BuildPlannerPanel

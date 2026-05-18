@@ -12,6 +12,7 @@ interface Props {
   onLoadFile: (text: string, filename: string) => void;
   onResetRandomizer: () => void;
   onOpenCacheFolder?: () => void;
+  onResetSetup?: () => void;
 }
 
 export function SettingsPanel({
@@ -25,6 +26,7 @@ export function SettingsPanel({
   onLoadFile,
   onResetRandomizer,
   onOpenCacheFolder,
+  onResetSetup,
 }: Props) {
   return (
     <div className="settings-panel">
@@ -152,6 +154,16 @@ export function SettingsPanel({
           )}
         </div>
       </section>
+
+      {onResetSetup && (
+        <section className="guide-section">
+          <h3>First-Run Setup</h3>
+          <p>Show the startup setup screen again on next launch.</p>
+          <button type="button" className="toggle-btn" onClick={onResetSetup}>
+            Reset startup setup
+          </button>
+        </section>
+      )}
 
       <section className="guide-section mod-content-section">
         <h3>Mod Content</h3>

@@ -13,6 +13,7 @@ const KEYS = {
   browserCache: 'last-log',
   activeSource: 'active-source',
   contentProfile: 'content-profile',
+  initialSetupComplete: 'initial-setup-complete',
 } as const;
 
 export function spoilerSettingsKey(sourceId: string): string {
@@ -45,6 +46,10 @@ export function activeSourceKey(): string {
 
 export function contentProfileKey(): string {
   return storageKey('app', KEYS.contentProfile);
+}
+
+export function initialSetupCompleteKey(): string {
+  return storageKey('app', KEYS.initialSetupComplete);
 }
 
 export function loadStoredKeySet(storageKey: string): Set<string> {
