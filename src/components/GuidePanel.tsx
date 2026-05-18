@@ -23,7 +23,7 @@ export function GuidePanel({ sourceKind = 'vanilla' }: Props) {
             <li>You are in <strong>Randomizer Log</strong> mode. Load a spoiler log <code>.txt</code> file from your Elden Ring Randomizer seed to get started.</li>
             <li>Drop the file on the upload zone or click to browse. The app parses the file locally — nothing is uploaded.</li>
             <li>Once loaded, use the tabs at the top to search, manage favorites, plan builds, or browse items by stat type against the randomized placements.</li>
-            <li>Switch to the <strong>Vanilla</strong> source at any time using the source selector in the header to see the default item database.</li>
+            <li>Switch to the <strong>Vanilla</strong> source at any time from the <strong>Settings</strong> tab to see the default item database.</li>
           </ol>
         )}
       </section>
@@ -108,7 +108,7 @@ export function GuidePanel({ sourceKind = 'vanilla' }: Props) {
           <ul>
             <li>Shows total lines processed, records parsed, and any unmatched lines.</li>
             <li>Check the seed value and cache status.</li>
-            <li>Use the "Load new log" button in the header to load a different spoiler log.</li>
+            <li>Use the "Load new log" button in Settings to load a different spoiler log.</li>
           </ul>
         </section>
       )}
