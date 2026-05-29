@@ -1,5 +1,78 @@
 # Changelog
 
+## Elden Ring Index and Build Planner 1.2.0 - 2026-05-18
+
+### Added
+- **Integrated release** combining the vanilla fixed-location item database and randomizer spoiler-log workflow in one offline Electron app.
+- **First-run setup** asks whether the user is using Elden Ring Randomizer. Vanilla opens directly into the fixed-location app; Randomizer asks for a spoiler log before entering the app.
+- **Settings-driven content mode** lets users switch between Vanilla and Randomizer later without erasing source-specific favorites, acquired progress, custom builds, or spoiler settings.
+- **Active mode header badge** clearly distinguishes Vanilla and Randomizer Log mode.
+- **Regions tab** for looking up available weapons by major region or child location in the active item source.
+- **Future mod content placeholders** for Elden Ring Reforged and The Convergence. These are intentionally disabled pending a separate data and permission plan.
+
+### Changed
+- Shared Search, Favorites, Build Planner, Browse, Regions, Export, Guide, and Settings flows now operate against the active content source.
+- Regions are grouped by major root areas instead of a flat location chip list.
+- Source-aware labels distinguish fixed vanilla source data from Randomizer replaced-item metadata.
+
+### Fixed
+- Source switching and first-run setup reload source-scoped favorites, acquired state, build favorites, custom builds, and spoiler settings instead of leaking in-memory state between Vanilla and Randomizer.
+- Regions weapon lookup now uses broader weapon-family detection so weapons absent from curated build presets still appear.
+- Weapon names with upgrade suffixes are recognized in region lookup.
+- Randomizer boss and merchant hint data were ported into the integrated branch, including area-qualified boss hint lookup.
+- Randomizer copy consistently asks for a spoiler log rather than implying the seed alone is enough.
+
+### Validation
+- `npx tsc --noEmit`: passing.
+- `npm test -- --run`: 121 tests passing.
+- `npm run dist`: passing, with Vite's existing large chunk-size warning.
+- Browser smoke passed for first-run setup, Vanilla entry, mode badge, Settings return-to-setup, major-region layout, Limgrave root selection, and Regions acquired-column rendering.
+
+---
+
+## Elden Ring Index and Build Planner 1.2.0-preview.2 - 2026-05-18
+
+### Fixed
+- **Randomizer mode header clarity** — the app header now shows the active content mode, including a visible "Randomizer Log" badge and loaded spoiler-log filename/detail when applicable.
+- **Regions tab grouping** — replaced the flat location chip wall with major region groups. Selecting a major region now includes all known sublocations under it; child location filters appear only when useful.
+- **Regions weapon counts** — broadened weapon detection so the Regions tab no longer misses weapons that are absent from the curated build preset catalog. The detector now handles weapon-family names and upgraded item suffixes.
+
+### Validation
+- `npx tsc --noEmit`: passing.
+- `npm test -- --run`: 121 tests passing.
+- `npm run build`: passing, with Vite's existing large chunk-size warning.
+- Browser smoke passed for the mode badge, major-region layout, Limgrave root selection, and acquired-column rendering.
+
+---
+
+## Elden Ring Index and Build Planner 1.2.0-preview.1 - 2026-05-18
+
+### Added
+- **Integrated preview branch** combining the vanilla fixed-location item database and randomizer spoiler-log workflow in one offline Electron app.
+- **First-run setup** asks whether the user is using Elden Ring Randomizer. Vanilla opens directly into the fixed-location app; Randomizer asks for a spoiler log before entering the app.
+- **Settings-driven content mode** lets users switch between Vanilla and Randomizer later without erasing source-specific favorites, acquired progress, custom builds, or spoiler settings.
+- **Randomizer spoiler-log cache IPC** restored for the integrated Electron app, including save, load, clear, and open-cache-folder handlers.
+- **Regions tab** for looking up available weapons by selected region in the active item source.
+- **Future mod content placeholders** for Elden Ring Reforged and The Convergence. These are intentionally disabled pending a separate data and permission plan.
+
+### Changed
+- Shared Search, Favorites, Build Planner, Browse, Regions, Export, Guide, and Settings flows now operate against the active content source.
+- Source-aware labels distinguish fixed vanilla source data from Randomizer replaced-item metadata.
+- Startup setup reset from Settings now returns to the setup screen and then lands back on Search when Vanilla is selected.
+
+### Fixed
+- Source switching and first-run setup now reload source-scoped favorites, acquired state, build favorites, custom builds, and spoiler settings instead of leaking in-memory state between Vanilla and Randomizer.
+- Randomizer boss and merchant hint data were ported into the integrated branch, including area-qualified boss hint lookup.
+- Randomizer copy now consistently asks for a spoiler log rather than implying the seed alone is enough.
+
+### Validation
+- `npx tsc --noEmit`: passing.
+- `npm test -- --run`: 115 tests passing.
+- `npm run build`: passing, with Vite's existing large chunk-size warning.
+- Browser smoke passed for first-run setup, Vanilla entry, Settings return-to-setup, and Regions acquired-column rendering.
+
+---
+
 ## Elden Ring Index and Build Planner 1.1.1 - 2026-05-11
 
 ### Added

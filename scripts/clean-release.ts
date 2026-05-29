@@ -7,16 +7,20 @@ const oldDir = join(releaseDir, 'Old');
 if (!existsSync(oldDir)) mkdirSync(oldDir, { recursive: true });
 
 const files = readdirSync(releaseDir, { withFileTypes: true });
-const exeFiles = files
-  .filter((f) => f.isFile() && f.name.endsWith('.exe'))
+const releaseArtifacts = files
+  .filter((f) => f.isFile() && (f.name.endsWith('.exe') || f.name.endsWith('.zip')))
   .sort((a, b) => a.name.localeCompare(b.name));
 
 function productPrefix(name: string): string {
-  const prefix = name.replace(/\s+\d+\.\d+\.\d+.*$/, '');
+  const prefix = name.replace(/\s+\d+\.\d+\.\d+(?:-[^\s]+)?(?:\s+(?:Portable|Setup))?\.(?:exe|zip).*$/, '');
   if (prefix === 'Elden Ring Randomizer Index and Build Planner') {
     return 'Elden Ring Randomizer Index';
   }
   return prefix;
+}
+
+function artifactKind(name: string): 'installer' | 'portable' {
+  return name.endsWith('.zip') || name.includes(' Portable.') ? 'portable' : 'installer';
 }
 
 function moveToOld(srcName: string, logSuffix = '-> Old/'): boolean {
@@ -36,27 +40,28 @@ function moveToOld(srcName: string, logSuffix = '-> Old/'): boolean {
   }
 }
 
-const groups = new Map<string, typeof exeFiles>();
-for (const file of exeFiles) {
-  const prefix = productPrefix(file.name);
-  if (!groups.has(prefix)) groups.set(prefix, []);
-  groups.get(prefix)!.push(file);
+const groups = new Map<string, typeof releaseArtifacts>();
+for (const file of releaseArtifacts) {
+  const key = `${productPrefix(file.name)}::${artifactKind(file.name)}`;
+  if (!groups.has(key)) groups.set(key, []);
+  groups.get(key)!.push(file);
 }
 
-const newestByPrefix = new Map<string, (typeof exeFiles)[number]>();
-for (const [prefix, group] of groups) {
+const newestByGroup = new Map<string, (typeof releaseArtifacts)[number]>();
+for (const [key, group] of groups) {
   const newest = group.reduce((best, f) => {
     const time = statSync(join(releaseDir, f.name)).mtimeMs;
     return time > (best ? statSync(join(releaseDir, best.name)).mtimeMs : 0) ? f : best;
   }, null as (typeof group[0]) | null);
   if (!newest) continue;
-  newestByPrefix.set(prefix, newest);
+  newestByGroup.set(key, newest);
 }
 
-for (const [prefix, group] of groups) {
-  const newest = newestByPrefix.get(prefix);
+for (const [key, group] of groups) {
+  const newest = newestByGroup.get(key);
   if (!newest) continue;
-  console.log(`Keeping newest ${prefix}: ${newest.name}`);
+  const [prefix, kind] = key.split('::');
+  console.log(`Keeping newest ${prefix} ${kind}: ${newest.name}`);
 
   for (const file of group) {
     if (file.name === newest.name) continue;
@@ -65,7 +70,9 @@ for (const [prefix, group] of groups) {
 }
 
 const keptBlockmapStems = new Set(
-  [...newestByPrefix.values()].map((file) => file.name.replace(/\.exe$/, '')),
+  [...newestByGroup.values()]
+    .filter((file) => file.name.endsWith('.exe'))
+    .map((file) => file.name.replace(/\.exe$/, '')),
 );
 
 const blockmaps = readdirSync(releaseDir)

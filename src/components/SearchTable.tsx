@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react';
-import type { ItemRecord, SortField, SortDir, SpoilerSettings } from '../types';
+import type { ItemRecord, SortField, SortDir, SpoilerSettings, DataSourceKind } from '../types';
 import { generateHint } from '../locationHints';
 import { makeRecordKey } from '../recordKey';
 
@@ -21,7 +21,10 @@ interface Props {
   onToggleAcquired: (record: ItemRecord) => void;
   showAcquiredColumn: boolean;
   spoilerSettings: SpoilerSettings;
+  sourceKind?: DataSourceKind;
   emptyMessage?: string;
+  originalItemLabel?: string;
+  onOpenSettings?: () => void;
 }
 
 interface ColDef {
@@ -49,7 +52,10 @@ export function SearchTable({
   onToggleAcquired,
   showAcquiredColumn,
   spoilerSettings,
+  sourceKind = 'vanilla',
   emptyMessage = 'No records match the current filters.',
+  originalItemLabel = 'Source data',
+  onOpenSettings,
 }: Props) {
   const [sortField, setSortField] = useState<SortField>('itemName');
   const [sortDir, setSortDir] = useState<SortDir>('asc');
@@ -71,6 +77,8 @@ export function SearchTable({
     return sortDir === 'asc' ? cmp : -cmp;
   });
 
+  const showOriginalItem = !spoilerSettings.hideOriginalItem;
+
   const visibleDataColCount = spoilerSettings.spoilerMode
     ? 1
       + (spoilerSettings.showArea ? 1 : 0)
@@ -80,7 +88,16 @@ export function SearchTable({
   const detailColSpan = 1 + visibleDataColCount + (showAcquiredColumn ? 1 : 0);
 
   if (records.length === 0) {
-    return <p className="empty-state">{emptyMessage}</p>;
+    return (
+      <div className="empty-state-container">
+        <p className="empty-state">{emptyMessage}</p>
+        {onOpenSettings && (
+          <button type="button" className="empty-state-action" onClick={onOpenSettings}>
+            Open Settings
+          </button>
+        )}
+      </div>
+    );
   }
 
   return (
@@ -209,13 +226,24 @@ export function SearchTable({
                 <tr key={`${rec.id}-detail`} className="detail-row">
                   <td colSpan={detailColSpan}>
                     <div className="detail-content">
-                      {rec.originalItem && <div><strong>Source data:</strong> {rec.originalItem}</div>}
+                      {rec.originalItem && showOriginalItem && (
+                        <div><strong>{originalItemLabel}:</strong> {rec.originalItem}</div>
+                      )}
+                      {rec.originalItem && !showOriginalItem && sourceKind === 'randomizer-log' && (
+                        <div className="detail-spoiler-hidden">
+                          <em>{originalItemLabel} hidden — enable in Settings &gt; Spoiler Display.</em>
+                        </div>
+                      )}
                       {spoilerSettings.spoilerMode ? (
                         <div><em>Turn off spoiler mode in Settings to see full location details.</em></div>
                       ) : (
                         <>
                           <div><strong>Section:</strong> {rec.section}</div>
-                          <div><strong>Raw line:</strong> <code>{rec.rawLine}</code></div>
+                          {/* rawLine can contain "Replaces …" in randomizer logs —
+                              suppress it entirely when the user has hidden original-item info. */}
+                          {!(spoilerSettings.hideOriginalItem && sourceKind === 'randomizer-log') && (
+                            <div><strong>Raw line:</strong> <code>{rec.rawLine}</code></div>
+                          )}
                         </>
                       )}
                     </div>
