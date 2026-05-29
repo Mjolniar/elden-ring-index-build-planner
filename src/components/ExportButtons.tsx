@@ -1,22 +1,12 @@
-import type { ItemRecord } from '../types';
+import type { ItemRecord, SpoilerSettings, DataSourceKind } from '../types';
+import { recordsToCSV, sanitizeRecordsForExport } from '../exportHelpers';
+import { DEFAULT_SPOILER_SETTINGS } from '../spoilerSettings';
 
 interface Props {
   records: ItemRecord[];
   filename: string;
-}
-
-function toCSV(records: ItemRecord[]): string {
-  const header = ['Item', 'Location', 'Area', 'Source Type', 'Key Item', 'Replaced Item', 'Section'];
-  const rows = records.map((r) => [
-    r.itemName,
-    r.locationName,
-    r.area ?? '',
-    r.sourceType,
-    r.isKeyItem ? 'yes' : '',
-    r.originalItem ?? '',
-    r.section,
-  ].map((v) => `"${String(v).replace(/"/g, '""')}"`));
-  return [header, ...rows].map((r) => r.join(',')).join('\n');
+  spoilerSettings?: SpoilerSettings;
+  sourceKind?: DataSourceKind;
 }
 
 function download(content: string, name: string, type: string) {
@@ -33,26 +23,34 @@ function baseName(filename: string): string {
   return filename.replace(/\.[^.]+$/, '');
 }
 
-export function ExportButtons({ records, filename }: Props) {
+export function ExportButtons({
+  records,
+  filename,
+  spoilerSettings = DEFAULT_SPOILER_SETTINGS,
+  sourceKind = 'vanilla',
+}: Props) {
   if (records.length === 0) return null;
 
   const base = baseName(filename);
 
+  function handleCSV() {
+    download(
+      recordsToCSV(records, spoilerSettings, sourceKind),
+      `${base}.csv`,
+      'text/csv',
+    );
+  }
+
+  function handleJSON() {
+    const sanitized = sanitizeRecordsForExport(records, spoilerSettings, sourceKind);
+    download(JSON.stringify(sanitized, null, 2), `${base}.json`, 'application/json');
+  }
+
   return (
     <div className="export-buttons">
       <span className="export-label">Export visible:</span>
-      <button
-        className="export-btn"
-        onClick={() => download(toCSV(records), `${base}.csv`, 'text/csv')}
-      >
-        CSV
-      </button>
-      <button
-        className="export-btn"
-        onClick={() => download(JSON.stringify(records, null, 2), `${base}.json`, 'application/json')}
-      >
-        JSON
-      </button>
+      <button className="export-btn" onClick={handleCSV}>CSV</button>
+      <button className="export-btn" onClick={handleJSON}>JSON</button>
     </div>
   );
 }

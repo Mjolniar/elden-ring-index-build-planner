@@ -2,12 +2,25 @@ import type { DataSourceKind } from '../types';
 
 interface Props {
   sourceKind?: DataSourceKind;
+  randomizerNeedsLog?: boolean;
+  onOpenSettings?: () => void;
 }
 
-export function GuidePanel({ sourceKind = 'vanilla' }: Props) {
+export function GuidePanel({ sourceKind = 'vanilla', randomizerNeedsLog = false, onOpenSettings }: Props) {
   return (
     <div className="guide-panel">
       <h2>How to use Elden Ring Index and Build Planner</h2>
+
+      {randomizerNeedsLog && (
+        <div className="guide-nolog-banner">
+          <strong>No spoiler log loaded.</strong> You are in Randomizer mode but no spoiler log has been loaded yet.
+          {onOpenSettings && (
+            <button type="button" className="guide-nolog-action" onClick={onOpenSettings}>
+              Open Settings to load one
+            </button>
+          )}
+        </div>
+      )}
 
       <section className="guide-section">
         <h3>Getting started</h3>

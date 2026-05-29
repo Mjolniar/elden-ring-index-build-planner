@@ -263,3 +263,25 @@ export function weaponsForRegionSelection(records: ItemRecord[], selection: Regi
     return rootRegionForArea(record.area) === selection.root;
   });
 }
+
+/**
+ * Returns all records (any item type) whose area falls within the given
+ * region selection. Used by RegionsPanel to show all item types, not just
+ * weapons.
+ *
+ * @param records   Full item record list for the active source.
+ * @param selectedRoot  Root region name (e.g. "Limgrave"), or null for none.
+ * @param selectedArea  Child area name to narrow to, or null for all children.
+ */
+export function itemsForRegionSelection(
+  records: ItemRecord[],
+  selectedRoot: string | null,
+  selectedArea: string | null,
+): ItemRecord[] {
+  if (!selectedRoot) return [];
+  return records.filter((record) => {
+    if (!record.area) return false;
+    if (selectedArea) return record.area === selectedArea;
+    return rootRegionForArea(record.area) === selectedRoot;
+  });
+}
