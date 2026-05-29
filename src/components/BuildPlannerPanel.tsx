@@ -109,6 +109,8 @@ interface Props {
   locationColumnLabel?: string;
   missingItemText?: string;
   plannerNote?: string;
+  randomizerNeedsLog?: boolean;
+  onOpenSettings?: () => void;
 }
 
 export function BuildPlannerPanel({
@@ -129,6 +131,8 @@ export function BuildPlannerPanel({
   locationColumnLabel = 'Location',
   missingItemText = 'Not found in item database',
   plannerNote: plannerText,
+  randomizerNeedsLog = false,
+  onOpenSettings,
 }: Props) {
   const [selectedStats, setSelectedStats] = useState<BuildStat[]>([]);
   const [matchAllStats, setMatchAllStats] = useState(true);
@@ -222,6 +226,21 @@ export function BuildPlannerPanel({
   const generatedNotes = buildNotesFor(selectedBuild, matches);
 
   const editingBuild = editingBuildId ? userBuilds.find((b) => b.id === editingBuildId) : undefined;
+
+  if (randomizerNeedsLog) {
+    return (
+      <section className="build-planner">
+        <div className="empty-state-container">
+          <p className="empty-state">No spoiler log loaded. Load a spoiler log to match build items against your randomized placements.</p>
+          {onOpenSettings && (
+            <button type="button" className="empty-state-action" onClick={onOpenSettings}>
+              Open Settings
+            </button>
+          )}
+        </div>
+      </section>
+    );
+  }
 
   if (showEditor) {
     return (

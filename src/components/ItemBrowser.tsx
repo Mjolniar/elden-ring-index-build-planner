@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import type { ItemRecord, DataSourceKind } from '../types';
+import type { ItemRecord, DataSourceKind, SpoilerSettings } from '../types';
 import type { BuildStat, BuildItemKind } from '../buildPlanner';
 import { BUILD_STATS, getItemsForStats, getAreaRank } from '../buildPlanner';
 import { makeRecordKey } from '../recordKey';
@@ -19,6 +19,9 @@ interface Props {
   onToggleFavorite: (record: ItemRecord) => void;
   onToggleAcquired: (record: ItemRecord) => void;
   sourceKind?: DataSourceKind;
+  spoilerSettings?: SpoilerSettings;
+  randomizerNeedsLog?: boolean;
+  onOpenSettings?: () => void;
 }
 
 interface BrowserResult {
@@ -36,6 +39,9 @@ export function ItemBrowser({
   onToggleFavorite,
   onToggleAcquired,
   sourceKind = 'vanilla',
+  spoilerSettings,
+  randomizerNeedsLog = false,
+  onOpenSettings,
 }: Props) {
   const [selectedStats, setSelectedStats] = useState<BuildStat[]>([]);
   const [matchAll, setMatchAll] = useState(true);
@@ -43,6 +49,8 @@ export function ItemBrowser({
   const [sortField, setSortField] = useState<'area' | 'itemName' | 'locationName' | 'sourceType' | 'usedByBuilds'>('area');
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc');
   const [expanded, setExpanded] = useState<string | null>(null);
+
+  const hideSpoilerLocation = spoilerSettings?.spoilerMode ?? false;
 
   const statItems = useMemo(() => {
     if (!selectedStats.length) return [];
@@ -105,6 +113,21 @@ export function ItemBrowser({
     kindCounts[r.kind] = (kindCounts[r.kind] ?? 0) + 1;
   }
 
+  if (randomizerNeedsLog) {
+    return (
+      <div className="item-browser">
+        <div className="empty-state-container">
+          <p className="empty-state">No spoiler log loaded. Open Settings to load one.</p>
+          {onOpenSettings && (
+            <button type="button" className="empty-state-action" onClick={onOpenSettings}>
+              Open Settings
+            </button>
+          )}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="item-browser">
       <div className="browser-controls">
@@ -146,7 +169,7 @@ export function ItemBrowser({
             </select>
           </label>
         </div>
-          <div className="browser-counts">
+        <div className="browser-counts">
           Matching items: <strong>{filtered.length}</strong>
           {selectedStats.length > 0 && (
             <span>across {statItems.length} unique requirements from the {itemSourceDescription(sourceKind)}</span>
@@ -167,8 +190,8 @@ export function ItemBrowser({
           <table className="records-table">
             <colgroup>
               <col style={{ width: '5%' }} />
-              <col style={{ width: '28%' }} />
-              <col style={{ width: '30%' }} />
+              <col style={{ width: hideSpoilerLocation ? '35%' : '26%' }} />
+              {!hideSpoilerLocation && <col style={{ width: '28%' }} />}
               <col style={{ width: '14%' }} />
               <col style={{ width: '10%' }} />
               <col style={{ width: '6%' }} />
@@ -180,7 +203,7 @@ export function ItemBrowser({
                 <th className="sortable" onClick={() => handleSort('itemName')}>
                   Item{sortField === 'itemName' ? (sortDir === 'asc' ? ' ↑' : ' ↓') : ''}
                 </th>
-                <th>Location</th>
+                {!hideSpoilerLocation && <th>Location</th>}
                 <th className="sortable" onClick={() => handleSort('area')}>
                   Area{sortField === 'area' ? (sortDir === 'asc' ? ' ↑' : ' ↓') : ''}
                 </th>
@@ -217,7 +240,7 @@ export function ItemBrowser({
                       {rec.itemName}
                       <a className="wiki-link" href={`https://eldenring.wiki.fextralife.com/${encodeURIComponent(rec.itemName.replace(/ /g, '+'))}`} target="_blank" rel="noreferrer" title="View on Elden Ring Wiki" onClick={(e) => e.stopPropagation()}>⧉</a>
                     </td>
-                    <td>{rec.locationName}</td>
+                    {!hideSpoilerLocation && <td>{rec.locationName}</td>}
                     <td>{rec.area ?? '-'}</td>
                     <td><span className="badge badge-unknown">{KIND_LABELS[result.kind]}</span></td>
                     <td className="used-by-count">{result.usedByBuilds}</td>

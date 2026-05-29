@@ -17,6 +17,8 @@ import {
   loadStoredKeySet,
   loadStoredJSON,
 } from './storageKeys';
+import { applyFilters } from './searchFilters';
+import { normalizeSpoilerSettings } from './spoilerSettings';
 import { Filters } from './components/Filters';
 import { SearchTable } from './components/SearchTable';
 import { DiagnosticsPanel } from './components/DiagnosticsPanel';
@@ -28,26 +30,7 @@ import { SettingsPanel } from './components/SettingsPanel';
 import { RegionsPanel } from './components/RegionsPanel';
 import { InitialSetupPanel } from './components/InitialSetupPanel';
 
-function applyFilters(records: ItemRecord[], f: FilterState, s: SpoilerSettings): ItemRecord[] {
-  const q = f.search.toLowerCase().trim();
-  return records.filter((r) => {
-    if (f.keyItemsOnly && !r.isKeyItem) return false;
-    if (f.sourceType !== 'all' && r.sourceType !== f.sourceType) return false;
-    if (q) {
-      const haystack = s.spoilerMode
-        ? `${r.itemName} ${r.area ?? ''} ${r.originalItem ?? ''}`.toLowerCase()
-        : `${r.itemName} ${r.locationName} ${r.area ?? ''} ${r.originalItem ?? ''}`.toLowerCase();
-      if (!haystack.includes(q)) return false;
-    }
-    return true;
-  });
-}
-
 const DEFAULT_FILTERS: FilterState = { search: '', sourceType: 'all', keyItemsOnly: false };
-const DEFAULT_SPOILER_SETTINGS: SpoilerSettings = {
-  spoilerMode: false, showArea: true, showSource: true, showHint: true,
-  hintDifficulty: 'medium',
-};
 
 export default function App() {
   const [contentProfile, setContentProfile] = useState<ContentProfile>(() =>
@@ -66,7 +49,7 @@ export default function App() {
   const [restoredCache, setRestoredCache] = useState(false);
 
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
-  const [activeTab, setActiveTab] = useState<ActiveTab>('all');
+  const [activeTab, setActiveTab] = useState<ActiveTab>('search');
   const [selectedBuildId, setSelectedBuildId] = useState('all-knowing-sage');
 
   const sourceId = sourceIdForProfile(contentProfile);
@@ -78,7 +61,7 @@ export default function App() {
     loadStoredJSON<BuildPreset[]>(userBuildsKey(sourceId), [])
   );
   const [spoilerSettings, setSpoilerSettings] = useState<SpoilerSettings>(() =>
-    loadStoredJSON<SpoilerSettings>(spoilerSettingsKey(sourceId), DEFAULT_SPOILER_SETTINGS)
+    normalizeSpoilerSettings(loadStoredJSON<Partial<SpoilerSettings>>(spoilerSettingsKey(sourceId), {}))
   );
 
   function reloadSourceState(nextSourceId: string) {
@@ -86,7 +69,9 @@ export default function App() {
     setAcquiredKeys(loadStoredKeySet(acquiredKey(nextSourceId)));
     setFavoriteBuildIds(loadStoredKeySet(buildFavoritesKey(nextSourceId)));
     setUserBuilds(loadStoredJSON<BuildPreset[]>(userBuildsKey(nextSourceId), []));
-    setSpoilerSettings(loadStoredJSON<SpoilerSettings>(spoilerSettingsKey(nextSourceId), DEFAULT_SPOILER_SETTINGS));
+    setSpoilerSettings(
+      normalizeSpoilerSettings(loadStoredJSON<Partial<SpoilerSettings>>(spoilerSettingsKey(nextSourceId), {}))
+    );
   }
 
   function handleProfileChange(nextProfile: ContentProfile) {
@@ -98,7 +83,7 @@ export default function App() {
     if (prevMode !== nextMode) {
       setFilters(DEFAULT_FILTERS);
       if (activeTab === 'diagnostics' && nextMode !== 'randomizer-log') {
-        setActiveTab('all');
+        setActiveTab('search');
       }
       reloadSourceState(nextSourceId);
     }
@@ -117,7 +102,7 @@ export default function App() {
   function loadText(text: string, name: string) {
     setRandomizerFilename(name);
     setFilters(DEFAULT_FILTERS);
-    setActiveTab('all');
+    setActiveTab('search');
     const parsed = parseSpoilerLog(text);
     setRandomizerResult(parsed);
     return parsed;
@@ -165,7 +150,7 @@ export default function App() {
     setRandomizerCacheEntry(null);
     setRandomizerCacheMessage('');
     setFilters(DEFAULT_FILTERS);
-    setActiveTab('all');
+    setActiveTab('search');
     try {
       if (window.electronAPI?.clearSpoilerLogCache) {
         await window.electronAPI.clearSpoilerLogCache();
@@ -220,7 +205,7 @@ export default function App() {
     setContentProfile(vanillaProfile);
     localStorage.setItem(contentProfileKey(), JSON.stringify(vanillaProfile));
     setFilters(DEFAULT_FILTERS);
-    setActiveTab('all');
+    setActiveTab('search');
     reloadSourceState(nextSourceId);
     localStorage.setItem(initialSetupCompleteKey(), 'true');
     setSetupComplete(true);
@@ -302,8 +287,8 @@ export default function App() {
   const records = activeDataset?.records ?? [];
 
   const visible = useMemo(
-    () => applyFilters(records, filters, spoilerSettings),
-    [records, filters, spoilerSettings]
+    () => applyFilters(records, filters, spoilerSettings, contentProfile.baseMode),
+    [records, filters, spoilerSettings, contentProfile.baseMode]
   );
 
   const favorites = useMemo(
@@ -326,13 +311,30 @@ export default function App() {
     return activeTab === 'favorites' ? `${base}-favorites` : base;
   }, [contentProfile.baseMode, randomizerFilename, activeTab]);
 
-  const datasetKind = activeDataset?.kind ?? 'vanilla';
-  const headerModeLabel = contentProfile.baseMode === 'randomizer-log' ? 'Randomizer Log' : 'Vanilla';
-  const headerModeDetail = contentProfile.baseMode === 'randomizer-log'
-    ? randomizerResult
+  // Use the actual loaded dataset kind for column labels / data semantics,
+  // but fall back to the profile mode (not hard-coded 'vanilla') so that
+  // user-facing copy in randomizer-no-log state still says "Randomizer".
+  const datasetKind = activeDataset?.kind ?? contentProfile.baseMode;
+  const isRandomizer = contentProfile.baseMode === 'randomizer-log';
+  const hasLog = isRandomizer && !!randomizerResult;
+  const needsLog = isRandomizer && !randomizerResult;
+
+  const headerModeBadgeClass = isRandomizer
+    ? (hasLog ? 'mode-indicator mode-randomizer' : 'mode-indicator mode-randomizer mode-randomizer-warn')
+    : 'mode-indicator mode-vanilla';
+
+  const headerModeLabel = isRandomizer ? 'Randomizer Log' : 'Vanilla';
+  const headerModeDetail = isRandomizer
+    ? (randomizerResult
       ? randomizerFilename || (randomizerResult.seed ? `Seed ${randomizerResult.seed}` : 'Spoiler log loaded')
-      : 'No spoiler log loaded'
-    : 'Fixed item locations';
+      : 'Log needed')
+    : null;
+
+  const searchEmptyMessage = (() => {
+    if (needsLog) return 'No spoiler log loaded. Open Settings to load one.';
+    if (isRandomizer) return 'No randomized placements match the current filters.';
+    return 'No matching items.';
+  })();
 
   if (!setupComplete) {
     return (
@@ -355,47 +357,40 @@ export default function App() {
       <header className="app-header">
         <div className="app-title-block">
           <h1>Elden Ring Index and Build Planner</h1>
-          <div className={`mode-indicator mode-${datasetKind === 'randomizer-log' ? 'randomizer' : 'vanilla'}`}>
+          <div className={headerModeBadgeClass}>
             <span className="mode-label">{headerModeLabel}</span>
-            <span className="mode-detail">{headerModeDetail}</span>
+            {headerModeDetail && <span className="mode-detail">{headerModeDetail}</span>}
           </div>
+          {needsLog && (
+            <button
+              type="button"
+              className="header-action-btn"
+              onClick={() => setActiveTab('settings')}
+            >
+              Load log
+            </button>
+          )}
         </div>
+        <button
+          type="button"
+          className="header-action-btn header-settings-btn"
+          onClick={() => setActiveTab('settings')}
+          title="Content settings"
+        >
+          Content settings
+        </button>
       </header>
 
       <main className="main-layout">
         <div className="tabs-bar" role="tablist" aria-label="Record views">
           <div className="primary-tabs">
             <button
-              className={`tab-btn${activeTab === 'all' ? ' active' : ''}`}
+              className={`tab-btn${activeTab === 'search' ? ' active' : ''}`}
               role="tab"
-              aria-selected={activeTab === 'all'}
-              onClick={() => setActiveTab('all')}
+              aria-selected={activeTab === 'search'}
+              onClick={() => setActiveTab('search')}
             >
               Search
-            </button>
-            <button
-              className={`tab-btn${activeTab === 'favorites' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'favorites'}
-              onClick={() => setActiveTab('favorites')}
-            >
-              Favorites ({favorites.length})
-            </button>
-            <button
-              className={`tab-btn${activeTab === 'builds' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'builds'}
-              onClick={() => setActiveTab('builds')}
-            >
-              Builds
-            </button>
-            <button
-              className={`tab-btn${activeTab === 'browse' ? ' active' : ''}`}
-              role="tab"
-              aria-selected={activeTab === 'browse'}
-              onClick={() => setActiveTab('browse')}
-            >
-              Browse
             </button>
             <button
               className={`tab-btn${activeTab === 'regions' ? ' active' : ''}`}
@@ -405,11 +400,35 @@ export default function App() {
             >
               Regions
             </button>
+            <button
+              className={`tab-btn${activeTab === 'builds' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'builds'}
+              onClick={() => setActiveTab('builds')}
+            >
+              Build Planner
+            </button>
+            <button
+              className={`tab-btn${activeTab === 'favorites' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'favorites'}
+              onClick={() => setActiveTab('favorites')}
+            >
+              Favorites{favorites.length > 0 ? ` (${favorites.length})` : ''}
+            </button>
+            <button
+              className={`tab-btn${activeTab === 'browse' ? ' active' : ''}`}
+              role="tab"
+              aria-selected={activeTab === 'browse'}
+              onClick={() => setActiveTab('browse')}
+            >
+              Browse
+            </button>
           </div>
           <div className="utility-tabs">
-            {contentProfile.baseMode === 'randomizer-log' && randomizerResult && (
+            {isRandomizer && hasLog && (
               <button
-                className={`tab-btn diagnostics-tab${activeTab === 'diagnostics' ? ' active' : ''}`}
+                className={`tab-btn utility-tab${activeTab === 'diagnostics' ? ' active' : ''}`}
                 role="tab"
                 aria-selected={activeTab === 'diagnostics'}
                 onClick={() => setActiveTab('diagnostics')}
@@ -418,7 +437,7 @@ export default function App() {
               </button>
             )}
             <button
-              className={`tab-btn diagnostics-tab${activeTab === 'guide' ? ' active' : ''}`}
+              className={`tab-btn utility-tab${activeTab === 'guide' ? ' active' : ''}`}
               role="tab"
               aria-selected={activeTab === 'guide'}
               onClick={() => setActiveTab('guide')}
@@ -426,7 +445,7 @@ export default function App() {
               Guide
             </button>
             <button
-              className={`tab-btn diagnostics-tab${activeTab === 'settings' ? ' active' : ''}`}
+              className={`tab-btn utility-tab${activeTab === 'settings' ? ' active' : ''}`}
               role="tab"
               aria-selected={activeTab === 'settings'}
               onClick={() => setActiveTab('settings')}
@@ -435,17 +454,18 @@ export default function App() {
             </button>
           </div>
         </div>
-        {activeTab === 'diagnostics' && contentProfile.baseMode === 'randomizer-log' && randomizerResult ? (
+
+        {activeTab === 'diagnostics' && isRandomizer && hasLog ? (
           <DiagnosticsPanel
-            diagnostics={randomizerResult.diagnostics}
-            seed={randomizerResult.seed}
+            diagnostics={randomizerResult!.diagnostics}
+            seed={randomizerResult!.seed}
             filename={randomizerFilename}
             cacheEntry={randomizerCacheEntry}
             cacheMessage={randomizerCacheMessage}
             onOpenCacheFolder={window.electronAPI?.openSpoilerLogCacheDir ? openCacheFolder : undefined}
           />
         ) : activeTab === 'guide' ? (
-          <GuidePanel sourceKind={datasetKind} />
+          <GuidePanel sourceKind={datasetKind} randomizerNeedsLog={needsLog} onOpenSettings={() => setActiveTab('settings')} />
         ) : activeTab === 'settings' ? (
           <SettingsPanel
             contentProfile={contentProfile}
@@ -459,6 +479,7 @@ export default function App() {
             onResetRandomizer={handleRandomizerReset}
             onOpenCacheFolder={window.electronAPI?.openSpoilerLogCacheDir ? openCacheFolder : undefined}
             onResetSetup={handleResetSetup}
+            onOpenSettings={() => setActiveTab('settings')}
           />
         ) : activeTab === 'builds' ? (
           <BuildPlannerPanel
@@ -477,6 +498,8 @@ export default function App() {
             locationColumnLabel={locationColumnLabel(datasetKind)}
             missingItemText={missingItemText(datasetKind)}
             plannerNote={plannerNote(datasetKind)}
+            randomizerNeedsLog={needsLog}
+            onOpenSettings={() => setActiveTab('settings')}
             onSaveBuild={(build) => {
               const existing = userBuilds.findIndex((b) => b.id === build.id);
               const next = existing >= 0
@@ -494,6 +517,9 @@ export default function App() {
             onToggleFavorite={toggleFavorite}
             onToggleAcquired={toggleAcquired}
             sourceKind={datasetKind}
+            spoilerSettings={spoilerSettings}
+            randomizerNeedsLog={needsLog}
+            onOpenSettings={() => setActiveTab('settings')}
           />
         ) : activeTab === 'regions' ? (
           <RegionsPanel
@@ -504,12 +530,13 @@ export default function App() {
             onToggleAcquired={toggleAcquired}
             spoilerSettings={spoilerSettings}
             sourceKind={datasetKind}
-            randomizerNeedsLog={contentProfile.baseMode === 'randomizer-log' && !randomizerResult}
+            randomizerNeedsLog={needsLog}
+            onOpenSettings={() => setActiveTab('settings')}
           />
         ) : (
           <>
             <div className="toolbar">
-              {activeTab === 'all' ? (
+              {activeTab === 'search' ? (
                 <Filters
                   filters={filters}
                   onChange={setFilters}
@@ -522,7 +549,12 @@ export default function App() {
                   Saved favorites from the current item source. Acquired: {acquiredFavoritesCount} / {favorites.length}
                 </div>
               )}
-              <ExportButtons records={activeRecords} filename={exportFilename} />
+              <ExportButtons
+                records={activeRecords}
+                filename={exportFilename}
+                spoilerSettings={spoilerSettings}
+                sourceKind={datasetKind}
+              />
             </div>
             <SearchTable
               records={activeRecords}
@@ -532,14 +564,14 @@ export default function App() {
               onToggleAcquired={toggleAcquired}
               showAcquiredColumn={activeTab === 'favorites'}
               spoilerSettings={spoilerSettings}
+              sourceKind={datasetKind}
               emptyMessage={
                 activeTab === 'favorites'
-                  ? 'No favorites yet. Use the star column in Search to save items here.'
-                  : contentProfile.baseMode === 'randomizer-log' && !randomizerResult
-                    ? 'No spoiler log loaded. Open the Settings tab to load one.'
-                    : 'No records match the current filters.'
+                  ? 'No favorites yet. Use the ★ column in Search to save items here.'
+                  : searchEmptyMessage
               }
               originalItemLabel={originalItemLabel(datasetKind)}
+              onOpenSettings={needsLog ? () => setActiveTab('settings') : undefined}
             />
           </>
         )}
