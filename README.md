@@ -1,77 +1,55 @@
 # Elden Ring Index and Build Planner
 
-An offline desktop tool for Elden Ring players. On first launch, choose your mode:
+> [!WARNING]
+> **AI-generated.** Code and docs written by AI coding agents. No independent review. Use at your own risk.
 
-- **Vanilla** — browse 1,200+ items with their fixed base-game and DLC locations. Ready immediately, no file needed.
-- **Randomizer** — load a spoiler log from the Elden Ring Randomizer to search every item placement in your run.
+Offline Windows app: Elden Ring item search, favorites and build planning.
 
-Switch modes any time from Settings. All state (favorites, acquired, builds, spoiler settings) is kept separately per source so your data never mixes.
+- **Vanilla:** 1,200+ items with base-game and DLC locations. No setup.
+- **Randomizer:** load an [Item and Enemy Randomizer](https://www.nexusmods.com/eldenring/mods/428) spoiler log;
+  search where items ended up.
+
+Switch in Settings. Each mode keeps its own favorites, acquired items, builds and spoiler settings.
 
 ## Download
 
-**[→ Latest release (1.2.1)](https://github.com/Mjolniar/elden-ring-index-build-planner/releases/tag/integrated-v1.2.1)**
+[Latest release](https://github.com/Mjolniar/elden-ring-index-build-planner/releases/latest):
 
-| Option | File | When to use |
-|--------|------|-------------|
-| Installer | `Elden.Ring.Index.and.Build.Planner.1.2.1.Setup.exe` | Normal Windows install with a desktop shortcut |
-| Portable ZIP | `Elden.Ring.Index.and.Build.Planner.1.2.1.Portable.zip` | No installation — extract and run the .exe inside |
+- `...Setup.exe`: installer.
+- `...Portable.zip`: extract and run.
 
-> **"Windows protected your PC"?** Click **More info → Run anyway**. The app is unsigned and open-source — the binary is built from the source code in this repository.
-
-Requires **Windows 64-bit**. Randomizer mode requires a spoiler log from the [Elden Ring Item and Enemy Randomizer](https://www.nexusmods.com/eldenring/mods/428). Vanilla mode needs no additional files.
+Windows 64-bit. Unsigned: on "Windows protected your PC", click **More info > Run anyway**.
 
 ## Features
 
-- **First-run setup** — choose Vanilla or load a Randomizer spoiler log on first launch; change any time from Settings
-- **Search** — filter by item name, location, area, or source type; sort by any column
-- **Spoiler mode** — hide exact locations while you play; reveal area, source type, or a generated hint at Easy / Medium / Hard difficulty (custom-written hints for 80+ bosses and 30+ merchants)
-- **Favorites** — star items you need, mark them acquired as you collect them, track progress across sessions
-- **Builds** — 100+ curated build presets with stat filtering and area-progression sorting; custom build creator saved locally
-- **Regions** — select a major region and drill into sub-locations to see every weapon available, with acquired tracking
-- **Browse** — filter all items by stat type, sorted by rough area progression
-- **Export** — visible results as CSV or JSON
-- **Wiki links** — every item name links to the Fextralife wiki, opens in your default browser
-- **Fully offline** — no network requests, no telemetry, no data sent anywhere
+- Search: name, location, area, source type. Sort any column.
+- Spoiler mode: hide locations; reveal area, source type or a hint (Easy/Medium/Hard; custom hints for 80+ bosses
+  and 30+ merchants).
+- Favorites: star items, mark acquired, track progress.
+- Builds: 100+ presets, stat filter, area-progression order. Custom builds.
+- Regions: every weapon per region and sub-location, with acquired tracking.
+- Browse: items by stat type, in area-progression order.
+- Export: CSV, JSON.
+- Wiki links: Fextralife, opened in your browser.
+- No network requests. No telemetry.
 
-## Development
+## Develop
 
-Requires Node.js 18+ and npm.
+Node.js 18+, npm.
 
 ```bash
-git clone https://github.com/Mjolniar/elden-ring-index-build-planner.git
-cd elden-ring-index-build-planner
 npm ci
-```
-
-Dev server (browser):
-
-```bash
-npm run dev
-```
-
-Dev server (Electron desktop):
-
-```bash
-npm run electron:dev
-```
-
-Validation:
-
-```bash
-npx tsc --noEmit
+npm run dev            # browser
+npm run electron:dev   # desktop
+npx tsc --noEmit       # validate
 npm test -- --run
 npm run build
-```
-
-Packaging:
-
-```bash
-npm run dist
+npm run dist           # package
 ```
 
 ## Architecture
 
-The app uses a content profile model. All per-source state (favorites, acquired, custom builds, spoiler settings) is scoped to the active source ID so Vanilla and Randomizer data never collide.
+Content profile model. All per-source state is keyed by the active source ID.
 
 ```ts
 interface ContentProfile {
@@ -80,21 +58,20 @@ interface ContentProfile {
 }
 ```
 
-Future mod support (Elden Ring Reforged, The Convergence) has placeholder controls in Settings but no data bundled yet. That work requires a separate data pipeline and permission review.
+Planned mod packs (Elden Ring Reforged, The Convergence): placeholder settings only. No data bundled.
 
-## Data Sources
+## Data sources
 
-- Vanilla item locations: [Fextralife wiki](https://eldenring.wiki.fextralife.com)
-- Item stats and names: [ERDB](https://github.com/EldenRingDatabase/erdb)
-- Build presets: Fextralife, YouTube, and community guides (item checklists, not stat calculators)
-- Manual location corrections: `data/fextra-location-overrides.json`
-- Randomizer data: user-supplied spoiler log `.txt` files only
+- Locations: [Fextralife wiki](https://eldenring.wiki.fextralife.com)
+- Stats and names: [ERDB](https://github.com/EldenRingDatabase/erdb)
+- Build presets: Fextralife, YouTube, community guides. Item checklists, not stat calculators.
+- Location fixes: `data/fextra-location-overrides.json`
+- Randomizer: your spoiler log only
 
 ## Privacy
 
-The app runs fully offline. It stores favorites, acquired state, custom builds, settings, and cached spoiler logs locally on your computer. It does not connect to any server, upload data, modify game files, or interact with a running game. Wiki links open in your default browser only when clicked.
-
-[Full privacy policy](https://mjolniar.github.io/elden-ring-apps-privacy/)
+Stores favorites, acquired items, builds, settings and cached spoiler logs on your PC. No server, no uploads, no
+game file changes, no game process access. [Privacy policy](https://mjolniar.github.io/elden-ring-apps-privacy/).
 
 ## License
 
